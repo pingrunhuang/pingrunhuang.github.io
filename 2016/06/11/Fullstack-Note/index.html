@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>The wonderland of Runping</title>
+  <title>Fullstack_Note | The wonderland of Runping</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I use this blog to make some note of knowledges">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The wonderland of Runping">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Fullstacks fundamentalI recently took a basic course talking about fullstack development with a web app using python and SQLAlchemy. I decided to take some note here.
+Database layer
+ORM(Object Relatio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fullstack_Note">
+<meta property="og:url" content="http://yoursite.com/2016/06/11/Fullstack-Note/index.html">
 <meta property="og:site_name" content="The wonderland of Runping">
-<meta property="og:description" content="I use this blog to make some note of knowledges">
+<meta property="og:description" content="Fullstacks fundamentalI recently took a basic course talking about fullstack development with a web app using python and SQLAlchemy. I decided to take some note here.
+Database layer
+ORM(Object Relatio">
+<meta property="og:updated_time" content="2016-12-17T10:39:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The wonderland of Runping">
-<meta name="twitter:description" content="I use this blog to make some note of knowledges">
+<meta name="twitter:title" content="Fullstack_Note">
+<meta name="twitter:description" content="Fullstacks fundamentalI recently took a basic course talking about fullstack development with a web app using python and SQLAlchemy. I decided to take some note here.
+Database layer
+ORM(Object Relatio">
   
     <link rel="alternate" href="/atom.xml" title="The wonderland of Runping" type="application/atom+xml">
   
@@ -62,181 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Technical-website-archive" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/15/Technical-website-archive/" class="article-date">
-  <time datetime="2016-12-15T21:48:51.000Z" itemprop="datePublished">2016-12-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/15/Technical-website-archive/">Technical website archive</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h2><p><a href="https://code.facebook.com/" target="_blank" rel="external">Facebook code</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/15/Technical-website-archive/" data-id="ciwt4ryvq0002me9mw06mu513" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/high-tech/">high-tech</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Ambari-plugin-development" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/14/Ambari-plugin-development/" class="article-date">
-  <time datetime="2016-12-14T14:04:38.000Z" itemprop="datePublished">2016-12-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/14/Ambari-plugin-development/">Ambari plugin development</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###What is ambari?<br>Ambari is a provisioning platform for cluster management which allow server administor to check the health situation of the cluster and make some action accordingly from the web UI. Comparing to the traditional way of managing machines in the cluster by using bash script, this way is much more direct and more uniformed. </p>
-<p>For example, when it comes to deploy a big-data application like <a href="http://www.scaledrisk.com/" target="_blank" rel="external">ScaledRisk</a>, it is very complicated and every person who deploy the application on their cluster might use different configuration parameters. This will cause a problem. Say our product is sent to our client who has zero knowledge about cluster stuff not even to say bash script. In this case, ambari provide the client with a friendly web UI to input different kind of parameters and the standard way to apply this parameters in order to get the application work. </p>
-<p>###Ambari plugin</p>
-<p>Ambari provide plugins for services in hadoop eco system by default. It is also possible for service provider to design and add plugin into ambari. </p>
-<blockquote>
-<p>picture of ambari structure shows here</p>
-</blockquote>
-<p><strong>Ambari python library</strong></p>
-<p>Ambari plugin is writen in python, which is inside the <code>resource_management</code> package mainly. Since the <a href="https://cwiki.apache.org/confluence/display/AMBARI/Ambari+Python+Libraries" target="_blank" rel="external">official ambari python library</a> has not publishedd yet, I tried to discover the basic classes and functionality of this library and finally make one for my purpose.</p>
-<ul>
-<li><p><code>Exucute</code></p>
-<p>  I think this is the major class in the python library. It is used as an execution of bash command for ambari. </p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cmd = format(<span class="string">'cd /'</span>)  </div><div class="line">Execute(cmd, logoutput=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
-<p>  In the code above, we manage to change directory to the root directory by creating an Execute object. Here, we provided and optional argument ‘logoutput’ and set it equals to True means we want to show the output of this command and log it into log file (which is located in /var/log/ambari-server/ambari-server.log). There are more argument such as <code>user</code> to specify the user who execute this command .etc.</p>
-</li>
-<li><p><code>Logger</code></p>
-<p>  This class is used for logging logs to the logs file. There are different level of logging too. All are static methods. For example, to log an info, just use <code>Logger.info(&#39;message&#39;)</code>; to log an error, just use <code>Logger.error(&#39;message&#39;)</code> .etc.</p>
-</li>
-<li><p><code>Script.get_config()</code></p>
-<p>  This method will return an object in the format of json containing all the parameters and values. A glance at the result:</p>
-  <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">hbase-env:&#123;  </div><div class="line">        hbase_pid_dir:/var/run/hbase,</div><div class="line">        phoenix_sql_enabled:false,</div><div class="line">        hbase_regionserver_xmn_max:20480,</div><div class="line">        hbase_user_nproc_limit:16000,</div><div class="line">        hbase_regionserver_xmn_ratio:0.2,</div><div class="line">        hbase_java_io_tmpdir:/tmp,</div><div class="line">        hbase_user':u'hbase',</div><div class="line">        hbase_master_heapsize':u'1024',</div><div class="line">        hbase_user_nofile_limit':u'32000',</div><div class="line">        content:\n# Set environment variables here.\n\n# The java implementation to use. Java 1.6 required.\nexport JAVA_HOME=&#123;</div><div class="line">           &#123;</div><div class="line">              java64_home</div><div class="line">           &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<p>  With this method, one can set the parameters in the configuration file in the xml file specifying the name and value and later get the value by using <code>Script.get_config()[&#39;configuraions&#39;][&#39;hbase-env&#39;][&#39;hbase_user&#39;]</code> for example. We will discuss the xml file later.</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/14/Ambari-plugin-development/" data-id="ciwt4ryvj0000me9ml22yix8n" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop-ambari-big-data-Computer-Science/">Hadoop, ambari, big-data, Computer Science</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-markdown-note" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/11/markdown-note/" class="article-date">
-  <time datetime="2016-12-11T11:37:18.000Z" itemprop="datePublished">2016-12-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/11/markdown-note/">markdown-note</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Building a website is full of fun and a sense of achievement. Markdown has been a popular technique for fullfilling the content of the website due to the efficiency and beauty.<br>So I decided to learn about it and write down my very first blog to record the key point.</p>
-<p>Making Italic font?</p>
-<p>_blablabla_ means <em>blablabla</em></p>
-<p>Making bold font?</p>
-<p>**blablabla** means <strong>blablabla</strong></p>
-<p>Making header?</p>
-<h1 id="header-means-first-level-header-header-means-second-level-header-etc"><a href="#header-means-first-level-header-header-means-second-level-header-etc" class="headerlink" title="header means first level header, ## header means second level header etc."></a>header means first level header, ## header means second level header etc.</h1><p>Making link?</p>
-<p><code>[Visit GitHub!](www.github.com)</code> means making a hyperlink of Visit GitHub! which point to the address of www.github.com e.g Visit GitHub!</p>
-<p>Making a reference link?</p>
-<p>reference link means every link with the same name which is set by author is point to the same address which means every time you want to change the address of a name, you just need to update one place.e.g<br>Do you want to see something fun?</p>
-<blockquote>
-<p>To do this, replace “see somthing fun” whith [see     something fun][a fun place] and add [a fun     place]:www.zombo.com to the end of the page to     specify that the address.<br>Adding an image?</p>
-</blockquote>
-<p><img src="http://octodex.github.com/images/octdrey-catburn.jpg" alt=""> means showing a image.</p>
-<p>Adding a reference image link.</p>
-<p>[The first father][first father]<br>[The second first father][second father]<br><img src="http://octodex.github.com/images/founding-father.jpg" alt="first father"><br><img src="http://octodex.github.com/images/foundingfather_v2.png" alt="second father"></p>
-<p>Blockquotes mark?</p>
-<blockquote>
-<p>blabla means</p>
-</blockquote>
-<p>blablabla</p>
-<p>Unordered list</p>
-<ul>
-<li>Milk</li>
-<li>Eggs<br>By adding * before each element.</li>
-</ul>
-<p>Inline Code</p>
-<p>Inline code is indicated by surrounding it with backticks: <code>Inline code</code></p>
-<p>ordered list:</p>
-<p>Crack three eggs over a bowl<br>Pour a gallon of milk into the bowl<br>Rub the salmon vigorously with butter<br>Drop the salmon into the egg-milk bowl<br>Sublist:</p>
-<p>Tintin<br>A reporter<br>Has poofy orange hair<br>Friends with the world’s most awesome dog<br>To do this, add indentation before the second line.<br>paragraphs(soft break)</p>
-<p>First hard break the place where you want to make soft break, then just insert 2 spaces after there.</p>
-<p>So far, these are what I have learned and used.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/11/markdown-note/" data-id="ciwt4ryvz0005me9mjfnfobrl" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Computer-Science/">Computer Science</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Fullstack-Note" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Fullstack-Note" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/11/Fullstack-Note/" class="article-date">
   <time datetime="2016-06-11T09:58:26.000Z" itemprop="datePublished">2016-06-11</time>
@@ -249,8 +82,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/11/Fullstack-Note/">Fullstack_Note</a>
+    <h1 class="article-title" itemprop="name">
+      Fullstack_Note
     </h1>
   
 
@@ -280,10 +113,23 @@
     </footer>
   </div>
   
-</article>
-
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/11/markdown-note/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          markdown-note
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
   
+</article>
 
 </section>
         

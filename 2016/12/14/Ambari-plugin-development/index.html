@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ambari plugin development | The wonderland of Runping</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="###What is ambari?Ambari is a provisioning platform for cluster management which allow server administor to check the health situation of the cluster and make some action accordingly from the web UI.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ambari plugin development">
+<meta property="og:url" content="http://yoursite.com/2016/12/14/Ambari-plugin-development/index.html">
+<meta property="og:site_name" content="The wonderland of Runping">
+<meta property="og:description" content="###What is ambari?Ambari is a provisioning platform for cluster management which allow server administor to check the health situation of the cluster and make some action accordingly from the web UI.">
+<meta property="og:updated_time" content="2016-12-14T22:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ambari plugin development">
+<meta name="twitter:description" content="###What is ambari?Ambari is a provisioning platform for cluster management which allow server administor to check the health situation of the cluster and make some action accordingly from the web UI.">
+  
+    <link rel="alternate" href="/atom.xml" title="The wonderland of Runping" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">The wonderland of Runping</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Ambari-plugin-development" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/14/Ambari-plugin-development/" class="article-date">
+  <time datetime="2016-12-14T14:04:38.000Z" itemprop="datePublished">2016-12-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ambari plugin development
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###What is ambari?<br>Ambari is a provisioning platform for cluster management which allow server administor to check the health situation of the cluster and make some action accordingly from the web UI. Comparing to the traditional way of managing machines in the cluster by using bash script, this way is much more direct and more uniformed. </p>
+<p>For example, when it comes to deploy a big-data application like <a href="http://www.scaledrisk.com/" target="_blank" rel="external">ScaledRisk</a>, it is very complicated and every person who deploy the application on their cluster might use different configuration parameters. This will cause a problem. Say our product is sent to our client who has zero knowledge about cluster stuff not even to say bash script. In this case, ambari provide the client with a friendly web UI to input different kind of parameters and the standard way to apply this parameters in order to get the application work. </p>
+<p>###Ambari plugin</p>
+<p>Ambari provide plugins for services in hadoop eco system by default. It is also possible for service provider to design and add plugin into ambari. </p>
+<blockquote>
+<p>picture of ambari structure shows here</p>
+</blockquote>
+<p><strong>Ambari python library</strong></p>
+<p>Ambari plugin is writen in python, which is inside the <code>resource_management</code> package mainly. Since the <a href="https://cwiki.apache.org/confluence/display/AMBARI/Ambari+Python+Libraries" target="_blank" rel="external">official ambari python library</a> has not publishedd yet, I tried to discover the basic classes and functionality of this library and finally make one for my purpose.</p>
+<ul>
+<li><p><code>Exucute</code></p>
+<p>  I think this is the major class in the python library. It is used as an execution of bash command for ambari. </p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cmd = format(<span class="string">'cd /'</span>)  </div><div class="line">Execute(cmd, logoutput=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<p>  In the code above, we manage to change directory to the root directory by creating an Execute object. Here, we provided and optional argument ‘logoutput’ and set it equals to True means we want to show the output of this command and log it into log file (which is located in /var/log/ambari-server/ambari-server.log). There are more argument such as <code>user</code> to specify the user who execute this command .etc.</p>
+</li>
+<li><p><code>Logger</code></p>
+<p>  This class is used for logging logs to the logs file. There are different level of logging too. All are static methods. For example, to log an info, just use <code>Logger.info(&#39;message&#39;)</code>; to log an error, just use <code>Logger.error(&#39;message&#39;)</code> .etc.</p>
+</li>
+<li><p><code>Script.get_config()</code></p>
+<p>  This method will return an object in the format of json containing all the parameters and values. A glance at the result:</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">hbase-env:&#123;  </div><div class="line">        hbase_pid_dir:/var/run/hbase,</div><div class="line">        phoenix_sql_enabled:false,</div><div class="line">        hbase_regionserver_xmn_max:20480,</div><div class="line">        hbase_user_nproc_limit:16000,</div><div class="line">        hbase_regionserver_xmn_ratio:0.2,</div><div class="line">        hbase_java_io_tmpdir:/tmp,</div><div class="line">        hbase_user':u'hbase',</div><div class="line">        hbase_master_heapsize':u'1024',</div><div class="line">        hbase_user_nofile_limit':u'32000',</div><div class="line">        content:\n# Set environment variables here.\n\n# The java implementation to use. Java 1.6 required.\nexport JAVA_HOME=&#123;</div><div class="line">           &#123;</div><div class="line">              java64_home</div><div class="line">           &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>  With this method, one can set the parameters in the configuration file in the xml file specifying the name and value and later get the value by using <code>Script.get_config()[&#39;configuraions&#39;][&#39;hbase-env&#39;][&#39;hbase_user&#39;]</code> for example. We will discuss the xml file later.</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/14/Ambari-plugin-development/" data-id="ciwt4ryvj0000me9ml22yix8n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop-ambari-big-data-Computer-Science/">Hadoop, ambari, big-data, Computer Science</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/15/Technical-website-archive/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Technical website archive
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/11/markdown-note/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">markdown-note</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/">Computer Science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop-ambari-big-data-Computer-Science/">Hadoop, ambari, big-data, Computer Science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fullstacks-Computer-Science/">fullstacks, Computer Science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/high-tech/">high-tech</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Computer-Science/" style="font-size: 10px;">Computer Science</a> <a href="/tags/Hadoop-ambari-big-data-Computer-Science/" style="font-size: 10px;">Hadoop, ambari, big-data, Computer Science</a> <a href="/tags/fullstacks-Computer-Science/" style="font-size: 10px;">fullstacks, Computer Science</a> <a href="/tags/high-tech/" style="font-size: 10px;">high-tech</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/15/Technical-website-archive/">Technical website archive</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/14/Ambari-plugin-development/">Ambari plugin development</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/11/markdown-note/">markdown-note</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/11/Fullstack-Note/">Fullstack_Note</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Runping<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
