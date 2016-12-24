@@ -89,25 +89,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Scenario-You-are-working-on-your-own-branch-while-there-is-an-issue-shown-up-on-production-branch-which-need-you-to-do-a-hotfix-Here-is-what-you-need-to-do"><a href="#Scenario-You-are-working-on-your-own-branch-while-there-is-an-issue-shown-up-on-production-branch-which-need-you-to-do-a-hotfix-Here-is-what-you-need-to-do" class="headerlink" title="Scenario: You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do."></a>Scenario: You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.</h4><ul>
-<li>switch to production branch</li>
-<li><p>create a issue branch and switch to it which allow you to start working on it and do some commits.  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b issue</div></pre></td></tr></table></figure>
-</li>
-<li><p>if you want to do some other fix on the production branch now, you will need to commit all your current work on the issue branch and switch to production branch . <strong>At this point, your working directory is exactly the same before you start working on branch hotfix. When you switch branches, Git resets your working directory to look like it did the last time you committed on that branch.</strong></p>
-</li>
-<li><p>then you can create a branch called hotfix and do your work there. Here is what it looks like now.    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">            hotfix</div><div class="line">             |</div><div class="line">             V</div><div class="line">c0 &lt;- c1 &lt;- c3</div><div class="line">       ^  \</div><div class="line">       |   \  </div><div class="line">   master   c2 &lt;- issue</div></pre></td></tr></table></figure>
-</li>
-<li><p>you can run tests on the hotfix branch to see if it works fine together. Then switch back to master branch and merge the work that you have done on hotfix branch. You will notice the <em>fast-forward</em> notation. <strong>Because the commit c3 pointed to by the branch hotfix you merged in was was directly ahead of the commit c1 that you are on. So git will simply let master point to the same commit that hotfix point to.</strong> This is the so called fast-forward.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div><div class="line">$ git merge hotfix</div><div class="line">Updating f42c576..3a0874c</div><div class="line">Fast-forward</div><div class="line"> index.html | 2 ++</div><div class="line"> 1 file changed, 2 insertions(+)</div><div class="line"></div><div class="line">          master</div><div class="line">             |</div><div class="line">          hotfix</div><div class="line">             |</div><div class="line">             V</div><div class="line">c0 &lt;- c1 &lt;- c3</div><div class="line">         \</div><div class="line">          \  </div><div class="line">           c2 &lt;- issue</div></pre></td></tr></table></figure>
-</li>
-<li><p>after that, you do will not need the hotfix branch since the master branch already pointed to it. You will not need to branch pointing to the same commit.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git branch -d hotfix</div><div class="line"></div><div class="line">         master</div><div class="line">            |</div><div class="line">            V</div><div class="line">c0 &lt;- c1 &lt;- c3</div><div class="line">       \</div><div class="line">        \  </div><div class="line">        c2 &lt;- issue</div></pre></td></tr></table></figure>
-</li>
-<li><p>now you can switch back to issue branch and continue the previous work.</p>
-</li>
-</ul>
+        <p>Branches in git is divided into 2 kind. Remote and local. I will demonstrate a basic scenario in this post regarding the local branch.  </p>
+<h4 id="Scenario"><a href="#Scenario" class="headerlink" title="Scenario"></a>Scenario</h4>
         
           <p class="article-more-link">
             <a href="2016/12/24/Git-Local-branch/#more">Read More</a>
@@ -116,7 +99,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/24/Git-Local-branch/" data-id="cix38t3vp000aecdza1wv96eh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/24/Git-Local-branch/" data-id="cix38y5fw0005fadzbwrfubkr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Git/">Git</a></li></ul>
@@ -159,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/15/Technical-website-archive/" data-id="cix38t3vs000becdz6tym5brv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/15/Technical-website-archive/" data-id="cix38y5fy0008fadzrhm84f58" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Framework/">Framework</a></li></ul>
@@ -202,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/14/Ambari-plugin-development/" data-id="cix38t3vj0006ecdzum2bqb3v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/14/Ambari-plugin-development/" data-id="cix38y5ft0003fadz2y4d3rq2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Distributed-system/">Distributed system</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Hadoop/">Hadoop</a></li></ul>
@@ -246,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/11/markdown-note/" data-id="cix38t3vu000decdze87919j6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/11/markdown-note/" data-id="cix38y5g10009fadz696e0ebs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Markdown/">Markdown</a></li></ul>
@@ -289,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/11/Fullstack-Note/" data-id="cix38t3vm0008ecdzwh16lqsu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/11/Fullstack-Note/" data-id="cix38y5fv0004fadzt6gqqfk6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Python/">Python</a></li></ul>
