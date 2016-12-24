@@ -5,19 +5,22 @@
   
   <title>Git Local branch | The wonderland of Runping</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Scenario
-You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.">
+  <meta name="description" content="Scenario: You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.
+switch to production branch
+create a issu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git Local branch">
 <meta property="og:url" content="http://yoursite.com/2016/12/24/Git-Local-branch/index.html">
 <meta property="og:site_name" content="The wonderland of Runping">
-<meta property="og:description" content="Scenario
-You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.">
-<meta property="og:updated_time" content="2016-12-24T13:02:07.000Z">
+<meta property="og:description" content="Scenario: You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.
+switch to production branch
+create a issu">
+<meta property="og:updated_time" content="2016-12-24T13:07:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git Local branch">
-<meta name="twitter:description" content="Scenario
-You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.">
+<meta name="twitter:description" content="Scenario: You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.
+switch to production branch
+create a issu">
 <meta name="twitter:creator" content="@RunpingHuang">
   
     <link rel="alternate" href="/atom.xml" title="The wonderland of Runping" type="application/atom+xml">
@@ -91,10 +94,7 @@ You are working on your own branch while there is an issue shown up on productio
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Scenario"><a href="#Scenario" class="headerlink" title="Scenario"></a>Scenario</h3><blockquote>
-<p>You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.</p>
-</blockquote>
-<ul>
+        <h4 id="Scenario-You-are-working-on-your-own-branch-while-there-is-an-issue-shown-up-on-production-branch-which-need-you-to-do-a-hotfix-Here-is-what-you-need-to-do"><a href="#Scenario-You-are-working-on-your-own-branch-while-there-is-an-issue-shown-up-on-production-branch-which-need-you-to-do-a-hotfix-Here-is-what-you-need-to-do" class="headerlink" title="Scenario: You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do."></a>Scenario: You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.</h4><ul>
 <li>switch to production branch</li>
 <li><p>create a issue branch and switch to it which allow you to start working on it and do some commits.  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b issue</div></pre></td></tr></table></figure>
@@ -113,7 +113,7 @@ You are working on your own branch while there is an issue shown up on productio
 <li><p>now you can switch back to issue branch and continue the previous work.</p>
 </li>
 </ul>
-<h2 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h2><h3 id="Scenario-1"><a href="#Scenario-1" class="headerlink" title="Scenario"></a>Scenario</h3><p>After you switch back to issue branch, you might want to integrate the work that you have done on the hotfix. So it comes to the merge.</p>
+<h2 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h2><h3 id="Scenario"><a href="#Scenario" class="headerlink" title="Scenario"></a>Scenario</h3><p>After you switch back to issue branch, you might want to integrate the work that you have done on the hotfix. So it comes to the merge.</p>
 <ul>
 <li>So we decided to issue work is done and ready to be merged into the master branch. Checkout master branch and merge issue branch.</li>
 <li><p>In this case, the master branch is not the direct ancestor branch you are working on which is issue branch. So git will create a new commit to be pointed by the master branch. Instead of just moving the branch pointer forward, Git creates a new snapshot that results from this three-way merge and automatically creates a new commit that points to it.</p>
@@ -129,7 +129,7 @@ You are working on your own branch while there is an issue shown up on productio
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/24/Git-Local-branch/" data-id="cix38clr40005b1dz7g8jyuxz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/24/Git-Local-branch/" data-id="cix38t3vp000aecdza1wv96eh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Git/">Git</a></li></ul>
