@@ -5,16 +5,16 @@
   
   <title>Ambari plugin development | The wonderland of Runping</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="What is ambari?Ambari is a provisioning platform for cluster management which allow server administor to check the health situation of the cluster and make some action accordingly from the web UI. Com">
+  <meta name="description" content="What is ambari?Ambari is a provisioning platform for cluster management which allow server administrator to check the health situation of the cluster and make some action accordingly from the web UI.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ambari plugin development">
 <meta property="og:url" content="http://yoursite.com/2016/12/14/Ambari-plugin-development/index.html">
 <meta property="og:site_name" content="The wonderland of Runping">
-<meta property="og:description" content="What is ambari?Ambari is a provisioning platform for cluster management which allow server administor to check the health situation of the cluster and make some action accordingly from the web UI. Com">
-<meta property="og:updated_time" content="2016-12-19T10:50:47.000Z">
+<meta property="og:description" content="What is ambari?Ambari is a provisioning platform for cluster management which allow server administrator to check the health situation of the cluster and make some action accordingly from the web UI.">
+<meta property="og:updated_time" content="2016-12-19T16:17:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ambari plugin development">
-<meta name="twitter:description" content="What is ambari?Ambari is a provisioning platform for cluster management which allow server administor to check the health situation of the cluster and make some action accordingly from the web UI. Com">
+<meta name="twitter:description" content="What is ambari?Ambari is a provisioning platform for cluster management which allow server administrator to check the health situation of the cluster and make some action accordingly from the web UI.">
 <meta name="twitter:creator" content="@RunpingHuang">
   
     <link rel="alternate" href="/atom.xml" title="The wonderland of Runping" type="application/atom+xml">
@@ -88,14 +88,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="What-is-ambari"><a href="#What-is-ambari" class="headerlink" title="What is ambari?"></a>What is ambari?</h3><p>Ambari is a provisioning platform for cluster management which allow server administor to check the health situation of the cluster and make some action accordingly from the web UI. Comparing to the traditional way of managing machines in the cluster by using bash script, this way is much more direct and more uniformed.</p>
+        <h3 id="What-is-ambari"><a href="#What-is-ambari" class="headerlink" title="What is ambari?"></a>What is ambari?</h3><p>Ambari is a provisioning platform for cluster management which allow server administrator to check the health situation of the cluster and make some action accordingly from the web UI. Comparing to the traditional way of managing machines in the cluster by using bash script, this way is much more direct and more uniformed.</p>
 <p>For example, when it comes to deploy a big-data application like <a href="http://www.scaledrisk.com/" target="_blank" rel="external">ScaledRisk</a>, it is very complicated and every person who deploy the application on their cluster might use different configuration parameters. This will cause a problem. Say our product is sent to our client who has zero knowledge about cluster stuff not even to say bash script. In this case, ambari provide the client with a friendly web UI to input different kind of parameters and the standard way to apply this parameters in order to get the application work.</p>
 <h3 id="Ambari-plugin"><a href="#Ambari-plugin" class="headerlink" title="Ambari plugin"></a>Ambari plugin</h3><p>Ambari provide plugins for services in hadoop eco system by default. It is also possible for service provider to design and add plugin into ambari.</p>
 <blockquote>
 <p>picture of ambari structure shows here</p>
 </blockquote>
 <p><strong>Ambari python library</strong></p>
-<p>Ambari plugin is writen in python, which is inside the <code>resource_management</code> package mainly. Since the <a href="https://cwiki.apache.org/confluence/display/AMBARI/Ambari+Python+Libraries" target="_blank" rel="external">official ambari python library</a> has not publishedd yet, I tried to discover the basic classes and functionality of this library and finally make one for my purpose.</p>
+<p>Ambari plugin is writen in python, which is inside the <code>resource_management</code> package mainly. Since the <a href="https://cwiki.apache.org/confluence/display/AMBARI/Ambari+Python+Libraries" target="_blank" rel="external">official ambari python library</a> has not published yet, I tried to discover the basic classes and functionality of this library and finally make one for my purpose.</p>
 <ul>
 <li><p><code>Exucute</code></p>
 <p>  I think this is the major class in the python library. It is used as an execution of bash command for ambari.</p>
@@ -107,16 +107,23 @@
 </li>
 <li><p><code>Script.get_config()</code></p>
 <p>  This method will return an object in the format of json containing all the parameters and values. A glance at the result:</p>
-  <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">hbase-env:&#123;  </div><div class="line">        hbase_pid_dir:/var/run/hbase,</div><div class="line">        phoenix_sql_enabled:false,</div><div class="line">        hbase_regionserver_xmn_max:20480,</div><div class="line">        hbase_user_nproc_limit:16000,</div><div class="line">        hbase_regionserver_xmn_ratio:0.2,</div><div class="line">        hbase_java_io_tmpdir:/tmp,</div><div class="line">        hbase_user':u'hbase',</div><div class="line">        hbase_master_heapsize':u'1024',</div><div class="line">        hbase_user_nofile_limit':u'32000',</div><div class="line">        content:\n# Set environment variables here.\n\n# The java implementation to use. Java 1.6 required.\nexport JAVA_HOME=&#123;</div><div class="line">           &#123;</div><div class="line">              java64_home</div><div class="line">           &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<p>  With this method, one can set the parameters in the configuration file in the xml file specifying the name and value and later get the value by using <code>Script.get_config()[&#39;configuraions&#39;][&#39;hbase-env&#39;][&#39;hbase_user&#39;]</code> for example. We will discuss the xml file later.</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">hbase-env:&#123;  </div><div class="line">        hbase_pid_dir: /var/run/hbase,</div><div class="line">        phoenix_sql_enabled:false,</div><div class="line">        hbase_regionserver_xmn_max:20480,</div><div class="line">        hbase_user_nproc_limit:16000,</div><div class="line">        hbase_regionserver_xmn_ratio:0.2,</div><div class="line">        hbase_java_io_tmpdir:/tmp,</div><div class="line">        hbase_user':u'hbase',</div><div class="line">        hbase_master_heapsize':u'1024',</div><div class="line">        hbase_user_nofile_limit':u'32000',</div><div class="line">        content:"\n# Set environment variables here. \n\n# The java implementation to use. Java 1.6 required.\nexport JAVA_HOME=&#123;</div><div class="line">				 	&#123;</div><div class="line">              java64_home</div><div class="line">           &#125;</div><div class="line">        &#125;"</div><div class="line">		 &#125;</div></pre></td></tr></table></figure>
+<p>  With this method, one can set the parameters in the configuration file in the xml file specifying the name and value and later get the value by using <code>Script.get_config()[&#39;configurations&#39;][&#39;hbase-env&#39;][&#39;hbase_user&#39;]</code> for example. We will discuss the xml file later.</p>
+<ul>
+<li><p><code>resource_management.libraries.functions.default</code></p>
+<p>Method default(name, default_value): the first argument is in the format of “…/…/…/…”, this function is going to separate the name by the ‘/’ which will generate a list, and iterate through the list to compare with the configuration json file to get the sub-dictionary of the configuration json file.<br>For example:<br>config = Script.get_config()<br>using this function we can get</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	‘a’:[</div><div class="line">		‘b’:[</div><div class="line">			‘c’:[</div><div class="line">				‘d’:1,</div><div class="line">				‘e’:2</div><div class="line">			]</div><div class="line">		]</div><div class="line">	]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>and the first argument name is ‘a/b/c’, then it will iterate through the config till return [‘d’:1, ‘e’:2]. If the first argument is ‘a/b/c/f’, in this case, it will return default value since the element ‘f’ is not found in the config json file.<br>Method default_string(name, default_value, delimiter):<br>the last method is joining each key value from the dictionary returned from     default(name, default_value) using the third argument which is a str to get a    string</p>
+<p>To be continued……</p>
 </li>
 </ul>
-<pre><code>To be continued......
-</code></pre>
+</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/14/Ambari-plugin-development/" data-id="ciwvzj9an0000yadzlokasb3k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/14/Ambari-plugin-development/" data-id="cix38clr30004b1dzmdkn44qn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Distributed-system/">Distributed system</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Hadoop/">Hadoop</a></li></ul>
@@ -158,7 +165,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Distributed-system/">Distributed system</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Framework/">Framework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Hadoop/">Hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Python/">Python</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Distributed-system/">Distributed system</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Framework/">Framework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Hadoop/">Hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Python/">Python</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -168,7 +175,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="../../../../tags/Distributed-system/" style="font-size: 10px;">Distributed system</a> <a href="../../../../tags/Framework/" style="font-size: 10px;">Framework</a> <a href="../../../../tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/Python/" style="font-size: 10px;">Python</a>
+      <a href="../../../../tags/Distributed-system/" style="font-size: 10px;">Distributed system</a> <a href="../../../../tags/Framework/" style="font-size: 10px;">Framework</a> <a href="../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/Python/" style="font-size: 10px;">Python</a>
     </div>
   </div>
 
@@ -177,7 +184,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2016/12/">December 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -188,6 +195,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="../../24/Git-Local-branch/">Git Local branch</a>
+          </li>
         
           <li>
             <a href="../../15/Technical-website-archive/">Technical website archive</a>
