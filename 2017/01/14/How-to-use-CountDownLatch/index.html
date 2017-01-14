@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Technical website archive | Runping Huang</title>
+  <title>How to use CountDownLatch? | Runping Huang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mixFacebook code">
+  <meta name="description" content="The following discussion is based on java 8">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Technical website archive">
-<meta property="og:url" content="https://pingrunhuang.github.io/2016/12/15/Technical-website-archive/index.html">
+<meta property="og:title" content="How to use CountDownLatch?">
+<meta property="og:url" content="https://pingrunhuang.github.io/2017/01/14/How-to-use-CountDownLatch/index.html">
 <meta property="og:site_name" content="Runping Huang">
-<meta property="og:description" content="mixFacebook code">
-<meta property="og:updated_time" content="2017-01-08T20:33:22.000Z">
+<meta property="og:description" content="The following discussion is based on java 8">
+<meta property="og:updated_time" content="2017-01-14T18:50:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Technical website archive">
-<meta name="twitter:description" content="mixFacebook code">
+<meta name="twitter:title" content="How to use CountDownLatch?">
+<meta name="twitter:description" content="The following discussion is based on java 8">
 <meta name="twitter:creator" content="@RunpingHuang">
   
     <link rel="alternate" href="/atom.xml" title="Runping Huang" type="application/atom+xml">
@@ -66,10 +66,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Technical-website-archive" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-How-to-use-CountDownLatch" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="" class="article-date">
-  <time datetime="2016-12-15T21:48:51.000Z" itemprop="datePublished">2016-12-15</time>
+  <time datetime="2017-01-14T18:39:58.000Z" itemprop="datePublished">2017-01-14</time>
 </a>
     
 
@@ -81,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Technical website archive
+      How to use CountDownLatch?
     </h1>
   
 
@@ -89,21 +89,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="mix"><a href="#mix" class="headerlink" title="mix"></a>mix</h2><p><a href="https://code.facebook.com/" target="_blank" rel="external">Facebook code</a></p>
-<h2 id="web-development-Framework"><a href="#web-development-Framework" class="headerlink" title="web development Framework"></a>web development Framework</h2><p><a href="http://flask.pocoo.org/" target="_blank" rel="external">Flask</a></p>
-<h2 id="Hbase"><a href="#Hbase" class="headerlink" title="Hbase"></a>Hbase</h2><p><a href="https://www.mapr.com/blog/hbase-and-mapr-db-designed-distribution-scale-and-speed#.VcKFNflVhBc" target="_blank" rel="external">HBase and MapR-DB: Designed for Distribution, Scale, and Speed</a></p>
-<p><a href="https://www.mapr.com/blog/in-depth-look-hbase-architecture" target="_blank" rel="external">An In-Depth Look at the HBase Architecture</a></p>
+        <p>Recently I got a task to upgrade our existing application from java 7 to java 8. Which let me have an opportunity to explore more in the newer version of java.  </p>
+<p>From the documentation of the CountDownLatch, there are some points that worth pointing out:</p>
+<ul>
+<li>The CountDownLatch object is initialized with the count with 1 and not changeable (use <em>CyclicBarrier</em> if you want to change the count)</li>
+<li>The <em>await()</em> and <em>countdown()</em> methods are the most noticeable method. <em>await()</em> wait until the <em>count</em> member turned to 0 due to the invocation of <em>countdown()</em> method or the thread get interrupted.</li>
+<li>The core data structure under the hood of CountDownLatch is using the <em>AbstractQueuedSynchronizer</em> aka AQS which will be discussed later.</li>
+</ul>
+<p>So basically the CountDownLatch is like the latch on your door. Thinking the <em>count</em> variable inside CountDownLatch is the number of thread that is going to do things before the current thread who invoke <em>await()</em> method can continue.</p>
+<p>The basic workflow of CountDownLatch might be something like this:</p>
+<p><em>invoking await() -&gt; lock the current thread -&gt; invoke the countdown() method in somewhere else -&gt; the previous thread that invoke await get continued due to the count become 0.</em></p>
+<script src="https://gist.github.com/pingrunhuang/8b08e4b8b45c01c23684e09d92ac23c6.js">Example without using Executor</script>
+<script src="https://gist.github.com/pingrunhuang/f7f6d7adf64b20de2a5be96c9635e028.js">Example with Executor</script>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://pingrunhuang.github.io/2016/12/15/Technical-website-archive/" data-id="cixxkva0w000e0odzw8v1dtji" class="article-share-link">Share</a>
+      <a data-url="https://pingrunhuang.github.io/2017/01/14/How-to-use-CountDownLatch/" data-id="cixxkva12000i0odztghcnmws" class="article-share-link">Share</a>
       
         
-        <a href="https://pingrunhuang.github.io/2016/12/15/Technical-website-archive/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="https://pingrunhuang.github.io/2017/01/14/How-to-use-CountDownLatch/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Framework/">Framework</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/concurrent-programming/">concurrent programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/java/">java</a></li></ul>
 
     </footer>
   </div>
@@ -111,19 +119,10 @@
     
 <nav id="article-nav">
   
-    <a href="../../24/Git-Local-branch/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Git Local branch
-        
-      </div>
-    </a>
   
-  
-    <a href="../../14/Ambari-plugin-development/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../07/How-to-execute-java-program-from-Terminal/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Ambari plugin development</div>
+      <div class="article-nav-title">How to execute java program from Terminal?</div>
     </a>
   
 </nav>
@@ -181,23 +180,23 @@
       <ul>
         
           <li>
-            <a href="../../../../2017/01/14/How-to-use-CountDownLatch/">How to use CountDownLatch?</a>
+            <a href="">How to use CountDownLatch?</a>
           </li>
         
           <li>
-            <a href="../../../../2017/01/07/How-to-execute-java-program-from-Terminal/">How to execute java program from Terminal?</a>
+            <a href="../../07/How-to-execute-java-program-from-Terminal/">How to execute java program from Terminal?</a>
           </li>
         
           <li>
-            <a href="../../26/Nocturnal-Animals/">Nocturnal Animals</a>
+            <a href="../../../../2016/12/26/Nocturnal-Animals/">Nocturnal Animals</a>
           </li>
         
           <li>
-            <a href="../../24/Git-Local-branch/">Git Local branch</a>
+            <a href="../../../../2016/12/24/Git-Local-branch/">Git Local branch</a>
           </li>
         
           <li>
-            <a href="">Technical website archive</a>
+            <a href="../../../../2016/12/15/Technical-website-archive/">Technical website archive</a>
           </li>
         
       </ul>
@@ -231,7 +230,7 @@
 <script>
   var disqus_shortname = 'pingrunhuang';
   
-  var disqus_url = 'https://pingrunhuang.github.io/2016/12/15/Technical-website-archive/';
+  var disqus_url = 'https://pingrunhuang.github.io/2017/01/14/How-to-use-CountDownLatch/';
   
   (function(){
     var dsq = document.createElement('script');
