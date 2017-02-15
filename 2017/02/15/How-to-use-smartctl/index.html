@@ -3,22 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Markdown note | Runping Huang</title>
+  <title>How to use smartctl | Runping Huang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Building a website is full of fun and a sense of achievement. Markdown has been a popular technique for fullfilling the content of the website due to the efficiency and beauty.So I decided to learn ab">
+  <meta name="description" content="In the scenario of heavily used cluster, the disks of the server are tend to be down for no reason. So it would be a good idea to locate which disks are tend to be down and replace those dangerous dis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown note">
-<meta property="og:url" content="https://pingrunhuang.github.io/2016/12/11/markdown-note/index.html">
+<meta property="og:title" content="How to use smartctl">
+<meta property="og:url" content="https://pingrunhuang.github.io/2017/02/15/How-to-use-smartctl/index.html">
 <meta property="og:site_name" content="Runping Huang">
-<meta property="og:description" content="Building a website is full of fun and a sense of achievement. Markdown has been a popular technique for fullfilling the content of the website due to the efficiency and beauty.So I decided to learn ab">
-<meta property="og:image" content="http://octodex.github.com/images/octdrey-catburn.jpg">
-<meta property="og:image" content="http://octodex.github.com/images/founding-father.jpg">
-<meta property="og:image" content="http://octodex.github.com/images/foundingfather_v2.png">
-<meta property="og:updated_time" content="2016-12-27T23:44:34.000Z">
+<meta property="og:description" content="In the scenario of heavily used cluster, the disks of the server are tend to be down for no reason. So it would be a good idea to locate which disks are tend to be down and replace those dangerous dis">
+<meta property="og:updated_time" content="2017-02-15T14:59:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown note">
-<meta name="twitter:description" content="Building a website is full of fun and a sense of achievement. Markdown has been a popular technique for fullfilling the content of the website due to the efficiency and beauty.So I decided to learn ab">
-<meta name="twitter:image" content="http://octodex.github.com/images/octdrey-catburn.jpg">
+<meta name="twitter:title" content="How to use smartctl">
+<meta name="twitter:description" content="In the scenario of heavily used cluster, the disks of the server are tend to be down for no reason. So it would be a good idea to locate which disks are tend to be down and replace those dangerous dis">
 <meta name="twitter:creator" content="@RunpingHuang">
   
     <link rel="alternate" href="/atom.xml" title="Runping Huang" type="application/atom+xml">
@@ -70,10 +66,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-markdown-note" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-How-to-use-smartctl" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="" class="article-date">
-  <time datetime="2016-12-11T11:37:18.000Z" itemprop="datePublished">2016-12-11</time>
+  <time datetime="2017-02-15T10:50:46.000Z" itemprop="datePublished">2017-02-15</time>
 </a>
     
 
@@ -85,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Markdown note
+      How to use smartctl
     </h1>
   
 
@@ -93,50 +89,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Building a website is full of fun and a sense of achievement. Markdown has been a popular technique for fullfilling the content of the website due to the efficiency and beauty.<br>So I decided to learn about it and write down my very first blog to record the key point.</p>
-<p>Making Italic font?</p>
-<p>_blablabla_ means <em>blablabla</em></p>
-<p>Making bold font?</p>
-<p>**blablabla** means <strong>blablabla</strong></p>
-<p>Making header?</p>
-<h1 id="header-means-first-level-header-header-means-second-level-header-etc"><a href="#header-means-first-level-header-header-means-second-level-header-etc" class="headerlink" title="header means first level header, ## header means second level header etc."></a>header means first level header, ## header means second level header etc.</h1><p>Making link?</p>
-<p><code>[Visit GitHub!](www.github.com)</code> means making a hyperlink of Visit GitHub! which point to the address of www.github.com e.g Visit GitHub!</p>
-<p>Making a reference link?</p>
-<p>reference link means every link with the same name which is set by author is point to the same address which means every time you want to change the address of a name, you just need to update one place.e.g<br>Do you want to see something fun?</p>
-<blockquote>
-<p>To do this, replace “see somthing fun” whith [see     something fun][a fun place] and add [a fun     place]:www.zombo.com to the end of the page to     specify that the address.<br>Adding an image?</p>
-</blockquote>
-<p><img src="http://octodex.github.com/images/octdrey-catburn.jpg" alt=""> means showing a image.</p>
-<p>Adding a reference image link.</p>
-<p>[The first father][first father]<br>[The second first father][second father]<br><img src="http://octodex.github.com/images/founding-father.jpg" alt="first father"><br><img src="http://octodex.github.com/images/foundingfather_v2.png" alt="second father"></p>
-<p>Blockquotes mark?</p>
-<blockquote>
-<p>blabla means</p>
-</blockquote>
-<p>blablabla</p>
-<p>Unordered list</p>
-<ul>
-<li>Milk</li>
-<li>Eggs<br>By adding * before each element.</li>
+        <p>In the scenario of heavily used cluster, the disks of the server are tend to be down for no reason. So it would be a good idea to locate which disks are tend to be down and replace those dangerous disks.</p>
+<h3 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h3><ul>
+<li>Operating system: CentOS 6.8</li>
+<li>Server model: HP Proliant DL380 GS</li>
 </ul>
-<p>Inline Code</p>
-<p>Inline code is indicated by surrounding it with backticks: <code>Inline code</code></p>
-<p>ordered list:</p>
-<p>Crack three eggs over a bowl<br>Pour a gallon of milk into the bowl<br>Rub the salmon vigorously with butter<br>Drop the salmon into the egg-milk bowl<br>Sublist:</p>
-<p>Tintin<br>A reporter<br>Has poofy orange hair<br>Friends with the world’s most awesome dog<br>To do this, add indentation before the second line.<br>paragraphs(soft break)</p>
-<p>First hard break the place where you want to make soft break, then just insert 2 spaces after there.</p>
-<p>So far, these are what I have learned and used.</p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install smartctlmontools</div></pre></td></tr></table></figure>
+<p>To see if the smart test is enabled in the specified hard disk:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo smartctl -i &lt;mount point&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="Test-procedure"><a href="#Test-procedure" class="headerlink" title="Test procedure"></a>Test procedure</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ mount # to check the mount point of hard disks</div><div class="line">$ sudo smartctl -t &lt;short|long|conveyance|select&gt; &lt;mount point&gt; #background mode</div><div class="line">or</div><div class="line">$ sudo smartctl -t &lt;short|long|conveyance|select&gt; -C &lt;mount point&gt; #foreground mode</div><div class="line">$ sudo smartctl -a &lt;mount point&gt; #view the result</div></pre></td></tr></table></figure>
+<p>In my case, my mount point are in the /dev/cciss/* (cciss represent for HP Smart Array block driver). So I have to add <em>-d cciss,N</em> at the end where N represent for the number of the partition. For example, if I have 8 partition of each disk, I have to loop through 8 partition for stress testing.</p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="https://www.thomas-krenn.com/en/wiki/SMART_tests_with_smartctl#Viewing_the_Test_Results" target="_blank" rel="external">SMART tests with smartctl</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://pingrunhuang.github.io/2016/12/11/markdown-note/" data-id="ciz732yx90009wrdzcw166t9v" class="article-share-link">Share</a>
+      <a data-url="https://pingrunhuang.github.io/2017/02/15/How-to-use-smartctl/" data-id="ciz732ywz0004wrdz0r9wwfs6" class="article-share-link">Share</a>
       
         
-        <a href="https://pingrunhuang.github.io/2016/12/11/markdown-note/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="https://pingrunhuang.github.io/2017/02/15/How-to-use-smartctl/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Learning-tech/">Learning tech</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Linux/">Linux</a></li></ul>
 
     </footer>
   </div>
@@ -144,19 +117,10 @@
     
 <nav id="article-nav">
   
-    <a href="../../14/Ambari-plugin-development/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Ambari plugin development
-        
-      </div>
-    </a>
   
-  
-    <a href="../../../06/11/Fullstack-Note/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../../01/14/How-to-use-CountDownLatch/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Fullstack note</div>
+      <div class="article-nav-title">How to use CountDownLatch?</div>
     </a>
   
 </nav>
@@ -214,23 +178,23 @@
       <ul>
         
           <li>
-            <a href="../../../../2017/02/15/How-to-use-smartctl/">How to use smartctl</a>
+            <a href="">How to use smartctl</a>
           </li>
         
           <li>
-            <a href="../../../../2017/01/14/How-to-use-CountDownLatch/">How to use CountDownLatch?</a>
+            <a href="../../../01/14/How-to-use-CountDownLatch/">How to use CountDownLatch?</a>
           </li>
         
           <li>
-            <a href="../../../../2017/01/07/How-to-execute-java-program-from-Terminal/">How to execute java program from Terminal?</a>
+            <a href="../../../01/07/How-to-execute-java-program-from-Terminal/">How to execute java program from Terminal?</a>
           </li>
         
           <li>
-            <a href="../../26/Nocturnal-Animals/">Nocturnal Animals</a>
+            <a href="../../../../2016/12/26/Nocturnal-Animals/">Nocturnal Animals</a>
           </li>
         
           <li>
-            <a href="../../24/Git-Local-branch/">Git Local branch</a>
+            <a href="../../../../2016/12/24/Git-Local-branch/">Git Local branch</a>
           </li>
         
       </ul>
@@ -264,7 +228,7 @@
 <script>
   var disqus_shortname = 'pingrunhuang';
   
-  var disqus_url = 'https://pingrunhuang.github.io/2016/12/11/markdown-note/';
+  var disqus_url = 'https://pingrunhuang.github.io/2017/02/15/How-to-use-smartctl/';
   
   (function(){
     var dsq = document.createElement('script');
