@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Design pattern -- SingleTon | Runping Huang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SingleTonpurpose: to make sure only one object has been created">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Design pattern -- SingleTon">
+<meta property="og:url" content="https://pingrunhuang.github.io/2017/03/17/Design-pattern-SingleTon/index.html">
+<meta property="og:site_name" content="Runping Huang">
+<meta property="og:description" content="SingleTonpurpose: to make sure only one object has been created">
+<meta property="og:updated_time" content="2017-03-17T07:42:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Design pattern -- SingleTon">
+<meta name="twitter:description" content="SingleTonpurpose: to make sure only one object has been created">
+<meta name="twitter:creator" content="@RunpingHuang">
+  
+    <link rel="alternate" href="/atom.xml" title="Runping Huang" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../../../index.html" id="logo">Runping Huang</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="../../../../index.html">Home</a>
+        
+          <a class="main-nav-link" href="../../../../archives">Archives</a>
+        
+          <a class="main-nav-link" href="../../../../about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://pingrunhuang.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Design-pattern-SingleTon" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2017-03-17T14:36:50.000Z" itemprop="datePublished">2017-03-17</time>
+</a>
+    
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Design pattern -- SingleTon
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="SingleTon"><a href="#SingleTon" class="headerlink" title="SingleTon"></a>SingleTon</h3><p>purpose: to make sure only one object has been created  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleTon</span></span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">static</span> SingleTon uniqueInstance;</div><div class="line">  <span class="comment">// notice the constructor and the instance are private</span></div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="title">SingleTon</span><span class="params">()</span> </span>&#123; &#125;</div><div class="line">  <span class="comment">// notice the getInstance() method is static which means you can access it by the class name reference</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleTon <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.uniqueInstance == <span class="keyword">null</span>)&#123;</div><div class="line">      <span class="keyword">this</span>.uniqueInstance = <span class="keyword">new</span> SingleTon();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.uniqueInstance;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p>In a multithreaded situation, it is very likely that the SingleTon object has been created more than once since different threads enter the getInstance() at the same time while the uniqueInstance is null in all cases. As shown below:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">---| thread one |---| thread two |---| value of uniqueInstance |</div><div class="line">          |                 |                     |</div><div class="line">    getInstance()     getInstance()              null</div></pre></td></tr></table></figure>
+<h5 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h5><p>use <code>public static synchronized SingleTon getInstance()</code> instead of <code>public static SingleTon getInstance()</code> to force different threads to wait its turn before it can enter the method. But this will cause efficiency problems.</p>
+<h5 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h5><p>Create an instance once the class is loaded. The problems before was that different threads enter the getInstance method at the same time where the uniqueInstance has not been instantiated yet. So we can force the object to be instantiated once the class is been loaded.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleTon</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">static</span> SingleTon uniqueInstance = <span class="keyword">new</span> SingleTon();</div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="title">SingleTon</span><span class="params">()</span></span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleTon <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.uniqueInstance;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3"></a>Solution 3</h5><p>Use ‘double-checked locking’. Check for 2 times: if null, synchronize it and check again to see if it is null. If the performance is a problem, then this way will reduce the overhead problem.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleTon</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> SingleTon uniqueInstance; <span class="comment">// set to volatile?</span></div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="title">SingleTon</span><span class="params">()</span> </span>&#123; &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleTon <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.uniqueInstance == <span class="keyword">null</span>) &#123; <span class="comment">// first time check</span></div><div class="line">      <span class="keyword">synchronized</span> (SingleTon.class) &#123;<span class="comment">// first time synchronization so that other thread won't access it</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.uniqueInstance == <span class="keyword">null</span>) &#123; <span class="comment">// second time check</span></div><div class="line">          uniqueInstance = <span class="keyword">new</span> SingleTon();</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://pingrunhuang.github.io/2017/03/17/Design-pattern-SingleTon/" data-id="cj0dimzte0009n8dz0ks3ar6f" class="article-share-link">Share</a>
+      
+        
+        <a href="https://pingrunhuang.github.io/2017/03/17/Design-pattern-SingleTon/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Design-pattern/">Design pattern</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../Design-pattern-Observer-pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Design pattern -- Observer pattern
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../16/java-collections-summary/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java collections summary</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Design-pattern/">Design pattern</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Distributed-system/">Distributed system</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Framework/">Framework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Hadoop/">Hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Java/">Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Learning-tech/">Learning tech</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Movies/">Movies</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Traveling/">Traveling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/concurrent-programming/">concurrent programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/生活/">生活</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/Design-pattern/" style="font-size: 15px;">Design pattern</a> <a href="../../../../tags/Distributed-system/" style="font-size: 10px;">Distributed system</a> <a href="../../../../tags/Framework/" style="font-size: 10px;">Framework</a> <a href="../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="../../../../tags/Java/" style="font-size: 20px;">Java</a> <a href="../../../../tags/Learning-tech/" style="font-size: 10px;">Learning tech</a> <a href="../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../tags/Movies/" style="font-size: 10px;">Movies</a> <a href="../../../../tags/Python/" style="font-size: 10px;">Python</a> <a href="../../../../tags/Traveling/" style="font-size: 10px;">Traveling</a> <a href="../../../../tags/concurrent-programming/" style="font-size: 10px;">concurrent programming</a> <a href="../../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../../tags/生活/" style="font-size: 10px;">生活</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/03/">March 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2016/12/">December 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../Design-pattern-Observer-pattern/">Design pattern -- Observer pattern</a>
+          </li>
+        
+          <li>
+            <a href="">Design pattern -- SingleTon</a>
+          </li>
+        
+          <li>
+            <a href="../../16/java-collections-summary/">Java collections summary</a>
+          </li>
+        
+          <li>
+            <a href="../../09/离开一座城/">离开一座城</a>
+          </li>
+        
+          <li>
+            <a href="../../04/Traveling-in-Switzerland/">Traveling in Switzerland</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Runping Huang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'pingrunhuang';
+  
+  var disqus_url = 'https://pingrunhuang.github.io/2017/03/17/Design-pattern-SingleTon/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+  </div>
+</body>
+</html>
