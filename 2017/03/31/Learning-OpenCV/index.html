@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Learning OpenCV | Runping Huang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Structure of opencv librarycapture image">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learning OpenCV">
+<meta property="og:url" content="https://pingrunhuang.github.io/2017/03/31/Learning-OpenCV/index.html">
+<meta property="og:site_name" content="Runping Huang">
+<meta property="og:description" content="Structure of opencv librarycapture image">
+<meta property="og:updated_time" content="2017-04-01T02:43:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Learning OpenCV">
+<meta name="twitter:description" content="Structure of opencv librarycapture image">
+<meta name="twitter:creator" content="@RunpingHuang">
+  
+    <link rel="alternate" href="/atom.xml" title="Runping Huang" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../../../index.html" id="logo">Runping Huang</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="../../../../index.html">Home</a>
+        
+          <a class="main-nav-link" href="../../../../archives">Archives</a>
+        
+          <a class="main-nav-link" href="../../../../about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://pingrunhuang.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Learning-OpenCV" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2017-03-31T15:25:45.000Z" itemprop="datePublished">2017-03-31</time>
+</a>
+    
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Learning OpenCV
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Structure-of-opencv-library"><a href="#Structure-of-opencv-library" class="headerlink" title="Structure of opencv library"></a>Structure of opencv library</h4><h4 id="capture-image"><a href="#capture-image" class="headerlink" title="capture image"></a>capture image</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/opencv.hpp"</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</div><div class="line">    cv::String imgDirectory = <span class="string">"/Users/Frank/Pictures/pig-logo.gif"</span>;</div><div class="line">    <span class="comment">// the second parameter can be set to be BGR, GRAYSCALE etc. which are located in Enum of cv::ImreadModes</span></div><div class="line">    cv::Mat img = cv::imread(imgDirectory, cv::IMREAD_UNCHANGED);</div><div class="line">    <span class="keyword">if</span> (img.empty()) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    <span class="comment">// the second parameter is used to set the size of the window which can be one inside Enum of cv::ImreadModes</span></div><div class="line">    cv::namedWindow(<span class="string">"example"</span>,cv::WINDOW_AUTOSIZE);</div><div class="line">    cv::imshow(<span class="string">"example"</span>, img);</div><div class="line">    cv::waitKey(<span class="number">0</span>);</div><div class="line">    cv::destroyWindow(<span class="string">"example"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="capture-video"><a href="#capture-video" class="headerlink" title="capture video"></a>capture video</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/highgui/highgui.hpp"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgproc/imgproc.hpp"</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span>** argv )</span> </span>&#123;</div><div class="line">  cv::namedWindow( <span class="string">"Example3"</span>, cv::WINDOW_AUTOSIZE );</div><div class="line">  cv::VideoCapture cap;</div><div class="line">  cap.open( <span class="built_in">string</span>(argv[<span class="number">1</span>]) ); <span class="comment">// capture object is given the path of the video</span></div><div class="line">  cv::Mat frame;</div><div class="line">  <span class="keyword">for</span>(;;) &#123;</div><div class="line">    cap &gt;&gt; frame;</div><div class="line">    <span class="keyword">if</span>( frame.empty() ) <span class="keyword">break</span>;</div><div class="line">    cv::imshow( <span class="string">"Example3"</span>, frame );</div><div class="line">    <span class="comment">// wait for 33ms, if users do not press any button, will continue</span></div><div class="line">    <span class="comment">// else, the ASCII code of the button will return</span></div><div class="line">    <span class="keyword">if</span>( cv::waitKey(<span class="number">33</span>) &gt;= <span class="number">0</span> )</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="add-trackbar-to-get-more-control-on-the-video-or-image"><a href="#add-trackbar-to-get-more-control-on-the-video-or-image" class="headerlink" title="add trackbar to get more control on the video or image"></a>add trackbar to get more control on the video or image</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/highgui/highgui.hpp"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgproc/imgproc.hpp"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> g_slider_position = <span class="number">0</span>;</div><div class="line"><span class="keyword">int</span> g_run = <span class="number">1</span>, g_dontset = <span class="number">0</span>; <span class="comment">//start out in single step mode</span></div><div class="line">cv::VideoCapture g_cap;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onTrackbarSlide</span><span class="params">( <span class="keyword">int</span> pos, <span class="keyword">void</span> *)</span> </span>&#123;<span class="comment">// callback function for taking effect when track bar value changed</span></div><div class="line">  <span class="keyword">if</span>( !g_dontset )</div><div class="line">    g_run = <span class="number">1</span>;</div><div class="line">  g_dontset = <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span>** argv )</span> </span>&#123;</div><div class="line">  cv::namedWindow( <span class="string">"Example2_4"</span>, cv::WINDOW_AUTOSIZE );</div><div class="line">  g_cap.open( <span class="built_in">string</span>(argv[<span class="number">1</span>]) );</div><div class="line">  <span class="keyword">int</span> frames = (<span class="keyword">int</span>) g_cap.get(cv::CAP_PROP_FRAME_COUNT);</div><div class="line">  <span class="keyword">int</span> tmpw   = (<span class="keyword">int</span>) g_cap.get(cv::CAP_PROP_FRAME_WIDTH);</div><div class="line">  <span class="keyword">int</span> tmph   = (<span class="keyword">int</span>) g_cap.get(cv::CAP_PROP_FRAME_HEIGHT);</div><div class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Video has "</span> &lt;&lt; frames &lt;&lt; <span class="string">" frames of dimensions("</span></div><div class="line">       &lt;&lt; tmpw &lt;&lt; <span class="string">", "</span> &lt;&lt; tmph &lt;&lt; <span class="string">")."</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">  cv::createTrackbar(<span class="string">"Position"</span>, <span class="string">"Example2_4"</span>, &amp;g_slider_position, frames,</div><div class="line">                 onTrackbarSlide);</div><div class="line">  cv::Mat frame;</div><div class="line">  <span class="keyword">for</span>(;;) &#123;</div><div class="line">    <span class="keyword">if</span>( g_run != <span class="number">0</span> ) &#123;</div><div class="line">      g_cap &gt;&gt; frame; <span class="keyword">if</span>(frame.empty()) <span class="keyword">break</span>;</div><div class="line">      <span class="keyword">int</span> current_pos = (<span class="keyword">int</span>)g_cap.get(cv::CAP_PROP_POS_FRAMES);</div><div class="line">      g_dontset = <span class="number">1</span>;</div><div class="line">      cv::setTrackbarPos(<span class="string">"Position"</span>, <span class="string">"Example2_4"</span>, current_pos);</div><div class="line">      cv::imshow( <span class="string">"Example2_4"</span>, frame );</div><div class="line">      g_run-=<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">char</span> c = (<span class="keyword">char</span>) cv::waitKey(<span class="number">10</span>);</div><div class="line">    <span class="keyword">if</span>( c == <span class="string">'s'</span> ) <span class="comment">// single step</span></div><div class="line">      &#123;g_run = <span class="number">1</span>; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Single step, run = "</span> &lt;&lt; g_run &lt;&lt; <span class="built_in">endl</span>;&#125;</div><div class="line">    <span class="keyword">if</span>( c == <span class="string">'r'</span> ) <span class="comment">// run mode</span></div><div class="line">      &#123;g_run = <span class="number">-1</span>; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Run mode, run = "</span> &lt;&lt; g_run &lt;&lt;<span class="built_in">endl</span>;&#125;</div><div class="line">    <span class="keyword">if</span>( c == <span class="number">27</span> )</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span>(<span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://pingrunhuang.github.io/2017/03/31/Learning-OpenCV/" data-id="cj2zxyjny000wo2dzvc2ah3po" class="article-share-link">Share</a>
+      
+        
+        <a href="https://pingrunhuang.github.io/2017/03/31/Learning-OpenCV/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/OpenCV/">OpenCV</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../04/01/Design-of-Hbase-architecture/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Design of Hbase architecture
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../21/Bayes-statistics-summary/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Bayes statistics summary</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Big-data/">Big data</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Design-pattern/">Design pattern</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Distributed-system/">Distributed system</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Framework/">Framework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Hadoop/">Hadoop</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Java/">Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Learning-tech/">Learning tech</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/OpenCV/">OpenCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Traveling/">Traveling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/concurrent-programming/">concurrent programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/machine-learning/">machine learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/statistics/">statistics</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/Big-data/" style="font-size: 10px;">Big data</a> <a href="../../../../tags/C/" style="font-size: 10px;">C++</a> <a href="../../../../tags/Design-pattern/" style="font-size: 15px;">Design pattern</a> <a href="../../../../tags/Distributed-system/" style="font-size: 15px;">Distributed system</a> <a href="../../../../tags/Framework/" style="font-size: 10px;">Framework</a> <a href="../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../tags/Hadoop/" style="font-size: 15px;">Hadoop</a> <a href="../../../../tags/Java/" style="font-size: 20px;">Java</a> <a href="../../../../tags/Learning-tech/" style="font-size: 10px;">Learning tech</a> <a href="../../../../tags/Linux/" style="font-size: 10px;">Linux</a> <a href="../../../../tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="../../../../tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="../../../../tags/Python/" style="font-size: 10px;">Python</a> <a href="../../../../tags/Traveling/" style="font-size: 10px;">Traveling</a> <a href="../../../../tags/concurrent-programming/" style="font-size: 10px;">concurrent programming</a> <a href="../../../../tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="../../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../../tags/statistics/" style="font-size: 10px;">statistics</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/05/">May 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/03/">March 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../05/22/Use-bitmap-for-storing-big-data/">Use bitmap for storing big data</a>
+          </li>
+        
+          <li>
+            <a href="../../../05/08/HDFS-Summary/">HDFS Summary</a>
+          </li>
+        
+          <li>
+            <a href="../../../04/13/Notes-on-CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/">Notes on CS231n Convolutional Neural Networks for Visual Recognition</a>
+          </li>
+        
+          <li>
+            <a href="../../../04/01/Design-of-Hbase-architecture/">Design of Hbase architecture</a>
+          </li>
+        
+          <li>
+            <a href="">Learning OpenCV</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Runping Huang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'pingrunhuang';
+  
+  var disqus_url = 'https://pingrunhuang.github.io/2017/03/31/Learning-OpenCV/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+  </div>
+</body>
+</html>
