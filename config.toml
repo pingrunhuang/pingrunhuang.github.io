@@ -1,0 +1,76 @@
+baseurl             = "https://pingrunhuang.github.io/"
+builddrafts         = true
+canonifyurls        = true
+contentdir          = "content"
+languageCode        = "en-US"
+layoutdir           = "layouts"
+publishdir          = "public"
+theme               = "cocoa"
+author              = "Frank Huang"
+title               = "Frank Huang"
+pygmentsuseclasses  = true
+disqusshortname     = "pingrunhuang.github.io" # Comment out to disable Disqus.
+pluralizelisttitles = false
+googleAnalytics     = "UA-123-45"
+
+[permalinks]
+lifeblog  = "/:year/:month/:title/"
+techblog  = "/:year/:month/:title/"
+
+[[menu.main]]
+name                   = "Technical blog"
+weight                 = -120
+identifier             = "Technical blog"
+url                    = "/techblog/"
+
+[[menu.main]]
+name                   = "Life blog"
+weight                 = -120
+identifier             = "Life blog"
+url                    = "/lifeblog/"
+
+[[menu.main]]
+name                   = "About"
+weight                 = -110
+identifier             = "about"
+url                    = "/about/"
+
+[[menu.main]]
+name                   = "Code"
+weight                 = -100
+identifier             = "code"
+url                    = "/code/"
+
+[params]
+latestpostscount       = 5                             # how many posts to display on the home page
+i18n_flags             = false                         # whether to display small country flags for available translations
+author                 = "Frank Huang"
+cachebuster            = true                          # add the current unix timestamp in query string for cache busting css assets
+dateform               = "Jan 2, 2006"
+dateformfull           = "Mon Jan 2 2006 15:04:05 MST"
+description            = "Go go go you dump ass!"
+email                  = "pingrunhuang@gmail.com"
+extracssfiles          = [ "/css/override.css" ]       # In your `static` directory, add/remove files as necessary.
+faviconfile            = "img/floyd.ico"
+github                 = "https://github.com/pingrunhuang"
+highlightjs            = true
+instagram              = "https://www.instagram.com/frank_runping/"
+lang                   = "en"
+linkedin               = "//linkedin.com/infrank-huang-372409105/"
+noshowreadtime         = false                         # if true, don't show "<x> minutes read" in posts
+selfintro              = "Go go go you dumpass!"                            # appears in the site header when set to a non-empty string
+twitter                = "https://twitter.com/RunpingH"
+mastodon               = "//example.com/@you"
+# highlightjslanguages = ["go"]                        # additional languages not included in the "common" set
+# highlightjsStyle     = "darcula"
+
+piwik				   = false                         # If true, Piwik integration is enabled
+# piwik_url            = "//www.example.com/piwik/"    # URL to your Piwik installation. Must End with a slash
+# piwik_id			   = 2                             # Id of your site in Piwik
+
+avatar                 = "img/profile.png" # path to image in static dir e.g img/avatar.png (do not use in the same time as gravatar)
+# gravatar             = ""                # do not use in the same time as avatar
+
+# The following are DEPRECATED.
+gatracker              = "XYZ" # use googleAnalytics instead
+initials               = "ad"  # displayed on single post page; deprecated in v0.3.0.
