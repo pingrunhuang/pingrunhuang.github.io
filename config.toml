@@ -14,8 +14,8 @@ pluralizelisttitles = false
 googleAnalytics     = "UA-123-45"
 
 [permalinks]
-lifeblog  = "/:title/"
-techblog  = "/:title/"
+lifeblog  = "/:year/:title/"
+techblog  = "/:year/:title/"
 
 [[menu.main]]
 name                   = "Technical blog"
