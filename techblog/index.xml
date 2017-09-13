@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Technical Blog on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/techblog/</link>
+    <description>Recent content in Technical Blog on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 13 Sep 2017 06:42:21 -0700</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/techblog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Markdown Note</title>
+      <link>https://pingrunhuang.github.io/2017/09/markdown-note/</link>
+      <pubDate>Wed, 13 Sep 2017 11:40:40 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/09/markdown-note/</guid>
+      <description>Building a website is full of fun and a sense of achievement. Markdown has been a popular technique for fullfilling the content of the website due to the efficiency and beauty.
+So I decided to learn about it and write down my very first blog to record the key point.
+Making Italic font?
+blablabla means blablabla
+Making bold font?
+blablabla means blablabla
+Making header?
+# header means first level header, ## header means second level header etc.</description>
+    </item>
+    
+    <item>
+      <title>Migration</title>
+      <link>https://pingrunhuang.github.io/2017/09/migration/</link>
+      <pubDate>Wed, 13 Sep 2017 11:27:27 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/09/migration/</guid>
+      <description>From hexo to django I still love blogging the knowledge that I lean everyday. It is like my RAM is not very large like 2 Gb or so. I really need to flush the things that I read just now to my laptop which performs the function like the hard disk and later on compact them together.
+From django to hugo Django is great. But for rendering a static webpage like blog or company advertisement, it is better to use a generator framework like hexo though since the process of deploying django is so time consuming.</description>
+    </item>
+    
+    <item>
+      <title>Learn_pandas</title>
+      <link>https://pingrunhuang.github.io/2017/09/learn_pandas/</link>
+      <pubDate>Wed, 13 Sep 2017 11:22:07 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/09/learn_pandas/</guid>
+      <description>dataframe.sum() by default, sum up each cell&amp;rsquo;s value by each column. Specify the axis attribute will to change the sum up rule. 0 means by columns, 1 means by rows.
+check if the dataframe has null value df.isnull().sum().sum() will sum up all the true value for each column and then each row.
+replace a certain value with other value df[&#39;column name&#39;].map({&#39;yes&#39;:1, &#39;no&#39;:0})</description>
+    </item>
+    
+    <item>
+      <title>Support-vector-machine</title>
+      <link>https://pingrunhuang.github.io/2017/06/support-vector-machine/</link>
+      <pubDate>Tue, 20 Jun 2017 04:05:25 -0600</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/06/support-vector-machine/</guid>
+      <description>v is the point to be classified.
+w is a vector points to the hyperplane perpendicularly.
+The hyperplane is: w * v + b
+There are 2 classes which are black and red respectively.
+if w v + b &amp;gt; 0, then the v belongs to black
+if w v + b &amp;lt; 0, then the v belongs to red
+if w * v + v = 0, then the v is on the decision boundary which is also the hyperplane.</description>
+    </item>
+    
+    <item>
+      <title>using bitmap</title>
+      <link>https://pingrunhuang.github.io/2017/05/using-bitmap/</link>
+      <pubDate>Mon, 22 May 2017 04:05:25 -0600</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/05/using-bitmap/</guid>
+      <description>Manipulating big data like 1 billion (1 billion == 1,000,000,000 == “十亿”, 1 million == 1,000,000 == “百万” which I always forget how to transform back and forth) , is quite memory consuming if we just use an array for storing it. We can either divide the file into smaller file and process them accordingly (ideas like map reduce, will talk about it later in another post) or use ‘bitmap’ and ‘hashmap’.</description>
+    </item>
+    
+    <item>
+      <title>Hbase Design</title>
+      <link>https://pingrunhuang.github.io/2015/12/hbase-design/</link>
+      <pubDate>Mon, 21 Dec 2015 04:05:25 -0600</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2015/12/hbase-design/</guid>
+      <description>HBase is an open source distributed database built on top of hadoop eco-system. It is becoming a popular choice for application who need fast and random access to large amount of data. In this post, I want to explain my summary on reading the paper written by on explaining the design of HBase architecture. This post is not meant to be read at one time since it is too long.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://pingrunhuang.github.io/1/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/1/01/</guid>
+      <description>awk  awk &#39;/pattern/ {print $1}&#39; This line of code will print out the first column of the line that contain the pattern in the file. The idea is you want to do something on the line that contain the pattern. Inside the {} is the action you want to do. $columns is which column you want to edit on.
+ awk -F&amp;quot;=&amp;quot; &#39;{print $NF}&#39; inputfile &amp;gt; outputfile
+  sed Some actions: d means delete, p means print, s means substitution.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://pingrunhuang.github.io/1/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/1/01/</guid>
+      <description>When rendering templates in django, there is one issue that kept me stuck.  suppose you have 2 templates in 2 sub-apps. Both of which reference 2 different static files with the same name. This case, django will serve both page with the same static file from the first app(follow the sequence from settings.py installed_apps attribute)
+ I think this would be an issue since it will cause some rendering problems.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://pingrunhuang.github.io/1/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/1/01/</guid>
+      <description> package How to package all the dependencies into one jar
+&amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;maven-assembly-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.5.5&amp;lt;/version&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;archive&amp;gt; &amp;lt;manifest&amp;gt; &amp;lt;mainClass&amp;gt;com.xxg.Main&amp;lt;/mainClass&amp;gt; &amp;lt;/manifest&amp;gt; &amp;lt;/archive&amp;gt; &amp;lt;descriptorRefs&amp;gt; &amp;lt;descriptorRef&amp;gt;jar-with-dependencies&amp;lt;/descriptorRef&amp;gt; &amp;lt;/descriptorRefs&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;executions&amp;gt; &amp;lt;execution&amp;gt; &amp;lt;id&amp;gt;make-assembly&amp;lt;/id&amp;gt; &amp;lt;phase&amp;gt;package&amp;lt;/phase&amp;gt; &amp;lt;goals&amp;gt; &amp;lt;goal&amp;gt;single&amp;lt;/goal&amp;gt; &amp;lt;/goals&amp;gt; &amp;lt;/execution&amp;gt; &amp;lt;/executions&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; &amp;lt;/build&amp;gt;  package and single equals mvn pakcage assembly:single
+Reference </description>
+    </item>
+    
+  </channel>
+</rss>
