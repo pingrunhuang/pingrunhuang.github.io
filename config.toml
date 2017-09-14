@@ -61,6 +61,7 @@ noshowreadtime         = false                         # if true, don't show "<x
 selfintro              = "Go go go you dumpass!"                            # appears in the site header when set to a non-empty string
 twitter                = "https://twitter.com/RunpingH"
 mastodon               = "//example.com/@you"
+flickr                 = "https://www.flickr.com/photos/144797601@N05/"
 # highlightjslanguages = ["go"]                        # additional languages not included in the "common" set
 # highlightjsStyle     = "darcula"
 
