@@ -7,13 +7,11 @@ mv public .public
 
 git checkout master
 
-ls | grep -v deploy.sh | xargs rm -r
-
 mv .public/* .
 
 rm -rf .public
 
-git add *
+ls | grep -v themes | git add 
 
 git commit -m "update at $(date)"
 
