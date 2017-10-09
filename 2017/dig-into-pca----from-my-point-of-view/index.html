@@ -13,12 +13,12 @@
 矩阵对应一个线性变换是在同一组基下有意义。默认情况下是在标准基下进行变换。
 $$\begin{bmatrix} { a }{ 1,1 } &amp; { a }{ 1,2 } &amp; \dots &amp; { a }{ 1,n } \ \dots &amp; \dots &amp; \dots &amp; \dots \ { a }{ m-1,1 } &amp; { a }{ m-1,2 } &amp; \dots &amp; { a }{ m-1,n } \ { a }{ m,1 } &amp; { a }{ m,2 } &amp; \dots &amp; { a }_{ m,n } \end{bmatrix}$$">
 
-<meta property="og:title" content="What is eigen value and eigen vector?" />
+<meta property="og:title" content="Dig into PCA -- from my point of view" />
 <meta property="og:description" content="This is a topic that I am very interesting about. These concepts are related to a fundamental theory called PCA which is a tool to reduce the dimension of a matrix(dataset)
 矩阵对应一个线性变换是在同一组基下有意义。默认情况下是在标准基下进行变换。
 $$\begin{bmatrix} { a }{ 1,1 } &amp; { a }{ 1,2 } &amp; \dots &amp; { a }{ 1,n } \ \dots &amp; \dots &amp; \dots &amp; \dots \ { a }{ m-1,1 } &amp; { a }{ m-1,2 } &amp; \dots &amp; { a }{ m-1,n } \ { a }{ m,1 } &amp; { a }{ m,2 } &amp; \dots &amp; { a }_{ m,n } \end{bmatrix}$$" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://pingrunhuang.github.io/2017/what-is-eigen-value-and-eigen-vector/" />
+<meta property="og:url" content="https://pingrunhuang.github.io/2017/dig-into-pca----from-my-point-of-view/" />
 
 
 
@@ -39,10 +39,10 @@ $$\begin{bmatrix} { a }{ 1,1 } &amp; { a }{ 1,2 } &amp; \dots &amp; { a }{ 1,n }
 <title>
 
 
-     What is eigen value and eigen vector? 
+     Dig into PCA -- from my point of view 
 
 </title>
-<link rel="canonical" href="https://pingrunhuang.github.io/2017/what-is-eigen-value-and-eigen-vector/">
+<link rel="canonical" href="https://pingrunhuang.github.io/2017/dig-into-pca----from-my-point-of-view/">
 
 
 
@@ -60,11 +60,11 @@ $$\begin{bmatrix} { a }{ 1,1 } &amp; { a }{ 1,2 } &amp; \dots &amp; { a }{ 1,n }
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-10-06%2012%3a39%3a07.477913065%20%2b0800%20CST%20m%3d%2b0.286313565">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-10-06%2012%3a39%3a07.477913065%20%2b0800%20CST%20m%3d%2b0.286313565">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-10-06%2012%3a39%3a07.477913065%20%2b0800%20CST%20m%3d%2b0.286313565">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-10-09%2011%3a34%3a00.823999268%20%2b0800%20CST%20m%3d%2b0.166628433">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-10-09%2011%3a34%3a00.823999268%20%2b0800%20CST%20m%3d%2b0.166628433">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-10-09%2011%3a34%3a00.823999268%20%2b0800%20CST%20m%3d%2b0.166628433">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-10-06%2012%3a39%3a07.477913065%20%2b0800%20CST%20m%3d%2b0.286313565">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-10-09%2011%3a34%3a00.823999268%20%2b0800%20CST%20m%3d%2b0.166628433">
     
 
 
@@ -123,7 +123,7 @@ $$\begin{bmatrix} { a }{ 1,1 } &amp; { a }{ 1,2 } &amp; \dots &amp; { a }{ 1,n }
             <nav>
                 <ul>
                     
-                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/"><span>About</span></a></li>
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume/index.html"><span>About</span></a></li>
                     
                         <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
                     
@@ -154,7 +154,7 @@ $$\begin{bmatrix} { a }{ 1,1 } &amp; { a }{ 1,2 } &amp; \dots &amp; { a }{ 1,n }
         
 
         
-            <a href="//linkedin.com/infrank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+            <a href="https://www.linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
         
 
         
@@ -170,7 +170,7 @@ $$\begin{bmatrix} { a }{ 1,1 } &amp; { a }{ 1,2 } &amp; \dots &amp; { a }{ 1,n }
         
 
         
-            <a href="https://www.flickr.com/photos/144797601@N05/"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
         
 
         
@@ -189,7 +189,7 @@ $$\begin{bmatrix} { a }{ 1,1 } &amp; { a }{ 1,2 } &amp; \dots &amp; { a }{ 1,n }
                 <div class="title-container">
                     <div class="page-heading">
 
-    What is eigen value and eigen vector?
+    Dig into PCA -- from my point of view
 
 </div>
 

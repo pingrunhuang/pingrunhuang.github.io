@@ -78,7 +78,7 @@
       <description>贝叶斯定理的本质是希望基于已经产生的数据，来预测未来在某一种被认定为原因的概率发生的情况下，再次发生这样的结果的概率是多少。这句话挺起来很绕口，贝叶斯公式美妙的地方就在于能把这样的绕口的表述表现成一个公式。 $$P(A|B)\quad =\quad \frac { P(B|A)\times P(A) }{ P(B) }$$
  如何求解后验概率（P(B|A)）？
  常用方法有MCMC(马尔可夫链蒙特卡洛（Markov chain Monte Carlo)). 而MCMC的实现方法也有很多，常见的有MH.
-Naive Bayesian classifier 也叫朴素贝叶斯分类器，是贝叶斯分类器的一个特例。在有n个维度的数据集中（假设为x1, x2, &amp;hellip; xn），前面所说的P(B|A)实际上等于P(x1, x2,&amp;hellip;xn|A)。当假设每个变量都互相独立的时候即可得P(x1, x2,&amp;hellip;xn|A) = P(x1|A) * P(x2|A) &amp;hellip; P(xn|A)。这就是朴素贝叶斯定理的条件了。
+Naive Bayesian classifier 也叫朴素贝叶斯分类器，是贝叶斯分类器的一个特例。在有n个维度的数据集中（假设为x1, x2, &amp;hellip; xn），前面所说的P(B|A)实际上等于P(x1, x2,&amp;hellip;xn|A)。 当假设每个变量都互相独立的时候即可得P(x1, x2,&amp;hellip;xn|A) = P(x1|A) * P(x2|A) &amp;hellip; P(xn|A)。这就是朴素贝叶斯定理的条件了。
 Reference http://www.cs.ucr.edu/~eamonn/CE/Bayesian%20Classification%20withInsect_examples.pdf https://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html</description>
     </item>
     
@@ -97,15 +97,13 @@ Reference http://www.cs.ucr.edu/~eamonn/CE/Bayesian%20Classification%20withInsec
     </item>
     
     <item>
-      <title>Encryption algorithms</title>
-      <link>https://pingrunhuang.github.io/2017/encryption-algorithms/</link>
+      <title>Encrypting sensitive information</title>
+      <link>https://pingrunhuang.github.io/2017/encrypting-sensitive-information/</link>
       <pubDate>Thu, 21 Sep 2017 14:06:05 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/2017/encryption-algorithms/</guid>
-      <description>I recently have to deal with encrypting some sensitive information which lead me to the SHA Algorithms. I figure out SHA is quite an interesting one way hashing algorithms. So I decided to write a post about this algorithms.
-Different terminalogy in encryption field AES: advanced encryption algorithm DES: data encryption algorithm blowfish:
-What is SHA SHA stand for sucure hashing algorithm.
-Why it is one way how to use it?</description>
+      <guid>https://pingrunhuang.github.io/2017/encrypting-sensitive-information/</guid>
+      <description>I recently have to deal with encrypting some sensitive information which lead me to get to know the encryption algorithms. However, the goal is to encrypt only part of the information in a manner of no decryption.
+At the mean time, I remember when I was having internet security class back at ESIGELEC during my master degree, my tutor told us that the general way for encryption is using public key and private key which leads to two-way function(decryptable).</description>
     </item>
     
     <item>
@@ -119,11 +117,11 @@ Why it is one way how to use it?</description>
     </item>
     
     <item>
-      <title>What is eigen value and eigen vector?</title>
-      <link>https://pingrunhuang.github.io/2017/what-is-eigen-value-and-eigen-vector/</link>
+      <title>Dig into PCA -- from my point of view</title>
+      <link>https://pingrunhuang.github.io/2017/dig-into-pca----from-my-point-of-view/</link>
       <pubDate>Sun, 17 Sep 2017 23:51:50 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/2017/what-is-eigen-value-and-eigen-vector/</guid>
+      <guid>https://pingrunhuang.github.io/2017/dig-into-pca----from-my-point-of-view/</guid>
       <description>This is a topic that I am very interesting about. These concepts are related to a fundamental theory called PCA which is a tool to reduce the dimension of a matrix(dataset)
 矩阵对应一个线性变换是在同一组基下有意义。默认情况下是在标准基下进行变换。
 $$\begin{bmatrix} { a }{ 1,1 } &amp;amp; { a }{ 1,2 } &amp;amp; \dots &amp;amp; { a }{ 1,n } \ \dots &amp;amp; \dots &amp;amp; \dots &amp;amp; \dots \ { a }{ m-1,1 } &amp;amp; { a }{ m-1,2 } &amp;amp; \dots &amp;amp; { a }{ m-1,n } \ { a }{ m,1 } &amp;amp; { a }{ m,2 } &amp;amp; \dots &amp;amp; { a }_{ m,n } \end{bmatrix}$$</description>
@@ -318,6 +316,24 @@ if w * v + v = 0, then the v is on the decision boundary which is also the hyper
       
       <guid>https://pingrunhuang.github.io/about/me/</guid>
       <description>This website is a personal homepage.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://pingrunhuang.github.io/about/resume/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/about/resume/readme/</guid>
+      <description>How do I complete this project?  Go to the Javascript Basics course and select &amp;ldquo;View Course Materials.&amp;rdquo; Go through the videos and assignments in this course to learn the JavaScript necessary to build your resume. Review your work against the Project Rubric (on the next page). When you are satisfied with your project, submit it according to the Submission Instructions on the next page.  By the end: Your resume will look something like this And your repository will include the following files:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://pingrunhuang.github.io/about/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/about/resume/</guid>
+      <description>Resume        tag below is the skeleton of your website. Your code will add information to each of the sections of the resume below. You can pretty easily figure out what each section will display by looking at the id or at what&#39;s written between the  tags. --    -- Work Experience  Projects  Education  Where I&#39;ve Lived, Worked and Study  Let&#39;s Connect     if(document.</description>
     </item>
     
     <item>

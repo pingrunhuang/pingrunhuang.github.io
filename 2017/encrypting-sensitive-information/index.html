@@ -9,18 +9,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
-<meta name="description" content="I recently have to deal with encrypting some sensitive information which lead me to the SHA Algorithms. I figure out SHA is quite an interesting one way hashing algorithms. So I decided to write a post about this algorithms.
-Different terminalogy in encryption field AES: advanced encryption algorithm DES: data encryption algorithm blowfish:
-What is SHA SHA stand for sucure hashing algorithm.
-Why it is one way how to use it?">
+<meta name="description" content="I recently have to deal with encrypting some sensitive information which lead me to get to know the encryption algorithms. However, the goal is to encrypt only part of the information in a manner of no decryption.
+At the mean time, I remember when I was having internet security class back at ESIGELEC during my master degree, my tutor told us that the general way for encryption is using public key and private key which leads to two-way function(decryptable).">
 
-<meta property="og:title" content="Encryption algorithms" />
-<meta property="og:description" content="I recently have to deal with encrypting some sensitive information which lead me to the SHA Algorithms. I figure out SHA is quite an interesting one way hashing algorithms. So I decided to write a post about this algorithms.
-Different terminalogy in encryption field AES: advanced encryption algorithm DES: data encryption algorithm blowfish:
-What is SHA SHA stand for sucure hashing algorithm.
-Why it is one way how to use it?" />
+<meta property="og:title" content="Encrypting sensitive information" />
+<meta property="og:description" content="I recently have to deal with encrypting some sensitive information which lead me to get to know the encryption algorithms. However, the goal is to encrypt only part of the information in a manner of no decryption.
+At the mean time, I remember when I was having internet security class back at ESIGELEC during my master degree, my tutor told us that the general way for encryption is using public key and private key which leads to two-way function(decryptable)." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://pingrunhuang.github.io/2017/encryption-algorithms/" />
+<meta property="og:url" content="https://pingrunhuang.github.io/2017/encrypting-sensitive-information/" />
 
 
 
@@ -41,10 +37,10 @@ Why it is one way how to use it?" />
 <title>
 
 
-     Encryption algorithms 
+     Encrypting sensitive information 
 
 </title>
-<link rel="canonical" href="https://pingrunhuang.github.io/2017/encryption-algorithms/">
+<link rel="canonical" href="https://pingrunhuang.github.io/2017/encrypting-sensitive-information/">
 
 
 
@@ -62,11 +58,11 @@ Why it is one way how to use it?" />
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-10-06%2012%3a39%3a07.477342332%20%2b0800%20CST%20m%3d%2b0.285742832">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-10-06%2012%3a39%3a07.477342332%20%2b0800%20CST%20m%3d%2b0.285742832">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-10-06%2012%3a39%3a07.477342332%20%2b0800%20CST%20m%3d%2b0.285742832">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-10-09%2011%3a34%3a00.820876782%20%2b0800%20CST%20m%3d%2b0.163505947">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-10-09%2011%3a34%3a00.820876782%20%2b0800%20CST%20m%3d%2b0.163505947">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-10-09%2011%3a34%3a00.820876782%20%2b0800%20CST%20m%3d%2b0.163505947">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-10-06%2012%3a39%3a07.477342332%20%2b0800%20CST%20m%3d%2b0.285742832">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-10-09%2011%3a34%3a00.820876782%20%2b0800%20CST%20m%3d%2b0.163505947">
     
 
 
@@ -125,7 +121,7 @@ Why it is one way how to use it?" />
             <nav>
                 <ul>
                     
-                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/"><span>About</span></a></li>
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume/index.html"><span>About</span></a></li>
                     
                         <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
                     
@@ -156,7 +152,7 @@ Why it is one way how to use it?" />
         
 
         
-            <a href="//linkedin.com/infrank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+            <a href="https://www.linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
         
 
         
@@ -172,7 +168,7 @@ Why it is one way how to use it?" />
         
 
         
-            <a href="https://www.flickr.com/photos/144797601@N05/"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
         
 
         
@@ -191,7 +187,7 @@ Why it is one way how to use it?" />
                 <div class="title-container">
                     <div class="page-heading">
 
-    Encryption algorithms
+    Encrypting sensitive information
 
 </div>
 
@@ -202,28 +198,50 @@ Why it is one way how to use it?" />
                     <div class="date" title='Thu Sep 21 2017 14:06:05 CST'>Sep 21, 2017</div>
                     
                     
-		    <div class="reading-time"><div class="middot"></div>One minute read</div>
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
                     
                 </div>
             </div>
             <div class="markdown">
                 
 
-<p>I recently have to deal with encrypting some sensitive information which lead me to the SHA Algorithms. I figure out SHA is quite an interesting one way hashing algorithms. So I decided to write a post about this algorithms.</p>
+<p>I recently have to deal with encrypting some sensitive information which lead me to get to know the encryption algorithms. However, the goal is to encrypt only part of the information in a manner of no decryption.</p>
 
-<h1 id="different-terminalogy-in-encryption-field">Different terminalogy in encryption field</h1>
+<p>At the mean time, I remember when I was having internet security class back at ESIGELEC during my master degree, my tutor told us that the general way for encryption is using public key and private key which leads to two-way function(decryptable). I also googled to check for one-way function which lead me to SHA-2. It is quite confusing at the beginning since the result of hashing and encrypting is quite the same (which are just some non sense strings).</p>
 
-<p>AES: advanced encryption algorithm
-DES: data encryption algorithm
-blowfish:</p>
+<p>But wait a sec, let me take a note on some terminology.
+&gt; Encryption algorithms:
+    AES: advanced encryption algorithm
+    DES: data encryption algorithm
+    blowfish:
+    RES:
+  Hashing algorithms:
+    SHA
+    MD5
+  digest: the hashed value or the output.
+  Avalanche effect: little changed of the original info will cause great difference on the digest.</p>
+
+<p>I really like this <a href="https://www.quora.com/What-is-the-difference-between-SHA-2-and-AES/answer/Mukesh-Kumar-40?srid=e7q7">explanation</a> from Mukesh Kumar who explained these concepts in a simple way. So basically, SHA has the following features:
+1. given a hashed value, one can not get the original info.(only by brute force search)
+2. should not cause <a href="https://en.wikipedia.org/wiki/Collision_resistance">Collision resistance</a>
+3. same input value should always generate the same digest.</p>
 
 <h1 id="what-is-sha">What is SHA</h1>
 
-<p>SHA stand for sucure hashing algorithm.</p>
+<p>SHA stand for sucure hashing algorithm. The SHA-2 family consists of six hash functions with digests (hash values) that are 224, 256, 384 or 512 bits: SHA-224, SHA-256, SHA-384, SHA-512, SHA-<sup>512</sup>&frasl;<sub>224</sub>, SHA-<sup>512</sup>&frasl;<sub>256</sub>.</p>
 
-<h1 id="why-it-is-one-way">Why it is one way</h1>
+<h1 id="usage-scenario">usage scenario</h1>
 
-<h1 id="how-to-use-it">how to use it?</h1>
+<ol>
+<li>data integrity check-sum</li>
+<li>Password verification</li>
+<li>bitcoin</li>
+</ol>
+
+<h1 id="reference">Reference</h1>
+
+<p><a href="https://en.wikipedia.org/wiki/SHA-2">SHA-2</a>
+<a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function#message_digest">Cryptographic hash function</a></p>
 
                 <br>
 		            <p><a href="https://pingrunhuang.github.io/techblog/">Back to posts</a></p>
