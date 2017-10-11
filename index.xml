@@ -6,10 +6,38 @@
     <description>Recent content on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 06 Oct 2017 01:20:47 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 11 Oct 2017 15:36:45 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>精进，即刻行动之课后作业</title>
+      <link>https://pingrunhuang.github.io/2017/%E7%B2%BE%E8%BF%9B%E5%8D%B3%E5%88%BB%E8%A1%8C%E5%8A%A8%E4%B9%8B%E8%AF%BE%E5%90%8E%E4%BD%9C%E4%B8%9A/</link>
+      <pubDate>Wed, 11 Oct 2017 15:36:45 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/%E7%B2%BE%E8%BF%9B%E5%8D%B3%E5%88%BB%E8%A1%8C%E5%8A%A8%E4%B9%8B%E8%AF%BE%E5%90%8E%E4%BD%9C%E4%B8%9A/</guid>
+      <description> 请回想一下，在你生活中有哪些小时，经常因为你的拖延而给自己带来更大的负担。请在接下来的一个月，坚持立刻完成这几件事。 其实也没有特别拖着的事情，大部分的事情都是未完成而感到焦虑而已，比如搭建博客网站，写技术博客，学习和复习机器学习和统计的知识。
+请在你的工作或者学习中，选择一件较为重要的事情，构建一个你的“最小化可行产品”。 </description>
+    </item>
+    
+    <item>
+      <title>What is bitcoin mining?</title>
+      <link>https://pingrunhuang.github.io/2017/what-is-bitcoin-mining/</link>
+      <pubDate>Wed, 11 Oct 2017 10:15:03 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/what-is-bitcoin-mining/</guid>
+      <description>Bitcoin has been in the field for a while and friends of mine have been talking about bitcoin for a while. I have also read some of the articles talking about bitcoin, the hashing and the trustful features. But to be honest, these concepts still remain a mist for me. I decided to really figure out them in the way that I think and try to explain it as clear as possible.</description>
+    </item>
+    
+    <item>
+      <title>The documentary that I watched recently</title>
+      <link>https://pingrunhuang.github.io/2017/the-documentary-that-i-watched-recently/</link>
+      <pubDate>Mon, 09 Oct 2017 15:34:21 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/the-documentary-that-i-watched-recently/</guid>
+      <description>I spent some time watching documentaries about the great people and significant event happened on the Internet. I found it sometimes more exciting then watching a movie cause you got the change to glance at the great people to see how they think when critical events happened and also how they made decision when confronting with tough call. Here is a list of documentaries that I really recommended and how I thought about them during watching.</description>
+    </item>
     
     <item>
       <title>关于你</title>
@@ -75,7 +103,7 @@
       <pubDate>Sat, 23 Sep 2017 16:05:11 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/2017/bayesian-classifier/</guid>
-      <description>贝叶斯定理的本质是希望基于已经产生的数据，来预测未来在某一种被认定为原因的概率发生的情况下，再次发生这样的结果的概率是多少。这句话挺起来很绕口，贝叶斯公式美妙的地方就在于能把这样的绕口的表述表现成一个公式。 $$P(A|B)\quad =\quad \frac { P(B|A)\times P(A) }{ P(B) }$$
+      <description>贝叶斯定理的本质是希望基于已经产生的数据，来预测未来在某一种被认定为原因的概率发生的情况下，再次发生这样的结果的概率是多少。这句话挺起来很绕口，贝叶斯公式美妙的地方就在于能把这样的绕口的表述表现成一个公式。 &amp;ldquo;&amp;rsquo; $$P(A|B)\quad =\quad \frac { P(B|A)\times P(A) }{ P(B) }$$ &amp;ldquo;&amp;rsquo;
  如何求解后验概率（P(B|A)）？
  常用方法有MCMC(马尔可夫链蒙特卡洛（Markov chain Monte Carlo)). 而MCMC的实现方法也有很多，常见的有MH.
 Naive Bayesian classifier 也叫朴素贝叶斯分类器，是贝叶斯分类器的一个特例。在有n个维度的数据集中（假设为x1, x2, &amp;hellip; xn），前面所说的P(B|A)实际上等于P(x1, x2,&amp;hellip;xn|A)。 当假设每个变量都互相独立的时候即可得P(x1, x2,&amp;hellip;xn|A) = P(x1|A) * P(x2|A) &amp;hellip; P(xn|A)。这就是朴素贝叶斯定理的条件了。
@@ -124,7 +152,9 @@ At the mean time, I remember when I was having internet security class back at E
       <guid>https://pingrunhuang.github.io/2017/dig-into-pca----from-my-point-of-view/</guid>
       <description>This is a topic that I am very interesting about. These concepts are related to a fundamental theory called PCA which is a tool to reduce the dimension of a matrix(dataset)
 矩阵对应一个线性变换是在同一组基下有意义。默认情况下是在标准基下进行变换。
-$$\begin{bmatrix} { a }{ 1,1 } &amp;amp; { a }{ 1,2 } &amp;amp; \dots &amp;amp; { a }{ 1,n } \ \dots &amp;amp; \dots &amp;amp; \dots &amp;amp; \dots \ { a }{ m-1,1 } &amp;amp; { a }{ m-1,2 } &amp;amp; \dots &amp;amp; { a }{ m-1,n } \ { a }{ m,1 } &amp;amp; { a }{ m,2 } &amp;amp; \dots &amp;amp; { a }_{ m,n } \end{bmatrix}$$</description>
+$$ \begin{bmatrix} { a }_{ 1,1 } &amp;amp; { a }_{ 1,2 } &amp;amp; \dots &amp;amp; { a }_{ 1,n } \\
+\dots &amp;amp; \dots &amp;amp; \dots &amp;amp; \dots \\
+{ a }_{ m-1,1 } &amp;amp; { a }_{ m-1,2 } &amp;amp; \dots &amp;amp; { a }_{ m-1,n } \\</description>
     </item>
     
     <item>
@@ -267,6 +297,19 @@ Reference </description>
     </item>
     
     <item>
+      <title>从hexo迁移到hugo</title>
+      <link>https://pingrunhuang.github.io/2017/%E4%BB%8Ehexo%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</link>
+      <pubDate>Sun, 13 Aug 2017 15:10:29 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/%E4%BB%8Ehexo%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</guid>
+      <description>从hexo框架到django框架 作为一个半吊子程序猿，以前的我很喜欢在朋友圈牢骚一些有的没的，装深沉装忧郁，后来发现no one give a shit。然后就转战hexo写博客，一开始谢谢技术博文记录自己的菜鸡成长过程，后来慢慢的竟然也喜欢上这个记录的过程，内容也加入了一下生活琐事和感悟。听说伟大的人都会用写博文来记录生活，这过程也是一个自我反省的过程，相比于朋友圈的琐碎，还有不断步入社会之后朋友过于杂乱，自建博客是一个专属于我的地方。
+那问题是为什么要转成自建博客呢？首先当然是装逼，既然是程序猿就应该有程序猿的态度。开玩笑的，其实最重要的引发点还是博客框架如hexo于我来说像黑盒子，里面太多前段的fancy的东西了，我是一个偏向后端的开发者，对于前段的东西其实不是很熟，以至于有时候标记出错了无法调试，导致整个网站崩溃。我很不喜欢这种黑盒子式的形式。而django作为比较热门的网站框架，更加注重的是后端的逻辑，这是很吸引我的地方。在编写博客的同时了解django的运行机理，何乐而不为呢？而对于前段，我只需要很干净的一个panel就够了，拒绝一切fancy！
+再从django到hugo 再一次打了自己的脸&amp;hellip;
+我不是一个人 庆幸的是，写博客不是我一个人在写，身边一些老铁们也有写博客的习惯，因此偶尔偷偷关注他们写的东西，不管是技术的还是生活的，不评论，但我知道就好了。写博客渐渐成了一种生活习惯，我希望这个地方会是我以后怀念生活的安静圈子。这次的迁移虽然损失了很多以前写的内容，但是也让我看到以前自己真的写了很多没用的技术博文，关于技术还是要认真对待的，每一篇技术博文应该是自己实践或者真正懂了之后觉得应该记下来分享给大家的。
+好了，废话到此，润平，加油！</description>
+    </item>
+    
+    <item>
       <title>Pom configuration in Maven</title>
       <link>https://pingrunhuang.github.io/2017/pom-configuration-in-maven/</link>
       <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
@@ -334,29 +377,6 @@ if w * v + v = 0, then the v is on the decision boundary which is also the hyper
       
       <guid>https://pingrunhuang.github.io/about/resume/</guid>
       <description>Resume        tag below is the skeleton of your website. Your code will add information to each of the sections of the resume below. You can pretty easily figure out what each section will display by looking at the id or at what&#39;s written between the  tags. --    -- Work Experience  Projects  Education  Where I&#39;ve Lived, Worked and Study  Let&#39;s Connect     if(document.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://pingrunhuang.github.io/1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/1/</guid>
-      <description>从hexo框架到django框架 作为一个半吊子程序猿，以前的我很喜欢在朋友圈牢骚一些有的没的，装深沉装忧郁，后来发现no one give a shit。然后就转战hexo写博客，一开始谢谢技术博文记录自己的菜鸡成长过程，后来慢慢的竟然也喜欢上这个记录的过程，内容也加入了一下生活琐事和感悟。听说伟大的人都会用写博文来记录生活，这过程也是一个自我反省的过程，相比于朋友圈的琐碎，还有不断步入社会之后朋友过于杂乱，自建博客是一个专属于我的地方。
-那问题是为什么要转成自建博客呢？首先当然是装逼，既然是程序猿就应该有程序猿的态度。开玩笑的，其实最重要的引发点还是博客框架如hexo于我来说像黑盒子，里面太多前段的fancy的东西了，我是一个偏向后端的开发者，对于前段的东西其实不是很熟，以至于有时候标记出错了无法调试，导致整个网站崩溃。我很不喜欢这种黑盒子式的形式。而django作为比较热门的网站框架，更加注重的是后端的逻辑，这是很吸引我的地方。在编写博客的同时了解django的运行机理，何乐而不为呢？而对于前段，我只需要很干净的一个panel就够了，拒绝一切fancy！
-再从django到hugo 再一次打了自己的脸&amp;hellip;
-我不是一个人 庆幸的是，写博客不是我一个人在写，身边一些老铁们也有写博客的习惯，因此偶尔偷偷关注他们写的东西，不管是技术的还是生活的，不评论，但我知道就好了。写博客渐渐成了一种生活习惯，我希望这个地方会是我以后怀念生活的安静圈子。这次的迁移虽然损失了很多以前写的内容，但是也让我看到以前自己真的写了很多没用的技术博文，关于技术还是要认真对待的，每一篇技术博文应该是自己实践或者真正懂了之后觉得应该记下来分享给大家的。
-好了，废话到此，润平，加油！</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://pingrunhuang.github.io/1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/1/</guid>
-      <description> 请回想一下，在你生活中有哪些小时，经常因为你的拖延而给自己带来更大的负担。请在接下来的一个月，坚持立刻完成这几件事。 其实也没有特别拖着的事情，大部分的事情都是未完成而感到焦虑而已，比如搭建博客网站，写技术博客，学习和复习机器学习和统计的知识。
-请在你的工作或者学习中，选择一件较为重要的事情，构建一个你的“最小化可行产品”。 </description>
     </item>
     
   </channel>

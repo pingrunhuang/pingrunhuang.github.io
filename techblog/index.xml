@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>What is bitcoin mining?</title>
+      <link>https://pingrunhuang.github.io/2017/what-is-bitcoin-mining/</link>
+      <pubDate>Wed, 11 Oct 2017 10:15:03 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/what-is-bitcoin-mining/</guid>
+      <description>Bitcoin has been in the field for a while and friends of mine have been talking about bitcoin for a while. I have also read some of the articles talking about bitcoin, the hashing and the trustful features. But to be honest, these concepts still remain a mist for me. I decided to really figure out them in the way that I think and try to explain it as clear as possible.</description>
+    </item>
+    
+    <item>
       <title>Learning awk and sed</title>
       <link>https://pingrunhuang.github.io/2017/learning-awk-and-sed/</link>
       <pubDate>Fri, 06 Oct 2017 01:10:18 +0800</pubDate>
@@ -39,7 +48,7 @@
       <pubDate>Sat, 23 Sep 2017 16:05:11 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/2017/bayesian-classifier/</guid>
-      <description>贝叶斯定理的本质是希望基于已经产生的数据，来预测未来在某一种被认定为原因的概率发生的情况下，再次发生这样的结果的概率是多少。这句话挺起来很绕口，贝叶斯公式美妙的地方就在于能把这样的绕口的表述表现成一个公式。 $$P(A|B)\quad =\quad \frac { P(B|A)\times P(A) }{ P(B) }$$
+      <description>贝叶斯定理的本质是希望基于已经产生的数据，来预测未来在某一种被认定为原因的概率发生的情况下，再次发生这样的结果的概率是多少。这句话挺起来很绕口，贝叶斯公式美妙的地方就在于能把这样的绕口的表述表现成一个公式。 &amp;ldquo;&amp;rsquo; $$P(A|B)\quad =\quad \frac { P(B|A)\times P(A) }{ P(B) }$$ &amp;ldquo;&amp;rsquo;
  如何求解后验概率（P(B|A)）？
  常用方法有MCMC(马尔可夫链蒙特卡洛（Markov chain Monte Carlo)). 而MCMC的实现方法也有很多，常见的有MH.
 Naive Bayesian classifier 也叫朴素贝叶斯分类器，是贝叶斯分类器的一个特例。在有n个维度的数据集中（假设为x1, x2, &amp;hellip; xn），前面所说的P(B|A)实际上等于P(x1, x2,&amp;hellip;xn|A)。 当假设每个变量都互相独立的时候即可得P(x1, x2,&amp;hellip;xn|A) = P(x1|A) * P(x2|A) &amp;hellip; P(xn|A)。这就是朴素贝叶斯定理的条件了。
@@ -74,7 +83,9 @@ At the mean time, I remember when I was having internet security class back at E
       <guid>https://pingrunhuang.github.io/2017/dig-into-pca----from-my-point-of-view/</guid>
       <description>This is a topic that I am very interesting about. These concepts are related to a fundamental theory called PCA which is a tool to reduce the dimension of a matrix(dataset)
 矩阵对应一个线性变换是在同一组基下有意义。默认情况下是在标准基下进行变换。
-$$\begin{bmatrix} { a }{ 1,1 } &amp;amp; { a }{ 1,2 } &amp;amp; \dots &amp;amp; { a }{ 1,n } \ \dots &amp;amp; \dots &amp;amp; \dots &amp;amp; \dots \ { a }{ m-1,1 } &amp;amp; { a }{ m-1,2 } &amp;amp; \dots &amp;amp; { a }{ m-1,n } \ { a }{ m,1 } &amp;amp; { a }{ m,2 } &amp;amp; \dots &amp;amp; { a }_{ m,n } \end{bmatrix}$$</description>
+$$ \begin{bmatrix} { a }_{ 1,1 } &amp;amp; { a }_{ 1,2 } &amp;amp; \dots &amp;amp; { a }_{ 1,n } \\
+\dots &amp;amp; \dots &amp;amp; \dots &amp;amp; \dots \\
+{ a }_{ m-1,1 } &amp;amp; { a }_{ m-1,2 } &amp;amp; \dots &amp;amp; { a }_{ m-1,n } \\</description>
     </item>
     
     <item>
