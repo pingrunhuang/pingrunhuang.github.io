@@ -57,11 +57,11 @@
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-10-11%2015%3a39%3a34.660907046%20%2b0800%20CST%20m%3d%2b0.205640119">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-10-11%2015%3a39%3a34.660907046%20%2b0800%20CST%20m%3d%2b0.205640119">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-10-11%2015%3a39%3a34.660907046%20%2b0800%20CST%20m%3d%2b0.205640119">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-10-11%2018%3a45%3a37.773487722%20%2b0800%20CST%20m%3d%2b0.437613054">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-10-11%2018%3a45%3a37.773487722%20%2b0800%20CST%20m%3d%2b0.437613054">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-10-11%2018%3a45%3a37.773487722%20%2b0800%20CST%20m%3d%2b0.437613054">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-10-11%2015%3a39%3a34.660907046%20%2b0800%20CST%20m%3d%2b0.205640119">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-10-11%2018%3a45%3a37.773487722%20%2b0800%20CST%20m%3d%2b0.437613054">
     
 
 
@@ -74,6 +74,11 @@
 >
 
 
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
 
 </head>
@@ -120,7 +125,7 @@
             <nav>
                 <ul>
                     
-                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume/index.html"><span>About</span></a></li>
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
                     
                         <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
                     
@@ -151,7 +156,7 @@
         
 
         
-            <a href="https://www.linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+            <a href="//linkedin.com/infrank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
         
 
         
@@ -217,29 +222,22 @@ This case, django will serve both page with the same static file from the first 
 		            <p><a href="https://pingrunhuang.github.io/techblog/">Back to posts</a></p>
             </div>
             <br>
-            <div class="disqus">
-                <div id="disqus_thread"></div>
-<script>
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "my_blog" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
 
+            <div id="gitalk-container"></div>
+            
+              <script type="text/javascript">
+                const gitalk = new Gitalk({
+                    clientID: '9811070b5fd301811463',
+                    clientSecret: '0cb8860aaa08afac361004fab4dbc3dbe90ef5a2',
+                    repo: 'pingrunhuang.github.io',
+                    owner: 'pingrunhuang',
+                    admin: ['pingrunhuang'],
+                    
+                    distractionFreeMode: true
+                  })
+                  gitalk.render('gitalk-container')
+              </script>
+            
         </div>
     </div>
 </section>
