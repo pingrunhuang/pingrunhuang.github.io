@@ -3,12 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://pingrunhuang.github.io/2017/first-time-assembling-a-customized-desktop/</loc>
+    <lastmod>2017-10-15T16:24:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/blog/2017-10-13/</loc>
+    <lastmod>2017-10-13T11:27:52+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pingrunhuang.github.io/2017/%E7%B2%BE%E8%BF%9B%E5%8D%B3%E5%88%BB%E8%A1%8C%E5%8A%A8%E4%B9%8B%E8%AF%BE%E5%90%8E%E4%BD%9C%E4%B8%9A/</loc>
     <lastmod>2017-10-11T15:36:45+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/what-is-bitcoin-mining/</loc>
+    <loc>https://pingrunhuang.github.io/blog/2017-10-11/</loc>
     <lastmod>2017-10-11T10:15:03+08:00</lastmod>
   </url>
   
@@ -23,7 +33,7 @@
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/learning-awk-and-sed/</loc>
+    <loc>https://pingrunhuang.github.io/blog/2017-10-06/</loc>
     <lastmod>2017-10-06T01:10:18+08:00</lastmod>
   </url>
   
@@ -38,12 +48,12 @@
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/tcp-connection-and-disconnection/</loc>
+    <loc>https://pingrunhuang.github.io/blog/2017-09-24/</loc>
     <lastmod>2017-09-24T10:22:56+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/bayesian-classifier/</loc>
+    <loc>https://pingrunhuang.github.io/blog/2017-09-23/</loc>
     <lastmod>2017-09-23T16:05:11+08:00</lastmod>
   </url>
   
@@ -53,22 +63,22 @@
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/encrypting-sensitive-information/</loc>
+    <loc>https://pingrunhuang.github.io/blog/2017-09-21/</loc>
     <lastmod>2017-09-21T14:06:05+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/differences-among-tuple-list-and-set-in-python/</loc>
+    <loc>https://pingrunhuang.github.io/blog/2017-09-19/</loc>
     <lastmod>2017-09-19T09:54:03+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/dig-into-pca----from-my-point-of-view/</loc>
+    <loc>https://pingrunhuang.github.io/blog/2017-09-17/</loc>
     <lastmod>2017-09-17T23:51:50+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/git-rebasing/</loc>
+    <loc>https://pingrunhuang.github.io/blog/git-rebasing/</loc>
     <lastmod>2017-09-15T00:00:55+08:00</lastmod>
   </url>
   
@@ -78,7 +88,7 @@
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/techblog/</loc>
+    <loc>https://pingrunhuang.github.io/blog/</loc>
     <lastmod>2017-09-13T06:42:21-07:00</lastmod>
   </url>
   
@@ -93,17 +103,17 @@
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/markdown-note/</loc>
+    <loc>https://pingrunhuang.github.io/blog/markdown-note/</loc>
     <lastmod>2017-09-13T11:40:40+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/migration/</loc>
+    <loc>https://pingrunhuang.github.io/blog/migration/</loc>
     <lastmod>2017-09-13T11:27:27+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/learn-pandas/</loc>
+    <loc>https://pingrunhuang.github.io/blog/learn_pandas/</loc>
     <lastmod>2017-09-13T11:22:07+08:00</lastmod>
   </url>
   
@@ -123,7 +133,7 @@
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/pom-configuration-in-maven/</loc>
+    <loc>https://pingrunhuang.github.io/blog/maven_configuration_lookup/</loc>
     <lastmod>2017-09-01T04:05:25-06:00</lastmod>
   </url>
   
@@ -133,22 +143,22 @@
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/pom-configuration-in-maven/</loc>
+    <loc>https://pingrunhuang.github.io/blog/django_issues/</loc>
     <lastmod>2017-08-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/support-vector-machine/</loc>
+    <loc>https://pingrunhuang.github.io/blog/support_vector_machine/</loc>
     <lastmod>2017-06-20T04:05:25-06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2017/using-bitmap/</loc>
+    <loc>https://pingrunhuang.github.io/blog/using_bitmap_storing_query_data/</loc>
     <lastmod>2017-05-22T04:05:25-06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2015/hbase-design/</loc>
+    <loc>https://pingrunhuang.github.io/blog/hbase_design/</loc>
     <lastmod>2015-12-21T04:05:25-06:00</lastmod>
   </url>
   
@@ -187,7 +197,7 @@
   
   <url>
     <loc>https://pingrunhuang.github.io/</loc>
-    <lastmod>2017-10-11T15:36:45+08:00</lastmod>
+    <lastmod>2017-10-15T16:24:15+08:00</lastmod>
     <priority>0</priority>
   </url>
   
