@@ -12,6 +12,37 @@
     
     
     <item>
+      <title>Assemble a data analysis platform -- Bazooka</title>
+      <link>https://pingrunhuang.github.io/blog/2017-10-29/</link>
+      <pubDate>Sun, 29 Oct 2017 17:05:56 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-10-29/</guid>
+      <description>Never settle &amp;mdash;- One plus
+ I&amp;rsquo;ve always wanted to have a super monster platform rather then 4 core, integrated graphics card, windows os etc. But due to the high budget, I chose to just stick with my little mac air which is obvious not an option for building big application. Finally, after my first project of re-decorating my apartment, I launch my second project called Bazooka which is the mother board of my so called monster desktop(In my opinion).</description>
+    </item>
+    
+    <item>
+      <title>Proxies in Java</title>
+      <link>https://pingrunhuang.github.io/blog/2017-10-26/</link>
+      <pubDate>Thu, 26 Oct 2017 17:52:13 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-10-26/</guid>
+      <description>Proxy your call to someone else, save you some more time
+ I recently read a great slides talking about Proxy pattern in Java which has confused me for a long time. I&amp;rsquo;ve always consider it as something like the delegator pattern which is like adding a new layer for a specified class so that clients can do more other things when calling it.
+It turns out that there could be more to do with java dynamic proxy.</description>
+    </item>
+    
+    <item>
+      <title>Some thought about choosing a framework</title>
+      <link>https://pingrunhuang.github.io/blog/2017-10-19/</link>
+      <pubDate>Thu, 19 Oct 2017 15:43:15 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-10-19/</guid>
+      <description> Find out why companies like Google, MSN, and Vevo use Angular. Or why companies like Sony, Reddit, and Pinterest use Backbone. Or why companies like Netflix, Yahoo, and LinkedIn use Ember. &amp;ndash; Zack Argyle
+ </description>
+    </item>
+    
+    <item>
       <title>SQL B-tree index</title>
       <link>https://pingrunhuang.github.io/blog/2017-10-13/</link>
       <pubDate>Fri, 13 Oct 2017 11:27:52 +0800</pubDate>

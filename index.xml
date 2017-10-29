@@ -6,10 +6,50 @@
     <description>Recent content on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 15 Oct 2017 16:24:15 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Oct 2017 17:05:56 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Assemble a data analysis platform -- Bazooka</title>
+      <link>https://pingrunhuang.github.io/blog/2017-10-29/</link>
+      <pubDate>Sun, 29 Oct 2017 17:05:56 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-10-29/</guid>
+      <description>Never settle &amp;mdash;- One plus
+ I&amp;rsquo;ve always wanted to have a super monster platform rather then 4 core, integrated graphics card, windows os etc. But due to the high budget, I chose to just stick with my little mac air which is obvious not an option for building big application. Finally, after my first project of re-decorating my apartment, I launch my second project called Bazooka which is the mother board of my so called monster desktop(In my opinion).</description>
+    </item>
+    
+    <item>
+      <title>Proxies in Java</title>
+      <link>https://pingrunhuang.github.io/blog/2017-10-26/</link>
+      <pubDate>Thu, 26 Oct 2017 17:52:13 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-10-26/</guid>
+      <description>Proxy your call to someone else, save you some more time
+ I recently read a great slides talking about Proxy pattern in Java which has confused me for a long time. I&amp;rsquo;ve always consider it as something like the delegator pattern which is like adding a new layer for a specified class so that clients can do more other things when calling it.
+It turns out that there could be more to do with java dynamic proxy.</description>
+    </item>
+    
+    <item>
+      <title>Some thought about choosing a framework</title>
+      <link>https://pingrunhuang.github.io/blog/2017-10-19/</link>
+      <pubDate>Thu, 19 Oct 2017 15:43:15 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-10-19/</guid>
+      <description> Find out why companies like Google, MSN, and Vevo use Angular. Or why companies like Sony, Reddit, and Pinterest use Backbone. Or why companies like Netflix, Yahoo, and LinkedIn use Ember. &amp;ndash; Zack Argyle
+ </description>
+    </item>
+    
+    <item>
+      <title>To be a interesting man!</title>
+      <link>https://pingrunhuang.github.io/2017/to-be-a-interesting-man/</link>
+      <pubDate>Wed, 18 Oct 2017 12:21:48 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/to-be-a-interesting-man/</guid>
+      <description>前两天买了滑板，</description>
+    </item>
     
     <item>
       <title>First time assembling a customized desktop!</title>
