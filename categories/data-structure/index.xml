@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Structure on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/data-structure/</link>
+    <description>Recent content in Data Structure on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 13 Oct 2017 11:27:52 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/data-structure/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SQL B-tree index</title>
+      <link>https://pingrunhuang.github.io/blog/2017-10-13/</link>
+      <pubDate>Fri, 13 Oct 2017 11:27:52 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-10-13/</guid>
+      <description> This is my next topic </description>
+    </item>
+    
+    <item>
+      <title>Using bitmap</title>
+      <link>https://pingrunhuang.github.io/blog/using_bitmap_storing_query_data/</link>
+      <pubDate>Mon, 22 May 2017 04:05:25 -0600</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/using_bitmap_storing_query_data/</guid>
+      <description>Manipulating big data like 1 billion (1 billion == 1,000,000,000 == “十亿”, 1 million == 1,000,000 == “百万” which I always forget how to transform back and forth) , is quite memory consuming if we just use an array for storing it. We can either divide the file into smaller file and process them accordingly (ideas like map reduce, will talk about it later in another post) or use ‘bitmap’ and ‘hashmap’.</description>
+    </item>
+    
+  </channel>
+</rss>

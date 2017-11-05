@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computer Science on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/computer-science/</link>
+    <description>Recent content in Computer Science on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 02 Nov 2017 14:22:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Learning concurrency programing with Java -- Snapshot 1.0</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-02/</link>
+      <pubDate>Thu, 02 Nov 2017 14:22:09 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-02/</guid>
+      <description>Reentrancy Each object has an intrinsic lock which when one thread is holding it, other thread could not request it. But reentrancy make the lock held by the thread itself be able to acquire it again.
+How does it work Each object holding a intrinsic lock will hold a count to the acquisition of that lock and the owning of the thread. Every reentrancy will cause the the count increment 1.</description>
+    </item>
+    
+    <item>
+      <title>Differences among tuple, list and set in python?</title>
+      <link>https://pingrunhuang.github.io/blog/2017-09-19/</link>
+      <pubDate>Tue, 19 Sep 2017 09:54:03 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-09-19/</guid>
+      <description>Basic comparison  list: ordered, mutable, duplicable set: set([1, 2, 3, 4]), not duplicable, not ordered
+# set&#39;s operation a = set([1, 2, 3]) b = set([2, 3, 4]) a.intersection(b) # equivalent to c = a &amp;amp; b, return set([2,3]) c.issubset(a) # return true, equivalent to c &amp;lt;= a c.issuperset(a) # return false, equivalent to c &amp;gt;= a a.difference(b) # return set([1]), equivalent to a-b a.symmetric_difference(b) # return set([1,4]), equivalent to a ^ b  tuple: immutable, ordered, duplicable</description>
+    </item>
+    
+  </channel>
+</rss>

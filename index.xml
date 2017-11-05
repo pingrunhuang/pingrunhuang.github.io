@@ -6,10 +6,44 @@
     <description>Recent content on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 29 Oct 2017 17:05:56 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Nov 2017 20:39:51 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>数据加密</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-05/</link>
+      <pubDate>Sun, 05 Nov 2017 20:39:51 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-05/</guid>
+      <description>As data grow, data encryption become a hot topic to protect our data from disclose. You don&amp;rsquo;t necessarily need to know how exactly it works, but you have to know what it is at least. That is what I&amp;rsquo;m trying to do in this post.
+ 读硕士的时候也有讲过加密的东西，但是当时也是模棱两可的知道有这么回事。直到最近因为项目的需要还有看了一部叫做citizen four的纪录片（讲述男神edward snowden揭露美国通过“棱镜计划”对人民进行监视的行为）有感而发，数据的保密无疑对于个人隐私来说是很重要的，但是随着学习的深入你会发现，加密算法种类真的很多甚至所有的名次加在一次甚至会很乱，于是我想写一篇博客总结一下这段时间的学习，也借此机会普及一下加密的知识和应用，如有不妥，忘指正。
+加密算法(Encryption) 首先加密算法分成对称（sync）的和非对称（async）两种的。他们的区别就在于公钥和私钥是否相同，公私钥相同的称为对称加密，公私钥不同的称为非对称加密。那什么是公钥什么是私钥呢？在密码学中，有个规定是算法应该是被允许公开的，那要怎么保证在别人得知加密算法后仍然能够取得保密效果呢？于是历史上的大神们就提出先由发送者生成一对公私钥，这对公私钥可以互相解开经过对方加密的内容（这里可能不太妥，希望得到指正）。公钥顾名思义是公开给public的，私钥则是由消息发送方生成的。在希望建立ssh连接的两台机器之间可以用ssh-genkey进行密码对的生成，你可以打开~/.ssh/id_rsa文件查看生成的公司钥信息，这个也是搭建hadoop集群必须执行的步骤来确保集群之间的通信。这里先不做具体实现的部分，等以后有时间再把加密的算法实现写在我的gist里面。 哪些对称加密算法：DES, 3DES, blowfish 哪些非对称加密算法： RSA， SM2（中国国家密码局专利，在商用密码机中比较常用，貌似银行也是大多用这个）
+哈希算法(Hash) 哈希算法的目标是为了将任意长度的文本内容生成固定长度（具体长度因应该是因算法而异的）的不可逆的值。种类包含：MD4, MD5和SHA* 等。
+应用  文件校验(checksum)：由于哈希算法生成的字符串具有稍微修改哪怕一位数字都会造成哈希结果的明显差异，因此在文件传输过程中，利用文件中自带的哈希值，和用原文进行哈希生成的新的哈希值进行比对，如果两者相同，则传输的结果文件被认为未被改动，从而保证完整性(integrity)。 数字签名(digital signature)：对与一些大content的东西或者一些特殊信息进行传输的过程中，如何保证发送过来的数据真的是你所认为的发送者发送的呢？这个时候可以让发送者先用私钥钥对原文本哈希过的值进行加密，加密的值append到内容末尾作为签名。客户端再用公钥解密数字签名，并且对content的东西进行哈希，二者进行比对，如果一致则可确认发送者的身份。这其中可能会有公钥被换的情况，这时候就需要certificate authenticator（ca）生成digital certificate 来做认证。这里我只是简要的说一下我的理解，具体还要看阮大神的生动讲解。https也用到了这里的知识。 bit coin 也用到了哈希的办法，挖矿的实质就是对哈希值进行暴力反解，这里可以看我的另外一篇博客What is bitcoin mining &amp;hellip;&amp;hellip;  Summary 密码学是一个博大精深的数学分支，其中涉及到很多的证明，我们这里知识简单介绍并且直接拿结论过来用，如果想知道具体怎么操作，可以找相关的论文进行查询。在商用领域一般会采购加密机进行加密的操作，关于加密机的东西我最近也还在测试，主要也是发送指令，返回加密结果，不同在于加密机相当于一个全职的用于加密的服务器(dedicated to encryption 很是敬业)。不同加密机工作原理或者api可能不一样，但是基本方式也是输入ip和指令，得到结果的过程。</description>
+    </item>
+    
+    <item>
+      <title>可能是最后一次去广州了</title>
+      <link>https://pingrunhuang.github.io/2017/%E5%8F%AF%E8%83%BD%E6%98%AF%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E5%8E%BB%E5%B9%BF%E5%B7%9E%E4%BA%86/</link>
+      <pubDate>Sun, 05 Nov 2017 16:24:47 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/%E5%8F%AF%E8%83%BD%E6%98%AF%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E5%8E%BB%E5%B9%BF%E5%B7%9E%E4%BA%86/</guid>
+      <description>这周末因为GDG在广州举办了一个论坛，刚好去参加，也借此机会跟大学老朋友聚一聚。 一大早其实就已经不是很顺利的了，因为想拍一些vlog而错过了预定的高铁。然后又因为没注意到列车号而差点又错过了改签的高铁。幸好最终还是有惊无险的到达广州南站。一到广州南站，很多回忆就像浪涌一样一拥而上，占据了我脑海的高地。 赶到会场，论坛讲的东西是关于人工智能的，内容一般，主要是对tensorflow还不是很熟悉，听完了早上就没打算继续往下听了。 『图片』 到了晚上，约上两个大学同学，一起吃个饭聊聊近况，然后三个人跑去酒吧街喝点小酒继续扯淡。两杯小酒下肚，大家就开始聊感情的事啦。谈话间得知前女友在跟我分手后大约半年的时间终于开始了新的恋情。当得知这个消息，我是强忍着内心的波澜的，闷酒一直喝，脑里面回忆起很多以前在一起的美好画面，心里却如刀绞。虽然说分手这么长时间了，大家该干嘛干嘛，各不相干了，但是这样的消息一举把我之前的幻想打破了。
+也因为这件事，和在这里发生的一切事情，让我对广州这座城市有一种莫名的讨厌，好像这里的东西都还是那时候发生的事情的美好陪衬，陪我等过的大巴，陪你逛过的CBD，陪你走过的路，我没法忘记，但事实却强迫你去忘记，那我只好选择逃避了，不去触碰也许就是最好的解药了。就像狗狗说的，当初在一起很多的巧合都让你觉得两个人是命中注定的，怎么突然就什么都没有了呢？所以那么多的巧合又能怎么样呢？最后不还是各自走上自己的道路，也许所有的巧合也只是为了让这个故事显得更加的悲伤罢了。所以说，认真你就输了。
+广州，你是一座城，于我，你更加代表一个人，一段不愿再去回首的回忆。再见，再也不见吧。</description>
+    </item>
+    
+    <item>
+      <title>Learning concurrency programing with Java -- Snapshot 1.0</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-02/</link>
+      <pubDate>Thu, 02 Nov 2017 14:22:09 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-02/</guid>
+      <description>Reentrancy Each object has an intrinsic lock which when one thread is holding it, other thread could not request it. But reentrancy make the lock held by the thread itself be able to acquire it again.
+How does it work Each object holding a intrinsic lock will hold a count to the acquisition of that lock and the owning of the thread. Every reentrancy will cause the the count increment 1.</description>
+    </item>
     
     <item>
       <title>Assemble a data analysis platform -- Bazooka</title>
@@ -22,12 +56,12 @@
     </item>
     
     <item>
-      <title>Proxies in Java</title>
+      <title>Dynamic proxy in Java</title>
       <link>https://pingrunhuang.github.io/blog/2017-10-26/</link>
       <pubDate>Thu, 26 Oct 2017 17:52:13 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-10-26/</guid>
-      <description>Proxy your call to someone else, save you some more time
+      <description>Proxy your call to the professional, save you some more time
  I recently read a great slides talking about Proxy pattern in Java which has confused me for a long time. I&amp;rsquo;ve always consider it as something like the delegator pattern which is like adding a new layer for a specified class so that clients can do more other things when calling it.
 It turns out that there could be more to do with java dynamic proxy.</description>
     </item>
@@ -369,7 +403,7 @@ Reference </description>
     </item>
     
     <item>
-      <title>Pom configuration in Maven</title>
+      <title>Django issues</title>
       <link>https://pingrunhuang.github.io/blog/django_issues/</link>
       <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
       

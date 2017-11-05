@@ -2,7 +2,6 @@
 <html lang="en-US">
 
 <head>
-	<meta name="generator" content="Hugo 0.27" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta name="HandheldFriendly" content="True">
@@ -10,16 +9,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
-<meta name="description" content="I learn things slow, but I keep learning">
+<meta name="description" content="Reentrancy Each object has an intrinsic lock which when one thread is holding it, other thread could not request it. But reentrancy make the lock held by the thread itself be able to acquire it again.
+How does it work Each object holding a intrinsic lock will hold a count to the acquisition of that lock and the owning of the thread. Every reentrancy will cause the the count increment 1.">
 
-<meta property="og:title" content="Frank Huang" />
-<meta property="og:description" content="I learn things slow, but I keep learning" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://pingrunhuang.github.io/" />
+<meta property="og:title" content="Learning concurrency programing with Java -- Snapshot 1.0" />
+<meta property="og:description" content="Reentrancy Each object has an intrinsic lock which when one thread is holding it, other thread could not request it. But reentrancy make the lock held by the thread itself be able to acquire it again.
+How does it work Each object holding a intrinsic lock will hold a count to the acquisition of that lock and the owning of the thread. Every reentrancy will cause the the count increment 1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-11-02/" />
 
 
 
-<meta property="og:updated_time" content="2017-11-05T20:39:51&#43;08:00"/>
+<meta property="article:published_time" content="2017-11-02T14:22:09&#43;08:00"/>
+<meta property="article:modified_time" content="2017-11-02T14:22:09&#43;08:00"/>
+
 
 
 
@@ -34,10 +37,10 @@
 <title>
 
 
-     Frank Huang 
+     Learning concurrency programing with Java -- Snapshot 1.0 
 
 </title>
-<link rel="canonical" href="https://pingrunhuang.github.io/">
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2017-11-02/">
 
 
 
@@ -54,11 +57,11 @@
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-11-05%2023%3a23%3a22.94938846%20%2b0800%20CST%20m%3d%2b0.228948310">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-11-05%2023%3a23%3a22.94938846%20%2b0800%20CST%20m%3d%2b0.228948310">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-11-05%2023%3a23%3a22.94938846%20%2b0800%20CST%20m%3d%2b0.228948310">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-11-05%2023%3a25%3a38.077167624%20%2b0800%20CST%20m%3d%2b0.212713059">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-11-05%2023%3a25%3a38.077167624%20%2b0800%20CST%20m%3d%2b0.212713059">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-11-05%2023%3a25%3a38.077167624%20%2b0800%20CST%20m%3d%2b0.212713059">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-11-05%2023%3a23%3a22.94938846%20%2b0800%20CST%20m%3d%2b0.228948310">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-11-05%2023%3a25%3a38.077167624%20%2b0800%20CST%20m%3d%2b0.212713059">
     
 
 
@@ -71,8 +74,6 @@
 >
 
 
-
-  <link href="https://pingrunhuang.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Frank Huang" />
 
 
 
@@ -182,64 +183,88 @@
     </div>
 </section>
 
-<section class="main">
+
+<section class="main post non-narrow zero-top-spacing">
     <div class="container">
         <div class="content">
-            
-            
-            
-            
-              <div class="page-heading">Latest Posts</div>
-                <ul>
-                    
-                        <li class="post-item">
-    
-    <span class="meta"><time datetime='2017-11-05T20:39:51&#43;08:00'>Nov 5, 2017</time></span>
-    
-    <a href="https://pingrunhuang.github.io/blog/2017-11-05/"><span>数据加密</span></a>
-</li>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
 
-                    
-                        <li class="post-item">
-    
-    <span class="meta"><time datetime='2017-11-02T14:22:09&#43;08:00'>Nov 2, 2017</time></span>
-    
-    <a href="https://pingrunhuang.github.io/blog/2017-11-02/"><span>Learning concurrency programing with Java -- Snapshot 1.0</span></a>
-</li>
+    Learning concurrency programing with Java -- Snapshot 1.0
 
-                    
-                        <li class="post-item">
-    
-    <span class="meta"><time datetime='2017-10-29T17:05:56&#43;08:00'>Oct 29, 2017</time></span>
-    
-    <a href="https://pingrunhuang.github.io/blog/2017-10-29/"><span>Assemble a data analysis platform -- Bazooka</span></a>
-</li>
+</div>
 
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
                     
-                        <li class="post-item">
-    
-    <span class="meta"><time datetime='2017-10-26T17:52:13&#43;08:00'>Oct 26, 2017</time></span>
-    
-    <a href="https://pingrunhuang.github.io/blog/2017-10-26/"><span>Dynamic proxy in Java</span></a>
-</li>
+                    <div class="date" title='Thu Nov 2 2017 14:22:09 CST'>Nov 2, 2017</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>One minute read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
 
-                    
-                        <li class="post-item">
-    
-    <span class="meta"><time datetime='2017-10-19T15:43:15&#43;08:00'>Oct 19, 2017</time></span>
-    
-    <a href="https://pingrunhuang.github.io/blog/2017-10-19/"><span>Some thought about choosing a framework</span></a>
-</li>
+<h1 id="reentrancy">Reentrancy</h1>
 
-                    
-                    
-                        
-                    
-                </ul>
-              </div>
+<p>Each object has an intrinsic lock which when one thread is holding it, other thread could not request it. But reentrancy make the lock held by
+the thread itself be able to acquire it again.</p>
+
+<h3 id="how-does-it-work">How does it work</h3>
+
+<p>Each object holding a intrinsic lock will hold a count to the acquisition of that lock and the owning of the thread. Every reentrancy will cause the
+the count increment 1. Each exit for a thread on that <code>synchronized</code> block will cause the count decrement by 1.</p>
+
+<h3 id="why-do-we-need-reentrancy">Why do we need reentrancy</h3>
+
+<p>Consider the following code</p>
+
+<pre><code>public class parent{
+    public synchronized void doSomething(){
+
+    }
+}
+
+public class child extends parent{
+    public synchronized void doSomething(){
+        super.doSomething();
+    }
+}
+</code></pre>
+
+<p>Without reentrancy, each call to the child&rsquo;s <code>doSomething()</code> will called the parent&rsquo;s <code>doSomething()</code> which will be considered as being held already.
+So this case will lead to dead lock.</p>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+
             
+
+            
+            <div id="gitalk-container"></div>
+              <script type="text/javascript">
+                const gitalk = new Gitalk({
+                    clientID: "9811070b5fd301811463",
+                    clientSecret: "0cb8860aaa08afac361004fab4dbc3dbe90ef5a2",
+                    repo: "pingrunhuang.github.io",
+                    owner: "pingrunhuang",
+                    admin: ["pingrunhuang"],
+                    
+                    distractionFreeMode: true
+                  })
+                  gitalk.render('gitalk-container')
+              </script>
+            
+        </div>
     </div>
 </section>
+
 
 
 <script>

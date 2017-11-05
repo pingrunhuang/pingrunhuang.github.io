@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/network/</link>
+    <description>Recent content in Network on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 24 Sep 2017 10:22:56 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/network/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TCP connection and disconnection</title>
+      <link>https://pingrunhuang.github.io/blog/2017-09-24/</link>
+      <pubDate>Sun, 24 Sep 2017 10:22:56 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-09-24/</guid>
+      <description>TCP建立连接和断开链接一直是个让我很费解的问题，为什么要三番四次的来回折腾呢？于是我决定用形象的说法来讲一下我的理解。
+为什么需要三次建立连接 如果采用两次握手的话，打个比方，去饭店吃饭，人太多了要拿号，拿号的动作(SYN_SEND)相当于第一次握手，店家给号的动作(SYN_RECV)相当于第二次握手，如果这样就结束了，那店家作为服务方就会跟你建立连接，也就是保证把位置给你，直到你要结束消费，但是很多情况是我们拿了号之后有可能觉得要等太久了，想换一家吃饭，结果就跑了，这样店家就会一直等我们，导致台位浪费，所以需要额外增加第三次的握手，也就是叫号的动作(ESTABLISHED)。
+为什么分手还要四次啊 还是拿饭馆的例子说事，断开连接的过程实际上相当于我们入店消费完成以后要结账的过程。首先我们(client)跟服务员(server)招手，告诉他们我们需要结账(FIN_WAIT1)， 服务员看到后点头示意他们知道了(CLOSE_WAIT)，我们等服务员过来(FIN_WAIT2)，服务员过来以后，再次确认菜都上齐了并且告诉我们最后价格(LAST_ACK)，我们看了一下单子确认价格正确之后付款，然后我们进入(TIME_WAIT)，等待服务员确认收款，最后我们就可以愉快的走人啦。</description>
+    </item>
+    
+  </channel>
+</rss>
