@@ -9,12 +9,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
-<meta name="description" content="Proxy your call to someone else, save you some more time
+<meta name="description" content="Proxy your call to the professional, save you some more time
  I recently read a great slides talking about Proxy pattern in Java which has confused me for a long time. I&rsquo;ve always consider it as something like the delegator pattern which is like adding a new layer for a specified class so that clients can do more other things when calling it.
 It turns out that there could be more to do with java dynamic proxy.">
 
-<meta property="og:title" content="Proxies in Java" />
-<meta property="og:description" content="Proxy your call to someone else, save you some more time
+<meta property="og:title" content="Dynamic proxy in Java" />
+<meta property="og:description" content="Proxy your call to the professional, save you some more time
  I recently read a great slides talking about Proxy pattern in Java which has confused me for a long time. I&rsquo;ve always consider it as something like the delegator pattern which is like adding a new layer for a specified class so that clients can do more other things when calling it.
 It turns out that there could be more to do with java dynamic proxy." />
 <meta property="og:type" content="article" />
@@ -39,7 +39,7 @@ It turns out that there could be more to do with java dynamic proxy." />
 <title>
 
 
-     Proxies in Java 
+     Dynamic proxy in Java 
 
 </title>
 <link rel="canonical" href="https://pingrunhuang.github.io/blog/2017-10-26/">
@@ -59,11 +59,11 @@ It turns out that there could be more to do with java dynamic proxy." />
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-10-29%2023%3a46%3a16.521655009%20%2b0800%20CST%20m%3d%2b0.656629922">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-10-29%2023%3a46%3a16.521655009%20%2b0800%20CST%20m%3d%2b0.656629922">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-10-29%2023%3a46%3a16.521655009%20%2b0800%20CST%20m%3d%2b0.656629922">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-11-06%2013%3a14%3a52.555804148%20%2b0800%20CST%20m%3d%2b0.223080663">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-11-06%2013%3a14%3a52.555804148%20%2b0800%20CST%20m%3d%2b0.223080663">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-11-06%2013%3a14%3a52.555804148%20%2b0800%20CST%20m%3d%2b0.223080663">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-10-29%2023%3a46%3a16.521655009%20%2b0800%20CST%20m%3d%2b0.656629922">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-11-06%2013%3a14%3a52.555804148%20%2b0800%20CST%20m%3d%2b0.223080663">
     
 
 
@@ -193,7 +193,7 @@ It turns out that there could be more to do with java dynamic proxy." />
                 <div class="title-container">
                     <div class="page-heading">
 
-    Proxies in Java
+    Dynamic proxy in Java
 
 </div>
 
@@ -212,7 +212,7 @@ It turns out that there could be more to do with java dynamic proxy." />
                 
 
 <blockquote>
-<p>Proxy your call to someone else, save you some more time</p>
+<p>Proxy your call to the professional, save you some more time</p>
 </blockquote>
 
 <p>I recently read a great slides talking about Proxy pattern in Java which has confused me for a long time. I&rsquo;ve always consider it as something like the delegator pattern which is like adding a new layer for a specified class so that clients can do more other things when calling it.</p>
@@ -229,9 +229,17 @@ This is the pattern of the dynamic proxy. Comparing to the simple proxy, an <cod
 <p>With the simple proxy pattern, you should create a proxy class first
 <code>public static Object newProxyInstance(ClassLoader loader,Class[] interfaces,InvocationHandler ih) throws IllegalArgumentException</code>: Creates a proxy class defined in the specified class loader and which implements the specified interfaces. In addition, creates an instance of the proxy by invoking the one public proxy constructor which sets the associated invocation handler to the specified handler. Returns a reference to the proxy instance.</p>
 
+<h1 id="summary">Summary</h1>
+
+<p>So in order to have a Generic proxy class, we need to have a <code>proxy handler</code> which implement the <code>InvocationHandler</code> where we override the <code>invoke()</code> method</p>
+
 <h1 id="reference">Reference</h1>
 
-<p><a href="https://web.archive.org/web/20150226062232/http://userpages.umbc.edu/~tarr/dp/lectures/DynProxies-2pp.pdf">https://web.archive.org/web/20150226062232/http://userpages.umbc.edu/~tarr/dp/lectures/DynProxies-2pp.pdf</a></p>
+<p><a href="https://web.archive.org/web/20150226062232/http://userpages.umbc.edu/~tarr/dp/lectures/DynProxies-2pp.pdf">Dynamic Proxies In Java</a><br />
+<a href="https://docs.oracle.com/javase/8/docs/technotes/guides/reflection/proxy.html">Dynamic Proxy Classes</a><br />
+<a href="https://www.ibm.com/developerworks/cn/java/j-lo-proxy1/index.html">Java 动态代理机制分析及扩展，第 1 部分</a><br />
+<a href="https://www.ibm.com/developerworks/library/j-jtp08305/index.html">Decorating with dynamic proxies
+</a></p>
 
                 <br>
 		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
