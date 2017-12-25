@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="Block chain has been talked a lot in the field of high tech industry. Being able to understand this decentralized technology is a plus for my career and able to implement it practicely will even better. I will talk about some information I have learnt so far in this post including the implementation of blockchain using javascript.
+ 相信看这篇文章的读者们应该或多或少对blockchain和bitcoin有所了解了，如果这里面涉及到的一些术语觉得不理解，可以试图从reference那里找到答案，实在不行可以wiki之或者直接评论哦。那我主要在这里梳理一下每个技术要解决的问题和如何引进下一个技术的。
+bitcoin要解决的问题是去交易的中介，也就是中介，这是一个很直观而且很需要解决的问题。这样做似乎很理想，但是有两个很明显的问题需要解决：
+1. 怎么确保每一笔先后发生的交易的先后顺序？
+2. 怎么确保在A到B的交易中，A有足够的金额发给B呢？
+为了解决第一个问题，blockchain被提出来了。说白了就是一个double linked list，每个新加入的block被作为一个新的节点被加入现存在的blockchain里面。根据satoshi nakamoto提出的论文，每一笔交易在加入整个chain的时候需要经历6个步骤：">
+
+<meta property="og:title" content="My understanding on blockchain so far" />
+<meta property="og:description" content="Block chain has been talked a lot in the field of high tech industry. Being able to understand this decentralized technology is a plus for my career and able to implement it practicely will even better. I will talk about some information I have learnt so far in this post including the implementation of blockchain using javascript.
+ 相信看这篇文章的读者们应该或多或少对blockchain和bitcoin有所了解了，如果这里面涉及到的一些术语觉得不理解，可以试图从reference那里找到答案，实在不行可以wiki之或者直接评论哦。那我主要在这里梳理一下每个技术要解决的问题和如何引进下一个技术的。
+bitcoin要解决的问题是去交易的中介，也就是中介，这是一个很直观而且很需要解决的问题。这样做似乎很理想，但是有两个很明显的问题需要解决：
+1. 怎么确保每一笔先后发生的交易的先后顺序？
+2. 怎么确保在A到B的交易中，A有足够的金额发给B呢？
+为了解决第一个问题，blockchain被提出来了。说白了就是一个double linked list，每个新加入的block被作为一个新的节点被加入现存在的blockchain里面。根据satoshi nakamoto提出的论文，每一笔交易在加入整个chain的时候需要经历6个步骤：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-12-23/" />
+
+
+
+<meta property="article:published_time" content="2017-12-23T11:43:39&#43;08:00"/>
+<meta property="article:modified_time" content="2017-12-23T11:43:39&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     My understanding on blockchain so far 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2017-12-23/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-12-25%2020%3a32%3a09.273842999%20%2b0800%20CST%20m%3d%2b0.389441471">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-12-25%2020%3a32%3a09.273842999%20%2b0800%20CST%20m%3d%2b0.389441471">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-12-25%2020%3a32%3a09.273842999%20%2b0800%20CST%20m%3d%2b0.389441471">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-12-25%2020%3a32%3a09.273842999%20%2b0800%20CST%20m%3d%2b0.389441471">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">Go go go you dumpass!</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Technical-blog</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span></span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    My understanding on blockchain so far
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sat Dec 23 2017 11:43:39 CST'>Dec 23, 2017</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<blockquote>
+<p>Block chain has been talked a lot in the field of high tech industry. Being able to understand this decentralized technology is a plus for my career and able to implement it practicely will even better. I will talk about some information I have learnt so far in this post including the implementation of blockchain using javascript.</p>
+</blockquote>
+
+<p>相信看这篇文章的读者们应该或多或少对blockchain和bitcoin有所了解了，如果这里面涉及到的一些术语觉得不理解，可以试图从reference那里找到答案，实在不行可以wiki之或者直接评论哦。那我主要在这里梳理一下每个技术要解决的问题和如何引进下一个技术的。<br />
+bitcoin要解决的问题是去交易的中介，也就是中介，这是一个很直观而且很需要解决的问题。这样做似乎很理想，但是有两个很明显的问题需要解决：<br />
+1. 怎么确保每一笔先后发生的交易的先后顺序？<br />
+2. 怎么确保在A到B的交易中，A有足够的金额发给B呢？</p>
+
+<p>为了解决第一个问题，blockchain被提出来了。说白了就是一个double linked list，每个新加入的block被作为一个新的节点被加入现存在的blockchain里面。根据<a href="https://en.wikipedia.org/wiki/Satoshi_Nakamoto">satoshi nakamoto</a>提出的论文，每一笔交易在加入整个chain的时候需要经历6个步骤：<br />
+1. 交易被发起并被广播<br />
+2. 所有机器接收该交易并加入一个block里面<br />
+3. 每台机器开始找proof-of-work的解<br />
+4. 第一台找到解的机器也就是miner会得到相应的bitcoin奖励，并将该block广播给其他机器（这里把blockchain跟bitcoin结合起来了）<br />
+5. 只有在该block里面的所有transaction都是valid并且未有输出的时候，其他机器才会达成一致意见，认为该block是可接收的<br />
+6. 在接受了该block之后，其他所有机器会将这个block的hash值当作前向block的地址，继续append block</p>
+
+<p>这里有个简单的流介绍transaction的运作：
+<img src="https://pingrunhuang.github.io/blog/2017-12-23/howBitcoinWork.jpeg" alt="howBitcoinWork" /></p>
+
+<p>我们一直都有听说加一个block到一个chain里面的时候要求解一个很困难的数学问题，那这个数学问题到底是什么呢？在bitcoin里面这个数学问题叫做<code>proof-of-work</code>，实际上就是一个暴力搜索hash值的过程。在下面的源代码是<code>block</code>这个类的基类，正如注释说的一样，给定一个<code>nNonce</code>值，用一个for循环去找对应的hash值，如果该hash值的前<code>nBits</code>位都是0，则满足要求，表示这个proof-of-work得到了解决，对应的block就会被加入该链中，否则该block就是一个无效的block。</p>
+
+<pre><code class="language-c++">/** Nodes collect new transactions into a block, hash them into a hash tree,
+* and scan through nonce values to make the block's hash satisfy proof-of-work
+* requirements.  When they solve the proof-of-work, they broadcast the block
+* to everyone and the block is added to the block chain.  The first transaction
+* in the block is a special one that creates a new coin owned by the creator
+* of the block.
+*/
+class CBlockHeader
+{
+public:
+    // header
+    int32_t nVersion;
+    uint256 hashPrevBlock;
+    uint256 hashMerkleRoot;
+    uint32_t nTime;
+    uint32_t nBits;
+    uint32_t nNonce; 表
+
+    CBlockHeader()
+    {
+        SetNull();
+    }
+
+    ADD_SERIALIZE_METHODS;
+
+    template &lt;typename Stream, typename Operation&gt;
+    inline void SerializationOp(Stream&amp; s, Operation ser_action) {
+        READWRITE(this-&gt;nVersion);
+        READWRITE(hashPrevBlock);
+        READWRITE(hashMerkleRoot);
+        READWRITE(nTime);
+        READWRITE(nBits);
+        READWRITE(nNonce);
+    }
+
+    void SetNull()
+    {
+        nVersion = 0;
+        hashPrevBlock.SetNull();
+        hashMerkleRoot.SetNull();
+        nTime = 0;
+        nBits = 0;
+        nNonce = 0;
+    }
+
+    bool IsNull() const
+    {
+        return (nBits == 0);
+    }
+
+    uint256 GetHash() const;
+
+    int64_t GetBlockTime() const
+    {
+        return (int64_t)nTime;
+    }
+};
+</code></pre>
+
+<p>以下是一个用javascript写的简单的实现，<code>difficulty</code>也就是前文的nBits，<code>pattern</code>表示一个含有<code>difficulty</code>个0的字串。可以看到当满足条件的时候就把这个block加入chain里面。(<a href="https://github.com/anders94/blockchain-demo/blob/master/public/javascripts/blockchain.js">源码</a>)</p>
+
+<pre><code class="language-javascript">function mine(block, chain, isChain) {
+  for (var x = 0; x &lt;= maximumNonce; x++) {
+    $('#block'+block+'chain'+chain+'nonce').val(x);
+    $('#block'+block+'chain'+chain+'hash').val(sha256(block, chain));
+    if ($('#block'+block+'chain'+chain+'hash').val().substr(0, difficulty) === pattern) {
+      if (isChain) {
+        updateChain(block, chain);
+      }
+      else {
+        updateState(block, chain);
+      }
+      break;
+    }
+  }
+}
+</code></pre>
+
+<h1 id="attacker">attacker</h1>
+
+<p>这里有个很有趣的现象，当attacker想要修改某个block里面的值的时候，该block的总的hash值也就相应的改变了，从而不满足之前提到的hash值前若干位是0的情形，这个block的改变导致后面所有的block也变得不满足要求，因此整条链就作废了，也就是attacker需要re-mine后面所有的block。因此<a href="http://scet.berkeley.edu/wp-content/uploads/BlockchainPaper.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a>一文中也提出了attacker应该权衡re-mine需要的资源和按规矩进行mine两者哪个得到的收益更大，显然后者更大，这也促使了玩家们按规定进行游戏。下面两个图展现了修改某个block的情况。
+<img src="https://pingrunhuang.github.io/blog/2017-12-23/before.png" alt="before" />
+<img src="https://pingrunhuang.github.io/blog/2017-12-23/after.png" alt="after" />
+可以看见修改之后该block也就变成无效的block了。感谢Anders在<a href="https://anders.com/blockchain/blockchain.html">这里</a>写了一个javascript的直观展示，之前用到的js代码也出自这里。结合bitcoin的论文，这个repo让我对blockchain有了更直观的认识。</p>
+
+<h1 id="回答第二个问题">回答第二个问题</h1>
+
+<p>其实在了解了前面的问题之后，第二个问题实际上很容易解决，只要在每个block记录下入账和出账就可以了，入账大于出账，则block有效，否则无效。虽然具体的内容跟这个差别很大，但基本思想是这样。详细的内容可以查看文档。</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>到这里为止还只是冰山一角，我只介绍了blockchain解决的两个问题，剩下的很多细节内容还得看文档，这里就不多说了。
+总而言之，虽然bitcoin在中国已经被拒绝交易了，blockchain也越来越变成一种车大炮的话题，但是我觉得作为对世界充满好奇心的猴子，应该借由这个现象级的产品去观察背后的逻辑和实现，从而提高自己的视野。特别是像blockchain说白了就是数据结构里面很常见的<code>double linked list</code>，我就觉得这样淳朴的技术特别值得玩味，去看看人家是怎么用简单的数据结构玩出多种花样。
+最后，我觉得所有希望了解bitcoin或者blockchain的小伙伴，应该去翻看一下源头的东西&ndash;<a href="http://scet.berkeley.edu/wp-content/uploads/BlockchainPaper.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a> 毕竟擒贼先擒王嘛。也希望自己能多看一些源头的东西，少一虚的东西。那小伙伴们如果对我的理解又任何的意见或者建议，feel free to leave a comment below, until next time!</p>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+<li><a href="http://scet.berkeley.edu/wp-content/uploads/BlockchainPaper.pdf">http://scet.berkeley.edu/wp-content/uploads/BlockchainPaper.pdf</a></li>
+<li><a href="https://bitcoin.org/bitcoin.pdf">https://bitcoin.org/bitcoin.pdf</a></li>
+<li><a href="https://anders.com/blockchain/block.html">https://anders.com/blockchain/block.html</a></li>
+<li><a href="https://bitcoin.org/en/developer-guide">https://bitcoin.org/en/developer-guide</a></li>
+</ul>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+
+            
+
+            
+            <div id="gitalk-container"></div>
+              <script type="text/javascript">
+                const gitalk = new Gitalk({
+                    clientID: "9811070b5fd301811463",
+                    clientSecret: "0cb8860aaa08afac361004fab4dbc3dbe90ef5a2",
+                    repo: "pingrunhuang.github.io",
+                    owner: "pingrunhuang",
+                    admin: ["pingrunhuang"],
+                    
+                    distractionFreeMode: true
+                  })
+                  gitalk.render('gitalk-container')
+              </script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-123-45', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

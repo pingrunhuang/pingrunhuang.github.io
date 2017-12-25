@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>General on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/general/</link>
+    <description>Recent content in General on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 11 Oct 2017 10:15:03 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/general/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is bitcoin mining?</title>
+      <link>https://pingrunhuang.github.io/blog/2017-10-11/</link>
+      <pubDate>Wed, 11 Oct 2017 10:15:03 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-10-11/</guid>
+      <description>Bitcoin has been in the field for a while and friends of mine have been talking about bitcoin for a while. I have also read some of the articles talking about bitcoin, the hashing and the trustful features. But to be honest, these concepts still remain a mist for me. I decided to really figure out them in the way that I think and try to explain it as clear as possible.</description>
+    </item>
+    
+  </channel>
+</rss>

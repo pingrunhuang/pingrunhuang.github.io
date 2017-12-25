@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="ord: turn a char type into unicode code chr: reverse of ord lambda: creating anonymous function in python. Generally combined with the map, filter and reduce function to manipulate with collections.
+foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # multiply by 2 for each element print(filter(lambda x:x%2==0, foo)) # keep only the element that could be devided by 2 from functools import reduce print(reduce(lambda x,y:x&#43;y, foo)) # sum all the element reduce(lambda x, y : x if x&gt;y else y, foo) # get the maximum num inside the list  Some exercise on lambda expression &#39;&#39;&#39; Order Number	Book Title and Author	Quantity	Price per Item 34587	Learning Python, Mark Lutz	4	40.">
+
+<meta property="og:title" content="Python built-in function cheat sheet" />
+<meta property="og:description" content="ord: turn a char type into unicode code chr: reverse of ord lambda: creating anonymous function in python. Generally combined with the map, filter and reduce function to manipulate with collections.
+foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # multiply by 2 for each element print(filter(lambda x:x%2==0, foo)) # keep only the element that could be devided by 2 from functools import reduce print(reduce(lambda x,y:x&#43;y, foo)) # sum all the element reduce(lambda x, y : x if x&gt;y else y, foo) # get the maximum num inside the list  Some exercise on lambda expression &#39;&#39;&#39; Order Number	Book Title and Author	Quantity	Price per Item 34587	Learning Python, Mark Lutz	4	40." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-12-21/" />
+
+
+
+<meta property="article:published_time" content="2017-12-21T13:42:35&#43;08:00"/>
+<meta property="article:modified_time" content="2017-12-21T13:42:35&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Python built-in function cheat sheet 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2017-12-21/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-12-25%2020%3a32%3a09.276892657%20%2b0800%20CST%20m%3d%2b0.392491129">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-12-25%2020%3a32%3a09.276892657%20%2b0800%20CST%20m%3d%2b0.392491129">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-12-25%2020%3a32%3a09.276892657%20%2b0800%20CST%20m%3d%2b0.392491129">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-12-25%2020%3a32%3a09.276892657%20%2b0800%20CST%20m%3d%2b0.392491129">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">Go go go you dumpass!</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Technical-blog</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span></span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Python built-in function cheat sheet
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Thu Dec 21 2017 13:42:35 CST'>Dec 21, 2017</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p><code>ord</code>: turn a char type into unicode code
+<code>chr</code>: reverse of <code>ord</code>
+<code>lambda</code>: creating anonymous function in python. Generally combined with the <code>map</code>, <code>filter</code> and <code>reduce</code> function to manipulate with collections.</p>
+
+<pre><code class="language-python">foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+print(map(lambda x:x * 2, foo)) # multiply by 2 for each element
+print(filter(lambda x:x%2==0, foo)) # keep only the element that could be devided by 2
+
+from functools import reduce
+
+print(reduce(lambda x,y:x+y, foo)) # sum all the element
+reduce(lambda x, y : x if x&gt;y else y, foo) # get the maximum num inside the list
+</code></pre>
+
+<h1 id="some-exercise-on-lambda-expression">Some exercise on lambda expression</h1>
+
+<pre><code class="language-python">'''
+Order Number	Book Title and Author	Quantity	Price per Item
+34587	Learning Python, Mark Lutz	4	40.95
+98762	Programming Python, Mark Lutz	5	56.80
+77226	Head First Python, Paul Barry	3	32.95
+88112	Einführung in Python3, Bernd Klein	3	24.99
+
+Write a Python program, which returns a list with 2-tuples. Each tuple consists of a the order number and the product of the price per items and the quantity. The product should be increased by 10,- € if the value of the order is less than 100,00 €. 
+Write a Python program using lambda and map.
+'''
+orders = [ [&quot;34587&quot;, &quot;Learning Python, Mark Lutz&quot;, 4, 40.95], 
+	       [&quot;98762&quot;, &quot;Programming Python, Mark Lutz&quot;, 5, 56.80], 
+           [&quot;77226&quot;, &quot;Head First Python, Paul Barry&quot;, 3,32.95],
+           [&quot;88112&quot;, &quot;Einführung in Python3, Bernd Klein&quot;, 	3, 24.99]]
+
+result = list(map(lambda x:(x[0], x[2]*x[3] if x[2]*x[3] &gt;= 100 else x[2]*x[3]+10), orders))
+</code></pre>
+
+<pre><code class="language-python"># The same bookshop, but this time we work on a different list. The sublists of our lists look like this: 
+# [ordernumber, (article number, quantity, price per unit), ... (article number, quantity, price per unit) ] 
+# Write a program which returns a list of two tuples with (order number, total amount of order).
+from functools import reduce
+
+orders = [ [1, (&quot;5464&quot;, 4, 9.99), (&quot;8274&quot;,18,12.99), (&quot;9744&quot;, 9, 44.95)], 
+	       [2, (&quot;5464&quot;, 9, 9.99), (&quot;9744&quot;, 9, 44.95)],
+	       [3, (&quot;5464&quot;, 9, 9.99), (&quot;88112&quot;, 11, 24.99)],
+           [4, (&quot;8732&quot;, 7, 11.99), (&quot;7733&quot;,11,18.99), (&quot;88112&quot;, 5, 39.95)] ]
+
+# generate the result [[1, 39.96, 233.82, 404.55], [2, 89.91, 404.55], [3, 89.91, 274.89], [4, 83.93, 208.89, 199.75]]
+result = list(map(lambda x: [x[0]] + list(map(lambda y: y[1]*y[2] , x[1:])) , orders))
+result = list(map(lambda x: (x[0], reduce(lambda y,z:y+z, x[1:])) , result))
+result = list(map(lambda x: (x[0], x[1]) if x[1]&gt;=100 else (x[0], x[1]), result ))
+# [(1, 678.3299999999999), (2, 494.46000000000004), (3, 364.79999999999995), (4, 492.57)]
+</code></pre>
+
+<p>#Reference
+<a href="https://www.python-course.eu/python3_lambda.php">https://www.python-course.eu/python3_lambda.php</a></p>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+
+            
+
+            
+            <div id="gitalk-container"></div>
+              <script type="text/javascript">
+                const gitalk = new Gitalk({
+                    clientID: "9811070b5fd301811463",
+                    clientSecret: "0cb8860aaa08afac361004fab4dbc3dbe90ef5a2",
+                    repo: "pingrunhuang.github.io",
+                    owner: "pingrunhuang",
+                    admin: ["pingrunhuang"],
+                    
+                    distractionFreeMode: true
+                  })
+                  gitalk.render('gitalk-container')
+              </script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-123-45', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

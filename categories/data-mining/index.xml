@@ -39,10 +39,10 @@ $$ \begin{bmatrix} { a }_{ 1,1 } &amp;amp; { a }_{ 1,2 } &amp;amp; \dots &amp;am
     
     <item>
       <title>Support vector machine</title>
-      <link>https://pingrunhuang.github.io/blog/support_vector_machine/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-06-20/</link>
       <pubDate>Tue, 20 Jun 2017 04:05:25 -0600</pubDate>
       
-      <guid>https://pingrunhuang.github.io/blog/support_vector_machine/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-06-20/</guid>
       <description>v is the point to be classified.
 w is a vector points to the hyperplane perpendicularly.
 $$hyperplane:y=w\cdot \xrightarrow { V } +b$$

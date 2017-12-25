@@ -6,10 +6,19 @@
     <description>Recent content in Data Structure on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 13 Oct 2017 11:27:52 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 25 Dec 2017 09:26:46 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/categories/data-structure/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Merkle tree</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-25/</link>
+      <pubDate>Mon, 25 Dec 2017 09:26:46 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-25/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>SQL B-tree index</title>
@@ -22,10 +31,10 @@
     
     <item>
       <title>Using bitmap</title>
-      <link>https://pingrunhuang.github.io/blog/using_bitmap_storing_query_data/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-05-22/</link>
       <pubDate>Mon, 22 May 2017 04:05:25 -0600</pubDate>
       
-      <guid>https://pingrunhuang.github.io/blog/using_bitmap_storing_query_data/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-05-22/</guid>
       <description>Manipulating big data like 1 billion (1 billion == 1,000,000,000 == “十亿”, 1 million == 1,000,000 == “百万” which I always forget how to transform back and forth) , is quite memory consuming if we just use an array for storing it. We can either divide the file into smaller file and process them accordingly (ideas like map reduce, will talk about it later in another post) or use ‘bitmap’ and ‘hashmap’.</description>
     </item>
     

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content=" join 考虑情况
+order 表
+id sales_num 1 2 1 3
+退货表 id 是否退货 1 是 1 否
+join这两个表的时候会发生表成倍增涨。因此需要先对order表进行aggregate。如果sales_num非可聚合的类型，要先进行转换。
+工作簿发布 做好的tableau表格可以发布到server端，在server-&gt;publish workbook进行发布，要根据需要的设备终端选择合适的分辨率。
+计算字段 新增一列，进行聚合运算，聚合运算可以是customized的计算函数
+字符串处理：使用if语句
+理解sum函数： 思考一个情况： id profit sales
+如何计算单位盈利？是使用sum(profit)/sum(sales)还是sum(profit/sales)呢？粗略一想感觉两个结果是一样的，但是在tableau或者说在excel里面，这两个结果是不一样的。前者是先对每个字段sum然后相除，后者是对每一行进行相除然后再进行sum。 为了说明问题，考虑数据源如下：
+1 3 4 2 3 5 4 5 6 1 4 5 2 4 5  也就是id字段有重复出现的情况，这时候sum某个列实际上是对具有相同id的那些
+筛选器顺序： 数据源 上下文 维度 度量 表计算
+详细级别表达式 参数应用 度量measures：度量是进行排序的条件 维度: tableau中维度的概念相当于是图表中的axis，当我们需要某个计算值成为坐标的时候，就需要将度量转成维度
+同比：分为整年的同比和去年同月份的同比，后者表示某个月对应的去年的同月的差值除以去年的同月的值{ (今年同月份的总量-去年同月份的总量)／去年同月份的总量 } 环比：当月份
+LOD  fixed : ex. {FIXED [dimension]:min(year)} include exclude  ">
+
+<meta property="og:title" content="Tableau usage" />
+<meta property="og:description" content=" join 考虑情况
+order 表
+id sales_num 1 2 1 3
+退货表 id 是否退货 1 是 1 否
+join这两个表的时候会发生表成倍增涨。因此需要先对order表进行aggregate。如果sales_num非可聚合的类型，要先进行转换。
+工作簿发布 做好的tableau表格可以发布到server端，在server-&gt;publish workbook进行发布，要根据需要的设备终端选择合适的分辨率。
+计算字段 新增一列，进行聚合运算，聚合运算可以是customized的计算函数
+字符串处理：使用if语句
+理解sum函数： 思考一个情况： id profit sales
+如何计算单位盈利？是使用sum(profit)/sum(sales)还是sum(profit/sales)呢？粗略一想感觉两个结果是一样的，但是在tableau或者说在excel里面，这两个结果是不一样的。前者是先对每个字段sum然后相除，后者是对每一行进行相除然后再进行sum。 为了说明问题，考虑数据源如下：
+1 3 4 2 3 5 4 5 6 1 4 5 2 4 5  也就是id字段有重复出现的情况，这时候sum某个列实际上是对具有相同id的那些
+筛选器顺序： 数据源 上下文 维度 度量 表计算
+详细级别表达式 参数应用 度量measures：度量是进行排序的条件 维度: tableau中维度的概念相当于是图表中的axis，当我们需要某个计算值成为坐标的时候，就需要将度量转成维度
+同比：分为整年的同比和去年同月份的同比，后者表示某个月对应的去年的同月的差值除以去年的同月的值{ (今年同月份的总量-去年同月份的总量)／去年同月份的总量 } 环比：当月份
+LOD  fixed : ex. {FIXED [dimension]:min(year)} include exclude  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-12-13/" />
+
+
+
+<meta property="article:published_time" content="2017-12-13T09:54:33&#43;08:00"/>
+<meta property="article:modified_time" content="2017-12-13T09:54:33&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Tableau usage 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2017-12-13/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-12-25%2020%3a32%3a09.280757165%20%2b0800%20CST%20m%3d%2b0.396355637">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-12-25%2020%3a32%3a09.280757165%20%2b0800%20CST%20m%3d%2b0.396355637">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-12-25%2020%3a32%3a09.280757165%20%2b0800%20CST%20m%3d%2b0.396355637">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-12-25%2020%3a32%3a09.280757165%20%2b0800%20CST%20m%3d%2b0.396355637">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">Go go go you dumpass!</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Technical-blog</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span></span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Tableau usage
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Wed Dec 13 2017 09:54:33 CST'>Dec 13, 2017</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>One minute read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h1 id="join">join</h1>
+
+<p>考虑情况</p>
+
+<p>order 表</p>
+
+<p>id  sales_num
+1   2
+1   3</p>
+
+<p>退货表
+id  是否退货
+1   是
+1   否</p>
+
+<p>join这两个表的时候会发生表成倍增涨。因此需要先对order表进行aggregate。如果sales_num非可聚合的类型，要先进行转换。</p>
+
+<h1 id="工作簿发布">工作簿发布</h1>
+
+<p>做好的tableau表格可以发布到server端，在server-&gt;publish workbook进行发布，要根据需要的设备终端选择合适的分辨率。</p>
+
+<h1 id="计算字段">计算字段</h1>
+
+<p>新增一列，进行聚合运算，聚合运算可以是customized的计算函数</p>
+
+<p>字符串处理：使用if语句</p>
+
+<p>理解<code>sum</code>函数：
+思考一个情况：
+<code>id     profit      sales</code><br />
+如何计算单位盈利？是使用<code>sum(profit)/sum(sales)</code>还是<code>sum(profit/sales)</code>呢？粗略一想感觉两个结果是一样的，但是在tableau或者说在excel里面，这两个结果是不一样的。前者是先对每个字段sum然后相除，后者是对每一行进行相除然后再进行sum。
+为了说明问题，考虑数据源如下：</p>
+
+<pre><code>1   3   4
+2   3   5
+4   5   6
+1   4   5
+2   4   5
+</code></pre>
+
+<p>也就是id字段有重复出现的情况，这时候sum某个列实际上是对具有相同id的那些</p>
+
+<p>筛选器顺序：
+数据源
+上下文
+维度
+度量
+表计算</p>
+
+<h1 id="详细级别表达式">详细级别表达式</h1>
+
+<h1 id="参数应用">参数应用</h1>
+
+<p>度量measures：度量是进行排序的条件
+维度: tableau中维度的概念相当于是图表中的axis，当我们需要某个计算值成为坐标的时候，就需要将度量转成维度</p>
+
+<p>同比：分为整年的同比和去年同月份的同比，后者表示某个月对应的去年的同月的差值除以去年的同月的值{ (今年同月份的总量-去年同月份的总量)／去年同月份的总量  }
+环比：当月份</p>
+
+<h1 id="lod">LOD</h1>
+
+<ul>
+<li>fixed : ex. {FIXED [dimension]:min(year)}</li>
+<li>include</li>
+<li>exclude</li>
+</ul>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+
+            
+
+            
+            <div id="gitalk-container"></div>
+              <script type="text/javascript">
+                const gitalk = new Gitalk({
+                    clientID: "9811070b5fd301811463",
+                    clientSecret: "0cb8860aaa08afac361004fab4dbc3dbe90ef5a2",
+                    repo: "pingrunhuang.github.io",
+                    owner: "pingrunhuang",
+                    admin: ["pingrunhuang"],
+                    
+                    distractionFreeMode: true
+                  })
+                  gitalk.render('gitalk-container')
+              </script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-123-45', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

@@ -12,6 +12,234 @@
     
     
     <item>
+      <title>Merkle tree</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-25/</link>
+      <pubDate>Mon, 25 Dec 2017 09:26:46 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-25/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>My understanding on blockchain so far</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-23/</link>
+      <pubDate>Sat, 23 Dec 2017 11:43:39 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-23/</guid>
+      <description>Block chain has been talked a lot in the field of high tech industry. Being able to understand this decentralized technology is a plus for my career and able to implement it practicely will even better. I will talk about some information I have learnt so far in this post including the implementation of blockchain using javascript.
+ 相信看这篇文章的读者们应该或多或少对blockchain和bitcoin有所了解了，如果这里面涉及到的一些术语觉得不理解，可以试图从reference那里找到答案，实在不行可以wiki之或者直接评论哦。那我主要在这里梳理一下每个技术要解决的问题和如何引进下一个技术的。
+bitcoin要解决的问题是去交易的中介，也就是中介，这是一个很直观而且很需要解决的问题。这样做似乎很理想，但是有两个很明显的问题需要解决：
+1. 怎么确保每一笔先后发生的交易的先后顺序？
+2. 怎么确保在A到B的交易中，A有足够的金额发给B呢？
+为了解决第一个问题，blockchain被提出来了。说白了就是一个double linked list，每个新加入的block被作为一个新的节点被加入现存在的blockchain里面。根据satoshi nakamoto提出的论文，每一笔交易在加入整个chain的时候需要经历6个步骤：</description>
+    </item>
+    
+    <item>
+      <title>Difference in new and make in golang</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-22/</link>
+      <pubDate>Fri, 22 Dec 2017 14:39:12 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-22/</guid>
+      <description>new(T) 会申请一个容量是0的空间来存放T类型的数据，并且返回该空间的地址。 // Allocate enough memory to store a bytes.Buffer value // and return a pointer to the value&#39;s address. var buf bytes.Buffer p := &amp;amp;buf // Use a composite literal to perform allocation and // return a pointer to the value&#39;s address. p := &amp;amp;bytes.Buffer{} // Use the new function to perform allocation, which will // return a pointer to the value&#39;s address. p := new(bytes.Buffer)  make是专门用来初始化map，slice和channel的，不会返回地址 三种使用make的方式：</description>
+    </item>
+    
+    <item>
+      <title>Python built-in function cheat sheet</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-21/</link>
+      <pubDate>Thu, 21 Dec 2017 13:42:35 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-21/</guid>
+      <description>ord: turn a char type into unicode code chr: reverse of ord lambda: creating anonymous function in python. Generally combined with the map, filter and reduce function to manipulate with collections.
+foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # multiply by 2 for each element print(filter(lambda x:x%2==0, foo)) # keep only the element that could be devided by 2 from functools import reduce print(reduce(lambda x,y:x+y, foo)) # sum all the element reduce(lambda x, y : x if x&amp;gt;y else y, foo) # get the maximum num inside the list  Some exercise on lambda expression &#39;&#39;&#39; Order Number	Book Title and Author	Quantity	Price per Item 34587	Learning Python, Mark Lutz	4	40.</description>
+    </item>
+    
+    <item>
+      <title>Python memory management strategy</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-20/</link>
+      <pubDate>Wed, 20 Dec 2017 09:53:54 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-20/</guid>
+      <description>hex(id(var)) for getting the var address
+  variables having the same value is pointing to the same address. Meanning variables inside the global scope having the same value will get a same address. This is for the primitive types. Comparing to c++, the array&amp;rsquo;s address is the address of the first element. In python, array has its own address and the first element inside the array has other address.</description>
+    </item>
+    
+    <item>
+      <title>Different ways of copying arrays in golang</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-17/</link>
+      <pubDate>Sun, 17 Dec 2017 15:25:00 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-17/</guid>
+      <description>Recently I&amp;rsquo;ve been using golang as the programming language for solving leetcode problems. I came across with the problems of array copying.
+func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy(grid, sum) fmt.Printf(&amp;quot;%p\n&amp;quot;, &amp;amp;sum) fmt.Printf(&amp;quot;%p\n&amp;quot;, &amp;amp;grid) } // 0xc42000a080 // 0xc42000a060  The result of the above code shows that go actaully assign a new address for the newly created array. But when I try to modify the value inside the sum matrix, the corresponding value of the grid is also changed.</description>
+    </item>
+    
+    <item>
+      <title>How python virtualenv actually works?</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-16/</link>
+      <pubDate>Sat, 16 Dec 2017 09:50:49 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-16/</guid>
+      <description>I&amp;rsquo;ve been
+there is an option for virtualenv to make the project relocatable, just use virtualenv --relocatable which is used to change the absolute path of the scripte reside in bin file into relative.
+alternitives for virtualenv  virtualenv-small-sitepy rvirtulenv Just use $PYTHONHOME pythonv  using pip as an api Example of using pip as an api
+from pip.req import InstallRequirement, RequirementSet from pip.index import PackageFinder from pip.locations import build_prefix, src_prefix reqset = RequirementSet(build_dir=build_prefix, src_dir=src_prefix, download_dir=None) req = InstallRequirement.</description>
+    </item>
+    
+    <item>
+      <title>Python unittest</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-14/</link>
+      <pubDate>Thu, 14 Dec 2017 22:32:51 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-14/</guid>
+      <description>Python has a builtin module called unittest which is used for writing unittest in python. But I have marely used it before. So I decided to write a blog for recording the usage of this module.
+&amp;rdquo;&amp;lsquo;python
+Initialize a test class import unittest
+class TestCase(unittest.TestCase): # Check if the input value is right def test_(self): self.assertAlmostEqual(func(input), expectedvalue) # check if the input def test*(self): self.assertRaises(ValueError, func, input) &amp;ldquo;&amp;rsquo;
+Triggering the unit test To trigger the unit test: - python -m unittest test_***.</description>
+    </item>
+    
+    <item>
+      <title>Tableau usage</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-13/</link>
+      <pubDate>Wed, 13 Dec 2017 09:54:33 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-13/</guid>
+      <description> join 考虑情况
+order 表
+id sales_num 1 2 1 3
+退货表 id 是否退货 1 是 1 否
+join这两个表的时候会发生表成倍增涨。因此需要先对order表进行aggregate。如果sales_num非可聚合的类型，要先进行转换。
+工作簿发布 做好的tableau表格可以发布到server端，在server-&amp;gt;publish workbook进行发布，要根据需要的设备终端选择合适的分辨率。
+计算字段 新增一列，进行聚合运算，聚合运算可以是customized的计算函数
+字符串处理：使用if语句
+理解sum函数： 思考一个情况： id profit sales
+如何计算单位盈利？是使用sum(profit)/sum(sales)还是sum(profit/sales)呢？粗略一想感觉两个结果是一样的，但是在tableau或者说在excel里面，这两个结果是不一样的。前者是先对每个字段sum然后相除，后者是对每一行进行相除然后再进行sum。 为了说明问题，考虑数据源如下：
+1 3 4 2 3 5 4 5 6 1 4 5 2 4 5  也就是id字段有重复出现的情况，这时候sum某个列实际上是对具有相同id的那些
+筛选器顺序： 数据源 上下文 维度 度量 表计算
+详细级别表达式 参数应用 度量measures：度量是进行排序的条件 维度: tableau中维度的概念相当于是图表中的axis，当我们需要某个计算值成为坐标的时候，就需要将度量转成维度
+同比：分为整年的同比和去年同月份的同比，后者表示某个月对应的去年的同月的差值除以去年的同月的值{ (今年同月份的总量-去年同月份的总量)／去年同月份的总量 } 环比：当月份
+LOD  fixed : ex. {FIXED [dimension]:min(year)} include exclude  </description>
+    </item>
+    
+    <item>
+      <title>Different syntax for creating matrix and array in Different language</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-12/</link>
+      <pubDate>Tue, 12 Dec 2017 09:20:58 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-12/</guid>
+      <description>Golang grid := [][]int{ []int{1,2,3} []int{4,5,6} []int{7,8,9} } // declaring emptyGrid := [3][3]int  C++ int a[3][4] = { {1,2,3}, {4,5,6}, {7,8,9} }; // or vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; grid(3, vector&amp;lt;int&amp;gt;(3));  Java &amp;rdquo;&amp;lsquo;java
+&amp;rdquo;&amp;rsquo;</description>
+    </item>
+    
+    <item>
+      <title>Differences for loop syntax in different language</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-11/</link>
+      <pubDate>Mon, 11 Dec 2017 16:24:10 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-11/</guid>
+      <description>Java for (int i; i &amp;lt; 100 ;i++){ // do something }  Python for index, value in range(100){ # do something }  Scala for (var a &amp;lt;- 1 to 10){ println(a) } &amp;lt;!-- or --&amp;gt; &amp;lt;!-- 10 not included --&amp;gt; for (var b &amp;lt;- 1 until 10){ println(b) }  Go for i := 0; i &amp;lt; 100; i++ { fmt.Println(i) }  Different useage of yield between python and scala def get_generator(): for i in range(10): if i % 3 ==0: yield i  The yield statement should always inside a function to generate a generator object.</description>
+    </item>
+    
+    <item>
+      <title>Strings, bytes, runes and characters in Go</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-01/</link>
+      <pubDate>Fri, 01 Dec 2017 17:37:46 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-01/</guid>
+      <description>在编程的世界里，最主要的
+#Reference Strings, bytes, runes and characters in Go</description>
+    </item>
+    
+    <item>
+      <title>Golang learning 5 -- Concurrent</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-27/</link>
+      <pubDate>Mon, 27 Nov 2017 21:48:12 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-27/</guid>
+      <description>Channel is like a bus transporting data as people from one place to an other while persist them
+ 今天结合最近几天边看书边写GO的多线程应用来讲一下我对golang里面多线程编程的感受。
+Channels 在go并发编程的时候，有一个叫做Channel的概念是跟java的并发编程很不一样的。Java里面为了保证变量在多线程中的一致性和防止死锁的情况发生，引入了很多带锁性质的变量，这对于猴子来说是一件很苦恼的事情，有时候莫名其妙就出现死锁，莫名其妙就数据不一致了，这其实要求猴子们对java内置的数据类型非常了解，以至于至今我也还在学习。
+但是GO引入了一个Channel的概念，大大的降低了并发编程的难度。下面我们来看看Channel的一些实现和使用方法。The go programming language书中提到了Channel相当于在不同的Goroutine之间架起的桥梁，每一个Channelui有一个变量类型，这个变量类型表示这个Channel只能传输这样的数据类型。
+declaration ch := make(chan int, capacity int): This cause the ch to have type chan int which is also a reference. This initialize the ch to equal nil(the null value in GO). capacity determine if the channel is buffered or not(0).
+声明一个receive channel可以用chan&amp;lt;- int，声明一个send channel可以用&amp;lt;-chan int.</description>
+    </item>
+    
+    <item>
+      <title>Understanding RNN</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-26/</link>
+      <pubDate>Sun, 26 Nov 2017 16:45:02 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-26/</guid>
+      <description>This is a serial of articles recording the process that I build my chatbot from scratch using golang with Tensorflow.
+Why LSTMs came across? RNN 是一种基于前置信息的神经网络，在正常的对话环境里面，有时候我们可以根据前置的语句得到接下来应该出现什么字词，比如The cloud is in the sky，这里我们容易先到sky应该放在这里。但是有时候我们需要很长的前置信息才能得出接下来的字词。这时候我们引进了LSTMs which is also known as Long short term memory。
+References Understanding LSTM Networks Recurrent Neural Networks</description>
+    </item>
+    
+    <item>
+      <title>Golang learning 4 -- Function</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-21/</link>
+      <pubDate>Tue, 21 Nov 2017 11:21:07 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-21/</guid>
+      <description>Handling error 在go里面，个人感觉有几个很有用的包很有用，下面就记录一下。 - use fmt.Errorf(), fmt.Fprintf(os.Stderr, &amp;quot;&amp;quot;) or log.Fatalf() to back probagate the error to the caller - If using log.Fatalf() for returning an error, use function like log.SetPrefix() for formatting the log message - EOF error: define EOF using &amp;lsquo;var err := errors.New(&amp;ldquo;EOF&amp;rdquo;)&amp;rsquo; and check the EOF error type by if err == io.EOF go推荐所有在中间过程产生的error都抛给caller，再链式的返回main函数，所有中间产生error都应该被看作是bug。</description>
+    </item>
+    
+    <item>
+      <title>Golang learning 3 -- composite type</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-19/</link>
+      <pubDate>Sun, 19 Nov 2017 00:00:44 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-19/</guid>
+      <description>Array 几乎所有的编程语言都是从array开始的，因为array实在是太重要了，基本上很多算法都是基于array来展开的，Go 当然也不例外啦。Array 是定长的，可扩展的集合类型叫_slice_。
+initializing array q := […]int{1,2,3} //length are defined by the element number var q = [3]int{1,2} // the third element is 0 // define with index and value pairs type Currency int const ( USD Currency = iota EUR GBP RMB ) symbol := [...]string{USD: &amp;quot;$&amp;quot;, EUR: &amp;quot;€&amp;quot;, GBP: &amp;quot;£&amp;quot;, RMB: &amp;quot;¥&amp;quot;}  Notice  [3]int{} and [4]int{} are different types which means length are also one of the feature for defining different array types.</description>
+    </item>
+    
+    <item>
+      <title>Learning Scala</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-15/</link>
+      <pubDate>Wed, 15 Nov 2017 17:45:19 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-15/</guid>
+      <description>Learning Scala
+Trait Trait is like interface in java
+trait Iterator[A] { def hasNext : boolean def next() : A }  regex ```Scala import scala.util.matching.Regex
+object
+``````</description>
+    </item>
+    
+    <item>
+      <title>Golang learning 2</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-13/</link>
+      <pubDate>Mon, 13 Nov 2017 11:16:44 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-13/</guid>
+      <description>一个array会包含三个信息：capacity， length还有一个指向数组头部的pointer。  初始化一个map 在go里面，map实际上是hashtable的reference，因此很多hashtable的特性他都具备。go里面的key是唯一的，因此可以作为set来使用。
+m := make(map[string] int)  也可以写成
+m := map[string] int{}  这是初始化一个empty的map，如果要初始化值，可以在大括号中加入dictionary的key/value。值得注意的是，map并不像普通的array那样，可以用&amp;amp;符号来取得其地址，因为每次加入一个元素的时候都会rehash，所以地址一直在变的。</description>
+    </item>
+    
+    <item>
+      <title>Golang learning 1</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-10/</link>
+      <pubDate>Fri, 10 Nov 2017 11:43:01 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-10/</guid>
+      <description>Welcome to my journey of learning Golang
+ Starting from today, I will write a post describing my journey of learning Golang by reading [The Go Programming Language](). It is a long book though, so I will try my best to keep updating the post about my learning on Golang everyday.
+As a kick off post, I don&amp;rsquo;t want to start with the hello world application, I want to point out some syntax that is new for Go comparing other language that I have used like JAVA and Python.</description>
+    </item>
+    
+    <item>
+      <title>Bit and byte</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-08/</link>
+      <pubDate>Wed, 08 Nov 2017 10:15:53 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-08/</guid>
+      <description>In the computer science area, it is quite common to implement bit or byte for faster calculation. It is known that each bit could represent 2 states eg. 0 or 1. Therefore, in order to represent a hexadecimal, we need to have 4 bits to do that(2 x 2 x 2 x 2). Hence, a hexadecimal should contain 4 bits.
+ 1100 is an example of 4 bits that represent 12 in decimal while C in hexadecimal.</description>
+    </item>
+    
+    <item>
       <title>数据加密</title>
       <link>https://pingrunhuang.github.io/blog/2017-11-05/</link>
       <pubDate>Sun, 05 Nov 2017 20:39:51 +0800</pubDate>
@@ -20,7 +248,8 @@
       <description>As data grow, data encryption become a hot topic to protect our data from disclose. You don&amp;rsquo;t necessarily need to know how exactly it works, but you have to know what it is at least. That is what I&amp;rsquo;m trying to do in this post.
  读硕士的时候也有讲过加密的东西，但是当时也是模棱两可的知道有这么回事。直到最近因为项目的需要还有看了一部叫做citizen four的纪录片（讲述男神edward snowden揭露美国通过“棱镜计划”对人民进行监视的行为）有感而发，数据的保密无疑对于个人隐私来说是很重要的，但是随着学习的深入你会发现，加密算法种类真的很多甚至所有的名次加在一次甚至会很乱，于是我想写一篇博客总结一下这段时间的学习，也借此机会普及一下加密的知识和应用，如有不妥，忘指正。
 加密算法(Encryption) 首先加密算法分成对称（sync）的和非对称（async）两种的。他们的区别就在于公钥和私钥是否相同，公私钥相同的称为对称加密，公私钥不同的称为非对称加密。那什么是公钥什么是私钥呢？在密码学中，有个规定是算法应该是被允许公开的，那要怎么保证在别人得知加密算法后仍然能够取得保密效果呢？于是历史上的大神们就提出先由发送者生成一对公私钥，这对公私钥可以互相解开经过对方加密的内容（这里可能不太妥，希望得到指正）。公钥顾名思义是公开给public的，私钥则是由消息发送方生成的。在希望建立ssh连接的两台机器之间可以用ssh-genkey进行密码对的生成，你可以打开~/.ssh/id_rsa文件查看生成的公司钥信息，这个也是搭建hadoop集群必须执行的步骤来确保集群之间的通信。这里先不做具体实现的部分，等以后有时间再把加密的算法实现写在我的gist里面。 哪些对称加密算法：DES, 3DES, blowfish 哪些非对称加密算法： RSA， SM2（中国国家密码局专利，在商用密码机中比较常用，貌似银行也是大多用这个）
-哈希算法(Hash) 哈希算法的目标是为了将任意长度的文本内容生成固定长度（具体长度因应该是因算法而异的）的不可逆的值。种类包含：MD4, MD5和SHA* 等。
+哈希算法(Hash) 哈希算法的目标是为了将任意长度的文本内容生成固定长度（具体长度因应该是因算法而异的）的不可逆的值。种类包含：MD4, MD5和SHA* 等。这里想讲一下关于SHA256的内容，主要是因为在bitcoin里面主要用到的hash算法就是SHA256或者512。不同的sha2算法对应的是最后的hash值也就是digest的bit长度。
+digest:结果的hash value cipher:fdsa
 应用  文件校验(checksum)：由于哈希算法生成的字符串具有稍微修改哪怕一位数字都会造成哈希结果的明显差异，因此在文件传输过程中，利用文件中自带的哈希值，和用原文进行哈希生成的新的哈希值进行比对，如果两者相同，则传输的结果文件被认为未被改动，从而保证完整性(integrity)。 数字签名(digital signature)：对与一些大content的东西或者一些特殊信息进行传输的过程中，如何保证发送过来的数据真的是你所认为的发送者发送的呢？这个时候可以让发送者先用私钥钥对原文本哈希过的值进行加密，加密的值append到内容末尾作为签名。客户端再用公钥解密数字签名，并且对content的东西进行哈希，二者进行比对，如果一致则可确认发送者的身份。这其中可能会有公钥被换的情况，这时候就需要certificate authenticator（ca）生成digital certificate 来做认证。这里我只是简要的说一下我的理解，具体还要看阮大神的生动讲解。https也用到了这里的知识。 bit coin 也用到了哈希的办法，挖矿的实质就是对哈希值进行暴力反解，这里可以看我的另外一篇博客What is bitcoin mining &amp;hellip;&amp;hellip;  Summary 密码学是一个博大精深的数学分支，其中涉及到很多的证明，我们这里知识简单介绍并且直接拿结论过来用，如果想知道具体怎么操作，可以找相关的论文进行查询。在商用领域一般会采购加密机进行加密的操作，关于加密机的东西我最近也还在测试，主要也是发送指令，返回加密结果，不同在于加密机相当于一个全职的用于加密的服务器(dedicated to encryption 很是敬业)。不同加密机工作原理或者api可能不一样，但是基本方式也是输入ip和指令，得到结果的过程。</description>
     </item>
     
@@ -152,20 +381,23 @@ $$ \begin{bmatrix} { a }_{ 1,1 } &amp;amp; { a }_{ 1,2 } &amp;amp; \dots &amp;am
     </item>
     
     <item>
-      <title>Git rebasing</title>
-      <link>https://pingrunhuang.github.io/blog/git-rebasing/</link>
+      <title>Exception cheatsheet in python</title>
+      <link>https://pingrunhuang.github.io/blog/2017-09-15/</link>
       <pubDate>Fri, 15 Sep 2017 00:00:55 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/blog/git-rebasing/</guid>
-      <description>Reference git book</description>
+      <guid>https://pingrunhuang.github.io/blog/2017-09-15/</guid>
+      <description>Built-in exception  BaseException The base class for all built-in exceptions. It is not meant to be directly inherited by user-defined classes (for that, use Exception).
+ Exception All built-in, non-system-exiting exceptions are derived from this class. All user-defined exceptions should also be derived from this class.
+ ArithmeticError The base class for those built-in exceptions that are raised for various arithmetic errors: OverflowError, ZeroDivisionError,FloatingPointError.
+ BufferError Raised when a buffer related operation cannot be performed.</description>
     </item>
     
     <item>
       <title>Markdown Note</title>
-      <link>https://pingrunhuang.github.io/blog/markdown-note/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-09-12/</link>
       <pubDate>Wed, 13 Sep 2017 11:40:40 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/blog/markdown-note/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-09-12/</guid>
       <description>Building a website is full of fun and a sense of achievement. Markdown has been a popular technique for fullfilling the content of the website due to the efficiency and beauty.
 So I decided to learn about it and write down my very first blog to record the key point.
 Making Italic font?
@@ -178,20 +410,20 @@ Making header?
     
     <item>
       <title>Migration</title>
-      <link>https://pingrunhuang.github.io/blog/migration/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-09-14/</link>
       <pubDate>Wed, 13 Sep 2017 11:27:27 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/blog/migration/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-09-14/</guid>
       <description>From hexo to django I still love blogging the knowledge that I lean everyday. It is like my RAM is not very large like 2 Gb or so. I really need to flush the things that I read just now to my laptop which performs the function like the hard disk and later on compact them together.
 From django to hugo Django is great. But for rendering a static webpage like blog or company advertisement, it is better to use a generator framework like hexo though since the process of deploying django is so time consuming.</description>
     </item>
     
     <item>
       <title>Learn pandas</title>
-      <link>https://pingrunhuang.github.io/blog/learn_pandas/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-09-13/</link>
       <pubDate>Wed, 13 Sep 2017 11:22:07 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/blog/learn_pandas/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-09-13/</guid>
       <description>dataframe.sum() by default, sum up each cell&amp;rsquo;s value by each column. Specify the axis attribute will to change the sum up rule. 0 means by columns, 1 means by rows.
 check if the dataframe has null value df.isnull().sum().sum() will sum up all the true value for each column and then each row.
 replace a certain value with other value df[&#39;column name&#39;].map({&#39;yes&#39;:1, &#39;no&#39;:0})</description>
@@ -199,12 +431,12 @@ replace a certain value with other value df[&#39;column name&#39;].map({&#39;yes
     
     <item>
       <title>Pom configuration in Maven</title>
-      <link>https://pingrunhuang.github.io/blog/maven_configuration_lookup/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-09-01/</link>
       <pubDate>Fri, 01 Sep 2017 04:05:25 -0600</pubDate>
       
-      <guid>https://pingrunhuang.github.io/blog/maven_configuration_lookup/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-09-01/</guid>
       <description> package How to package all the dependencies into one jar
-&amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;maven-assembly-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.5.5&amp;lt;/version&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;archive&amp;gt; &amp;lt;manifest&amp;gt; &amp;lt;mainClass&amp;gt;com.xxg.Main&amp;lt;/mainClass&amp;gt; &amp;lt;/manifest&amp;gt; &amp;lt;/archive&amp;gt; &amp;lt;descriptorRefs&amp;gt; &amp;lt;descriptorRef&amp;gt;jar-with-dependencies&amp;lt;/descriptorRef&amp;gt; &amp;lt;/descriptorRefs&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;executions&amp;gt; &amp;lt;execution&amp;gt; &amp;lt;id&amp;gt;make-assembly&amp;lt;/id&amp;gt; &amp;lt;phase&amp;gt;package&amp;lt;/phase&amp;gt; &amp;lt;goals&amp;gt; &amp;lt;goal&amp;gt;single&amp;lt;/goal&amp;gt; &amp;lt;/goals&amp;gt; &amp;lt;/execution&amp;gt; &amp;lt;/executions&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; &amp;lt;/build&amp;gt;  package and single equals mvn pakcage assembly:single
+&amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;maven-assembly-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.5.5&amp;lt;/version&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;archive&amp;gt; &amp;lt;manifest&amp;gt; &amp;lt;mainClass&amp;gt;com.xxg.Main&amp;lt;/mainClass&amp;gt; &amp;lt;/manifest&amp;gt; &amp;lt;/archive&amp;gt; &amp;lt;descriptorRefs&amp;gt; &amp;lt;descriptorRef&amp;gt;jar-with-dependencies&amp;lt;/descriptorRef&amp;gt; &amp;lt;/descriptorRefs&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;executions&amp;gt; &amp;lt;execution&amp;gt; &amp;lt;id&amp;gt;make-assembly&amp;lt;/id&amp;gt; &amp;lt;phase&amp;gt;package&amp;lt;/phase&amp;gt; &amp;lt;goals&amp;gt; &amp;lt;goal&amp;gt;single&amp;lt;/goal&amp;gt; &amp;lt;/goals&amp;gt; &amp;lt;/execution&amp;gt; &amp;lt;/executions&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; &amp;lt;/build&amp;gt;  不同环境下打包配置文件并在在工程中指定 package and single equals mvn pakcage assembly:single
 Reference </description>
     </item>
     
@@ -220,10 +452,10 @@ Reference </description>
     
     <item>
       <title>Support vector machine</title>
-      <link>https://pingrunhuang.github.io/blog/support_vector_machine/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-06-20/</link>
       <pubDate>Tue, 20 Jun 2017 04:05:25 -0600</pubDate>
       
-      <guid>https://pingrunhuang.github.io/blog/support_vector_machine/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-06-20/</guid>
       <description>v is the point to be classified.
 w is a vector points to the hyperplane perpendicularly.
 $$hyperplane:y=w\cdot \xrightarrow { V } +b$$
@@ -235,19 +467,19 @@ if w * v + v = 0, then the v is on the decision boundary which is also the hyper
     
     <item>
       <title>Using bitmap</title>
-      <link>https://pingrunhuang.github.io/blog/using_bitmap_storing_query_data/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-05-22/</link>
       <pubDate>Mon, 22 May 2017 04:05:25 -0600</pubDate>
       
-      <guid>https://pingrunhuang.github.io/blog/using_bitmap_storing_query_data/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-05-22/</guid>
       <description>Manipulating big data like 1 billion (1 billion == 1,000,000,000 == “十亿”, 1 million == 1,000,000 == “百万” which I always forget how to transform back and forth) , is quite memory consuming if we just use an array for storing it. We can either divide the file into smaller file and process them accordingly (ideas like map reduce, will talk about it later in another post) or use ‘bitmap’ and ‘hashmap’.</description>
     </item>
     
     <item>
       <title>Hbase Design</title>
-      <link>https://pingrunhuang.github.io/blog/hbase_design/</link>
+      <link>https://pingrunhuang.github.io/blog/2015-12-21/</link>
       <pubDate>Mon, 21 Dec 2015 04:05:25 -0600</pubDate>
       
-      <guid>https://pingrunhuang.github.io/blog/hbase_design/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2015-12-21/</guid>
       <description>HBase is an open source distributed database built on top of hadoop eco-system. It is becoming a popular choice for application who need fast and random access to large amount of data. In this post, I want to explain my summary on reading the paper written by on explaining the design of HBase architecture. This post is not meant to be read at one time since it is too long.</description>
     </item>
     

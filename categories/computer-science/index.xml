@@ -6,10 +6,56 @@
     <description>Recent content in Computer Science on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 02 Nov 2017 14:22:09 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 23 Dec 2017 11:43:39 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/categories/computer-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My understanding on blockchain so far</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-23/</link>
+      <pubDate>Sat, 23 Dec 2017 11:43:39 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-23/</guid>
+      <description>Block chain has been talked a lot in the field of high tech industry. Being able to understand this decentralized technology is a plus for my career and able to implement it practicely will even better. I will talk about some information I have learnt so far in this post including the implementation of blockchain using javascript.
+ 相信看这篇文章的读者们应该或多或少对blockchain和bitcoin有所了解了，如果这里面涉及到的一些术语觉得不理解，可以试图从reference那里找到答案，实在不行可以wiki之或者直接评论哦。那我主要在这里梳理一下每个技术要解决的问题和如何引进下一个技术的。
+bitcoin要解决的问题是去交易的中介，也就是中介，这是一个很直观而且很需要解决的问题。这样做似乎很理想，但是有两个很明显的问题需要解决：
+1. 怎么确保每一笔先后发生的交易的先后顺序？
+2. 怎么确保在A到B的交易中，A有足够的金额发给B呢？
+为了解决第一个问题，blockchain被提出来了。说白了就是一个double linked list，每个新加入的block被作为一个新的节点被加入现存在的blockchain里面。根据satoshi nakamoto提出的论文，每一笔交易在加入整个chain的时候需要经历6个步骤：</description>
+    </item>
+    
+    <item>
+      <title>Different syntax for creating matrix and array in Different language</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-12/</link>
+      <pubDate>Tue, 12 Dec 2017 09:20:58 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-12/</guid>
+      <description>Golang grid := [][]int{ []int{1,2,3} []int{4,5,6} []int{7,8,9} } // declaring emptyGrid := [3][3]int  C++ int a[3][4] = { {1,2,3}, {4,5,6}, {7,8,9} }; // or vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; grid(3, vector&amp;lt;int&amp;gt;(3));  Java &amp;rdquo;&amp;lsquo;java
+&amp;rdquo;&amp;rsquo;</description>
+    </item>
+    
+    <item>
+      <title>Differences for loop syntax in different language</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-11/</link>
+      <pubDate>Mon, 11 Dec 2017 16:24:10 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-11/</guid>
+      <description>Java for (int i; i &amp;lt; 100 ;i++){ // do something }  Python for index, value in range(100){ # do something }  Scala for (var a &amp;lt;- 1 to 10){ println(a) } &amp;lt;!-- or --&amp;gt; &amp;lt;!-- 10 not included --&amp;gt; for (var b &amp;lt;- 1 until 10){ println(b) }  Go for i := 0; i &amp;lt; 100; i++ { fmt.Println(i) }  Different useage of yield between python and scala def get_generator(): for i in range(10): if i % 3 ==0: yield i  The yield statement should always inside a function to generate a generator object.</description>
+    </item>
+    
+    <item>
+      <title>Learning Scala</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-15/</link>
+      <pubDate>Wed, 15 Nov 2017 17:45:19 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-15/</guid>
+      <description>Learning Scala
+Trait Trait is like interface in java
+trait Iterator[A] { def hasNext : boolean def next() : A }  regex ```Scala import scala.util.matching.Regex
+object
+``````</description>
+    </item>
     
     <item>
       <title>Learning concurrency programing with Java -- Snapshot 1.0</title>
@@ -22,13 +68,41 @@ How does it work Each object holding a intrinsic lock will hold a count to the a
     </item>
     
     <item>
-      <title>Differences among tuple, list and set in python?</title>
-      <link>https://pingrunhuang.github.io/blog/2017-09-19/</link>
-      <pubDate>Tue, 19 Sep 2017 09:54:03 +0800</pubDate>
+      <title>TCP connection and disconnection</title>
+      <link>https://pingrunhuang.github.io/blog/2017-09-24/</link>
+      <pubDate>Sun, 24 Sep 2017 10:22:56 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/blog/2017-09-19/</guid>
-      <description>Basic comparison  list: ordered, mutable, duplicable set: set([1, 2, 3, 4]), not duplicable, not ordered
-# set&#39;s operation a = set([1, 2, 3]) b = set([2, 3, 4]) a.intersection(b) # equivalent to c = a &amp;amp; b, return set([2,3]) c.issubset(a) # return true, equivalent to c &amp;lt;= a c.issuperset(a) # return false, equivalent to c &amp;gt;= a a.difference(b) # return set([1]), equivalent to a-b a.symmetric_difference(b) # return set([1,4]), equivalent to a ^ b  tuple: immutable, ordered, duplicable</description>
+      <guid>https://pingrunhuang.github.io/blog/2017-09-24/</guid>
+      <description>TCP建立连接和断开链接一直是个让我很费解的问题，为什么要三番四次的来回折腾呢？于是我决定用形象的说法来讲一下我的理解。
+为什么需要三次建立连接 如果采用两次握手的话，打个比方，去饭店吃饭，人太多了要拿号，拿号的动作(SYN_SEND)相当于第一次握手，店家给号的动作(SYN_RECV)相当于第二次握手，如果这样就结束了，那店家作为服务方就会跟你建立连接，也就是保证把位置给你，直到你要结束消费，但是很多情况是我们拿了号之后有可能觉得要等太久了，想换一家吃饭，结果就跑了，这样店家就会一直等我们，导致台位浪费，所以需要额外增加第三次的握手，也就是叫号的动作(ESTABLISHED)。
+为什么分手还要四次啊 还是拿饭馆的例子说事，断开连接的过程实际上相当于我们入店消费完成以后要结账的过程。首先我们(client)跟服务员(server)招手，告诉他们我们需要结账(FIN_WAIT1)， 服务员看到后点头示意他们知道了(CLOSE_WAIT)，我们等服务员过来(FIN_WAIT2)，服务员过来以后，再次确认菜都上齐了并且告诉我们最后价格(LAST_ACK)，我们看了一下单子确认价格正确之后付款，然后我们进入(TIME_WAIT)，等待服务员确认收款，最后我们就可以愉快的走人啦。</description>
+    </item>
+    
+    <item>
+      <title>Markdown Note</title>
+      <link>https://pingrunhuang.github.io/blog/2017-09-12/</link>
+      <pubDate>Wed, 13 Sep 2017 11:40:40 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-09-12/</guid>
+      <description>Building a website is full of fun and a sense of achievement. Markdown has been a popular technique for fullfilling the content of the website due to the efficiency and beauty.
+So I decided to learn about it and write down my very first blog to record the key point.
+Making Italic font?
+blablabla means blablabla
+Making bold font?
+blablabla means blablabla
+Making header?
+# header means first level header, ## header means second level header etc.</description>
+    </item>
+    
+    <item>
+      <title>Pom configuration in Maven</title>
+      <link>https://pingrunhuang.github.io/blog/2017-09-01/</link>
+      <pubDate>Fri, 01 Sep 2017 04:05:25 -0600</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-09-01/</guid>
+      <description> package How to package all the dependencies into one jar
+&amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;maven-assembly-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.5.5&amp;lt;/version&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;archive&amp;gt; &amp;lt;manifest&amp;gt; &amp;lt;mainClass&amp;gt;com.xxg.Main&amp;lt;/mainClass&amp;gt; &amp;lt;/manifest&amp;gt; &amp;lt;/archive&amp;gt; &amp;lt;descriptorRefs&amp;gt; &amp;lt;descriptorRef&amp;gt;jar-with-dependencies&amp;lt;/descriptorRef&amp;gt; &amp;lt;/descriptorRefs&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;executions&amp;gt; &amp;lt;execution&amp;gt; &amp;lt;id&amp;gt;make-assembly&amp;lt;/id&amp;gt; &amp;lt;phase&amp;gt;package&amp;lt;/phase&amp;gt; &amp;lt;goals&amp;gt; &amp;lt;goal&amp;gt;single&amp;lt;/goal&amp;gt; &amp;lt;/goals&amp;gt; &amp;lt;/execution&amp;gt; &amp;lt;/executions&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; &amp;lt;/build&amp;gt;  不同环境下打包配置文件并在在工程中指定 package and single equals mvn pakcage assembly:single
+Reference </description>
     </item>
     
   </channel>
