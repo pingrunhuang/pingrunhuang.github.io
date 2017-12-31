@@ -9,14 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
-<meta name="description" content="This is a serial of articles recording the process that I build my chatbot from scratch using golang with Tensorflow.
-Why LSTMs came across? RNN 是一种基于前置信息的神经网络，在正常的对话环境里面，有时候我们可以根据前置的语句得到接下来应该出现什么字词，比如The cloud is in the sky，这里我们容易先到sky应该放在这里。但是有时候我们需要很长的前置信息才能得出接下来的字词。这时候我们引进了LSTMs which is also known as Long short term memory。
-References Understanding LSTM Networks Recurrent Neural Networks">
+<meta name="description" content="Recently I&rsquo;ve been wanting to have some kind of voice speaker which is able to read article in the form of pdf. The basic idea is to have a bot able to transform words into sound so that I don&rsquo;t need to spend that much time on reading(Time is valuable you know ;) ). After some research on this topic, I found that most people use RNN to analyze the sequence data like text using tenserflow&rsquo;s built-in api.">
 
 <meta property="og:title" content="Understanding RNN" />
-<meta property="og:description" content="This is a serial of articles recording the process that I build my chatbot from scratch using golang with Tensorflow.
-Why LSTMs came across? RNN 是一种基于前置信息的神经网络，在正常的对话环境里面，有时候我们可以根据前置的语句得到接下来应该出现什么字词，比如The cloud is in the sky，这里我们容易先到sky应该放在这里。但是有时候我们需要很长的前置信息才能得出接下来的字词。这时候我们引进了LSTMs which is also known as Long short term memory。
-References Understanding LSTM Networks Recurrent Neural Networks" />
+<meta property="og:description" content="Recently I&rsquo;ve been wanting to have some kind of voice speaker which is able to read article in the form of pdf. The basic idea is to have a bot able to transform words into sound so that I don&rsquo;t need to spend that much time on reading(Time is valuable you know ;) ). After some research on this topic, I found that most people use RNN to analyze the sequence data like text using tenserflow&rsquo;s built-in api." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-11-26/" />
 
@@ -59,11 +55,11 @@ References Understanding LSTM Networks Recurrent Neural Networks" />
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-12-26%2008%3a13%3a32.596566671%20%2b0800%20CST%20m%3d%2b0.201739770">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-12-26%2008%3a13%3a32.596566671%20%2b0800%20CST%20m%3d%2b0.201739770">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-12-26%2008%3a13%3a32.596566671%20%2b0800%20CST%20m%3d%2b0.201739770">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-12-31%2023%3a51%3a42.472007099%20%2b0800%20CST%20m%3d%2b0.717152424">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-12-31%2023%3a51%3a42.472007099%20%2b0800%20CST%20m%3d%2b0.717152424">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-12-31%2023%3a51%3a42.472007099%20%2b0800%20CST%20m%3d%2b0.717152424">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-12-26%2008%3a13%3a32.596566671%20%2b0800%20CST%20m%3d%2b0.201739770">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-12-31%2023%3a51%3a42.472007099%20%2b0800%20CST%20m%3d%2b0.717152424">
     
 
 
@@ -211,7 +207,9 @@ References Understanding LSTM Networks Recurrent Neural Networks" />
             <div class="markdown">
                 
 
-<p>This is a serial of articles recording the process that I build my chatbot from scratch using golang with Tensorflow.</p>
+<blockquote>
+<p>Recently I&rsquo;ve been wanting to have some kind of voice speaker which is able to read article in the form of pdf. The basic idea is to have a bot able to transform words into sound so that I don&rsquo;t need to spend that much time on reading(Time is valuable you know ;) ). After some research on this topic, I found that most people use RNN to analyze the sequence data like text using tenserflow&rsquo;s built-in api. So I decided to first understand how RNN works and then try to implement a bot with RNN.</p>
+</blockquote>
 
 <h1 id="why-lstms-came-across">Why LSTMs came across?</h1>
 

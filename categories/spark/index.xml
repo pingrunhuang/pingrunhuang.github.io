@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spark on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/spark/</link>
+    <description>Recent content in Spark on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 28 Dec 2017 21:35:24 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/spark/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RDD--Resilient Distributed Datasets</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-28/</link>
+      <pubDate>Thu, 28 Dec 2017 21:35:24 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-28/</guid>
+      <description>Problems with Map-reduce  data has to be written into a distributed file system first   Reference https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf</description>
+    </item>
+    
+  </channel>
+</rss>

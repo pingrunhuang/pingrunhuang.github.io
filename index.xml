@@ -6,10 +6,96 @@
     <description>Recent content on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 25 Dec 2017 09:26:46 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 31 Dec 2017 22:18:14 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2017-12-31</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-31/</link>
+      <pubDate>Sun, 31 Dec 2017 22:18:14 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-31/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2017总结</title>
+      <link>https://pingrunhuang.github.io/2017/2017%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sun, 31 Dec 2017 22:17:22 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/2017%E6%80%BB%E7%BB%93/</guid>
+      <description>起起落落是人生的常态，但只要每天问自己是否比昨天更进一步的时候，回答是正确的，那么大方向就不会有错了
+ 记得第一次发博客到朋友圈的时候，有人就问我，为什么不写在公众号上面。我的回答是第一想方便迁移，第二那样显得没有仪式感。刚开始写博客的时候是2016年，为了能在法国找到实习，就开始把自己学习的知识当做笔记写下来，方便面试官可以了解我的方向和水平。后来写着写着，发现深深的爱上了这个习惯，不仅可以在看书的时候当作笔记记录下来，还能方便日后查阅，同时也建立了自己的portfolio。
+因为当时在国外找实习，于是很多东西都是写成了英文的，不是我装逼，而是有些时候英文的表述真的更直观，毕竟脑子本来就内存不足，还要从英文再翻译成中文显得有些绕弯路。
+那回看2017，经历了人生中算是到目前为止最低谷的时候了，丢了女朋友不说，回国找的工作也是一般般，现在回想起来，年中那段日子很煎熬。在那段日子里学会了抽烟，学会了不正经，但骨子里是知道自己在做什么的，很多事情也是在那段日子想明白的。比如什么都不比家人重要，朋友会是你在社会上很重要的帮手，有些人有些事就随它去吧。
+很多人在总结中都写到了2017是很丧的一年，让我有种原来大家跟我一样的幻觉。2018年，我希望能看多一些书，让自己更专注。
+2017年完成的工作  新增博客30篇（去除draft） 新增gitlab仓库7个（gitlab全为新增） 新增github仓库12个（去除创建了但没时间实现的仓库） 瑞士滑雪成功  2018年目标  新增总repo10个 新增博客数可以达到60篇 换一份心仪的工作，跟更有趣的人共事，做一项真正有意思有成就感的项目 国内去一个地方旅游，国外去一个地方旅游。 看10本书（包括技术的和非技术的）  2017最后一天在姐姐家里跟他们一家人一起做饭吃饭，聊了很多。不过最开心的还是许久没做的crèpe居然做的很成功，而且苗苗吃的很开心。 !()[/lifeblog/2017-12-31&amp;frasl;1.jpg] !()[/lifeblog/2017-12-31&amp;frasl;2.jpg] 希望这是2018年好运的征兆，希望明年这个时候看这篇总结可以有一种进步的感觉，相信一切都会好的，相信这一切都是上帝的安排，我唯一能做的就是继续做好我的工作，让在乎我的人开心，放心。最后祭出和最可爱的苗苗的合照，2017你成长了很多，2018继续加油哦～ !()[/lifeblog/2017-12-31&amp;frasl;3.jpg]</description>
+    </item>
+    
+    <item>
+      <title>书单</title>
+      <link>https://pingrunhuang.github.io/2017/%E4%B9%A6%E5%8D%95/</link>
+      <pubDate>Sat, 30 Dec 2017 16:33:43 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2017/%E4%B9%A6%E5%8D%95/</guid>
+      <description> General  Hyperspace &amp;ndash; A scientific Odyssey Through Parallel Universes, Time Warps, and the Tenth Dimension by Michio Kaku   Technical  Structure and Interpretation of Computer Programs  </description>
+    </item>
+    
+    <item>
+      <title>2017-12-30</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-30/</link>
+      <pubDate>Sat, 30 Dec 2017 13:55:38 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-30/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Career thought</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-29/</link>
+      <pubDate>Fri, 29 Dec 2017 07:20:44 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-29/</guid>
+      <description>Today is the last working day of 2017 which is also the first time I work till 22:30. 2017 has always been toughest year of my life. No matter in my carear or my personal relationship. But I have to say that I am not regret of anything that I have decided to do this year which could be the luckest thing in 2017.
+At the end of this yeay, I still got some thought about my career.</description>
+    </item>
+    
+    <item>
+      <title>RDD--Resilient Distributed Datasets</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-28/</link>
+      <pubDate>Thu, 28 Dec 2017 21:35:24 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-28/</guid>
+      <description>Problems with Map-reduce  data has to be written into a distributed file system first   Reference https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf</description>
+    </item>
+    
+    <item>
+      <title>DDOS -- Denial of Service Attacks</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-27/</link>
+      <pubDate>Wed, 27 Dec 2017 07:54:21 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-27/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How I build a dApps</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-26/</link>
+      <pubDate>Tue, 26 Dec 2017 21:58:49 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-26/</guid>
+      <description>在之前的一篇关于blockchain的文章中，我大致记录了一下运作原理，虽然还有很多细节没有涉及，比如安全问题（51% computing power）等。这次我想主要记录一下一些以blockchain为主题的创业公司他们如何引入类似blockchain的decentralized的概念，也同时动手试着做一个dApps(decentralized apps)。由于写这篇博客的时间临近元旦，因此有比较充足的时间做调研。
+ Background 互联网时代已经从单台服务器(centralized)发展到了多台服务器为中心(distributed)，现在正在向去中心化(decentralized)发展。这些过程对应着web1.0， web2.0和web3.0。在decentralized的场景下，很重要的一个特性是单点的宕机并不会导致整个应用的失效，数据还有应用的代码都是分布在每个节点上的。因此
+Research part 最开始一段时间主要是研究一下decentralized的
+working dApps example: - steemit - IPFS
+ sit down and think about the same time next year, where do you see yourself be specific praise yourself
+ finish one web app for data presentation
+ finish a kaggle competition independently
+ get a travel movie done with gopro
+  in order to achieve these goal, what should I do?</description>
+    </item>
     
     <item>
       <title>Merkle tree</title>
@@ -181,9 +267,7 @@ declaration ch := make(chan int, capacity int): This cause the ch to have type c
       <pubDate>Sun, 26 Nov 2017 16:45:02 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-11-26/</guid>
-      <description>This is a serial of articles recording the process that I build my chatbot from scratch using golang with Tensorflow.
-Why LSTMs came across? RNN 是一种基于前置信息的神经网络，在正常的对话环境里面，有时候我们可以根据前置的语句得到接下来应该出现什么字词，比如The cloud is in the sky，这里我们容易先到sky应该放在这里。但是有时候我们需要很长的前置信息才能得出接下来的字词。这时候我们引进了LSTMs which is also known as Long short term memory。
-References Understanding LSTM Networks Recurrent Neural Networks</description>
+      <description>Recently I&amp;rsquo;ve been wanting to have some kind of voice speaker which is able to read article in the form of pdf. The basic idea is to have a bot able to transform words into sound so that I don&amp;rsquo;t need to spend that much time on reading(Time is valuable you know ;) ). After some research on this topic, I found that most people use RNN to analyze the sequence data like text using tenserflow&amp;rsquo;s built-in api.</description>
     </item>
     
     <item>
@@ -222,11 +306,7 @@ initializing array q := […]int{1,2,3} //length are defined by the element numb
       <pubDate>Wed, 15 Nov 2017 17:45:19 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-11-15/</guid>
-      <description>Learning Scala
-Trait Trait is like interface in java
-trait Iterator[A] { def hasNext : boolean def next() : A }  regex ```Scala import scala.util.matching.Regex
-object
-``````</description>
+      <description>I recently have to deal with scala to work with data ETL on a data warehouse. I found that scala is not like other language like java and python. Some of the expression is kind of new to me. I&amp;rsquo;m wondering why people use scala instead. Anyway, with this wonder, I decided to write a blog to record my learning process of SCALA along with the spark framework.</description>
     </item>
     
     <item>
@@ -352,7 +432,7 @@ When I grew up, I still wondering how to choose spares to assemble a great deskt
       <pubDate>Fri, 13 Oct 2017 11:27:52 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-10-13/</guid>
-      <description> This is my next topic </description>
+      <description>This is my next topic the speed for count query count(第一列) &amp;gt; count(*) &amp;gt; count(最后一列)</description>
     </item>
     
     <item>

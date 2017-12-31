@@ -57,11 +57,11 @@ foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # mu
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-12-26%2008%3a13%3a32.589133182%20%2b0800%20CST%20m%3d%2b0.194306281">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-12-26%2008%3a13%3a32.589133182%20%2b0800%20CST%20m%3d%2b0.194306281">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-12-26%2008%3a13%3a32.589133182%20%2b0800%20CST%20m%3d%2b0.194306281">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2017-12-31%2023%3a51%3a42.46162135%20%2b0800%20CST%20m%3d%2b0.706766675">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2017-12-31%2023%3a51%3a42.46162135%20%2b0800%20CST%20m%3d%2b0.706766675">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2017-12-31%2023%3a51%3a42.46162135%20%2b0800%20CST%20m%3d%2b0.706766675">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-12-26%2008%3a13%3a32.589133182%20%2b0800%20CST%20m%3d%2b0.194306281">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2017-12-31%2023%3a51%3a42.46162135%20%2b0800%20CST%20m%3d%2b0.706766675">
     
 
 
@@ -258,6 +258,18 @@ result = list(map(lambda x: [x[0]] + list(map(lambda y: y[1]*y[2] , x[1:])) , or
 result = list(map(lambda x: (x[0], reduce(lambda y,z:y+z, x[1:])) , result))
 result = list(map(lambda x: (x[0], x[1]) if x[1]&gt;=100 else (x[0], x[1]), result ))
 # [(1, 678.3299999999999), (2, 494.46000000000004), (3, 364.79999999999995), (4, 492.57)]
+</code></pre>
+
+<p>想象在<code>reduce</code>表达式中，每一个先前的结果的累计结果应该跟后面即将累计的item具有相同的类型。想象是在玩扑克牌的前缀累加，前面累加的结果是数字，因此可以跟后面的数字再进行累加。</p>
+
+<pre><code>1 2 3 4 5 6
+| | | | | |
+1+2
+  3+3
+    6+4
+      10+5
+         15+6
+            21
 </code></pre>
 
 <p>#Reference

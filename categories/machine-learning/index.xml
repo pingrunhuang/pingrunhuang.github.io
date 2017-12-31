@@ -17,9 +17,7 @@
       <pubDate>Sun, 26 Nov 2017 16:45:02 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-11-26/</guid>
-      <description>This is a serial of articles recording the process that I build my chatbot from scratch using golang with Tensorflow.
-Why LSTMs came across? RNN 是一种基于前置信息的神经网络，在正常的对话环境里面，有时候我们可以根据前置的语句得到接下来应该出现什么字词，比如The cloud is in the sky，这里我们容易先到sky应该放在这里。但是有时候我们需要很长的前置信息才能得出接下来的字词。这时候我们引进了LSTMs which is also known as Long short term memory。
-References Understanding LSTM Networks Recurrent Neural Networks</description>
+      <description>Recently I&amp;rsquo;ve been wanting to have some kind of voice speaker which is able to read article in the form of pdf. The basic idea is to have a bot able to transform words into sound so that I don&amp;rsquo;t need to spend that much time on reading(Time is valuable you know ;) ). After some research on this topic, I found that most people use RNN to analyze the sequence data like text using tenserflow&amp;rsquo;s built-in api.</description>
     </item>
     
   </channel>

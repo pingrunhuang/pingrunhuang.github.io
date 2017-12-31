@@ -6,10 +6,36 @@
     <description>Recent content in Computer Science on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 23 Dec 2017 11:43:39 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Dec 2017 07:54:21 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/categories/computer-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DDOS -- Denial of Service Attacks</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-27/</link>
+      <pubDate>Wed, 27 Dec 2017 07:54:21 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-27/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How I build a dApps</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-26/</link>
+      <pubDate>Tue, 26 Dec 2017 21:58:49 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-26/</guid>
+      <description>在之前的一篇关于blockchain的文章中，我大致记录了一下运作原理，虽然还有很多细节没有涉及，比如安全问题（51% computing power）等。这次我想主要记录一下一些以blockchain为主题的创业公司他们如何引入类似blockchain的decentralized的概念，也同时动手试着做一个dApps(decentralized apps)。由于写这篇博客的时间临近元旦，因此有比较充足的时间做调研。
+ Background 互联网时代已经从单台服务器(centralized)发展到了多台服务器为中心(distributed)，现在正在向去中心化(decentralized)发展。这些过程对应着web1.0， web2.0和web3.0。在decentralized的场景下，很重要的一个特性是单点的宕机并不会导致整个应用的失效，数据还有应用的代码都是分布在每个节点上的。因此
+Research part 最开始一段时间主要是研究一下decentralized的
+working dApps example: - steemit - IPFS
+ sit down and think about the same time next year, where do you see yourself be specific praise yourself
+ finish one web app for data presentation
+ finish a kaggle competition independently
+ get a travel movie done with gopro
+  in order to achieve these goal, what should I do?</description>
+    </item>
     
     <item>
       <title>My understanding on blockchain so far</title>
@@ -50,11 +76,7 @@ bitcoin要解决的问题是去交易的中介，类似于银行在传统的交�
       <pubDate>Wed, 15 Nov 2017 17:45:19 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-11-15/</guid>
-      <description>Learning Scala
-Trait Trait is like interface in java
-trait Iterator[A] { def hasNext : boolean def next() : A }  regex ```Scala import scala.util.matching.Regex
-object
-``````</description>
+      <description>I recently have to deal with scala to work with data ETL on a data warehouse. I found that scala is not like other language like java and python. Some of the expression is kind of new to me. I&amp;rsquo;m wondering why people use scala instead. Anyway, with this wonder, I decided to write a blog to record my learning process of SCALA along with the spark framework.</description>
     </item>
     
     <item>
