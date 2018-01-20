@@ -17,7 +17,8 @@
       <pubDate>Thu, 28 Dec 2017 21:35:24 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-12-28/</guid>
-      <description>Problems with Map-reduce  data has to be written into a distributed file system first   Reference https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf</description>
+      <description>Problems with Map-reduce  data has to be written into a distributed file system first   Not suitable for? Due to the batch processing nature, RDD is not good for asyncronous fine-grained updates
+Reference https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf</description>
     </item>
     
   </channel>

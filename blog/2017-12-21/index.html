@@ -57,11 +57,11 @@ foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # mu
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2018-01-01%2000%3a08%3a25.094107983%20%2b0800%20CST%20m%3d%2b0.720243990">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2018-01-01%2000%3a08%3a25.094107983%20%2b0800%20CST%20m%3d%2b0.720243990">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2018-01-01%2000%3a08%3a25.094107983%20%2b0800%20CST%20m%3d%2b0.720243990">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2018-01-20%2022%3a01%3a48.268373824%20%2b0800%20CST%20m%3d%2b0.850394453">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2018-01-20%2022%3a01%3a48.268373824%20%2b0800%20CST%20m%3d%2b0.850394453">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2018-01-20%2022%3a01%3a48.268373824%20%2b0800%20CST%20m%3d%2b0.850394453">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2018-01-01%2000%3a08%3a25.094107983%20%2b0800%20CST%20m%3d%2b0.720243990">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2018-01-20%2022%3a01%3a48.268373824%20%2b0800%20CST%20m%3d%2b0.850394453">
     
 
 
@@ -202,7 +202,7 @@ foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # mu
                     <div class="date" title='Thu Dec 21 2017 13:42:35 CST'>Dec 21, 2017</div>
                     
                     
-		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+		    <div class="reading-time"><div class="middot"></div>3 minutes read</div>
                     
                 </div>
             </div>
@@ -272,8 +272,25 @@ result = list(map(lambda x: (x[0], x[1]) if x[1]&gt;=100 else (x[0], x[1]), resu
             21
 </code></pre>
 
+<p><code>sorted</code>: sorted method is used to sort a collection. Here is the definition of sorted method <code>sorted(iterable, cmp=None, key=None, reverse=False)</code>.</p>
+
+<pre><code class="language-python">
+</code></pre>
+
+<p><code>zip</code>: return an iterator of tuples.</p>
+
+<pre><code class="language-python">zip('ABCD', 'xy') --&gt; Ax By
+zip([1,2,3,4], [2,3,4,5]) --&gt; [(1,2),(2,3),(3,4),(4,5)]
+zip([1,2,3,4], [2,3,4]) --&gt; [(1,2),(2,3),(3,4)]
+</code></pre>
+
+<p><code>bin</code>: for getting the binary of an integer</p>
+
+<p><code>vars</code>: Return the <strong>dict</strong> attribute for a module, class, instance, or any other object with a <strong>dict</strong> attribute corresponding to different kind of attributes inside them. For example, type <code>vars()</code> in the python console, <code>{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;}</code> will be returned.</p>
+
 <p>#Reference
-<a href="https://www.python-course.eu/python3_lambda.php">https://www.python-course.eu/python3_lambda.php</a></p>
+- <a href="https://www.python-course.eu/python3_lambda.php">https://www.python-course.eu/python3_lambda.php</a>
+- <a href="https://wiki.python.org/moin/HowTo/Sorting">https://wiki.python.org/moin/HowTo/Sorting</a></p>
 
                 <br>
 		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>

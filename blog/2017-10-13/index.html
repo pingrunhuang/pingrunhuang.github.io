@@ -9,10 +9,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
-<meta name="description" content="This is my next topic the speed for count query count(第一列) &gt; count(*) &gt; count(最后一列)">
+<meta name="description" content="In a nutshell B-tree, short for balanced search tree, is a generalization implementation of binary search tree. The basic idea is to
+How does different data manipulation impact by the b-tree data structure.  insert will not be time consuming comparing to no index.
+ deletion will have faster speed with where statement.
+ update is basically the total time of insert and delete since update will first delete the record and then insert the modified record.">
 
 <meta property="og:title" content="SQL B-tree index" />
-<meta property="og:description" content="This is my next topic the speed for count query count(第一列) &gt; count(*) &gt; count(最后一列)" />
+<meta property="og:description" content="In a nutshell B-tree, short for balanced search tree, is a generalization implementation of binary search tree. The basic idea is to
+How does different data manipulation impact by the b-tree data structure.  insert will not be time consuming comparing to no index.
+ deletion will have faster speed with where statement.
+ update is basically the total time of insert and delete since update will first delete the record and then insert the modified record." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-10-13/" />
 
@@ -55,11 +61,11 @@
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2018-01-01%2000%3a08%3a25.112856899%20%2b0800%20CST%20m%3d%2b0.738992906">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2018-01-01%2000%3a08%3a25.112856899%20%2b0800%20CST%20m%3d%2b0.738992906">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2018-01-01%2000%3a08%3a25.112856899%20%2b0800%20CST%20m%3d%2b0.738992906">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2018-01-20%2022%3a01%3a48.295253561%20%2b0800%20CST%20m%3d%2b0.877274190">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2018-01-20%2022%3a01%3a48.295253561%20%2b0800%20CST%20m%3d%2b0.877274190">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2018-01-20%2022%3a01%3a48.295253561%20%2b0800%20CST%20m%3d%2b0.877274190">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2018-01-01%2000%3a08%3a25.112856899%20%2b0800%20CST%20m%3d%2b0.738992906">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2018-01-20%2022%3a01%3a48.295253561%20%2b0800%20CST%20m%3d%2b0.877274190">
     
 
 
@@ -207,11 +213,28 @@
             <div class="markdown">
                 
 
-<h1 id="this-is-my-next-topic">This is my next topic</h1>
+<h1 id="in-a-nutshell">In a nutshell</h1>
+
+<p>B-tree, short for balanced search tree, is a generalization implementation of binary search tree. The basic idea is to</p>
+
+<h1 id="how-does-different-data-manipulation-impact-by-the-b-tree-data-structure">How does different data manipulation impact by the b-tree data structure.</h1>
+
+<ul>
+<li>insert will not be time consuming comparing to no index.<br /></li>
+<li>deletion will have faster speed with <code>where</code> statement.<br /></li>
+<li>update is basically the total time of insert and delete since update will first delete the record and then insert the modified record.<br /></li>
+</ul>
 
 <h1 id="the-speed-for-count-query">the speed for count query</h1>
 
 <p>count(第一列) &gt; count(*) &gt; count(最后一列)</p>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/B%2B_tree">https://en.wikipedia.org/wiki/B%2B_tree</a></li>
+<li><a href="http://sqlity.net/en/2445/b-plus-tree/">http://sqlity.net/en/2445/b-plus-tree/</a></li>
+</ul>
 
                 <br>
 		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>

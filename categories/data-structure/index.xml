@@ -6,18 +6,28 @@
     <description>Recent content in Data Structure on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 25 Dec 2017 09:26:46 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jan 2018 08:32:18 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/categories/data-structure/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Merkle tree</title>
-      <link>https://pingrunhuang.github.io/blog/2017-12-25/</link>
-      <pubDate>Mon, 25 Dec 2017 09:26:46 +0800</pubDate>
+      <title>What is DAGs?</title>
+      <link>https://pingrunhuang.github.io/blog/2018-01-03/</link>
+      <pubDate>Wed, 03 Jan 2018 08:32:18 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/blog/2017-12-25/</guid>
-      <description></description>
+      <guid>https://pingrunhuang.github.io/blog/2018-01-03/</guid>
+      <description>The word DAGs (Directed Acyclical Graphs) has been there for a while. Oozie use it to represent a serial of actions, spark use it as a serial of RDD.</description>
+    </item>
+    
+    <item>
+      <title>What is the difference between dataframe, RDD and dataset in spark</title>
+      <link>https://pingrunhuang.github.io/blog/2017-12-31/</link>
+      <pubDate>Sun, 31 Dec 2017 22:18:14 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-12-31/</guid>
+      <description> RDD focuse more on HOW to manipulate data while Dataframe focuse more on WHAT users want to do about the data meaning dataframe will hide more internal optimization from the user.
+Reference  https://www.quora.com/What-is-difference-between-dataframe-and-RDD  </description>
     </item>
     
     <item>
@@ -26,7 +36,10 @@
       <pubDate>Fri, 13 Oct 2017 11:27:52 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-10-13/</guid>
-      <description>This is my next topic the speed for count query count(第一列) &amp;gt; count(*) &amp;gt; count(最后一列)</description>
+      <description>In a nutshell B-tree, short for balanced search tree, is a generalization implementation of binary search tree. The basic idea is to
+How does different data manipulation impact by the b-tree data structure.  insert will not be time consuming comparing to no index.
+ deletion will have faster speed with where statement.
+ update is basically the total time of insert and delete since update will first delete the record and then insert the modified record.</description>
     </item>
     
     <item>

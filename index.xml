@@ -6,18 +6,105 @@
     <description>Recent content on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 31 Dec 2017 22:18:14 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jan 2018 16:27:47 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>2017-12-31</title>
+      <title>Dapps application</title>
+      <link>https://pingrunhuang.github.io/blog/2018-01-19/</link>
+      <pubDate>Fri, 19 Jan 2018 16:27:47 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-01-19/</guid>
+      <description>After exploring the most successful blockchain application &amp;ndash; bitcoin. This time I am going to blog some application that I have seen in the real world which might be an inspiration for me to build the next project.</description>
+    </item>
+    
+    <item>
+      <title>Think about an encrypted data analytical platform along with sharing</title>
+      <link>https://pingrunhuang.github.io/blog/2018-01-18/</link>
+      <pubDate>Thu, 18 Jan 2018 08:45:02 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-01-18/</guid>
+      <description>Basic requirement: - allowing different data source provider to trust the system so that they are willing to share their data on the platform. - the platform should be able to generate model and distribute them to different customers.</description>
+    </item>
+    
+    <item>
+      <title>Some thoughts about applying fancy tech into the insurance industry -- review from Bee&#43; event</title>
+      <link>https://pingrunhuang.github.io/2018/some-thoughts-about-applying-fancy-tech-into-the-insurance-industry----review-from-bee--event/</link>
+      <pubDate>Wed, 17 Jan 2018 23:14:13 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2018/some-thoughts-about-applying-fancy-tech-into-the-insurance-industry----review-from-bee--event/</guid>
+      <description>Human are always excited about advanced tech that make the world a better place
+ I have been honored to join the event hosted by bee+ and BNP on tonight. It was quite surprise that the event went so well that brought me into lots of thoughts which is what I want to share.
+First thing first, there were basically 3 topics that brought me into deep thinking: - How does your technical background get applied to the fields?</description>
+    </item>
+    
+    <item>
+      <title>Tell me about your self</title>
+      <link>https://pingrunhuang.github.io/2018/tell-me-about-your-self/</link>
+      <pubDate>Mon, 15 Jan 2018 09:29:40 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2018/tell-me-about-your-self/</guid>
+      <description>Hi, I’m running. I grew up in shenzhen and now also working here. About me in a nutshell, I would say I’m just a normal person with curiosity. I’ve always trying to figure out the basic principle behind technologies and also share what I know with others. That is why I keep writing blogs and choose Computer science as my major and career.
+about one and a half years ago, I started my internship in paris.</description>
+    </item>
+    
+    <item>
+      <title>Paper reading -- The Case for Learned Index Structures</title>
+      <link>https://pingrunhuang.github.io/blog/2018-01-13/</link>
+      <pubDate>Sat, 13 Jan 2018 09:57:51 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-01-13/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How map reduce work</title>
+      <link>https://pingrunhuang.github.io/blog/2018-01-09/</link>
+      <pubDate>Tue, 09 Jan 2018 11:51:59 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-01-09/</guid>
+      <description>I actually have been using Map reduce programming paradigm before. Check out my github repo. Since then, I have had a rough concept of how MR works. But since I am so passionate about programming diadigm that I decide to dig into more details of how MR works, what problems it solves and how.
+My point of view regarding the workflow of MR how to determine the R patitions location?</description>
+    </item>
+    
+    <item>
+      <title>Things to notice when loading data into hive in hdfs</title>
+      <link>https://pingrunhuang.github.io/blog/2018-01-08/</link>
+      <pubDate>Mon, 08 Jan 2018 22:01:23 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-01-08/</guid>
+      <description>Serveral things to know when loading data into hdfs for hive to read from  specify the separator, quote and escapeChar when creating table  CREATE TABLE table_name() ... WITH SERDEPROPERTIES ( &amp;quot;separatorChar&amp;quot; = &amp;quot;\&amp;quot; &amp;quot;quoteChar&amp;quot; = &amp;quot;\&amp;quot;&amp;quot; &amp;quot;escapeChar&amp;quot; = &amp;quot;,&amp;quot; )  The above schema is by default. But this require external library</description>
+    </item>
+    
+    <item>
+      <title>Prefer join over sub-queries?</title>
+      <link>https://pingrunhuang.github.io/blog/2018-01-06/</link>
+      <pubDate>Sat, 06 Jan 2018 17:15:33 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-01-06/</guid>
+      <description>I recently have to deal with retriving some data from one table and store the data that are in the retrived dataset. Like:
+select * from table1 where table1.column in ( select * in table2 where table2.column in ( ... ) )  This way of writing a sql query looks quite straight forward from the perspective of process oriented programming. But it actually tend to slow down the speed of querying.</description>
+    </item>
+    
+    <item>
+      <title>What is DAGs?</title>
+      <link>https://pingrunhuang.github.io/blog/2018-01-03/</link>
+      <pubDate>Wed, 03 Jan 2018 08:32:18 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-01-03/</guid>
+      <description>The word DAGs (Directed Acyclical Graphs) has been there for a while. Oozie use it to represent a serial of actions, spark use it as a serial of RDD.</description>
+    </item>
+    
+    <item>
+      <title>What is the difference between dataframe, RDD and dataset in spark</title>
       <link>https://pingrunhuang.github.io/blog/2017-12-31/</link>
       <pubDate>Sun, 31 Dec 2017 22:18:14 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-12-31/</guid>
-      <description></description>
+      <description> RDD focuse more on HOW to manipulate data while Dataframe focuse more on WHAT users want to do about the data meaning dataframe will hide more internal optimization from the user.
+Reference  https://www.quora.com/What-is-difference-between-dataframe-and-RDD  </description>
     </item>
     
     <item>
@@ -44,7 +131,7 @@
     </item>
     
     <item>
-      <title>2017-12-30</title>
+      <title>Structure and Interpretation of Computer Programs</title>
       <link>https://pingrunhuang.github.io/blog/2017-12-30/</link>
       <pubDate>Sat, 30 Dec 2017 13:55:38 +0800</pubDate>
       
@@ -68,7 +155,8 @@ At the end of this yeay, I still got some thought about my career.</description>
       <pubDate>Thu, 28 Dec 2017 21:35:24 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-12-28/</guid>
-      <description>Problems with Map-reduce  data has to be written into a distributed file system first   Reference https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf</description>
+      <description>Problems with Map-reduce  data has to be written into a distributed file system first   Not suitable for? Due to the batch processing nature, RDD is not good for asyncronous fine-grained updates
+Reference https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf</description>
     </item>
     
     <item>
@@ -408,12 +496,13 @@ It turns out that there could be more to do with java dynamic proxy.</descriptio
     </item>
     
     <item>
-      <title>To be a interesting man!</title>
-      <link>https://pingrunhuang.github.io/2017/to-be-a-interesting-man/</link>
+      <title>Traveling wish list</title>
+      <link>https://pingrunhuang.github.io/2017/traveling-wish-list/</link>
       <pubDate>Wed, 18 Oct 2017 12:21:48 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/2017/to-be-a-interesting-man/</guid>
-      <description>前两天买了滑板，</description>
+      <guid>https://pingrunhuang.github.io/2017/traveling-wish-list/</guid>
+      <description>basically there are several continents that I want to visit in these few years. Europe and Australia. Though I have already been in France for almost 2 years, but I feel quite regret for not travelling around europe during my study in France. That is why I want to explore europe in a deep mode.
+ Grotta della Poesia queenstown new zealand Isle of Skye  http://www.hereinuk.com/25620.html https://www.isleofskye.com/activities/boat-trips  the coromandel  https://www.</description>
     </item>
     
     <item>
@@ -432,7 +521,10 @@ When I grew up, I still wondering how to choose spares to assemble a great deskt
       <pubDate>Fri, 13 Oct 2017 11:27:52 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-10-13/</guid>
-      <description>This is my next topic the speed for count query count(第一列) &amp;gt; count(*) &amp;gt; count(最后一列)</description>
+      <description>In a nutshell B-tree, short for balanced search tree, is a generalization implementation of binary search tree. The basic idea is to
+How does different data manipulation impact by the b-tree data structure.  insert will not be time consuming comparing to no index.
+ deletion will have faster speed with where statement.
+ update is basically the total time of insert and delete since update will first delete the record and then insert the modified record.</description>
     </item>
     
     <item>

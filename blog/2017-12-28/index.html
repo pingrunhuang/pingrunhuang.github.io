@@ -9,10 +9,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
-<meta name="description" content="Problems with Map-reduce  data has to be written into a distributed file system first   Reference https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf">
+<meta name="description" content="Problems with Map-reduce  data has to be written into a distributed file system first   Not suitable for? Due to the batch processing nature, RDD is not good for asyncronous fine-grained updates
+Reference https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf">
 
 <meta property="og:title" content="RDD--Resilient Distributed Datasets" />
-<meta property="og:description" content="Problems with Map-reduce  data has to be written into a distributed file system first   Reference https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf" />
+<meta property="og:description" content="Problems with Map-reduce  data has to be written into a distributed file system first   Not suitable for? Due to the batch processing nature, RDD is not good for asyncronous fine-grained updates
+Reference https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-12-28/" />
 
@@ -55,11 +57,11 @@
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2018-01-01%2000%3a08%3a25.087590244%20%2b0800%20CST%20m%3d%2b0.713726251">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2018-01-01%2000%3a08%3a25.087590244%20%2b0800%20CST%20m%3d%2b0.713726251">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2018-01-01%2000%3a08%3a25.087590244%20%2b0800%20CST%20m%3d%2b0.713726251">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2018-01-20%2022%3a01%3a48.263376484%20%2b0800%20CST%20m%3d%2b0.845397113">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2018-01-20%2022%3a01%3a48.263376484%20%2b0800%20CST%20m%3d%2b0.845397113">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2018-01-20%2022%3a01%3a48.263376484%20%2b0800%20CST%20m%3d%2b0.845397113">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2018-01-01%2000%3a08%3a25.087590244%20%2b0800%20CST%20m%3d%2b0.713726251">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2018-01-20%2022%3a01%3a48.263376484%20%2b0800%20CST%20m%3d%2b0.845397113">
     
 
 
@@ -213,6 +215,10 @@
 <li>data has to be written into a distributed file system first</li>
 <li></li>
 </ul>
+
+<h1 id="not-suitable-for">Not suitable for?</h1>
+
+<p>Due to the batch processing nature, RDD is not good for asyncronous fine-grained updates</p>
 
 <h1 id="reference">Reference</h1>
 
