@@ -6,10 +6,19 @@
     <description>Recent content in Computer Science on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 18 Jan 2018 08:45:02 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 08 Feb 2018 08:44:24 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/categories/computer-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to set up kubernetes cluster</title>
+      <link>https://pingrunhuang.github.io/blog/2018-02-08/</link>
+      <pubDate>Thu, 08 Feb 2018 08:44:24 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-02-08/</guid>
+      <description>最近因为项目要求，需要把docker容器用集群进行封装，因此需要在三台机器的环境下部署kubernetes。这个过程很难受，因此写下这篇文章记录一下。</description>
+    </item>
     
     <item>
       <title>Think about an encrypted data analytical platform along with sharing</title>

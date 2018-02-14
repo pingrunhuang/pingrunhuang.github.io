@@ -57,11 +57,11 @@ foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # mu
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2018-01-20%2022%3a27%3a12.961769231%20%2b0800%20CST%20m%3d%2b0.692955171">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2018-01-20%2022%3a27%3a12.961769231%20%2b0800%20CST%20m%3d%2b0.692955171">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2018-01-20%2022%3a27%3a12.961769231%20%2b0800%20CST%20m%3d%2b0.692955171">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2018-02-14%2023%3a45%3a16.934454206%20%2b0800%20CST%20m%3d%2b0.664529842">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2018-02-14%2023%3a45%3a16.934454206%20%2b0800%20CST%20m%3d%2b0.664529842">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2018-02-14%2023%3a45%3a16.934454206%20%2b0800%20CST%20m%3d%2b0.664529842">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2018-01-20%2022%3a27%3a12.961769231%20%2b0800%20CST%20m%3d%2b0.692955171">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2018-02-14%2023%3a45%3a16.934454206%20%2b0800%20CST%20m%3d%2b0.664529842">
     
 
 
@@ -288,9 +288,19 @@ zip([1,2,3,4], [2,3,4]) --&gt; [(1,2),(2,3),(3,4)]
 
 <p><code>vars</code>: Return the <strong>dict</strong> attribute for a module, class, instance, or any other object with a <strong>dict</strong> attribute corresponding to different kind of attributes inside them. For example, type <code>vars()</code> in the python console, <code>{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;}</code> will be returned.</p>
 
+<p><code>all</code>: equivalent to</p>
+
+<pre><code>def all(iterable):
+    for element in iterable:
+        if not element:
+            return False
+    return True
+</code></pre>
+
 <p>#Reference
 - <a href="https://www.python-course.eu/python3_lambda.php">https://www.python-course.eu/python3_lambda.php</a>
-- <a href="https://wiki.python.org/moin/HowTo/Sorting">https://wiki.python.org/moin/HowTo/Sorting</a></p>
+- <a href="https://wiki.python.org/moin/HowTo/Sorting">https://wiki.python.org/moin/HowTo/Sorting</a>
+- <a href="https://github.com/pingrunhuang/Learning-Python">https://github.com/pingrunhuang/Learning-Python</a></p>
 
                 <br>
 		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
