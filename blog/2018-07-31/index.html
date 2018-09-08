@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="Suppose we have an RDD of key/value pairs where the key is the student names and the value is the courses that the students have chosen(which could be duplicated!!!). How to determine a set of distinct courses that each student has chosen?
+ //groupByKey rdd.groupByKey(record=&gt;(record._t, record._2.sum)) // 计算所有学生的选课数 val zero = new collection.mutable.Set[String]() // take in 3 parameters: val result = rdd.aggregateByKey( zero // the initial container to accept the value )( (set, v) =&gt; set&#43;=v, // an accumulator that merge values in one partition (set1, set2) =&gt; set1 &#43;&#43;= set2 // a combiner that merge collections from different partitions )   Suppose we have an RDD of key/value pairs where the key is the receiver names of orders and value is the description of the orders.">
+
+<meta property="og:title" content="Puzzles for Spark application" />
+<meta property="og:description" content="Suppose we have an RDD of key/value pairs where the key is the student names and the value is the courses that the students have chosen(which could be duplicated!!!). How to determine a set of distinct courses that each student has chosen?
+ //groupByKey rdd.groupByKey(record=&gt;(record._t, record._2.sum)) // 计算所有学生的选课数 val zero = new collection.mutable.Set[String]() // take in 3 parameters: val result = rdd.aggregateByKey( zero // the initial container to accept the value )( (set, v) =&gt; set&#43;=v, // an accumulator that merge values in one partition (set1, set2) =&gt; set1 &#43;&#43;= set2 // a combiner that merge collections from different partitions )   Suppose we have an RDD of key/value pairs where the key is the receiver names of orders and value is the description of the orders." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/blog/2018-07-31/" />
+
+
+
+<meta property="article:published_time" content="2018-07-31T15:04:30&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-07-31T15:04:30&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Puzzles for Spark application 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/blog/2018-07-31/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a49.933857676%20%2b0800%20CST%20m%3d%2b0.178674829">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a49.933857676%20%2b0800%20CST%20m%3d%2b0.178674829">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a49.933857676%20%2b0800%20CST%20m%3d%2b0.178674829">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a49.933857676%20%2b0800%20CST%20m%3d%2b0.178674829">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Puzzles for Spark application
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Tue Jul 31 2018 15:04:30 CST'>Jul 31, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>3 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <blockquote>
+<p>Suppose we have an RDD of key/value pairs where the key is the student names and the value is the courses that the students have chosen(which could be duplicated!!!). How to determine a set of distinct courses that each student has chosen?</p>
+</blockquote>
+
+<pre><code class="language-scala">//groupByKey
+rdd.groupByKey(record=&gt;(record._t, record._2.sum))
+
+// 计算所有学生的选课数
+val zero = new collection.mutable.Set[String]()
+// take in 3 parameters:
+val result = rdd.aggregateByKey(
+    zero    // the initial container to accept the value
+)(
+    (set, v) =&gt; set+=v,  // an accumulator that merge values in one partition
+    (set1, set2) =&gt; set1 ++= set2 // a combiner that merge collections from different partitions
+)
+</code></pre>
+
+<blockquote>
+<p>Suppose we have an RDD of key/value pairs where the key is the receiver names of orders and value is the description of the orders. How to determine the average number of words used per description, the length of the longest word used and the number of instances of the word &ldquo;district&rdquo;?</p>
+</blockquote>
+
+<ul>
+<li><p>first prototype without type reuse
+```scala
+case class ReportMetrics(longestWord:Int, districtMentions:Int, averageWords:Double)
+class MyMetrics(val longestWord:Int,val districtMentions:Int,val numberOfOrders:Int,val totalWords:Int) extends Serializable{
+def sequenceOp(description:String) : MyMetrics = {
+    val words = description.split(&ldquo;,&rdquo;)
+    val total_words = words.length
+    val max_len_word = words.map(x=&gt;x.length).max
+    val num_of_district = words.count(x=&gt;x.toLowerCase.equals(&ldquo;district&rdquo;))</p>
+
+<pre><code>new MyMetrics(Math.max(longestWord, max_len_word), districtMentions+num_of_district, numberOfOrders+1, total_words+totalWords )
+</code></pre>
+
+<p>}
+def comOp(other:MyMetrics): MyMetrics = {
+    new MyMetrics(
+        Math.max(this.longestWord, other.longestWord),
+        this.districtMentions + other.districtMentions,
+        this.numberOfOrders + other.numberOfOrders,
+        this.totalWords + other.totalWords
+    )
+}
+def toReportMetrics = ReportMetrics(longestWord, districtMentions, totalWords.toDouble/numberOfOrders)
+}</p></li>
+</ul>
+
+<p>def calculateOrderStatistics(rdd: RDD[(String, String)]): RDD[(String, MyMetrics)] = {
+    rdd.aggregateByKey(
+        new MyMetrics(longestWord=0, districtMentions=0, numberOfOrders=0, totalWords=0)
+    )(
+        seqOp = ((myMetrics, description)=&gt; myMetrics.sequenceOp(description)),
+        comOp = (x,y) =&gt; x.comOp(y)
+    ).map(_.toReportMetrics)
+}</p>
+
+<pre><code>
+* with type reuse, we could avoid creating object for each record with `this.type`  
+```scala
+class MetricsCalculatorReuseObjects(var totalWords:Int,
+                                       var longestWord:Int,
+                                       var districtMentions:Int,
+                                       var numberOfOrders:Int) extends Serializable {
+    def sequenceOp(description:String) : this.type = {
+      val words = description.split(&quot;,&quot;)
+      totalWords += words.length
+      longestWord = Math.max(words.map(x=&gt;x.length).max, longestWord)
+      districtMentions += words.count(x=&gt;x.toLowerCase.equals(&quot;district&quot;))
+      numberOfOrders += 1
+      this
+    }
+    def comOp(other:MetricsCalculatorReuseObjects): this.type = {
+      longestWord = Math.max(longestWord, other.longestWord),
+      districtMentions += other.districtMentions,
+      numberOfOrders += other.numberOfOrders,
+      totalWords += other.totalWords
+      this
+    }
+    def toReportMetrics = ReportMetrics(longestWord, districtMentions, totalWords.toDouble/numberOfOrders)
+  }
+</code></pre>
+
+<ul>
+<li><p>Use array instead of case class to avoid GC overhead(arrays in scala is same as Java arrays)</p>
+
+<pre><code class="language-scala">object MetricsCalculator_Arrays extends Serializable {
+val totalWordIndex = 0
+val longestWordIndex = 1
+val districtMentionsIndex = 2
+val numberOrder = 3
+
+def seqOp(reportCardMetrics: Array[Int], description : String) : Array[Int] = {
+  val words = description.split(&quot; &quot;)
+  reportCardMetrics(totalWordIndex) += words.length
+  reportCardMetrics(longestWordIndex) += Math.max(
+    reportCardMetrics(longestWordIndex), words.map(w =&gt; w.length).max
+  )
+  reportCardMetrics(districtMentionsIndex) += words.count(w =&gt; w.contains(&quot;district&quot;))
+  reportCardMetrics(numberOrder) += 1
+  reportCardMetrics
+}
+
+def compOp(x:Array[Int], y:Array[Int]) : Array[Int] = {
+  x(totalWordIndex) += y(totalWordIndex)
+  x(longestWordIndex) = Math.max(x(longestWordIndex), y(longestWordIndex))
+  x(districtMentionsIndex) += y(districtMentionsIndex)
+  x(numberOrder) += y(numberOrder)
+  x
+}
+
+def toReportMetrics(arr: Array[Int]): ReportMetrics ={
+  ReportMetrics(arr(longestWordIndex), arr(districtMentionsIndex), arr(totalWordIndex)/arr(numberOrder))
+}
+}
+
+def reportStatisticsWithArrays(rdd: RDD[(String, String)]) : RDD[(String, ReportMetrics)] = {
+rdd.aggregateByKey(
+  Array.fill[Int](4)(0)
+)(
+  seqOp = (reportCardMetrics, description: String) =&gt; MetricsCalculator_Arrays.seqOp(reportCardMetrics, description),
+  combOp = (x,y) =&gt; MetricsCalculator_Arrays.compOp(x,y)
+).mapValues(MetricsCalculator_Arrays.toReportMetrics)
+}
+</code></pre></li>
+</ul>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Diy on Frank Huang</title>
+    <link>http://www.runpinghuang.top/categories/diy/</link>
+    <description>Recent content in Diy on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 29 Oct 2017 17:05:56 +0800</lastBuildDate>
+    
+	<atom:link href="http://www.runpinghuang.top/categories/diy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Assemble a data analysis platform -- Bazooka</title>
+      <link>http://www.runpinghuang.top/blog/2017-10-29/</link>
+      <pubDate>Sun, 29 Oct 2017 17:05:56 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2017-10-29/</guid>
+      <description>Never settle &amp;mdash;- One plus
+ I&amp;rsquo;ve always wanted to have a super monster platform rather then 4 core, integrated graphics card, windows os etc. But due to the high budget, I chose to just stick with my little mac air which is obvious not an option for building big application. Finally, after my first project of re-decorating my apartment, I launch my second project called Bazooka which is the mother board of my so called monster desktop(In my opinion).</description>
+    </item>
+    
+    <item>
+      <title>Migration</title>
+      <link>http://www.runpinghuang.top/blog/2017-09-14/</link>
+      <pubDate>Wed, 13 Sep 2017 11:27:27 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2017-09-14/</guid>
+      <description>From hexo to django I still love blogging the knowledge that I lean everyday. It is like my RAM is not very large like 2 Gb or so. I really need to flush the things that I read just now to my laptop which performs the function like the hard disk and later on compact them together.
+From django to hugo Django is great. But for rendering a static webpage like blog or company advertisement, it is better to use a generator framework like hexo though since the process of deploying django is so time consuming.</description>
+    </item>
+    
+  </channel>
+</rss>

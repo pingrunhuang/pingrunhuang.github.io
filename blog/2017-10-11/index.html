@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="Bitcoin has been in the field for a while and friends of mine have been talking about bitcoin for a while. I have also read some of the articles talking about bitcoin, the hashing and the trustful features. But to be honest, these concepts still remain a mist for me. I decided to really figure out them in the way that I think and try to explain it as clear as possible.">
+
+<meta property="og:title" content="What is bitcoin mining?" />
+<meta property="og:description" content="Bitcoin has been in the field for a while and friends of mine have been talking about bitcoin for a while. I have also read some of the articles talking about bitcoin, the hashing and the trustful features. But to be honest, these concepts still remain a mist for me. I decided to really figure out them in the way that I think and try to explain it as clear as possible." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/blog/2017-10-11/" />
+
+
+
+<meta property="article:published_time" content="2017-10-11T10:15:03&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-10-11T10:15:03&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     What is bitcoin mining? 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/blog/2017-10-11/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a49.967331945%20%2b0800%20CST%20m%3d%2b0.212149333">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a49.967331945%20%2b0800%20CST%20m%3d%2b0.212149333">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a49.967331945%20%2b0800%20CST%20m%3d%2b0.212149333">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a49.967331945%20%2b0800%20CST%20m%3d%2b0.212149333">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    What is bitcoin mining?
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Wed Oct 11 2017 10:15:03 CST'>Oct 11, 2017</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>4 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>Bitcoin has been in the field for a while and friends of mine have been talking about bitcoin for a while. I have also read some of the articles talking about bitcoin, the hashing and the trustful features. But to be honest, these concepts still remain a mist for me. I decided to really figure out them in the way that I think and try to explain it as clear as possible. This post is just one part of the whole bitcoin stuff. As a beginning, I want to focus on the concept of mining bitcoin.</p>
+
+<h1 id="it-is-all-about-verifying-transaction">It is all about verifying transaction</h1>
+
+<p>As a type of currency, bitcoin must solve the following requirements including how to mint the coin and how to validate the transaction (in other words, how to keep track on all of the transaction) since bitcoin is kind of electronic yet decentralized currency (not centralized comparing to the traditional currency printed by the government or central bank) eventually.</p>
+
+<p>So how bitcoin manage to do that? Well, bitcoin manage to solve these problems by utilizing the concept called blockchain.</p>
+
+<h4 id="what-what-is-block-chain-again">What? What is block chain again?</h4>
+
+<p>It might sounds a bit creepy again by importing this blockchain stuff. If you have some cs background, think of it as the single linked list. Or else, think of it as a long lego chain comprised with lego block. Each lego block is equivalent to the block in block chain. It contains identification of the previous block which is the solved puzzle and the transactions that reside in this block.</p>
+
+<p>With this structure, everyone can append a block to the current chain and the transaction info can be seen by any one which is the soul of the internet right? (I mean everyone has the equal right to access the resource)</p>
+
+<h4 id="but-wait-a-sec-how-to-append-a-new-block">But wait a sec, how to append a new block?</h4>
+
+<p>In order to append a new block, one has to solve the puzzle given by the previous block which is a hashed value generally (remember when we talk about <a href="http://www.runpinghuang.top/blog/2017-09-21">hash algorithms</a> before? here is one of the usage).</p>
+
+<p>A public block chain is holding a puzzle which is a hashed value. Miners have to solve the puzzles provided by the block chain in order to validate their list of transactions and therefore append their block(node) to the block chain (By saying solving the puzzle here, I&rsquo;m using general expression, more detail could be found <a href="https://blockgeeks.com/guides/what-is-hashing/">here</a>). The first one who solved the puzzle will have access to append itself to the blockchain which mean the ledger in the local block can be public to the global block chain so that everyone can see it. At the mean time, this miner will get 12.5 bitcoin as reward. And this is how bitcoin get <strong>distributed</strong>. Yet the process of solving the puzzle is the process of <strong>validation</strong>.</p>
+
+<h1 id="different-kinds-of-algorithms-for-the-puzzle">Different kinds of algorithms for the puzzle</h1>
+
+<p>Speaking of the puzzle, I said it is a hashed value but there are some different algorithms used to get validated(define who is the winner). Hash value is known for not revertible unless by brute force searching. Getting the exactly original message is not easy.
+1. prove of work(pos): it is a method to ensure the new block is hard to create. Basically the requirements to get the puzzle solved is to let the <strong>hashed value &lt; target</strong>. Here is a simple implementation provided by <a href="https://github.com/llSourcell/blockchain_consensus/blob/master/blockchain_consensus.ipynb">Siraj</a></p>
+
+<pre><code class="language-python">#Simple Proof-of-Work example
+
+import sys
+import time
+import hashlib
+from struct import unpack, pack
+
+timestamp = str(time.time())
+message = &quot;this is a random message&quot;
+payload = (timestamp + message).encode('utf-8')
+
+nonce = 0
+guess = 999999999999
+throttle = 100000000
+target = 2**64/ throttle
+
+payloadHash = hashlib.sha512(payload).digest()
+
+start = time.time()
+while guess &gt; target:
+    nonce+1
+    guess, = unpack('&gt;Q', hashlib.sha512(hashlib.sha512(pack('&gt;Q', nonce) + payloadHash).digest()).digest()[0:8])[0:8]
+end = time.time()
+print &quot;%s:%s:%s:%s:%s:%s:%s&quot; % (timestamp, message, nonce, guess, payload, target, end-start)
+</code></pre>
+
+<ol>
+<li><p>prove of stack:</p></li>
+
+<li><p>prove of burn:</p></li>
+</ol>
+
+<h1 id="in-summary">In summary</h1>
+
+<p>In a nutshell, the whole process from decrypt the digest to get bitcoin reward is the so called bitcoin mining. It is greatly related to the block chain. However, this is just the very shallow glance on bitcoin.
+Keep updating, peace!</p>
+
+<h1 id="remaining-questions">Remaining questions</h1>
+
+<ol>
+<li>If I am a miner, how do I know which algorithms to use to solve the puzzle?</li>
+<li>How does the initial block chain get generated?</li>
+<li>How does the local block chain get generated?</li>
+</ol>
+
+<h1 id="reference">Reference</h1>
+
+<p><a href="https://github.com/llSourcell/blockchain_consensus/blob/master/blockchain_consensus.ipynb">https://github.com/llSourcell/blockchain_consensus/blob/master/blockchain_consensus.ipynb</a>
+<a href="https://www.huffingtonpost.com/ameer-rosic-/what-is-bitcoin-mining-a-_b_13764842.html">https://www.huffingtonpost.com/ameer-rosic-/what-is-bitcoin-mining-a-_b_13764842.html</a>
+<a href="https://blockgeeks.com/guides/what-is-blockchain-technology/">https://blockgeeks.com/guides/what-is-blockchain-technology/</a>
+<a href="https://www.bitcoinmining.com">https://www.bitcoinmining.com</a></p>
+
+<h1 id="related-techniques">Related Techniques</h1>
+
+<ul class="task-list">
+<li><label><input type="checkbox" checked disabled class="task-list-item"> single linked list</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> hash algorithms</label></li>
+</ul>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

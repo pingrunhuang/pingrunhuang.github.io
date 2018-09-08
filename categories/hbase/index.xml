@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hbase on Frank Huang</title>
+    <link>http://www.runpinghuang.top/categories/hbase/</link>
+    <description>Recent content in Hbase on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 16 Mar 2018 10:35:13 +0800</lastBuildDate>
+    
+	<atom:link href="http://www.runpinghuang.top/categories/hbase/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>hbase shell commands set</title>
+      <link>http://www.runpinghuang.top/blog/2018-03-16/</link>
+      <pubDate>Fri, 16 Mar 2018 10:35:13 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2018-03-16/</guid>
+      <description> copy data snapshot &amp;quot;table1&amp;quot;, &amp;quot;snapname&amp;quot; clone_snapshot &amp;quot;snapname&amp;quot;, &amp;quot;table2&amp;quot;  drop table disable &amp;quot;table&amp;quot; drop &amp;quot;table&amp;quot;  </description>
+    </item>
+    
+  </channel>
+</rss>

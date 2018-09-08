@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="I learn things slow, but I keep learning">
+
+<meta property="og:title" content="Technical Blog" />
+<meta property="og:description" content="I learn things slow, but I keep learning" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://www.runpinghuang.top/blog/" />
+
+
+
+<meta property="og:updated_time" content="2017-09-13T06:42:21-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Technical Blog 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/blog/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a49.972018808%20%2b0800%20CST%20m%3d%2b0.216836229">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a49.972018808%20%2b0800%20CST%20m%3d%2b0.216836229">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a49.972018808%20%2b0800%20CST%20m%3d%2b0.216836229">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a49.972018808%20%2b0800%20CST%20m%3d%2b0.216836229">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+  <link href="http://www.runpinghuang.top/blog/index.xml" rel="alternate" type="application/rss+xml" title="Frank Huang" />
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            
+            <div class="page-heading">Blog</div>
+            <ul>
+              
+
+              
+                
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>algorithm</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-09-17T23:51:50&#43;08:00'>Sep 17, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-09-17/" onclick=""><span>Dig into PCA -- from my point of view</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-03-09T12:17:25&#43;08:00'>Mar 9, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-03-09/" onclick=""><span>From hamming distance to leetcode thought--leetcode 477</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-07-08T10:46:50&#43;08:00'>Jul 8, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-07-08/" onclick=""><span>尾递归优化</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-08-13T14:02:35&#43;08:00'>Aug 13, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-08-13/" onclick=""><span>Different elevator schedual</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>blockchain</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-10-11T10:15:03&#43;08:00'>Oct 11, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-10-11/" onclick=""><span>What is bitcoin mining?</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-12-23T11:43:39&#43;08:00'>Dec 23, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-12-23/" onclick=""><span>My understanding on blockchain so far</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>computer-science</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-09-01T04:05:25-06:00'>Sep 1, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-09-01/" onclick=""><span>Pom configuration in Maven</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-09-24T10:22:56&#43;08:00'>Sep 24, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-09-24/" onclick=""><span>TCP connection and disconnection</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-12-11T16:24:10&#43;08:00'>Dec 11, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-12-11/" onclick=""><span>Differences for loop syntax in different language</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-12-12T09:20:58&#43;08:00'>Dec 12, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-12-12/" onclick=""><span>Different syntax for creating matrix and array in Different language</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-03-06T22:00:54&#43;08:00'>Mar 6, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-03-06/" onclick=""><span>What the hack is `offset` in computer science</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-04-25T22:41:16&#43;08:00'>Apr 25, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-04-25/" onclick=""><span>collection of &#39;What is the difference between&#39;</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-05-24T11:43:17&#43;08:00'>May 24, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-05-24/" onclick=""><span>TiDB 三架马车</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-06-19T22:59:51&#43;08:00'>Jun 19, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-06-19/" onclick=""><span>Gerrit push vs git push</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-07-04T00:05:23&#43;08:00'>Jul 4, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-07-04/" onclick=""><span>How to set up my blog system?</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-07-23T09:22:26&#43;08:00'>Jul 23, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-07-23/" onclick=""><span>What the hack does ACID mean in database?</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-08-04T15:43:07&#43;08:00'>Aug 4, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-08-04/" onclick=""><span>What is Round Robin?</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-08-29T14:53:15&#43;08:00'>Aug 29, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-08-29/" onclick=""><span>What is port forwarding?</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>data-science</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2015-12-21T04:05:25-06:00'>Dec 21, 2015</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2015-12-21/" onclick=""><span>Hbase Design</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-06-20T04:05:25-06:00'>Jun 20, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-06-20/" onclick=""><span>Support vector machine</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>data-structure</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-05-22T04:05:25-06:00'>May 22, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-05-22/" onclick=""><span>Using bitmap</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-05-04T12:03:46&#43;08:00'>May 4, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-05-04/" onclick=""><span>3 ws of Bloomfilter</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>design-pattern</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-10-26T17:52:13&#43;08:00'>Oct 26, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-10-26/" onclick=""><span>Dynamic proxy in Java</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>diy</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-09-13T11:27:27&#43;08:00'>Sep 13, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-09-14/" onclick=""><span>Migration</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-10-29T17:05:56&#43;08:00'>Oct 29, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-10-29/" onclick=""><span>Assemble a data analysis platform -- Bazooka</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>docker</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-02-21T16:23:22&#43;08:00'>Feb 21, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-02-21/" onclick=""><span>What docker volumes can do</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>encoding</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-09-21T14:06:05&#43;08:00'>Sep 21, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-09-21/" onclick=""><span>Encrypting sensitive information</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-11-05T20:39:51&#43;08:00'>Nov 5, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-11-05/" onclick=""><span>数据加密</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>git</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-06-27T22:56:50&#43;08:00'>Jun 27, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-06-27/" onclick=""><span>How does branches work in git</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>golang</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-11-10T11:43:01&#43;08:00'>Nov 10, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-11-10/" onclick=""><span>Golang learning 1</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-11-13T11:16:44&#43;08:00'>Nov 13, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-11-13/" onclick=""><span>Golang learning 2</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-11-19T00:00:44&#43;08:00'>Nov 19, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-11-19/" onclick=""><span>Golang learning 3 -- composite type</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-11-21T11:21:07&#43;08:00'>Nov 21, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-11-21/" onclick=""><span>Golang learning 4 -- Function</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-12-01T17:37:46&#43;08:00'>Dec 1, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-12-01/" onclick=""><span>Strings, bytes, runes and characters in Go</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-12-17T15:25:00&#43;08:00'>Dec 17, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-12-17/" onclick=""><span>Different ways of copying arrays in golang</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>linux</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-05-29T20:05:39&#43;08:00'>May 29, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-05-29/" onclick=""><span>learning vim for data scientist</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-08-28T10:05:35&#43;08:00'>Aug 28, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-08-28/" onclick=""><span>Different ways of removing files with exclusion</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>machine-learning</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-07-09T08:05:03&#43;08:00'>Jul 9, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-07-09/" onclick=""><span>My thougts about Linear Regression</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>python</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-12-14T22:32:51&#43;08:00'>Dec 14, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-12-14/" onclick=""><span>Python unittest</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-12-16T09:50:49&#43;08:00'>Dec 16, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-12-16/" onclick=""><span>How python virtualenv actually works?</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-12-20T09:53:54&#43;08:00'>Dec 20, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-12-20/" onclick=""><span>Python memory management strategy</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-12-21T13:42:35&#43;08:00'>Dec 21, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-12-21/" onclick=""><span>Python built-in function cheat sheet</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-06-12T07:21:02&#43;08:00'>Jun 12, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-06-12/" onclick=""><span>Learning functional programming from python decorator</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-07-25T11:17:07&#43;08:00'>Jul 25, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-07-25/" onclick=""><span>Generator and Coroutine -- from the perspective of source code</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-07-30T18:19:12&#43;08:00'>Jul 30, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-07-30/" onclick=""><span>Understanding how to generate tree in one line of code</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-08-07T09:46:56&#43;08:00'>Aug 7, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-08-07/" onclick=""><span>python variable scope</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-08-16T10:51:45&#43;08:00'>Aug 16, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-08-16/" onclick=""><span>Regular expression with python</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>research</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-08-21T00:13:03&#43;08:00'>Aug 21, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-08-21/" onclick=""><span>Introduction to aws EMR</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-08-22T00:46:55&#43;08:00'>Aug 22, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-08-22/" onclick=""><span>Hive on EMR cluster</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>scala</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-06-26T15:43:28&#43;08:00'>Jun 26, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-06-26/" onclick=""><span>What is closure?</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>spark</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-06-29T00:24:04&#43;08:00'>Jun 29, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-06-29/" onclick=""><span>RDD tutorial</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-06-30T19:40:28&#43;08:00'>Jun 30, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-06-30/" onclick=""><span>problem with rdd.foreach</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-07-31T15:04:30&#43;08:00'>Jul 31, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-07-31/" onclick=""><span>Puzzles for Spark application</span></a>
+</li>
+
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2018-08-26T14:31:37&#43;08:00'>Aug 26, 2018</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2018-08-26/" onclick=""><span>High performance spark 3</span></a>
+</li>
+
+                        
+                    
+                  
+                    <div style="color:rgb(49, 48, 48); font-size:20px;"><strong>thinking</strong></div>
+                    
+                        
+                          <li class="post-item">
+    
+    <span class="meta"><time datetime='2017-10-19T15:43:15&#43;08:00'>Oct 19, 2017</time></span>
+    
+    <a href="http://www.runpinghuang.top/blog/2017-10-19/" onclick=""><span>Some thought about choosing a framework</span></a>
+</li>
+
+                        
+                    
+                  
+                
+              
+                
+              
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

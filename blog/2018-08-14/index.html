@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="This post will be a quick note on the class built-in functions that has __ prefix and suffix.
+ delattr dir eq:
+comparing 2 objects equality. This is used when you want see if two objects meet the condition of a==b. For example: python class Province: def __init__(self, pname=&#39;&#39;, pcode=&#39;&#39;): self.province_name = pname self.province_code = pcode def __eq__(self, other): return self.province_code==other.province_code p1 = Province(pcode=&#39;111&#39;) p2 = Province(pname=&#39;asd&#39;,pcode=&#39;111&#39;) p1==p2 # will return true even the pname atributes are not the same.">
+
+<meta property="og:title" content="Different built function for a class" />
+<meta property="og:description" content="This post will be a quick note on the class built-in functions that has __ prefix and suffix.
+ delattr dir eq:
+comparing 2 objects equality. This is used when you want see if two objects meet the condition of a==b. For example: python class Province: def __init__(self, pname=&#39;&#39;, pcode=&#39;&#39;): self.province_name = pname self.province_code = pcode def __eq__(self, other): return self.province_code==other.province_code p1 = Province(pcode=&#39;111&#39;) p2 = Province(pname=&#39;asd&#39;,pcode=&#39;111&#39;) p1==p2 # will return true even the pname atributes are not the same." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/blog/2018-08-14/" />
+
+
+
+<meta property="article:published_time" content="2018-08-14T16:10:33&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-08-14T16:10:33&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Different built function for a class 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/blog/2018-08-14/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a42.9579556%20%2b0800%20CST%20m%3d%2b0.559942528">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a42.9579556%20%2b0800%20CST%20m%3d%2b0.559942528">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a42.9579556%20%2b0800%20CST%20m%3d%2b0.559942528">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a42.9579556%20%2b0800%20CST%20m%3d%2b0.559942528">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Different built function for a class
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Tue Aug 14 2018 16:10:33 CST'>Aug 14, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>This post will be a quick note on the class built-in functions that has <code>__</code> prefix and suffix.</p>
+
+<ul>
+<li><strong>delattr</strong></li>
+<li><strong>dir</strong></li>
+<li><strong>eq</strong>:<br />
+comparing 2 objects equality. This is used when you want see if two objects meet the condition of <code>a==b</code>. For example:
+<code>python
+class Province:
+def __init__(self, pname='', pcode=''):
+    self.province_name = pname
+    self.province_code = pcode
+def __eq__(self, other):
+    return self.province_code==other.province_code
+p1 = Province(pcode='111')
+p2 = Province(pname='asd',pcode='111')
+p1==p2 # will return true even the pname atributes are not the same.
+</code>
+What will be the potential problem for the above code?</li>
+<li><strong>ge</strong></li>
+<li><strong>gt</strong></li>
+<li><strong>le</strong></li>
+<li><strong>lt</strong></li>
+
+<li><p><strong>ne</strong></p></li>
+
+<li><p><strong>format</strong></p></li>
+
+<li><p><strong>hash</strong>:
+Override this method for operations on members of hashed collections including set, frozenset, and dict.</p>
+
+<pre><code class="language-bash">&gt;&gt;&gt; p1=Province('111','222')
+&gt;&gt;&gt; p2=Province('23','222')
+&gt;&gt;&gt; s.add(r1)
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: unhashable type: 'Province'
+</code></pre></li>
+
+<li><p><strong>init</strong>:<br />
+an construct method to call when this class is initialized.</p></li>
+
+<li><p><strong>init_subclass</strong></p></li>
+
+<li><p><strong>new</strong></p></li>
+
+<li><p><strong>reduce</strong></p></li>
+
+<li><p><strong>reduce_ex</strong></p></li>
+
+<li><p><strong>repr</strong></p></li>
+
+<li><p><strong>setattr</strong></p></li>
+
+<li><p><strong>sizeof</strong>:</p></li>
+
+<li><p><strong>getattribute</strong></p></li>
+
+<li><p><strong>str</strong>:<br />
+a function to call when printing the object which return the string you want to be printed.</p></li>
+
+<li><p><strong>subclasshook</strong></p></li>
+</ul>
+
+<h1 id="answers">Answers:</h1>
+
+<pre><code class="language-python">class Province:
+    def __init__(self, pname='', pcode=''):
+        self.province_name = pname
+        self.province_code = pcode
+    def __eq__(self, other):
+        return isinstance(other, Province) self.province_code==other.province_code
+</code></pre>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+<li><a href="https://hynek.me/articles/hashes-and-equality/">https://hynek.me/articles/hashes-and-equality/</a></li>
+</ul>
+
+<pre><code>&gt;&gt;&gt; generator.send(2)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: can't send non-None value to a just-started generator
+</code></pre>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="Initial  login to postgresql: psql -U demo -p 15432 -d database -h host
+ list databases in postgresql: psql -l
+ backup database: PGPASSWORD=&quot;password&quot; pg_dump -h host -p port -U username database &gt; file.sql or PGPASSWORD=&quot;password&quot; pg_dump -h host -p port -U username -t tablename database &gt; file.sql for only one table. recommended way to dumnp database: pg_dump -Fc mydb &gt; db.dump restore database: psql -U postgres database &lt; file.">
+
+<meta property="og:title" content="postgresql command note" />
+<meta property="og:description" content="Initial  login to postgresql: psql -U demo -p 15432 -d database -h host
+ list databases in postgresql: psql -l
+ backup database: PGPASSWORD=&quot;password&quot; pg_dump -h host -p port -U username database &gt; file.sql or PGPASSWORD=&quot;password&quot; pg_dump -h host -p port -U username -t tablename database &gt; file.sql for only one table. recommended way to dumnp database: pg_dump -Fc mydb &gt; db.dump restore database: psql -U postgres database &lt; file." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/blog/2018-06-05/" />
+
+
+
+<meta property="article:published_time" content="2018-06-05T19:01:03&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-06-05T19:01:03&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     postgresql command note 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/blog/2018-06-05/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a42.986513887%20%2b0800%20CST%20m%3d%2b0.588501016">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a42.986513887%20%2b0800%20CST%20m%3d%2b0.588501016">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a42.986513887%20%2b0800%20CST%20m%3d%2b0.588501016">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a42.986513887%20%2b0800%20CST%20m%3d%2b0.588501016">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    postgresql command note
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Tue Jun 5 2018 19:01:03 CST'>Jun 5, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h1 id="initial">Initial</h1>
+
+<ul>
+<li>login to postgresql: psql -U demo -p 15432 -d database -h host<br /></li>
+<li>list databases in postgresql: psql -l<br /></li>
+<li>backup database: <code>PGPASSWORD=&quot;password&quot; pg_dump -h host -p port -U username database &gt; file.sql</code> or <code>PGPASSWORD=&quot;password&quot; pg_dump -h host -p port -U username -t tablename database &gt; file.sql</code> for only one table.</li>
+<li>recommended way to dumnp database: <code>pg_dump -Fc mydb &gt; db.dump</code></li>
+<li>restore database: <code>psql -U postgres database &lt; file.sql</code></li>
+<li>dump sql create table: <code>pg_dump -p &lt;port&gt; -U &lt;user&gt; -h &lt;host-ip&gt; -st tablename dbname</code></li>
+<li>create database: <code>createdb &lt;dbname&gt;</code></li>
+</ul>
+
+<h1 id="after-login">After login</h1>
+
+<ul>
+<li>list tables in databases: <code># \d</code>.<br /></li>
+<li>list tables in databases: <code>\dt</code> for listing tables in current
+database, programmatically <code>SELECT * FROM pg_catalog.pg_tables;</code>.</li>
+<li>describe table in databases: <code># \d tablename</code> or <code># \d+ tablename</code> for further info.<br /></li>
+<li>switch database: <code>\c dbname</code></li>
+<li>list all the databases: <code>\l</code></li>
+<li>create database: <code>create database dbname;</code></li>
+<li>create table:
+```
+CREATE TABLE films (
+code        char(5) CONSTRAINT firstkey PRIMARY KEY,
+title       varchar(40) NOT NULL,
+did         integer NOT NULL,
+date_prod   date,
+kind        varchar(10),
+len         interval hour to minute
+);</li>
+</ul>
+
+<p>```</p>
+
+<h3 id="schema">schema</h3>
+
+<ul>
+<li>analyze query efficiency: <code>EXPLAIN ANALYZE &lt;query statement&gt;;</code></li>
+<li>change to different schema: <code>SET search_path = &lt;schema_name&gt;</code>, this allow to change to different schema at run time</li>
+<li>change the default schema for login: <code>ALTER USER postgres SET search_path = &lt;schema1&gt;,&lt;schema2&gt;...</code></li>
+<li>create schema: <code>CREATE SCHEMA &lt;schema_name&gt;</code></li>
+<li>move table from one schema to another: <code>ALTER TABLE &lt;tablename&gt; SET SCHEMA &lt;schema_name&gt;</code></li>
+</ul>
+
+<h1 id="crud">CRUD</h1>
+
+<ul>
+<li>insert: <code>insert into tablename(c1,c2...) values (v1,v2...);</code></li>
+<li>update table table column type: <code>alter table &lt;table name&gt; alter column &lt;column name&gt; type &lt;new_type&gt;</code>. Notice that for other databases, the syntax for alter table is <code>alter table &lt;table name&gt; modify &lt;column name&gt; &lt;new type&gt;</code>.</li>
+</ul>
+
+<h1 id="issues">issues</h1>
+
+<ol>
+<li>The reason why <code>select count(*)</code> is slow is related to the MVCC implementation in PostgreSQL. The fact that multiple transactions can see different states of the data means that there can be no straightforward way for &ldquo;COUNT(*)&rdquo; to summarize data across the whole table; PostgreSQL must walk through all rows, in some sense. This normally results in a sequential scan reading information about every row in the table. EXPLAIN ANALYZE reveals what&rsquo;s going on</li>
+</ol>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+<li><a href="http://workshops.boundlessgeo.com/postgis-intro/schemas.html">http://workshops.boundlessgeo.com/postgis-intro/schemas.html</a></li>
+</ul>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="Branches in git is divided into 2 kind. Remote and local. I will demonstrate a basic scenario in this post regarding the local branch.
+local branch Scenario
+You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.
+switch to production branch create a issue branch and switch to it which allow you to start working on it and do some commits.">
+
+<meta property="og:title" content="How does branches work in git" />
+<meta property="og:description" content="Branches in git is divided into 2 kind. Remote and local. I will demonstrate a basic scenario in this post regarding the local branch.
+local branch Scenario
+You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.
+switch to production branch create a issue branch and switch to it which allow you to start working on it and do some commits." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/blog/2018-06-27/" />
+
+
+
+<meta property="article:published_time" content="2018-06-27T22:56:50&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-06-27T22:56:50&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     How does branches work in git 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/blog/2018-06-27/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a49.940826782%20%2b0800%20CST%20m%3d%2b0.185643984">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a49.940826782%20%2b0800%20CST%20m%3d%2b0.185643984">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a49.940826782%20%2b0800%20CST%20m%3d%2b0.185643984">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a49.940826782%20%2b0800%20CST%20m%3d%2b0.185643984">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    How does branches work in git
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Wed Jun 27 2018 22:56:50 CST'>Jun 27, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>4 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>Branches in git is divided into 2 kind. Remote and local. I will demonstrate a basic scenario in this post regarding the local branch.</p>
+
+<h1 id="local-branch">local branch</h1>
+
+<p>Scenario</p>
+
+<p>You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.</p>
+
+<p>switch to production branch
+create a issue branch and switch to it which allow you to start working on it and do some commits.</p>
+
+<pre><code>$ git checkout -b issue
+</code></pre>
+
+<p>if you want to do some other fix on the production branch now, you will need to commit all your current work on the issue branch and switch to production branch . <strong>At this point, your working directory is exactly the same before you start working on branch hotfix. When you switch branches, Git resets your working directory to look like it did the last time you committed on that branch.</strong></p>
+
+<p>then you can create a branch called hotfix and do your work there. Here is what it looks like now.</p>
+
+<p><img src="http://www.runpinghuang.top/blog/2018-06-27/basic-branching-4.png" alt="" /></p>
+
+<ul>
+<li>you can run tests on the hotfix branch to see if it works fine together. Then switch back to master branch and merge the work that you have done on hotfix branch. You will notice the <strong>fast-forward</strong> notation. <strong>Because the commit c3 pointed to by the branch hotfix you merged in was was directly ahead of the commit c1 that you are on. So git will simply let master point to the same commit that hotfix point to.</strong> This is the so called fast-forward.</li>
+</ul>
+
+<pre><code>$ git checkout master
+$ git merge hotfix
+Updating f42c576..3a0874c
+Fast-forward
+ index.html | 2 ++
+ 1 file changed, 2 insertions(+)
+</code></pre>
+
+<p><img src="http://www.runpinghuang.top/blog/2018-06-27/basic-branching-5.png" alt="" /></p>
+
+<p>after that, you do will not need the hotfix branch since the master branch already pointed to it. You will not need to branch pointing to the same commit.</p>
+
+<pre><code>$ git branch -d hotfix
+Deleted branch hotfix (3a0874c).
+</code></pre>
+
+<p><img src="http://www.runpinghuang.top/blog/2018-06-27/basic-branching-6.png" alt="" /></p>
+
+<ul>
+<li>now you can switch back to issue branch and continue the previous work.</li>
+</ul>
+
+<h2 id="merge">merge</h2>
+
+<h3 id="scenario">Scenario</h3>
+
+<p>After you switch back to issue branch, you might want to integrate the work that you have done on the hotfix. So it comes to the merge.</p>
+
+<ul>
+<li>So we decided to issue work is done and ready to be merged into the master branch. Checkout master branch and merge issue branch.</li>
+<li>In this case, the master branch is not the direct ancestor branch you are working on which is issue branch. So git will create a new commit to be pointed by the master branch. Instead of just moving the branch pointer forward, Git creates a new snapshot that results from this three-way merge and automatically creates a new commit that points to it.</li>
+</ul>
+
+<p><img src="http://www.runpinghuang.top/blog/2018-06-27/basic-merging-2.png" alt="" /></p>
+
+<p>Now that we have your work done on issue branch merged with the master branch, we can delete the issue branch.</p>
+
+<h3 id="merge-conflict">merge conflict</h3>
+
+<p>It is very common that different 2 branches change the same file differently. In this case, git will pause to let us handle the conflicts. Run <code>git status</code> to see the files unmerged. Below is how the conflicts look like called <code>standard conflict-resolution markers</code>.</p>
+
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:index.html
+&lt;div id=&quot;footer&quot;&gt;contact : email.support@github.com&lt;/div&gt;
+=======
+&lt;div id=&quot;footer&quot;&gt;
+ please contact us at support@github.com
+&lt;/div&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; iss53:index.html
+</code></pre>
+
+<p>The section between <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>=======</code> is the version that you change on the HEAD(the one you checkout) branch which is master in this case. The section between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> is the version belongs to the branch you are going to merge. We can solve the conflict manually by deciding which part to save. Then add the changed file to stage it. We can also use <code>Intellij</code> or <code>mergetool</code> to resolve it using graphical tool.<br />
+Once we add it, we can commit the changes using <code>git commit</code>. It is always good idea to use <code>git status</code> to check the conflicts.</p>
+
+<h1 id="remote-branches">Remote branches</h1>
+
+<blockquote>
+<p>a pointer to your remote repositories comparing to the local branches.</p>
+</blockquote>
+
+<h2 id="origin">origin</h2>
+
+<p><code>git ls-remote [remote-name]</code>: displays references available in a remote repository along with the associated commit IDs.
+<code>git remote show [remote-name]</code>: displays the detail info of remote repository.
+<code>[remote-name]</code> in the above is equal to the name or alias that you gave to your remote repo, origin by default. We will discuss later. Remote branch take the form of <code>(remote-name)/(branch-name)</code>. To see which remote branch you are currently tracking, use <code>git branch -vv</code> to see also the last commit info.
+When using <code>git clone</code> git will automatically set up the remote-name as origin. To change it, use <code>git clone -o [new-name]</code>.</p>
+
+<p>When you merge a remote branch to the local one, will the remote branch disappear?
+No, you will need to delete it manually by <code>git push origin --delete [remote-branch-name]</code>.</p>
+
+<p>Imagine we have a local branch master pointing to the commit of c3, however the remote branch master has been modified by others and is pointing to c4.
+To synchronize your work, run <code>git fetch origin</code>.  This command looks up which server “origin” is and fetch data to update the local repo.</p>
+
+<p>How git fetch updates your remote references:</p>
+
+<p><img src="http://www.runpinghuang.top/blog/2018-06-27/remote-branches-3.png" alt="" /></p>
+
+<h2 id="pushing">pushing</h2>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+<li><a href="https://git-scm.com/book/ch3-5.html">remote branch</a></li>
+<li><a href="https://git-scm.com/book/ch3-2.html">local branch</a></li>
+</ul>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

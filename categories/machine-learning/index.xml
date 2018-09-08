@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on Frank Huang</title>
+    <link>http://www.runpinghuang.top/categories/machine-learning/</link>
+    <description>Recent content in Machine Learning on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 09 Jul 2018 08:05:03 +0800</lastBuildDate>
+    
+	<atom:link href="http://www.runpinghuang.top/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My thougts about Linear Regression</title>
+      <link>http://www.runpinghuang.top/blog/2018-07-09/</link>
+      <pubDate>Mon, 09 Jul 2018 08:05:03 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2018-07-09/</guid>
+      <description>Suppose we have a
+spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
+spark 参数配置 &amp;ndash;conf -&amp;gt; shell parameter -&amp;gt; conf/spark-defaults.conf spark.yarn.am.memory
+ increase the yarn cluster max threshold set yarn-site.xml yarn.scheduler.maximum-allocation-mb  yarn 对应node manager 和
+TMUX usage cheetsheet  resize pane size(down move 2 lines): ctrl+b : resize-pane -D 2
+ Start new named session: tmux new -s [session name]
+ Detach from session: ctrl+b d</description>
+    </item>
+    
+  </channel>
+</rss>

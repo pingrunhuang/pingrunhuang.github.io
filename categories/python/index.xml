@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Frank Huang</title>
+    <link>http://www.runpinghuang.top/categories/python/</link>
+    <description>Recent content in Python on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 16 Aug 2018 10:51:45 +0800</lastBuildDate>
+    
+	<atom:link href="http://www.runpinghuang.top/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Regular expression with python</title>
+      <link>http://www.runpinghuang.top/blog/2018-08-16/</link>
+      <pubDate>Thu, 16 Aug 2018 10:51:45 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2018-08-16/</guid>
+      <description>Regular expression could be quite tedious at the first glance but turns out to be your good friend eventually.
+ Recently I have a chance to read my colleagues&amp;rsquo; historical code which use regular expression to subsitute the unwanted value inside a string. Looking at the tedious pattern shown up in the code really freaks me out and I&amp;rsquo;ve been forgotten how to use regular expression for matching pattern since last time I used it.</description>
+    </item>
+    
+    <item>
+      <title>python variable scope</title>
+      <link>http://www.runpinghuang.top/blog/2018-08-07/</link>
+      <pubDate>Tue, 07 Aug 2018 09:46:56 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2018-08-07/</guid>
+      <description>Today&amp;rsquo;s blog post will be recording my issues on variable scope when using python.
+ Below is a kind of normal code snippet that we have used for a long time in our daily development:
+def genTownName(foo): if township.find(&amp;quot;f&amp;quot;)!=-1: result = True print(result)  If you are like me come from the world of java, you might find that the code above makes no sense since the variable result is assigned inside the if statement which should be declared outside it in order to be accessed.</description>
+    </item>
+    
+    <item>
+      <title>Understanding how to generate tree in one line of code</title>
+      <link>http://www.runpinghuang.top/blog/2018-07-30/</link>
+      <pubDate>Mon, 30 Jul 2018 18:19:12 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2018-07-30/</guid>
+      <description>tree = lambda : defaultdict(tree)
+ In today&amp;rsquo;s code review, I found an interesting coding style in python where a dictionary of tree like can be generated in just one line of code.
+In order to explain this issue, we will first need to understand how defaultdict object works. As I really don&amp;rsquo;t know where to find the source code of this implementation, check out this link to see how it work.</description>
+    </item>
+    
+    <item>
+      <title>Generator and Coroutine -- from the perspective of source code</title>
+      <link>http://www.runpinghuang.top/blog/2018-07-25/</link>
+      <pubDate>Wed, 25 Jul 2018 11:17:07 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2018-07-25/</guid>
+      <description>  The following code are derived from the itertools module.
+ the basic form of generator is using the yield
+def count(start=0, step=1,stop=10): n = start while n&amp;lt;stop: yield n n+=step     what is coroutines? From my point of view, coroutines are just subroutines that
+ Reference  https://study.com/academy/lesson/preemptive-vs-non-preemptive-process-scheduling.html  </description>
+    </item>
+    
+    <item>
+      <title>Learning functional programming from python decorator</title>
+      <link>http://www.runpinghuang.top/blog/2018-06-12/</link>
+      <pubDate>Tue, 12 Jun 2018 07:21:02 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2018-06-12/</guid>
+      <description>In general, python decorator is just a function that allow another function to implement additional functionality without changing the current code.
+ I having been thinking for python decorator for quite a time ever since I noticed the @ symbal in python which really confuse me. So I decided this time I need to talk about my understanding on decorator to make sure I really know what is going on under the hood.</description>
+    </item>
+    
+    <item>
+      <title>Python built-in function cheat sheet</title>
+      <link>http://www.runpinghuang.top/blog/2017-12-21/</link>
+      <pubDate>Thu, 21 Dec 2017 13:42:35 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2017-12-21/</guid>
+      <description>ord: turn a char type into unicode code chr: reverse of ord lambda: creating anonymous function in python. Generally combined with the map, filter and reduce function to manipulate with collections.
+foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # multiply by 2 for each element print(filter(lambda x:x%2==0, foo)) # keep only the element that could be devided by 2 from functools import reduce print(reduce(lambda x,y:x+y, foo)) # sum all the element reduce(lambda x, y : x if x&amp;gt;y else y, foo) # get the maximum num inside the list  Some exercise on lambda expression &#39;&#39;&#39; Order Number	Book Title and Author	Quantity	Price per Item 34587	Learning Python, Mark Lutz	4	40.</description>
+    </item>
+    
+    <item>
+      <title>Python memory management strategy</title>
+      <link>http://www.runpinghuang.top/blog/2017-12-20/</link>
+      <pubDate>Wed, 20 Dec 2017 09:53:54 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2017-12-20/</guid>
+      <description>hex(id(var)) for getting the var address
+  variables having the same value is pointing to the same address. Meanning variables inside the global scope having the same value will get a same address. This is for the primitive types. Comparing to c++, the array&amp;rsquo;s address is the address of the first element. In python, array has its own address and the first element inside the array has other address.</description>
+    </item>
+    
+    <item>
+      <title>How python virtualenv actually works?</title>
+      <link>http://www.runpinghuang.top/blog/2017-12-16/</link>
+      <pubDate>Sat, 16 Dec 2017 09:50:49 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2017-12-16/</guid>
+      <description>I&amp;rsquo;ve been
+there is an option for virtualenv to make the project relocatable, just use virtualenv --relocatable which is used to change the absolute path of the scripte reside in bin file into relative.
+alternitives for virtualenv  virtualenv-small-sitepy rvirtulenv Just use $PYTHONHOME pythonv  using pip as an api Example of using pip as an api
+from pip.req import InstallRequirement, RequirementSet from pip.index import PackageFinder from pip.locations import build_prefix, src_prefix reqset = RequirementSet(build_dir=build_prefix, src_dir=src_prefix, download_dir=None) req = InstallRequirement.</description>
+    </item>
+    
+    <item>
+      <title>Python unittest</title>
+      <link>http://www.runpinghuang.top/blog/2017-12-14/</link>
+      <pubDate>Thu, 14 Dec 2017 22:32:51 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2017-12-14/</guid>
+      <description>Python has a builtin module called unittest which is used for writing unittest in python. But I have marely used it before. So I decided to write a blog for recording the usage of this module.
+&amp;rdquo;&amp;lsquo;python
+Initialize a test class import unittest
+class TestCase(unittest.TestCase): # Check if the input value is right def test_(self): self.assertAlmostEqual(func(input), expectedvalue) # check if the input def test*(self): self.assertRaises(ValueError, func, input) &amp;ldquo;&amp;rsquo;
+Triggering the unit test To trigger the unit test: - python -m unittest test_***.</description>
+    </item>
+    
+  </channel>
+</rss>

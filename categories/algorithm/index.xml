@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithm on Frank Huang</title>
+    <link>http://www.runpinghuang.top/categories/algorithm/</link>
+    <description>Recent content in Algorithm on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 13 Aug 2018 14:02:35 +0800</lastBuildDate>
+    
+	<atom:link href="http://www.runpinghuang.top/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Different elevator schedual</title>
+      <link>http://www.runpinghuang.top/blog/2018-08-13/</link>
+      <pubDate>Mon, 13 Aug 2018 14:02:35 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2018-08-13/</guid>
+      <description>FCFS (FIRST COME FIRST SERVE) SSTF (SHORTEST SEEK TIME FIRST) SCAN LOOK SATF (SHORTEST ACCESS TIME FIRST) EDF (EARLIEST DEADLINE FIRST)  REAL TIME 1. EDF &amp;ndash; Earliest Deadline First 2. SCAN-EDF 3. PI (PRIORITY INVERSION) 4. FD-SCAN (FEASIBLE DEADLINE SCAN)</description>
+    </item>
+    
+    <item>
+      <title>尾递归优化</title>
+      <link>http://www.runpinghuang.top/blog/2018-07-08/</link>
+      <pubDate>Sun, 08 Jul 2018 10:46:50 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2018-07-08/</guid>
+      <description>尾递归 -&amp;gt; 函数栈 -&amp;gt; 保证入口环境 -&amp;gt; 如何在尾递归中去除不必要的入口环境，从而达到优化效果优化？ -&amp;gt; 代码
+ 记得以前有人分享过尾递归的东西，当时还是一脸懵逼，但是后来有大牛告诉我，尾递归实际上是把函数的返回放到最后，这样可以使函数的递归调用在最后面直接就返回了，减少了逐层回调的过程，当时我是相信的，但直到最近看了这篇知乎，才知道其实这还不算优化，这只能算是编译器给我们的代码做的优化而已。那我们究竟要怎么做到真正的优化呢？下面我就来讲讲看完这篇文章之后的想法。
+讲到递归，本质上就是在一个stack space上面不断叠加函数空间，直到满足某个条件停止进栈，然后逐层出栈的过程。下面是一个传说中的经优化过的尾递归求阶乘的函数，看样子就是把每一步的阶乘值都放进函数的参数当中，从而在最后的返回中可以直接返回（自行脑补不带r参数的普通递归函数）。但实际上有一点是说不通的，这样的优化其实还是会出现stackoverflow的错误的，毕竟还是需要开辟容量为n的stack space。所以所谓的优化只是编译器对我们的这段代码做了优化，我们所谓的优化还不够彻底。
+def factorial(n,r): if n&amp;lt;=0: return r else: return factorial(n-1,n*r)  观察上面所谓的优化代码，我们之所以还要开辟新的stack space，实际上是要保证一个入口环境，让每一层的返回都可以有迹可循，这其实也是递归的本质思想。但是反观我们经过优化的代码，既然我们在每一层的递归当中都已经有了个空间记录当前递归值，我们是否还有必要另外开辟stack space做这样的reverse trace呢？答案自然是否定的，我们应该想个办法直接了当的返回最终的结果。总体思想就是找个地方把当前阶乘值记录下来。最后n&amp;lt;=0的时候直接就返回那个值，从而保证每个函数一调用完就直接销毁。
+def factorial(n, r): &amp;quot;&amp;quot;&amp;quot; @param n: 层数 @param r: 当前阶乘结果 &amp;quot;&amp;quot;&amp;quot; _n = n _r = r # 定义一个内置函数，用于记录变量的改变值，实际上是后面循环真正使用到的函数 def _factorial(n, r): # 表明当前两个变量不是本地变量，从而保证当函数调用结束后，外部变量的值能够得到改变 nonlocal _n, _r _n = n _r = r while True: if _n &amp;lt;=0: return _r else: _factorial(_n-1, _n*_r)  这其实是知友的回答，这给了我一些思考。while语句实际上可以当作带有stack space性质问题的优化，这种优化的本质思想是去除递归的回调，在原本属于每一层的递归当中去对某个全局变量进行修改，这样所谓的入口环境可以在 while 中的调用过后直接销毁，从而消除stackoverflow的危险。</description>
+    </item>
+    
+    <item>
+      <title>From hamming distance to leetcode thought--leetcode 477</title>
+      <link>http://www.runpinghuang.top/blog/2018-03-09/</link>
+      <pubDate>Fri, 09 Mar 2018 12:17:25 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2018-03-09/</guid>
+      <description>今天写到了leetcode第477道题目的时候表示十分激动，一方面觉得刷leetcode很久没有刷到这么有趣的题目了，第二方面也是想记录一下刷leetcode的过程中的体会。
+刷leetcode从一开始觉得很枯燥乏味,到现在几乎每天刷一道leetcode，似乎成为了饭后散步一样习以为常的事情了。这其中主要有亮点是我觉得刷leetcode带给我的好处。 - 刷leetcode的过程中逼着我去看一些绕口的英文句子。 在不知不觉中训练了我边看英文边思考的能力。 - 越来越掌握一门语言其实只要刷一遍leetcode就能懂个八九十了。
+对于第一点当然是不言自明的了，对于第二点，我刚开始的时候没有这种感觉，不过后期刷了一页leetcode之后，体会颇深。我用的是python，所以每次做完题我都会去discussion里面找大神们的神操作，慢慢的竟然爱上了python哲学一般简洁的编程思想，很多技巧真的是只要一行就能实现java十几行的操作。这点让我每次对比完大神的操作和我自己的笨操作之后，总有一种what shit am I writing的感觉，然后就是试着模仿大神们的操作，重现一次implementation。我相信不只是python，java、scala或者golang都可以在里面找到对应的解释，我认为这是我目前发现的学习语言的捷径。
+好了，言归正传，477这道题真的很棒，不会很复杂，但是也不是一开始就能想到的。以下是题目的description： &amp;ldquo;&amp;rsquo; The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+Now your job is to find the total Hamming distance between all pairs of the given numbers.
+Example: Input: 4, 14, 2
+Output: 6
+Explanation: In binary representation, the 4 is 0100, 14 is 1110, and 2 is 0010 (just showing the four bits relevant in this case).</description>
+    </item>
+    
+    <item>
+      <title>Dig into PCA -- from my point of view</title>
+      <link>http://www.runpinghuang.top/blog/2017-09-17/</link>
+      <pubDate>Sun, 17 Sep 2017 23:51:50 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2017-09-17/</guid>
+      <description>This is a topic that I am very interesting about. These concepts are related to a fundamental theory called PCA which is a tool to reduce the dimension of a matrix(dataset)
+矩阵对应一个线性变换是在同一组基下有意义。默认情况下是在标准基下进行变换。
+$$ \begin{bmatrix} { a }_{ 1,1 } &amp;amp; { a }_{ 1,2 } &amp;amp; \dots &amp;amp; { a }_{ 1,n } \\
+\dots &amp;amp; \dots &amp;amp; \dots &amp;amp; \dots \\
+{ a }_{ m-1,1 } &amp;amp; { a }_{ m-1,2 } &amp;amp; \dots &amp;amp; { a }_{ m-1,n } \\</description>
+    </item>
+    
+  </channel>
+</rss>

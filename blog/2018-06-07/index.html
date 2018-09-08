@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="缘起 随着企业数据量不断的增长和各种开源框架的出现，如何有效的管理数据并且组织好data pipeline是一个需要结合现实不断思考的问题。同时，作为一家以算法为业务,下面我对近期做的有关这方面的调研做一个总结。
+本文主要从以下维度进行分块阐述：
+维度分块：
+1. 机器学习平台和非机器学习平台
+2. 对内使用和对外使用
+3. &hellip;
+机器学习平台，对内使用 Michelangelo 解决什么问题？
+Uber的机器学习平台，涵盖了数据的end to end（处理数据, 训练, 评估, 部署模型, 做预测, 监控预测结果）。
+处理 训练 评估
+模型准确性，模型可视化。。。
+部署 预测 监控  数据预处理部分也是使用的类似udf的domain specific language
+ Reference
+https://eng.uber.com/michelangelo/
+  非机器学习平台，对外使用 UberEATS 做什么：uber用于他们对商户提供的数据分析平台。
+架构： 主要分为实时和离线，离线的部分又分为一下几个步骤：
+Spark job查询hive然后生成avro文件到hdfs上 -&gt; 利用avro文件再利用Spark Job生成pinot框架需要的segment -&gt; push到pinot集群上 pinot是一个分布式的实时的OLAP数据仓库。
+* Reference
+https://eng.uber.com/restaurant-manager/
+Nova 杉树智慧链 行业数据模型
+算法数据模型
+算法模块化
+数据存储和格式化
+Data Science Workbench  Reference https://eng.uber.com/dsw/  机器学习平台，对外使用 以下是有待调研的公司的数据平台 Airbnb Facebook Google Twitter Netflix: 跟我们很像，机器学习算法是业务核心。 我认为我们需要在数据平台做到的 目前 ETL过程，主要数据来源是以文件形式的，">
+
+<meta property="og:title" content="企业大数据平台调研" />
+<meta property="og:description" content="缘起 随着企业数据量不断的增长和各种开源框架的出现，如何有效的管理数据并且组织好data pipeline是一个需要结合现实不断思考的问题。同时，作为一家以算法为业务,下面我对近期做的有关这方面的调研做一个总结。
+本文主要从以下维度进行分块阐述：
+维度分块：
+1. 机器学习平台和非机器学习平台
+2. 对内使用和对外使用
+3. &hellip;
+机器学习平台，对内使用 Michelangelo 解决什么问题？
+Uber的机器学习平台，涵盖了数据的end to end（处理数据, 训练, 评估, 部署模型, 做预测, 监控预测结果）。
+处理 训练 评估
+模型准确性，模型可视化。。。
+部署 预测 监控  数据预处理部分也是使用的类似udf的domain specific language
+ Reference
+https://eng.uber.com/michelangelo/
+  非机器学习平台，对外使用 UberEATS 做什么：uber用于他们对商户提供的数据分析平台。
+架构： 主要分为实时和离线，离线的部分又分为一下几个步骤：
+Spark job查询hive然后生成avro文件到hdfs上 -&gt; 利用avro文件再利用Spark Job生成pinot框架需要的segment -&gt; push到pinot集群上 pinot是一个分布式的实时的OLAP数据仓库。
+* Reference
+https://eng.uber.com/restaurant-manager/
+Nova 杉树智慧链 行业数据模型
+算法数据模型
+算法模块化
+数据存储和格式化
+Data Science Workbench  Reference https://eng.uber.com/dsw/  机器学习平台，对外使用 以下是有待调研的公司的数据平台 Airbnb Facebook Google Twitter Netflix: 跟我们很像，机器学习算法是业务核心。 我认为我们需要在数据平台做到的 目前 ETL过程，主要数据来源是以文件形式的，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/blog/2018-06-07/" />
+
+
+
+<meta property="article:published_time" content="2018-06-07T09:48:25&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-06-07T09:48:25&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     企业大数据平台调研 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/blog/2018-06-07/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a42.984723138%20%2b0800%20CST%20m%3d%2b0.586710254">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a42.984723138%20%2b0800%20CST%20m%3d%2b0.586710254">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a42.984723138%20%2b0800%20CST%20m%3d%2b0.586710254">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a42.984723138%20%2b0800%20CST%20m%3d%2b0.586710254">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    企业大数据平台调研
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Thu Jun 7 2018 09:48:25 CST'>Jun 7, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>3 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h1 id="缘起">缘起</h1>
+
+<p>随着企业数据量不断的增长和各种开源框架的出现，如何有效的管理数据并且组织好data pipeline是一个需要结合现实不断思考的问题。同时，作为一家以算法为业务,下面我对近期做的有关这方面的调研做一个总结。</p>
+
+<p>本文主要从以下维度进行分块阐述：</p>
+
+<p>维度分块：<br />
+1. 机器学习平台和非机器学习平台<br />
+2. 对内使用和对外使用<br />
+3. &hellip;</p>
+
+<h2 id="机器学习平台-对内使用">机器学习平台，对内使用</h2>
+
+<h3 id="michelangelo">Michelangelo</h3>
+
+<p><strong>解决什么问题？</strong></p>
+
+<p>Uber的机器学习平台，涵盖了数据的end to end（处理数据, 训练, 评估, 部署模型, 做预测, 监控预测结果）。</p>
+
+<p><strong>处理</strong>
+<img src="http://eng.uber.com/wp-content/uploads/2017/09/image5.png" alt="" />
+<strong>训练</strong>
+<img src="http://eng.uber.com/wp-content/uploads/2017/09/image2.png" alt="" /></p>
+
+<p><strong>评估</strong><br />
+模型准确性，模型可视化。。。</p>
+
+<p><strong>部署</strong>
+<img src="http://eng.uber.com/wp-content/uploads/2017/09/image6.png" alt="" />
+<strong>预测</strong>
+<img src="http://eng.uber.com/wp-content/uploads/2017/09/image3.png" alt="" />
+<strong>监控</strong>
+<img src="http://eng.uber.com/wp-content/uploads/2017/09/image8.png" alt="" /></p>
+
+<ul>
+<li><p>数据预处理部分也是使用的类似udf的domain specific language</p></li>
+
+<li><p>Reference<br />
+<a href="https://eng.uber.com/michelangelo/">https://eng.uber.com/michelangelo/</a></p></li>
+</ul>
+
+<h2 id="非机器学习平台-对外使用">非机器学习平台，对外使用</h2>
+
+<h3 id="ubereats">UberEATS</h3>
+
+<p>做什么：uber用于他们对商户提供的数据分析平台。<br />
+架构：
+<img src="https://eng.uber.com/wp-content/uploads/2017/09/image7-2.png" alt="" /><br />
+主要分为实时和离线，离线的部分又分为一下几个步骤：<br />
+Spark job查询hive然后生成avro文件到hdfs上 -&gt; 利用avro文件再利用Spark Job生成pinot框架需要的segment -&gt; push到pinot集群上
+<img src="http://eng.uber.com/wp-content/uploads/2017/09/image1-2.png" alt="" /></p>
+
+<p>pinot是一个分布式的实时的OLAP数据仓库。<br />
+* Reference<br />
+<a href="https://eng.uber.com/restaurant-manager/">https://eng.uber.com/restaurant-manager/</a></p>
+
+<h1 id="nova-杉树智慧链">Nova 杉树智慧链</h1>
+
+<p>行业数据模型</p>
+
+<p>算法数据模型</p>
+
+<p>算法模块化</p>
+
+<p>数据存储和格式化</p>
+
+<h3 id="data-science-workbench">Data Science Workbench</h3>
+
+<ul>
+<li>Reference
+<a href="https://eng.uber.com/dsw/">https://eng.uber.com/dsw/</a></li>
+</ul>
+
+<h2 id="机器学习平台-对外使用">机器学习平台，对外使用</h2>
+
+<h2 id="以下是有待调研的公司的数据平台">以下是有待调研的公司的数据平台</h2>
+
+<h3 id="airbnb">Airbnb</h3>
+
+<h3 id="facebook">Facebook</h3>
+
+<h3 id="google">Google</h3>
+
+<h3 id="twitter">Twitter</h3>
+
+<h3 id="netflix-跟我们很像-机器学习算法是业务核心">Netflix: 跟我们很像，机器学习算法是业务核心。</h3>
+
+<h1 id="我认为我们需要在数据平台做到的">我认为我们需要在数据平台做到的</h1>
+
+<h3 id="目前">目前</h3>
+
+<p>ETL过程，主要数据来源是以文件形式的，</p>
+
+<h3 id="未来">未来</h3>
+
+<ul>
+<li>现在业界很多开源框架都已经做到了model serving的一些功能，比如tensorflow就有一个模块叫做<code>tensorflow serving</code>，这个概念背后的想法实际上是希望将模型变成一个程序中的end point提供api进行查询</li>
+
+<li><p>数据质量监控，从数据接入，到数据落地。
+<img src="http://www.runpinghuang.top/blog/2018-06-07/netflix.png" alt="" /></p></li>
+
+<li><p>AutoML.<br />
+This will be a system for automatically searching and discovering model configurations (algorithm, feature sets, hyper-parameter values, etc.) that result in the best performing models for given modeling problems. The system would also automatically build the production data pipelines to generate the features and labels needed to power the models. We have addressed big pieces of this already with our Feature Store, our unified offline and online data pipelines, and hyper-parameter search feature. We plan to accelerate our earlier data science work through AutoML. The system would allow data scientists to specify a set of labels and an objective function, and then would make the most privacy-and security-aware use of Uber’s data to find the best model for the problem. The goal is to amplify data scientist productivity with smart tools that make their job easier.</p></li>
+
+<li><p>Model visualization.<br />
+Understanding and debugging models is increasingly important, especially for deep learning. While we have made some important first steps with visualization tools for tree-based models, much more needs to be done to enable data scientists to understand, debug, and tune their models and for users to trust the results.</p></li>
+
+<li><p>Online learning.<br />
+Most of Uber’s machine learning models directly affect the Uber product in real time. This means they operate in the complex and ever-changing environment of moving things in the physical world. To keep our models accurate as this environment changes, our models need to change with it. Today, teams are regularly retraining their models in Michelangelo. A full platform solution to this use case involves easily updateable model types, faster training and evaluation architecture and pipelines, automated model validation and deployment, and sophisticated monitoring and alerting systems. Though a big project, early results suggest substantial potential gains from doing online learning right.</p></li>
+
+<li><p>Distributed deep learning.<br />
+An increasing number of Uber’s machine learning systems are implementing deep learning technologies. The user workflow of defining and iterating on deep learning models is sufficiently different from the standard workflow such that it needs unique platform support. Deep learning use cases typically handle a larger quantity of data, and different hardware requirements (i.e. GPUs) motivate further investments into distributed learning and a tighter integration with a flexible resource management stack.</p></li>
+</ul>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+<li><a href="https://medium.com/@guyernest/the-flywheel-of-machine-learning-systems-50aa6d992382">https://medium.com/@guyernest/the-flywheel-of-machine-learning-systems-50aa6d992382</a></li>
+<li><a href="https://eng.uber.com/scaling-hdfs/">https://eng.uber.com/scaling-hdfs/</a></li>
+</ul>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

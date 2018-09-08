@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="这会是一篇general的编程语言思考
+ 终于到了愉快的周五，忙活了半天的团建打仗活动，原本打算好好品赏一部姜文的电影的，结果被一篇关于julia 1.0发布的博文刷爆了朋友圈，具体可以看这里。然后突然意识到从前不温不火的julia难道是要向python的霸权地位发起猛攻么？再回想到今天早上在HN上看到的一篇关于clojure的采访，里面介绍了一些关于clojure这门Lisp方言的应用和特性，不禁想起从前轮子哥说过，先学一堆的语言再来说计算机入门。才知道这是有道理的，今天我就来结合最近的一些工作说说我自己的体会。
+我是一个对语言会充满好奇心和讲究的人。这里所说的语言包括各国的官方语言，更包括编程语言。从我现有的开发经验来说，我认为选择一门语言是需要考虑安全性和便利性的。我所说的安全性是指会不会发生在程序使用中因为语言设计本身而引发的一些不可控或者没有考虑的corner case而引发的程序中断（事实上一门好的语言应该在编译时就组织开发人员进行编译）。而便利性是指这门语言在实现某个功能的时候是否需要编写很多的statement来达到这样的效果。结合我仅有的开发经验，我认为这两者看似没关系却存在某种contradiction。
+上学的时候老师都喜欢用java来作为教学语言，当时写java的感觉就非常的爽，虽然都是bug，但是过程式的编程让我拥有了一种像计算机一样按部就班的思考方式，其中严格的类型控制也让我有种先入为主的概念，认为所有的语言就应该是像这样的严格控制。甚至有同学说一定不会从事java开发的时候，我还一度怀疑这门语言这么严谨，干嘛不用啊。然后就像很多留学生要找工作一样，我也因为要找工作，刷起了leetcode。开始用上了python。第一感觉是，这是什么玩意儿啊
+[黑人脸] 什么类型都没有，这有毒吧。这玩意儿能跑？然后抱着试一下的态度写了个helloworld，慢慢的竟然开始喜欢上了python的便利，而且从大神的回答中慢慢开始欣赏python的优美，甚至会因为在leetcode上面看到大神用python写的简洁明了的回答而开心一个晚上，产生了嫌弃java的念头。
+绕了这么一大圈，我想说其实完全摒弃某一种语言都是政治上不正确的，因为这些语言从设计本身就是有一些specific的target的，不可能有某种万金油的东西可以实现所有的理想状态。而当你在做选择的时候，一定要考虑上面提到的两种情况的trade off。比如上面提到的java，确实是一门笨重的语言，他就像我爸那辆开了很久的进口丰田，笨重却稳当。在编写python的一段map reduce pattern的代码的时候可能需要近乎50行的代码。这样的严谨导致了最后生成的jar包无法更改源代码，而且数据的输出类型一定是expected的。就拿最近做的一个数据批量插入数据库的操作，一开始是希望利用python简洁便利的方式对数据进行入库，结果在数据入库的时候经常会出现数据值不同一而导致的程序直接崩溃。这种unexpected的操作让python的简洁显得其实不那么简单。
+所以说，事情都是有两面性的，当你选择一门语言的时候一定要考虑各种trade off。">
+
+<meta property="og:title" content="最近关于技术的思考" />
+<meta property="og:description" content="这会是一篇general的编程语言思考
+ 终于到了愉快的周五，忙活了半天的团建打仗活动，原本打算好好品赏一部姜文的电影的，结果被一篇关于julia 1.0发布的博文刷爆了朋友圈，具体可以看这里。然后突然意识到从前不温不火的julia难道是要向python的霸权地位发起猛攻么？再回想到今天早上在HN上看到的一篇关于clojure的采访，里面介绍了一些关于clojure这门Lisp方言的应用和特性，不禁想起从前轮子哥说过，先学一堆的语言再来说计算机入门。才知道这是有道理的，今天我就来结合最近的一些工作说说我自己的体会。
+我是一个对语言会充满好奇心和讲究的人。这里所说的语言包括各国的官方语言，更包括编程语言。从我现有的开发经验来说，我认为选择一门语言是需要考虑安全性和便利性的。我所说的安全性是指会不会发生在程序使用中因为语言设计本身而引发的一些不可控或者没有考虑的corner case而引发的程序中断（事实上一门好的语言应该在编译时就组织开发人员进行编译）。而便利性是指这门语言在实现某个功能的时候是否需要编写很多的statement来达到这样的效果。结合我仅有的开发经验，我认为这两者看似没关系却存在某种contradiction。
+上学的时候老师都喜欢用java来作为教学语言，当时写java的感觉就非常的爽，虽然都是bug，但是过程式的编程让我拥有了一种像计算机一样按部就班的思考方式，其中严格的类型控制也让我有种先入为主的概念，认为所有的语言就应该是像这样的严格控制。甚至有同学说一定不会从事java开发的时候，我还一度怀疑这门语言这么严谨，干嘛不用啊。然后就像很多留学生要找工作一样，我也因为要找工作，刷起了leetcode。开始用上了python。第一感觉是，这是什么玩意儿啊
+[黑人脸] 什么类型都没有，这有毒吧。这玩意儿能跑？然后抱着试一下的态度写了个helloworld，慢慢的竟然开始喜欢上了python的便利，而且从大神的回答中慢慢开始欣赏python的优美，甚至会因为在leetcode上面看到大神用python写的简洁明了的回答而开心一个晚上，产生了嫌弃java的念头。
+绕了这么一大圈，我想说其实完全摒弃某一种语言都是政治上不正确的，因为这些语言从设计本身就是有一些specific的target的，不可能有某种万金油的东西可以实现所有的理想状态。而当你在做选择的时候，一定要考虑上面提到的两种情况的trade off。比如上面提到的java，确实是一门笨重的语言，他就像我爸那辆开了很久的进口丰田，笨重却稳当。在编写python的一段map reduce pattern的代码的时候可能需要近乎50行的代码。这样的严谨导致了最后生成的jar包无法更改源代码，而且数据的输出类型一定是expected的。就拿最近做的一个数据批量插入数据库的操作，一开始是希望利用python简洁便利的方式对数据进行入库，结果在数据入库的时候经常会出现数据值不同一而导致的程序直接崩溃。这种unexpected的操作让python的简洁显得其实不那么简单。
+所以说，事情都是有两面性的，当你选择一门语言的时候一定要考虑各种trade off。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/2018/%E6%9C%80%E8%BF%91%E5%85%B3%E4%BA%8E%E6%8A%80%E6%9C%AF%E7%9A%84%E6%80%9D%E8%80%83/" />
+
+
+
+<meta property="article:published_time" content="2018-08-10T23:08:19&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-08-10T23:08:19&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     最近关于技术的思考 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/2018/%E6%9C%80%E8%BF%91%E5%85%B3%E4%BA%8E%E6%8A%80%E6%9C%AF%E7%9A%84%E6%80%9D%E8%80%83/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a49.931956727%20%2b0800%20CST%20m%3d%2b0.176773866">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a49.931956727%20%2b0800%20CST%20m%3d%2b0.176773866">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a49.931956727%20%2b0800%20CST%20m%3d%2b0.176773866">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a49.931956727%20%2b0800%20CST%20m%3d%2b0.176773866">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    最近关于技术的思考
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Fri Aug 10 2018 23:08:19 CST'>Aug 10, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>One minute read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <blockquote>
+<p>这会是一篇general的编程语言思考</p>
+</blockquote>
+
+<p>终于到了愉快的周五，忙活了半天的团建打仗活动，原本打算好好品赏一部姜文的电影的，结果被一篇关于<code>julia 1.0</code>发布的博文刷爆了朋友圈，具体可以看<a href="https://julialang.org/blog/2018/08/one-point-zero">这里</a>。然后突然意识到从前不温不火的<code>julia</code>难道是要向<code>python</code>的霸权地位发起猛攻么？再回想到今天早上在<code>HN</code>上看到的一篇关于<code>clojure</code>的采访，里面介绍了一些关于<code>clojure</code>这门<code>Lisp</code>方言的应用和特性，不禁想起从前轮子哥说过，先学一堆的语言再来说计算机入门。才知道这是有道理的，今天我就来结合最近的一些工作说说我自己的体会。</p>
+
+<p>我是一个对语言会充满好奇心和讲究的人。这里所说的语言包括各国的官方语言，更包括编程语言。从我现有的开发经验来说，我认为选择一门语言是需要考虑安全性和便利性的。我所说的安全性是指会不会发生在程序使用中因为语言设计本身而引发的一些不可控或者没有考虑的corner case而引发的程序中断（事实上一门好的语言应该在编译时就组织开发人员进行编译）。而便利性是指这门语言在实现某个功能的时候是否需要编写很多的statement来达到这样的效果。结合我仅有的开发经验，我认为这两者看似没关系却存在某种contradiction。</p>
+
+<p>上学的时候老师都喜欢用<code>java</code>来作为教学语言，当时写<code>java</code>的感觉就非常的爽，虽然都是<code>bug</code>，但是过程式的编程让我拥有了一种像计算机一样按部就班的思考方式，其中严格的类型控制也让我有种先入为主的概念，认为所有的语言就应该是像这样的严格控制。甚至有同学说一定不会从事java开发的时候，我还一度怀疑这门语言这么严谨，干嘛不用啊。然后就像很多留学生要找工作一样，我也因为要找工作，刷起了leetcode。开始用上了<code>python</code>。第一感觉是，这是什么玩意儿啊</p>
+
+<p>[黑人脸]
+什么类型都没有，这有毒吧。这玩意儿能跑？然后抱着试一下的态度写了个helloworld，慢慢的竟然开始喜欢上了<code>python</code>的便利，而且从大神的回答中慢慢开始欣赏<code>python</code>的优美，甚至会因为在leetcode上面看到大神用<code>python</code>写的简洁明了的回答而开心一个晚上，产生了嫌弃java的念头。</p>
+
+<p>绕了这么一大圈，我想说其实完全摒弃某一种语言都是政治上不正确的，因为这些语言从设计本身就是有一些specific的target的，不可能有某种万金油的东西可以实现所有的理想状态。而当你在做选择的时候，一定要考虑上面提到的两种情况的trade off。比如上面提到的java，确实是一门笨重的语言，他就像我爸那辆开了很久的进口丰田，笨重却稳当。在编写python的一段map reduce pattern的代码的时候可能需要近乎50行的代码。这样的严谨导致了最后生成的jar包无法更改源代码，而且数据的输出类型一定是expected的。就拿最近做的一个数据批量插入数据库的操作，一开始是希望利用python简洁便利的方式对数据进行入库，结果在数据入库的时候经常会出现数据值不同一而导致的程序直接崩溃。这种unexpected的操作让python的简洁显得其实不那么简单。</p>
+
+<p>所以说，事情都是有两面性的，当你选择一门语言的时候一定要考虑各种trade off。</p>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

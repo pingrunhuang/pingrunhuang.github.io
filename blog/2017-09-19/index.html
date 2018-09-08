@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="Basic comparison  list: ordered, mutable, duplicable set: set([1, 2, 3, 4]), not duplicable, not ordered
+# set&#39;s operation a = set([1, 2, 3]) b = set([2, 3, 4]) a.intersection(b) # equivalent to c = a &amp; b, return set([2,3]) c.issubset(a) # return true, equivalent to c &lt;= a c.issuperset(a) # return false, equivalent to c &gt;= a a.difference(b) # return set([1]), equivalent to a-b a.symmetric_difference(b) # return set([1,4]), equivalent to a ^ b  tuple: immutable, ordered, duplicable">
+
+<meta property="og:title" content="Differences among tuple, list and set in python?" />
+<meta property="og:description" content="Basic comparison  list: ordered, mutable, duplicable set: set([1, 2, 3, 4]), not duplicable, not ordered
+# set&#39;s operation a = set([1, 2, 3]) b = set([2, 3, 4]) a.intersection(b) # equivalent to c = a &amp; b, return set([2,3]) c.issubset(a) # return true, equivalent to c &lt;= a c.issuperset(a) # return false, equivalent to c &gt;= a a.difference(b) # return set([1]), equivalent to a-b a.symmetric_difference(b) # return set([1,4]), equivalent to a ^ b  tuple: immutable, ordered, duplicable" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/blog/2017-09-19/" />
+
+
+
+<meta property="article:published_time" content="2017-09-19T09:54:03&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-09-19T09:54:03&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Differences among tuple, list and set in python? 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/blog/2017-09-19/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a43.05797993%20%2b0800%20CST%20m%3d%2b0.659967561">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a43.05797993%20%2b0800%20CST%20m%3d%2b0.659967561">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a43.05797993%20%2b0800%20CST%20m%3d%2b0.659967561">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a43.05797993%20%2b0800%20CST%20m%3d%2b0.659967561">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Differences among tuple, list and set in python?
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Tue Sep 19 2017 09:54:03 CST'>Sep 19, 2017</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>One minute read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h1 id="basic-comparison">Basic comparison</h1>
+
+<ul>
+<li>list: ordered, mutable, duplicable</li>
+
+<li><p>set: <code>set([1, 2, 3, 4])</code>, not duplicable, not ordered</p>
+
+<pre><code># set's operation
+a = set([1, 2, 3])
+b = set([2, 3, 4])
+a.intersection(b) # equivalent to c = a &amp; b, return set([2,3])
+c.issubset(a) # return true, equivalent to c &lt;= a
+c.issuperset(a) # return false, equivalent to c &gt;= a
+a.difference(b) # return set([1]), equivalent to a-b
+a.symmetric_difference(b) # return set([1,4]), equivalent to a ^ b
+</code></pre></li>
+
+<li><p>tuple: immutable, ordered, duplicable</p></li>
+</ul>
+
+<h1 id="when-to-use-what">When to use what?</h1>
+
+<p>Apart from immutable and mutable feature between tuple and list(many good feature of immutable data structure), tuple stores heterogeneous elements list (a, &lsquo;fdsa&rsquo;, 123) etc. while list stores homogeneous elements.
+Set requires items to be hashable to guarentee the unique element feature which make it faster for accessing.</p>
+
+<h1 id="usage">Usage</h1>
+
+<p>Definition:
+* list = [1,2,3]
+* tuple = (1,2,3)
+* set = {1,2,3}</p>
+
+<p>Access:
+List and tuple are accessed by index eg. list[0], tuple[1]. set use the pop method.</p>
+
+<h2 id="reference">Reference</h2>
+
+<p><a href="https://stackoverflow.com/questions/3489071/in-python-when-to-use-a-dictionary-list-or-set">In Python, when to use a Dictionary, List or Set?</a>
+<a href="https://en.wikiversity.org/wiki/Python_Programming/Tuples_and_Sets">Python Programming/Tuples and Sets</a>
+<a href="https://www.safaribooksonline.com/library/view/high-performance-python/9781449361747/ch04.html">Chapter 4. Dictionaries and Sets</a>
+<a href="https://nedbatchelder.com/blog/201608/lists_vs_tuples.html">Lists vs. Tuples</a></p>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

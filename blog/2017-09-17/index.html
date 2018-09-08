@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="This is a topic that I am very interesting about. These concepts are related to a fundamental theory called PCA which is a tool to reduce the dimension of a matrix(dataset)
+矩阵对应一个线性变换是在同一组基下有意义。默认情况下是在标准基下进行变换。
+$$ \begin{bmatrix} { a }_{ 1,1 } &amp; { a }_{ 1,2 } &amp; \dots &amp; { a }_{ 1,n } \\
+\dots &amp; \dots &amp; \dots &amp; \dots \\
+{ a }_{ m-1,1 } &amp; { a }_{ m-1,2 } &amp; \dots &amp; { a }_{ m-1,n } \\">
+
+<meta property="og:title" content="Dig into PCA -- from my point of view" />
+<meta property="og:description" content="This is a topic that I am very interesting about. These concepts are related to a fundamental theory called PCA which is a tool to reduce the dimension of a matrix(dataset)
+矩阵对应一个线性变换是在同一组基下有意义。默认情况下是在标准基下进行变换。
+$$ \begin{bmatrix} { a }_{ 1,1 } &amp; { a }_{ 1,2 } &amp; \dots &amp; { a }_{ 1,n } \\
+\dots &amp; \dots &amp; \dots &amp; \dots \\
+{ a }_{ m-1,1 } &amp; { a }_{ m-1,2 } &amp; \dots &amp; { a }_{ m-1,n } \\" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/blog/2017-09-17/" />
+
+
+
+<meta property="article:published_time" content="2017-09-17T23:51:50&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-09-17T23:51:50&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Dig into PCA -- from my point of view 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/blog/2017-09-17/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a49.970722755%20%2b0800%20CST%20m%3d%2b0.215540167">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a49.970722755%20%2b0800%20CST%20m%3d%2b0.215540167">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a49.970722755%20%2b0800%20CST%20m%3d%2b0.215540167">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a49.970722755%20%2b0800%20CST%20m%3d%2b0.215540167">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Dig into PCA -- from my point of view
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sun Sep 17 2017 23:51:50 CST'>Sep 17, 2017</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>This is a topic that I am very interesting about. These concepts are related to a fundamental theory called PCA which is a tool to reduce the dimension of a matrix(dataset)</p>
+
+<p>矩阵对应一个线性变换是在同一组基下有意义。默认情况下是在标准基下进行变换。<br />
+$$
+ \begin{bmatrix}
+ { a }_{ 1,1 } &amp; { a }_{ 1,2 } &amp; \dots  &amp; { a }_{ 1,n } \\<br />
+  \dots  &amp; \dots  &amp; \dots  &amp; \dots  \\<br />
+  { a }_{ m-1,1 } &amp; { a }_{ m-1,2 } &amp; \dots  &amp; { a }_{ m-1,n } \\<br />
+  { a }_{ m,1 } &amp; { a }_{ m,2 } &amp; \dots  &amp; { a }_{ m,n }
+  \end{bmatrix}
+$$</p>
+
+<p>举个例子，这里的每个行代表原坐标系的每个分量，列代表新的坐标系的各个分量在原坐标系的位置。如第一列
+$${ v }_{ 1 }={ a }_{ 11 }{ x }_{ 1 }+{ a }_{ 21 } { x }_{ 2 }+&hellip;+ { a }_{ m1 } { x }_{ m }$$，第一列可以被原坐标系所表示。
+知道了这个变换，相当于知道了这个任意在原坐标系下的向量如何在新的坐标系下的表示。即只需要左乘这个矩阵（变换）就可以。</p>
+
+<h3 id="why-eigen-vector-and-eigen-value">Why eigen vector and eigen value</h3>
+
+<p>Matrix corresponds to a transformation actually. This transformation can include <em>stetching</em>, <em>rotation</em> and <em>projection</em>.</p>
+
+<h2 id="pca-principle-component-analyze">PCA(Principle component analyze)</h2>
+
+<p>When talking about PCA, eigen value and eigen vector are the most common concepts that should be refer to. And before we talk about eigen value and eigen vector, I want to talk about why we need them.</p>
+
+<p>To perform PCA, one have to know the following basic theorem.</p>
+
+<ol>
+<li>If A is \( m\times n \) matrix of real number, then \(A{ A }^{ T }\) and \({ A }^{ T }A\) are symmetric.</li>
+<li>If A is symmetric means ( \(A={ A }^{ T }\) ), then \(A\vec {{ v }_{ i }}=\lambda\vec{{v}_{i}}\)<br /></li>
+</ol>
+
+<h1 id="reference">Reference</h1>
+
+<p><a href="https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/book-chapter-4.pdf">Singular Value Decomposition (SVD)</a><br />
+<a href="https://medium.com/towards-data-science/reducing-dimensionality-from-dimensionality-reduction-techniques-f658aec24dfe">Reducing Dimensionality from Dimensionality Reduction Techniques</a><br />
+<a href="http://math.mit.edu/~gs/linearalgebra/ila0601.pdf">Eigenvalues and Eigenvectors</a><br />
+<a href="http://www.math.union.edu/~jaureguj/PCA.pdf">Principal component analysis with linear algebra</a><br />
+<a href="https://www.zhihu.com/question/36348219">如何理解主成分分析中的协方差矩阵的特征值的几何含义？</a><br />
+<a href="http://pinkyjie.com/2011/02/24/covariance-pca/">再谈协方差矩阵之主成分分析</a><br />
+<a href="https://www.zhihu.com/question/30094611">主成分分析PCA算法：为什么去均值以后的高维矩阵乘以其协方差矩阵的特征向量矩阵就是“投影”？</a><br />
+<a href="https://medium.com/@luckylwk/visualising-high-dimensional-datasets-using-pca-and-t-sne-in-python-8ef87e7915b">Visualising high-dimensional datasets using PCA and t-SNE in Python</a>
+<a href="https://www.cs.princeton.edu/picasso/mats/PCA-Tutorial-Intuition_jp.pdf">A TUTORIAL ON PRINCIPAL COMPONENT ANALYSIS</a></p>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="Recently I have to deal with data pipeline with large volumn of data. I was using python script first to make plenty of sessions query for each row of data because of cascading query between different tables. This caused bottleneck for only 400,000 rows of data which required almost 2 hrs of processing time. I have used different approches like batch querying the dimension table or even async programming to separate the compute and insert operation.">
+
+<meta property="og:title" content="Introduction to aws EMR" />
+<meta property="og:description" content="Recently I have to deal with data pipeline with large volumn of data. I was using python script first to make plenty of sessions query for each row of data because of cascading query between different tables. This caused bottleneck for only 400,000 rows of data which required almost 2 hrs of processing time. I have used different approches like batch querying the dimension table or even async programming to separate the compute and insert operation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/blog/2018-08-21/" />
+
+
+
+<meta property="article:published_time" content="2018-08-21T00:13:03&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-08-21T00:13:03&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Introduction to aws EMR 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/blog/2018-08-21/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a49.929984243%20%2b0800%20CST%20m%3d%2b0.174801368">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a49.929984243%20%2b0800%20CST%20m%3d%2b0.174801368">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a49.929984243%20%2b0800%20CST%20m%3d%2b0.174801368">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a49.929984243%20%2b0800%20CST%20m%3d%2b0.174801368">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Introduction to aws EMR
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Tue Aug 21 2018 00:13:03 CST'>Aug 21, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>Recently I have to deal with data pipeline with large volumn of data. I was using python script first to make plenty of sessions query for each row of data because of <code>cascading query</code> between different tables. This caused bottleneck for only 400,000 rows of data which required almost 2 hrs of processing time. I have used different approches like batch querying the dimension table or even async programming to separate the compute and insert operation. But both turns out to be a not quite well performance. So I decided to turn to <code>spark</code>.</p>
+
+<h1 id="what-you-will-learn-from-this-blog">What you will learn from this blog?</h1>
+
+<ul>
+<li>I will take a note on how to use <code>aws EMR</code> for quick set up cluster for computing purpose.</li>
+<li>some basic computing skill with <code>spark</code> in scala.</li>
+</ul>
+
+<h1 id="what-is-emr">What is EMR?</h1>
+
+<p>EMR stands for <code>Elastic Mapreduce</code>.
+<img src="http://www.runpinghuang.top/content/blog/2018-08-21/aws.png" alt="" /></p>
+
+<h1 id="how">How ?</h1>
+
+<p>You will have 3 options for submitting your jobs on the cluster.
+1. via the web-ui
+2. using the awscli
+3. restful api</p>
+
+<h1 id="what-can-we-do-in-this-platform">What can we do in this platform?</h1>
+
+<p>Streaming?
+ETL?
+Machine Learning?</p>
+
+<h1 id="choosing-instances">Choosing instances</h1>
+
+<ul>
+<li>Master: coordinating different components inside the cluster.</li>
+<li>Core:</li>
+<li>Task:</li>
+</ul>
+
+<p>instance type:
+- c4.xxxx: compute optimized
+    - Batch processing workloads
+    - Media transcoding
+    - High-performance web servers
+    - High-performance computing (HPC)
+    - Scientific modeling
+    - Dedicated gaming servers and ad serving engines
+Machine learning inference and other compute-intensive applications
+- d2.xxxx
+- i3.xxxx: storage optimized.
+- m4.xxxx: general purpose
+- r4.xxxx</p>
+
+<p><a href="https://amazonaws-china.com/ec2/instance-types/">https://amazonaws-china.com/ec2/instance-types/</a></p>
+
+<h1 id="pricing">Pricing</h1>
+
+<ul>
+<li>Spot instance</li>
+
+<li><p>Price will be adjusted due to the current highest price in the current area.(Take about 5 to 10 minutes to set up)</p></li>
+
+<li><p>On demand instance</p></li>
+
+<li><p>Price is static.(Set up immediately)</p></li>
+
+<li></li>
+
+<li><p><a href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/using-spot-instances.html">https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/using-spot-instances.html</a></p></li>
+</ul>
+
+<h1 id="how-to-run-a-script-when-boostraping">how to run a script when boostraping?</h1>
+
+<p>add a custom jar reside at <code>s3://region.elasticmapreduce/libs/script-runner/script-runner.jar</code> and set the arguments.</p>
+
+<h1 id="some-thoughts-that-i-have-during-using-aws-emr">Some thoughts that I have during using aws EMR?</h1>
+
+<ol>
+<li><p>how does data map from s3 to the instance(aka how does aws handle data stored in s3 to be read from instance)?</p></li>
+
+<li><p>In the world of python, data should be better arraged in the form of dictionary while in the context of spark, data should be better thought of as <code>RDD</code> in some sense.</p></li>
+
+<li><p>How does spot fleets work?</p></li>
+
+<li><p>HBase on Amazon
+<img src="http://www.runpinghuang.top/content/blog/2018-08-21/cluster-setting.png" alt="" /></p></li>
+</ol>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+<li><a href="http://docs.amazonaws.cn/en_us/emr/latest/ManagementGuide/emr-mgmt.pdf">http://docs.amazonaws.cn/en_us/emr/latest/ManagementGuide/emr-mgmt.pdf</a></li>
+<li><a href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/spot-fleet.html">https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/spot-fleet.html</a></li>
+<li><a href="https://docs.amazonaws.cn/emr/latest/ReleaseGuide/emr-release.pdf#emr-hbase-s3">https://docs.amazonaws.cn/emr/latest/ReleaseGuide/emr-release.pdf#emr-hbase-s3</a></li>
+<li><a href="https://docs.amazonaws.cn/emr/latest/ReleaseGuide/emr-hbase-s3.html#emr-hbase-s3-read-replica">https://docs.amazonaws.cn/emr/latest/ReleaseGuide/emr-hbase-s3.html#emr-hbase-s3-read-replica</a></li>
+</ul>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

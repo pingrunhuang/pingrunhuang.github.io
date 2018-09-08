@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="Hey guys, today I wanna talk about a new data structure used in hbase for fast random scan. I categorized this topics into the hbase subdirectory because it caught my attention when I try to split regions in hbase manually. In this blog, I will be explaining what is bloomfilter, why it is useful for hbase for fast random access and most importantly, when to use it for our own application.">
+
+<meta property="og:title" content="3 ws of Bloomfilter" />
+<meta property="og:description" content="Hey guys, today I wanna talk about a new data structure used in hbase for fast random scan. I categorized this topics into the hbase subdirectory because it caught my attention when I try to split regions in hbase manually. In this blog, I will be explaining what is bloomfilter, why it is useful for hbase for fast random access and most importantly, when to use it for our own application." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/blog/2018-05-04/" />
+
+
+
+<meta property="article:published_time" content="2018-05-04T12:03:46&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-05-04T12:03:46&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     3 ws of Bloomfilter 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/blog/2018-05-04/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a49.948477615%20%2b0800%20CST%20m%3d%2b0.193294870">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a49.948477615%20%2b0800%20CST%20m%3d%2b0.193294870">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a49.948477615%20%2b0800%20CST%20m%3d%2b0.193294870">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a49.948477615%20%2b0800%20CST%20m%3d%2b0.193294870">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    3 ws of Bloomfilter
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Fri May 4 2018 12:03:46 CST'>May 4, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>4 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>Hey guys, today I wanna talk about a new data structure used in hbase for fast random scan. I categorized this topics into the hbase subdirectory because it caught my attention when I try to split regions in hbase manually. In this blog, I will be explaining what is bloomfilter, why it is useful for hbase for fast random access and most importantly, when to use it for our own application. After this post, you will learn a new hashing technique and hopefully how to implement it with some codes.</p>
+
+<h1 id="what">WHAT</h1>
+
+<p>In a nutshell, bloomfilter is a binary array with initial value of all 0s. For a certain info, we use different hashing functions to generate different index that this info should be reside and then mark the position value with <strong>1</strong>. The following pictures shows the process.
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Bloom_filter.svg" alt="" />
+<strong>Quoted from wikipedia which is really like a bloom</strong><br />
+As you can see, for different info <strong>x</strong>, <strong>y</strong>, <strong>z</strong>, applying different <a href="https://en.wikipedia.org/wiki/List_of_hash_functions">hash function</a> will generate different position that the target info should be reside. <strong>x</strong> is hashed to store in the position with index of <code>1, 5, 13</code>, <strong>y</strong> is hashed to store in the position with index of <code>4, 11, 16</code>, <strong>z</strong> is hashed to store in the position of <code>3, 5, 11</code>. From my point of view, the goal of this technology is to prevent unnecessary visit or query.</p>
+
+<p>At position <code>5</code> and <code>11</code> are both hit twice but both by different piece of data. That is to say, if you get a new piece of data that has hash value of <code>1</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>11</code>, <code>13</code>, <code>16</code>, doesn&rsquo;t mean the new piece of data already reside in the database. On the contrary, you can say the new piece of data is definitely not in the database. This technique will avoid actual query to the database in many cases depending on the size of your bloomfilter. That is why bloomfilter is also called a probabilistic data structure.</p>
+
+<p>Think of a scenario where you want to know which person is living in which district in a city that contains only 4 cities. You don&rsquo;t know the exact location where it is but you do know that he is not in which 2 cities. Even though you don&rsquo;t know exactly which city he lives in with this information. However, you can narrow down the searching scope from 4 cities to only 2 cities which. Sounds like a piece of data structure storing metadata right? Indeed, hbase use this tech for boosting the random access for sure.</p>
+
+<h1 id="why">WHY</h1>
+
+<p>First of all, you must understand that hbase has <code>rowkey</code> and <code>column family</code>. When performing a query action in hbase, a user will provide <code>rowkey</code> only or more fine grained info with <code>column family</code>. In order to reduce the I/O operation which is literally the goal of boosting the performence of hbase, some kind of extra meta info should be recorded in somewhere for faster lookup. Think about the use case that I talk about in part <code>WHAT</code>. HBase uses <code>Bloomfilter</code> for letting readers know if a <code>cell</code>(which is the smallest unit of data consisting rowkey and column family) is absent in the block(the smallest unit of read and write data into HFile).
+Below is the relationship between different terms that are used in hbase:</p>
+
+<pre><code>Table
+| Region
+|---- Store
+|---- MemStore
+|-------- StoreFile
+|------------ Block
+</code></pre>
+
+<p><strong>QUOTED FROM <a href="http://hbase.apache.org/0.94/book/regions.arch.html">http://hbase.apache.org/0.94/book/regions.arch.html</a></strong></p>
+
+<p>Everytime before searching for specified data with given <code>cell</code>, <code>BlockCache</code> will be queried by user to make sure if the data exists in the block or not using the bloomfilter. Below is the seudo code of querying a piece of data.</p>
+
+<pre><code>if hash value in the bloomfilter are all 1:
+    required rowkey could be in this region server
+else:
+    required rowkey is not in this region server
+</code></pre>
+
+<p>You can see this <code>if...else...</code> statement can only provide a certain probability that this rowkey data is reside in certain region server but definetely not in some region server. Obviously, hhbase provide some parameters to tune so that the probability is adjustable.<br />
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Bloom_filter_speed.svg" alt="" />
+<strong>Quoted from wikipedia</strong></p>
+
+<h1 id="when">WHEN</h1>
+
+<p>You might be thinking in which scenario will this technique be used. Take some time to think about some creative way for using it. Below are some use cases that others suggest:
+1. password check
+2. ip check
+3. visted records check
+&hellip;&hellip;<br />
+In a word, bloomfilter could be used as a gate way checker to reduce the io operation to the real databases. I think scenario like this worth a thought of using bloomfilter.</p>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="http://www.cnblogs.com/skyl/p/4814347.html">http://www.cnblogs.com/skyl/p/4814347.html</a></li>
+<li><a href="https://hackernoon.com/probabilistic-data-structures-bloom-filter-5374112a7832">https://hackernoon.com/probabilistic-data-structures-bloom-filter-5374112a7832</a></li>
+<li><a href="https://www.quora.com/How-are-bloom-filters-used-in-HBase">https://www.quora.com/How-are-bloom-filters-used-in-HBase</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bloom_filter">https://en.wikipedia.org/wiki/Bloom_filter</a></li>
+<li><a href="https://github.com/apache/hbase/blob/master/hbase-server/src/main/java/org/apache/hadoop/hbase/util/BloomFilter.java">https://github.com/apache/hbase/blob/master/hbase-server/src/main/java/org/apache/hadoop/hbase/util/BloomFilter.java</a></li>
+<li><a href="http://blog.cloudera.com/blog/2012/06/hbase-io-hfile-input-output/#2">http://blog.cloudera.com/blog/2012/06/hbase-io-hfile-input-output/#2</a></li>
+<li><a href="https://hortonworks.com/blog/hbase-blockcache-101/">https://hortonworks.com/blog/hbase-blockcache-101/</a></li>
+</ul>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

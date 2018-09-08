@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="从hexo框架到django框架 作为一个半吊子程序猿，以前的我很喜欢在朋友圈牢骚一些有的没的，装深沉装忧郁，后来发现no one give a shit。然后就转战hexo写博客，一开始谢谢技术博文记录自己的菜鸡成长过程，后来慢慢的竟然也喜欢上这个记录的过程，内容也加入了一下生活琐事和感悟。听说伟大的人都会用写博文来记录生活，这过程也是一个自我反省的过程，相比于朋友圈的琐碎，还有不断步入社会之后朋友过于杂乱，自建博客是一个专属于我的地方。
+那问题是为什么要转成自建博客呢？首先当然是装逼，既然是程序猿就应该有程序猿的态度。开玩笑的，其实最重要的引发点还是博客框架如hexo于我来说像黑盒子，里面太多前段的fancy的东西了，我是一个偏向后端的开发者，对于前段的东西其实不是很熟，以至于有时候标记出错了无法调试，导致整个网站崩溃。我很不喜欢这种黑盒子式的形式。而django作为比较热门的网站框架，更加注重的是后端的逻辑，这是很吸引我的地方。在编写博客的同时了解django的运行机理，何乐而不为呢？而对于前段，我只需要很干净的一个panel就够了，拒绝一切fancy！
+再从django到hugo 再一次打了自己的脸&hellip;
+我不是一个人 庆幸的是，写博客不是我一个人在写，身边一些老铁们也有写博客的习惯，因此偶尔偷偷关注他们写的东西，不管是技术的还是生活的，不评论，但我知道就好了。写博客渐渐成了一种生活习惯，我希望这个地方会是我以后怀念生活的安静圈子。这次的迁移虽然损失了很多以前写的内容，但是也让我看到以前自己真的写了很多没用的技术博文，关于技术还是要认真对待的，每一篇技术博文应该是自己实践或者真正懂了之后觉得应该记下来分享给大家的。
+好了，废话到此，润平，加油！">
+
+<meta property="og:title" content="从hexo迁移到hugo" />
+<meta property="og:description" content="从hexo框架到django框架 作为一个半吊子程序猿，以前的我很喜欢在朋友圈牢骚一些有的没的，装深沉装忧郁，后来发现no one give a shit。然后就转战hexo写博客，一开始谢谢技术博文记录自己的菜鸡成长过程，后来慢慢的竟然也喜欢上这个记录的过程，内容也加入了一下生活琐事和感悟。听说伟大的人都会用写博文来记录生活，这过程也是一个自我反省的过程，相比于朋友圈的琐碎，还有不断步入社会之后朋友过于杂乱，自建博客是一个专属于我的地方。
+那问题是为什么要转成自建博客呢？首先当然是装逼，既然是程序猿就应该有程序猿的态度。开玩笑的，其实最重要的引发点还是博客框架如hexo于我来说像黑盒子，里面太多前段的fancy的东西了，我是一个偏向后端的开发者，对于前段的东西其实不是很熟，以至于有时候标记出错了无法调试，导致整个网站崩溃。我很不喜欢这种黑盒子式的形式。而django作为比较热门的网站框架，更加注重的是后端的逻辑，这是很吸引我的地方。在编写博客的同时了解django的运行机理，何乐而不为呢？而对于前段，我只需要很干净的一个panel就够了，拒绝一切fancy！
+再从django到hugo 再一次打了自己的脸&hellip;
+我不是一个人 庆幸的是，写博客不是我一个人在写，身边一些老铁们也有写博客的习惯，因此偶尔偷偷关注他们写的东西，不管是技术的还是生活的，不评论，但我知道就好了。写博客渐渐成了一种生活习惯，我希望这个地方会是我以后怀念生活的安静圈子。这次的迁移虽然损失了很多以前写的内容，但是也让我看到以前自己真的写了很多没用的技术博文，关于技术还是要认真对待的，每一篇技术博文应该是自己实践或者真正懂了之后觉得应该记下来分享给大家的。
+好了，废话到此，润平，加油！" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/2017/%E4%BB%8Ehexo%E8%BF%81%E7%A7%BB%E5%88%B0hugo/" />
+
+
+
+<meta property="article:published_time" content="2017-08-13T15:10:29&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-08-13T15:10:29&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     从hexo迁移到hugo 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/2017/%E4%BB%8Ehexo%E8%BF%81%E7%A7%BB%E5%88%B0hugo/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a49.976415853%20%2b0800%20CST%20m%3d%2b0.221233305">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a49.976415853%20%2b0800%20CST%20m%3d%2b0.221233305">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a49.976415853%20%2b0800%20CST%20m%3d%2b0.221233305">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a49.976415853%20%2b0800%20CST%20m%3d%2b0.221233305">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    从hexo迁移到hugo
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sun Aug 13 2017 15:10:29 CST'>Aug 13, 2017</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>One minute read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h2 id="从hexo框架到django框架">从hexo框架到django框架</h2>
+
+<p>作为一个半吊子程序猿，以前的我很喜欢在朋友圈牢骚一些有的没的，装深沉装忧郁，后来发现no one give a shit。然后就转战hexo写博客，一开始谢谢技术博文记录自己的菜鸡成长过程，后来慢慢的竟然也喜欢上这个记录的过程，内容也加入了一下生活琐事和感悟。听说伟大的人都会用写博文来记录生活，这过程也是一个自我反省的过程，相比于朋友圈的琐碎，还有不断步入社会之后朋友过于杂乱，自建博客是一个专属于我的地方。</p>
+
+<p>那问题是为什么要转成自建博客呢？首先当然是装逼，既然是程序猿就应该有程序猿的态度。开玩笑的，其实最重要的引发点还是博客框架如hexo于我来说像黑盒子，里面太多前段的fancy的东西了，我是一个偏向后端的开发者，对于前段的东西其实不是很熟，以至于有时候标记出错了无法调试，导致整个网站崩溃。我很不喜欢这种黑盒子式的形式。而django作为比较热门的网站框架，更加注重的是后端的逻辑，这是很吸引我的地方。在编写博客的同时了解django的运行机理，何乐而不为呢？而对于前段，我只需要很干净的一个panel就够了，拒绝一切fancy！</p>
+
+<h2 id="再从django到hugo">再从django到hugo</h2>
+
+<p>再一次打了自己的脸&hellip;</p>
+
+<h2 id="我不是一个人">我不是一个人</h2>
+
+<p>庆幸的是，写博客不是我一个人在写，身边一些老铁们也有写博客的习惯，因此偶尔偷偷关注他们写的东西，不管是技术的还是生活的，不评论，但我知道就好了。写博客渐渐成了一种生活习惯，我希望这个地方会是我以后怀念生活的安静圈子。这次的迁移虽然损失了很多以前写的内容，但是也让我看到以前自己真的写了很多没用的技术博文，关于技术还是要认真对待的，每一篇技术博文应该是自己实践或者真正懂了之后觉得应该记下来分享给大家的。</p>
+
+<p>好了，废话到此，润平，加油！</p>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

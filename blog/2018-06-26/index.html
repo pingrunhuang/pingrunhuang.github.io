@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="最近在学习scala的时候，又一次遇到了closure这个词，在以前学习python装饰器的时候就已经对closure有所接触了，那时候对closure的理解还只是停留在函数中包含函数的阶段，理解可能比较片面。最近在学习scala的过程中对closure又有了新的认识，于是想整理成blog，顺便对closure做一个系统一点的总结。有兴趣的也可以看看我之前关于python装饰器的一些理解link。
+所以本篇文章结束之后，你将会学习到closure在 python 和 scala 中的差异和共性，同时也会学习到怎么利用这两门语言来实现closure。
+ a function object that is created at runtime is called a closure
+ 这句话是出自programming in scala一书的，这是我见过对于closure最精炼的抽象了。为什么这么说呢？我们知道代码从source code到进入jvm成为jvm认识的byte code的过程中，是要经历两个步骤的，分别是compiletime和runtime， compiletime的时候ide可以检查出语法错误，这就是IDEA总是标红的原因，而runtime就不一样了，只有到了程序跑起来的时候错误才会抛出。所以我认为closure最根本的思想是希望让函数可以 动态的成为新的函数。 这在python的世界里同样也可以说得通。python的装饰器最根本的思想实际上也是为了让某个函数在被一个新的函数装饰过后能够拥有一些新的功能（比如计时），而把一些共性的代码抽象出来。这个过程实际上就把普通函数升格成高阶函数。这怎么说越说越绕了呢？
+首先，高阶函数就是把函数当参数的函数。我们知道普通函数就是传入一个参数，做一些操作，然后返回。参数一旦确定了，这个函数就确定了。而诸如scala这种函数式编程的语言则视函数为一等公民，因此函数可以当作参数继续传入。这实际上会引发一些很有趣的现象。以下面两个概念为例：
+* (x:Int)=&gt; x&#43;1这个叫做close form
+* (x:Int)=&gt;x&#43;more这个叫做open form
+这种写法叫做function literal。第一个实际上也就是传统函数，实现了加一的映射，第二个函数不仅收x影响，而且还受more的影响，也就是说加多少不能确定。于是乎函数更多的可能行就被激发了，我们可以加2，加3，甚至加激活函数。比如：
+// 激活函数 def act(func: Float =&gt; Float) = (x:Float)=&gt; func(x) def activate(x:Float):Float={ if (x&lt;0){ 0 }else{ x } } val act1 = act(activate) // call act1(1)  Summary closure最简单的理解就是以函数为参数的函数。最重要的是closure的思想，这种抽出共性代码的思想。以上。">
+
+<meta property="og:title" content="What is closure?" />
+<meta property="og:description" content="最近在学习scala的时候，又一次遇到了closure这个词，在以前学习python装饰器的时候就已经对closure有所接触了，那时候对closure的理解还只是停留在函数中包含函数的阶段，理解可能比较片面。最近在学习scala的过程中对closure又有了新的认识，于是想整理成blog，顺便对closure做一个系统一点的总结。有兴趣的也可以看看我之前关于python装饰器的一些理解link。
+所以本篇文章结束之后，你将会学习到closure在 python 和 scala 中的差异和共性，同时也会学习到怎么利用这两门语言来实现closure。
+ a function object that is created at runtime is called a closure
+ 这句话是出自programming in scala一书的，这是我见过对于closure最精炼的抽象了。为什么这么说呢？我们知道代码从source code到进入jvm成为jvm认识的byte code的过程中，是要经历两个步骤的，分别是compiletime和runtime， compiletime的时候ide可以检查出语法错误，这就是IDEA总是标红的原因，而runtime就不一样了，只有到了程序跑起来的时候错误才会抛出。所以我认为closure最根本的思想是希望让函数可以 动态的成为新的函数。 这在python的世界里同样也可以说得通。python的装饰器最根本的思想实际上也是为了让某个函数在被一个新的函数装饰过后能够拥有一些新的功能（比如计时），而把一些共性的代码抽象出来。这个过程实际上就把普通函数升格成高阶函数。这怎么说越说越绕了呢？
+首先，高阶函数就是把函数当参数的函数。我们知道普通函数就是传入一个参数，做一些操作，然后返回。参数一旦确定了，这个函数就确定了。而诸如scala这种函数式编程的语言则视函数为一等公民，因此函数可以当作参数继续传入。这实际上会引发一些很有趣的现象。以下面两个概念为例：
+* (x:Int)=&gt; x&#43;1这个叫做close form
+* (x:Int)=&gt;x&#43;more这个叫做open form
+这种写法叫做function literal。第一个实际上也就是传统函数，实现了加一的映射，第二个函数不仅收x影响，而且还受more的影响，也就是说加多少不能确定。于是乎函数更多的可能行就被激发了，我们可以加2，加3，甚至加激活函数。比如：
+// 激活函数 def act(func: Float =&gt; Float) = (x:Float)=&gt; func(x) def activate(x:Float):Float={ if (x&lt;0){ 0 }else{ x } } val act1 = act(activate) // call act1(1)  Summary closure最简单的理解就是以函数为参数的函数。最重要的是closure的思想，这种抽出共性代码的思想。以上。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/blog/2018-06-26/" />
+
+
+
+<meta property="article:published_time" content="2018-06-26T15:43:28&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-06-26T15:43:28&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     What is closure? 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/blog/2018-06-26/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a49.944409961%20%2b0800%20CST%20m%3d%2b0.189227188">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a49.944409961%20%2b0800%20CST%20m%3d%2b0.189227188">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a49.944409961%20%2b0800%20CST%20m%3d%2b0.189227188">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a49.944409961%20%2b0800%20CST%20m%3d%2b0.189227188">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    What is closure?
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Tue Jun 26 2018 15:43:28 CST'>Jun 26, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>One minute read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>最近在学习scala的时候，又一次遇到了<code>closure</code>这个词，在以前学习python装饰器的时候就已经对closure有所接触了，那时候对closure的理解还只是停留在函数中包含函数的阶段，理解可能比较片面。最近在学习scala的过程中对<code>closure</code>又有了新的认识，于是想整理成blog，顺便对<code>closure</code>做一个系统一点的总结。有兴趣的也可以看看我之前关于python装饰器的一些理解<a href="http://www.runpinghuang.top/blog/2018-06-12/">link</a>。</p>
+
+<p>所以本篇文章结束之后，你将会学习到<code>closure</code>在 <strong>python</strong> 和 <strong>scala</strong> 中的差异和共性，同时也会学习到怎么利用这两门语言来实现<code>closure</code>。</p>
+
+<blockquote>
+<p>a function object that is created at runtime is called a closure</p>
+</blockquote>
+
+<p>这句话是出自<code>programming in scala</code>一书的，这是我见过对于closure最精炼的抽象了。为什么这么说呢？我们知道代码从source code到进入jvm成为jvm认识的byte code的过程中，是要经历两个步骤的，分别是compiletime和runtime， compiletime的时候ide可以检查出语法错误，这就是IDEA总是标红的原因，而runtime就不一样了，只有到了程序跑起来的时候错误才会抛出。所以我认为<code>closure</code>最根本的思想是希望让函数可以 <strong>动态的成为新的函数。</strong> 这在python的世界里同样也可以说得通。python的装饰器最根本的思想实际上也是为了让某个函数在被一个新的函数装饰过后能够拥有一些新的功能（比如计时），而把一些共性的代码抽象出来。这个过程实际上就把普通函数升格成高阶函数。这怎么说越说越绕了呢？<br />
+首先，高阶函数就是把函数当参数的函数。我们知道普通函数就是传入一个参数，做一些操作，然后返回。参数一旦确定了，这个函数就确定了。而诸如scala这种函数式编程的语言则视函数为一等公民，因此函数可以当作参数继续传入。这实际上会引发一些很有趣的现象。以下面两个概念为例：<br />
+* <code>(x:Int)=&gt; x+1</code>这个叫做<code>close form</code><br />
+* <code>(x:Int)=&gt;x+more</code>这个叫做<code>open form</code><br />
+这种写法叫做<code>function literal</code>。第一个实际上也就是传统函数，实现了加一的映射，第二个函数不仅收<code>x</code>影响，而且还受<code>more</code>的影响，也就是说加多少不能确定。于是乎函数更多的可能行就被激发了，我们可以加2，加3，甚至加激活函数。比如：</p>
+
+<pre><code class="language-scala">// 激活函数
+def act(func: Float =&gt; Float) = (x:Float)=&gt; func(x) 
+
+def activate(x:Float):Float={
+    if (x&lt;0){
+        0
+    }else{
+        x
+    }
+}
+
+val act1 = act(activate)
+// call
+act1(1)
+</code></pre>
+
+<h1 id="summary">Summary</h1>
+
+<p><code>closure</code>最简单的理解就是以函数为参数的函数。最重要的是<code>closure</code>的思想，这种抽出共性代码的思想。以上。</p>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+

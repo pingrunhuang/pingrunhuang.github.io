@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Frank Huang</title>
+    <link>http://www.runpinghuang.top/categories/linux/</link>
+    <description>Recent content in Linux on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 28 Aug 2018 10:05:35 +0800</lastBuildDate>
+    
+	<atom:link href="http://www.runpinghuang.top/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Different ways of removing files with exclusion</title>
+      <link>http://www.runpinghuang.top/blog/2018-08-28/</link>
+      <pubDate>Tue, 28 Aug 2018 10:05:35 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2018-08-28/</guid>
+      <description>We all know that removing files in linux is just rm. But what if we want to remove files that we don&amp;rsquo;t want in the specified directory?
+In this blog, I will summarize some ways to exclude
+ ls rm ls -I &amp;lt;file1&amp;gt; -I &amp;lt;file2&amp;gt; ...  </description>
+    </item>
+    
+    <item>
+      <title>learning vim for data scientist</title>
+      <link>http://www.runpinghuang.top/blog/2018-05-29/</link>
+      <pubDate>Tue, 29 May 2018 20:05:39 +0800</pubDate>
+      
+      <guid>http://www.runpinghuang.top/blog/2018-05-29/</guid>
+      <description>Tips for using vim  Cursor movement: hjkl for left, up, down, right, [number]j to relative line down, [number]k to relative line down, G to the last row, gg to the first row, $ to the end of current row, 0 or ^ to the start of current row, line number+G to the specified row, &amp;lt;ctrl&amp;gt;+o to jump back to the previous position, &amp;lt;ctrl&amp;gt;+i undo the jump back operation. &amp;lt;ctrl&amp;gt;+B to page up, &amp;lt;ctrl&amp;gt;+D to page down.</description>
+    </item>
+    
+  </channel>
+</rss>

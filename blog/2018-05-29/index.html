@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="Tips for using vim  Cursor movement: hjkl for left, up, down, right, [number]j to relative line down, [number]k to relative line down, G to the last row, gg to the first row, $ to the end of current row, 0 or ^ to the start of current row, line number&#43;G to the specified row, &lt;ctrl&gt;&#43;o to jump back to the previous position, &lt;ctrl&gt;&#43;i undo the jump back operation. &lt;ctrl&gt;&#43;B to page up, &lt;ctrl&gt;&#43;D to page down.">
+
+<meta property="og:title" content="learning vim for data scientist" />
+<meta property="og:description" content="Tips for using vim  Cursor movement: hjkl for left, up, down, right, [number]j to relative line down, [number]k to relative line down, G to the last row, gg to the first row, $ to the end of current row, 0 or ^ to the start of current row, line number&#43;G to the specified row, &lt;ctrl&gt;&#43;o to jump back to the previous position, &lt;ctrl&gt;&#43;i undo the jump back operation. &lt;ctrl&gt;&#43;B to page up, &lt;ctrl&gt;&#43;D to page down." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.runpinghuang.top/blog/2018-05-29/" />
+
+
+
+<meta property="article:published_time" content="2018-05-29T20:05:39&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-05-29T20:05:39&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     learning vim for data scientist 
+
+</title>
+<link rel="canonical" href="http://www.runpinghuang.top/blog/2018-05-29/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a49.947323245%20%2b0800%20CST%20m%3d%2b0.192140492">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a49.947323245%20%2b0800%20CST%20m%3d%2b0.192140492">
+    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a49.947323245%20%2b0800%20CST%20m%3d%2b0.192140492">
+    
+        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a49.947323245%20%2b0800%20CST%20m%3d%2b0.192140492">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://www.runpinghuang.top/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+            
+            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    learning vim for data scientist
+
+</div>
+
+                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Tue May 29 2018 20:05:39 CST'>May 29, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h2 id="tips-for-using-vim">Tips for using vim</h2>
+
+<ul>
+<li><p>Cursor movement: <code>hjkl</code> for left, up, down, right, <code>[number]j</code> to relative line down, <code>[number]k</code> to relative line down, <code>G</code> to the last row, <code>gg</code> to the first row, <code>$</code> to the end of current row, <code>0</code> or <code>^</code> to the start of current row, <code>line number</code>+<code>G</code> to the specified row, <code>&lt;ctrl&gt;+o</code> to jump back to the previous position, <code>&lt;ctrl&gt;+i</code> undo the jump back operation. <code>&lt;ctrl&gt;+B</code> to page up, <code>&lt;ctrl&gt;+D</code> to page down. <code>w</code> to pass the next word. <code>b</code> to move to the previous word. <code>W</code> to move to the next space. <code>B</code> to move to the previous space.</p></li>
+
+<li><p>Entering insert mode: <code>A</code> for starting from the end of the current line, <code>a</code> for starting from the next char of the current char, <code>o</code> for starting a newline at the bottom, <code>O</code> for starting a newline above, <code>s</code> for deleting current char, <code>S</code> for deleting current row, <code>r</code> for replacing a char, <code>c</code> short for changing and enter insert mode, <code>c$</code> for changing from current position to the end, <code>c^</code> for changing from current position to the start, <code>ci&quot;</code> for clearing content inside <strong>&rdquo;&rdquo;</strong>(replace <strong>&ldquo;</strong> for any special character), replace <code>c</code> with <code>y</code> for the copying(yanking), <code>caw</code> short for changing a word, . Use these short cuts insead of <code>i</code>.</p></li>
+
+<li><p>Finding certain char for current line: <code>f</code> for right and <code>F</code> for left. Along with <code>f</code>, <code>;</code> is used for repeating the last finding operation. <code>.</code> is used for repeating the last modification which is very often used after <code>;</code> is applied.</p></li>
+
+<li><p>Always save using <code>w</code> as <code>ctrl s</code>.</p></li>
+
+<li><p>Blocks deletion: enter visual mode with <code>v</code>, use fast cursor movement to locate which block you are going to delete, type <code>d</code> for deletion.</p></li>
+
+<li><p>Deletion: <code>dw</code> to delete the current word.</p></li>
+
+<li><p>Show current status: <code>&lt;ctrl&gt;+g</code></p></li>
+
+<li><p>Replacement: <code>s/old/new</code> for replacing the first match on current row, <code>s/old/new/g</code> for replacing all matches on current row, <code>%s/old/new/g</code> for replacing all matches in the whole file.</p></li>
+</ul>
+
+<h2 id="vim-settings">Vim settings</h2>
+
+<p>Edit <strong>~/.vimrc</strong></p>
+
+<pre><code>set number
+set nowrap
+set ruler
+set relativenumber
+</code></pre>
+
+                <br>
+		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+            <section id="isso-thread"></section>
+            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
+            data-isso-css="true"
+            data-isso-lang="en"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="true"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-vote-levels="[-5,5,15]"></script>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+     
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="http:\/\/www.runpinghuang.top:8080\/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
+
