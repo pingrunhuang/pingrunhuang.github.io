@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Technical Blog on Frank Huang</title>
-    <link>http://www.runpinghuang.top/blog/</link>
+    <link>https://pingrunhuang.github.io/blog/</link>
     <description>Recent content in Technical Blog on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 13 Sep 2017 06:42:21 -0700</lastBuildDate>
     
-	<atom:link href="http://www.runpinghuang.top/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pingrunhuang.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>What is port forwarding?</title>
-      <link>http://www.runpinghuang.top/blog/2018-08-29/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-08-29/</link>
       <pubDate>Wed, 29 Aug 2018 14:53:15 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-08-29/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-08-29/</guid>
       <description>Recently when I used aws EMR for setting up the hadoop eco-system, I found an interesting technique called local port forwarding which forward the local port to the protected master node service without the need to expose the target port to the Internet. Such a brilliant idea leaded me to the deeper research on this topic.
 What is port forwarding?  Port Forwarding allows remote computers (for example, computers on the Internet) to connect to a specific computer or service within a private local-area network (LAN)</description>
     </item>
     
     <item>
       <title>Different ways of removing files with exclusion</title>
-      <link>http://www.runpinghuang.top/blog/2018-08-28/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-08-28/</link>
       <pubDate>Tue, 28 Aug 2018 10:05:35 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-08-28/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-08-28/</guid>
       <description>We all know that removing files in linux is just rm. But what if we want to remove files that we don&amp;rsquo;t want in the specified directory?
 In this blog, I will summarize some ways to exclude
  ls rm ls -I &amp;lt;file1&amp;gt; -I &amp;lt;file2&amp;gt; ...  </description>
@@ -34,56 +34,56 @@ In this blog, I will summarize some ways to exclude
     
     <item>
       <title>High performance spark 3</title>
-      <link>http://www.runpinghuang.top/blog/2018-08-26/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-08-26/</link>
       <pubDate>Sun, 26 Aug 2018 14:31:37 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-08-26/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-08-26/</guid>
       <description>Result files when saving dataframes into local disks Depending on how many partitions that you have(In the local mode, the number of partitions are the same as the number of executor when you specified local[2] or so), the result files will be splitted into the same number of small files with names like this part-00000-b424da68-3426-4da4-b9ac-8050e06dca3f-c000.csv. In order to avoid this, we need to specify the coalesce action in order to shrink the number of partitions.</description>
     </item>
     
     <item>
       <title>Hive on EMR cluster</title>
-      <link>http://www.runpinghuang.top/blog/2018-08-22/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-08-22/</link>
       <pubDate>Wed, 22 Aug 2018 00:46:55 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-08-22/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-08-22/</guid>
       <description>S3 Map hive table to S3 bucket CREATE EXTERNAL TABLE posts (title STRING, comment_count INT) LOCATION &#39;s3://my-bucket/files/&#39;;  Use hive on S3 $ beeline $ beeline&amp;gt; !connect jdbc:hive2://localhost:10000 $ Enter username for jdbc:hive2://localhost:10000: admin $ Enter password for jdbc:hive2://localhost:10000: admin  More options could be checked by typing help on the terminal</description>
     </item>
     
     <item>
       <title>Introduction to aws EMR</title>
-      <link>http://www.runpinghuang.top/blog/2018-08-21/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-08-21/</link>
       <pubDate>Tue, 21 Aug 2018 00:13:03 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-08-21/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-08-21/</guid>
       <description>Recently I have to deal with data pipeline with large volumn of data. I was using python script first to make plenty of sessions query for each row of data because of cascading query between different tables. This caused bottleneck for only 400,000 rows of data which required almost 2 hrs of processing time. I have used different approches like batch querying the dimension table or even async programming to separate the compute and insert operation.</description>
     </item>
     
     <item>
       <title>Regular expression with python</title>
-      <link>http://www.runpinghuang.top/blog/2018-08-16/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-08-16/</link>
       <pubDate>Thu, 16 Aug 2018 10:51:45 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-08-16/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-08-16/</guid>
       <description>Regular expression could be quite tedious at the first glance but turns out to be your good friend eventually.
  Recently I have a chance to read my colleagues&amp;rsquo; historical code which use regular expression to subsitute the unwanted value inside a string. Looking at the tedious pattern shown up in the code really freaks me out and I&amp;rsquo;ve been forgotten how to use regular expression for matching pattern since last time I used it.</description>
     </item>
     
     <item>
       <title>Different elevator schedual</title>
-      <link>http://www.runpinghuang.top/blog/2018-08-13/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-08-13/</link>
       <pubDate>Mon, 13 Aug 2018 14:02:35 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-08-13/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-08-13/</guid>
       <description>FCFS (FIRST COME FIRST SERVE) SSTF (SHORTEST SEEK TIME FIRST) SCAN LOOK SATF (SHORTEST ACCESS TIME FIRST) EDF (EARLIEST DEADLINE FIRST)  REAL TIME 1. EDF &amp;ndash; Earliest Deadline First 2. SCAN-EDF 3. PI (PRIORITY INVERSION) 4. FD-SCAN (FEASIBLE DEADLINE SCAN)</description>
     </item>
     
     <item>
       <title>python variable scope</title>
-      <link>http://www.runpinghuang.top/blog/2018-08-07/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-08-07/</link>
       <pubDate>Tue, 07 Aug 2018 09:46:56 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-08-07/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-08-07/</guid>
       <description>Today&amp;rsquo;s blog post will be recording my issues on variable scope when using python.
  Below is a kind of normal code snippet that we have used for a long time in our daily development:
 def genTownName(foo): if township.find(&amp;quot;f&amp;quot;)!=-1: result = True print(result)  If you are like me come from the world of java, you might find that the code above makes no sense since the variable result is assigned inside the if statement which should be declared outside it in order to be accessed.</description>
@@ -91,30 +91,30 @@ def genTownName(foo): if township.find(&amp;quot;f&amp;quot;)!=-1: result = True
     
     <item>
       <title>What is Round Robin?</title>
-      <link>http://www.runpinghuang.top/blog/2018-08-04/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-08-04/</link>
       <pubDate>Sat, 04 Aug 2018 15:43:07 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-08-04/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-08-04/</guid>
       <description>Recently, when I check out the policy of spark job scheduler which include FIFO, Fair scheduler. In the context of Fair scheduler, round-robin style is mentioned. I recall that in the setup of nginx, round robin is also used. So I wanted to write a blog about what is round robin style and when to use it inspired by this software design.
 What is round robin? When to use it?</description>
     </item>
     
     <item>
       <title>Puzzles for Spark application</title>
-      <link>http://www.runpinghuang.top/blog/2018-07-31/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-07-31/</link>
       <pubDate>Tue, 31 Jul 2018 15:04:30 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-07-31/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-07-31/</guid>
       <description>Suppose we have an RDD of key/value pairs where the key is the student names and the value is the courses that the students have chosen(which could be duplicated!!!). How to determine a set of distinct courses that each student has chosen?
  //groupByKey rdd.groupByKey(record=&amp;gt;(record._t, record._2.sum)) // 计算所有学生的选课数 val zero = new collection.mutable.Set[String]() // take in 3 parameters: val result = rdd.aggregateByKey( zero // the initial container to accept the value )( (set, v) =&amp;gt; set+=v, // an accumulator that merge values in one partition (set1, set2) =&amp;gt; set1 ++= set2 // a combiner that merge collections from different partitions )   Suppose we have an RDD of key/value pairs where the key is the receiver names of orders and value is the description of the orders.</description>
     </item>
     
     <item>
       <title>Understanding how to generate tree in one line of code</title>
-      <link>http://www.runpinghuang.top/blog/2018-07-30/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-07-30/</link>
       <pubDate>Mon, 30 Jul 2018 18:19:12 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-07-30/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-07-30/</guid>
       <description>tree = lambda : defaultdict(tree)
  In today&amp;rsquo;s code review, I found an interesting coding style in python where a dictionary of tree like can be generated in just one line of code.
 In order to explain this issue, we will first need to understand how defaultdict object works. As I really don&amp;rsquo;t know where to find the source code of this implementation, check out this link to see how it work.</description>
@@ -122,10 +122,10 @@ In order to explain this issue, we will first need to understand how defaultdict
     
     <item>
       <title>Generator and Coroutine -- from the perspective of source code</title>
-      <link>http://www.runpinghuang.top/blog/2018-07-25/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-07-25/</link>
       <pubDate>Wed, 25 Jul 2018 11:17:07 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-07-25/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-07-25/</guid>
       <description>  The following code are derived from the itertools module.
  the basic form of generator is using the yield
 def count(start=0, step=1,stop=10): n = start while n&amp;lt;stop: yield n n+=step     what is coroutines? From my point of view, coroutines are just subroutines that
@@ -134,10 +134,10 @@ def count(start=0, step=1,stop=10): n = start while n&amp;lt;stop: yield n n+=st
     
     <item>
       <title>What the hack does ACID mean in database?</title>
-      <link>http://www.runpinghuang.top/blog/2018-07-23/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-07-23/</link>
       <pubDate>Mon, 23 Jul 2018 09:22:26 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-07-23/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-07-23/</guid>
       <description>I&amp;rsquo;ve always wondered about the term ACID mean in database since I took the database course back in my bachelor degree.
 In computer science, ACID (Atomicity, Consistency, Isolation, Durability) .
  A stands for atomicity, meaning a transaction is treated as a whole which should either be success or fail. C stands for consistency, meaning data stored in database should be queried in the same status aka value in any time.</description>
@@ -145,10 +145,10 @@ In computer science, ACID (Atomicity, Consistency, Isolation, Durability) .
     
     <item>
       <title>My thougts about Linear Regression</title>
-      <link>http://www.runpinghuang.top/blog/2018-07-09/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-07-09/</link>
       <pubDate>Mon, 09 Jul 2018 08:05:03 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-07-09/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-07-09/</guid>
       <description>Suppose we have a
 spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
 spark 参数配置 &amp;ndash;conf -&amp;gt; shell parameter -&amp;gt; conf/spark-defaults.conf spark.yarn.am.memory
@@ -160,10 +160,10 @@ TMUX usage cheetsheet  resize pane size(down move 2 lines): ctrl+b : resize-pane
     
     <item>
       <title>尾递归优化</title>
-      <link>http://www.runpinghuang.top/blog/2018-07-08/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-07-08/</link>
       <pubDate>Sun, 08 Jul 2018 10:46:50 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-07-08/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-07-08/</guid>
       <description>尾递归 -&amp;gt; 函数栈 -&amp;gt; 保证入口环境 -&amp;gt; 如何在尾递归中去除不必要的入口环境，从而达到优化效果优化？ -&amp;gt; 代码
  记得以前有人分享过尾递归的东西，当时还是一脸懵逼，但是后来有大牛告诉我，尾递归实际上是把函数的返回放到最后，这样可以使函数的递归调用在最后面直接就返回了，减少了逐层回调的过程，当时我是相信的，但直到最近看了这篇知乎，才知道其实这还不算优化，这只能算是编译器给我们的代码做的优化而已。那我们究竟要怎么做到真正的优化呢？下面我就来讲讲看完这篇文章之后的想法。
 讲到递归，本质上就是在一个stack space上面不断叠加函数空间，直到满足某个条件停止进栈，然后逐层出栈的过程。下面是一个传说中的经优化过的尾递归求阶乘的函数，看样子就是把每一步的阶乘值都放进函数的参数当中，从而在最后的返回中可以直接返回（自行脑补不带r参数的普通递归函数）。但实际上有一点是说不通的，这样的优化其实还是会出现stackoverflow的错误的，毕竟还是需要开辟容量为n的stack space。所以所谓的优化只是编译器对我们的这段代码做了优化，我们所谓的优化还不够彻底。
@@ -173,20 +173,20 @@ def factorial(n, r): &amp;quot;&amp;quot;&amp;quot; @param n: 层数 @param r: �
     
     <item>
       <title>How to set up my blog system?</title>
-      <link>http://www.runpinghuang.top/blog/2018-07-04/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-07-04/</link>
       <pubDate>Wed, 04 Jul 2018 00:05:23 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-07-04/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-07-04/</guid>
       <description>I&amp;rsquo;ve been using my blog system for quite a long time and find that the architecture of it happend to be very interesting. I think it is quite a good example to share for you ;) (Yeah, you dude!)
 Here are the basic components that make up the blog system. * archtype framework: hugo * comment system: isso (containerized) * user tracking system: matomo (containerized) * theme: cocoa * server engine: nginx * cloud platform: AWS</description>
     </item>
     
     <item>
       <title>problem with rdd.foreach</title>
-      <link>http://www.runpinghuang.top/blog/2018-06-30/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-06-30/</link>
       <pubDate>Sat, 30 Jun 2018 19:40:28 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-06-30/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-06-30/</guid>
       <description>foreach will clean up all the resouces inside the
 var normalRows = Seq[Seq[String]]() df.foreach(row =&amp;gt; { var newRow = Seq[String]() columnMap.keys.foreach(key =&amp;gt; { val updatedCell = formateDate(row.getAs(key)) newRow = newRow :+ updatedCell } ) normalRows = normalRows :+ newRow } ) println(normalRows.isEmpty)// true  When you check the source code of the foreach function, you will find the following:
 /** * Applies a function f to all elements of this RDD.</description>
@@ -194,10 +194,10 @@ var normalRows = Seq[Seq[String]]() df.foreach(row =&amp;gt; { var newRow = Seq[
     
     <item>
       <title>RDD tutorial</title>
-      <link>http://www.runpinghuang.top/blog/2018-06-29/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-06-29/</link>
       <pubDate>Fri, 29 Jun 2018 00:24:04 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-06-29/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-06-29/</guid>
       <description>RDD stands for risilient distributed dataset. Resilient comes because the ability to recomput the RDD.
 RDD is lazy evaluated meaning it will not start to compute until it sees an action.
 common actions  take() :is taking small number of elements in RDD at the driver program. collect(): take all the data to a single machine&amp;rsquo;s memory persist() or cache(): are used for avoiding computing an action from scratch.  since rdd is lazily evaluated, which means we can think of it as a collection of instructions to work on the RDD.</description>
@@ -205,10 +205,10 @@ common actions  take() :is taking small number of elements in RDD at the driver 
     
     <item>
       <title>How does branches work in git</title>
-      <link>http://www.runpinghuang.top/blog/2018-06-27/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-06-27/</link>
       <pubDate>Wed, 27 Jun 2018 22:56:50 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-06-27/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-06-27/</guid>
       <description>Branches in git is divided into 2 kind. Remote and local. I will demonstrate a basic scenario in this post regarding the local branch.
 local branch Scenario
 You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.
@@ -217,10 +217,10 @@ switch to production branch create a issue branch and switch to it which allow y
     
     <item>
       <title>What is closure?</title>
-      <link>http://www.runpinghuang.top/blog/2018-06-26/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-06-26/</link>
       <pubDate>Tue, 26 Jun 2018 15:43:28 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-06-26/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-06-26/</guid>
       <description>最近在学习scala的时候，又一次遇到了closure这个词，在以前学习python装饰器的时候就已经对closure有所接触了，那时候对closure的理解还只是停留在函数中包含函数的阶段，理解可能比较片面。最近在学习scala的过程中对closure又有了新的认识，于是想整理成blog，顺便对closure做一个系统一点的总结。有兴趣的也可以看看我之前关于python装饰器的一些理解link。
 所以本篇文章结束之后，你将会学习到closure在 python 和 scala 中的差异和共性，同时也会学习到怎么利用这两门语言来实现closure。
  a function object that is created at runtime is called a closure
@@ -234,39 +234,39 @@ switch to production branch create a issue branch and switch to it which allow y
     
     <item>
       <title>Gerrit push vs git push</title>
-      <link>http://www.runpinghuang.top/blog/2018-06-19/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-06-19/</link>
       <pubDate>Tue, 19 Jun 2018 22:59:51 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-06-19/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-06-19/</guid>
       <description>Recently I&amp;rsquo;ve been using gerrit as a version control tool. I was taking it for granted that gerrit is some sort of github. But unfortunately, it is not. Gerrit has its own logical way of managing the version. One example is git push.
 In github, I use git push origin &amp;lt;branch_name&amp;gt; for push changes to the remote repo where the branch_name is just simply the same name as remote like master or dev.</description>
     </item>
     
     <item>
       <title>Learning functional programming from python decorator</title>
-      <link>http://www.runpinghuang.top/blog/2018-06-12/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-06-12/</link>
       <pubDate>Tue, 12 Jun 2018 07:21:02 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-06-12/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-06-12/</guid>
       <description>In general, python decorator is just a function that allow another function to implement additional functionality without changing the current code.
  I having been thinking for python decorator for quite a time ever since I noticed the @ symbal in python which really confuse me. So I decided this time I need to talk about my understanding on decorator to make sure I really know what is going on under the hood.</description>
     </item>
     
     <item>
       <title>learning vim for data scientist</title>
-      <link>http://www.runpinghuang.top/blog/2018-05-29/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-05-29/</link>
       <pubDate>Tue, 29 May 2018 20:05:39 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-05-29/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-05-29/</guid>
       <description>Tips for using vim  Cursor movement: hjkl for left, up, down, right, [number]j to relative line down, [number]k to relative line down, G to the last row, gg to the first row, $ to the end of current row, 0 or ^ to the start of current row, line number+G to the specified row, &amp;lt;ctrl&amp;gt;+o to jump back to the previous position, &amp;lt;ctrl&amp;gt;+i undo the jump back operation. &amp;lt;ctrl&amp;gt;+B to page up, &amp;lt;ctrl&amp;gt;+D to page down.</description>
     </item>
     
     <item>
       <title>TiDB 三架马车</title>
-      <link>http://www.runpinghuang.top/blog/2018-05-24/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-05-24/</link>
       <pubDate>Thu, 24 May 2018 11:43:17 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-05-24/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-05-24/</guid>
       <description> I&amp;rsquo;ve been recommended to read the following 3 blogs introduced by the pingcap team who built the TiDB(a NewSQL relational database). Inside the blogs, storage, computation, coordination are discussed which correspond to the module of TiKV, TiDb abd PD(placement driver) developed by pingcap.
 Reference  English version
  https://pingcap.com/blog/2017-07-11-tidbinternal1/ https://pingcap.com/blog/2017-07-11-tidbinternal2/ https://pingcap.com/blog/2017-07-20-tidbinternal3/  Chinese version
@@ -275,29 +275,29 @@ Reference  English version
     
     <item>
       <title>3 ws of Bloomfilter</title>
-      <link>http://www.runpinghuang.top/blog/2018-05-04/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-05-04/</link>
       <pubDate>Fri, 04 May 2018 12:03:46 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-05-04/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-05-04/</guid>
       <description>Hey guys, today I wanna talk about a new data structure used in hbase for fast random scan. I categorized this topics into the hbase subdirectory because it caught my attention when I try to split regions in hbase manually. In this blog, I will be explaining what is bloomfilter, why it is useful for hbase for fast random access and most importantly, when to use it for our own application.</description>
     </item>
     
     <item>
       <title>collection of &#39;What is the difference between&#39;</title>
-      <link>http://www.runpinghuang.top/blog/2018-04-25/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-04-25/</link>
       <pubDate>Wed, 25 Apr 2018 22:41:16 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-04-25/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-04-25/</guid>
       <description>This post is a collection of what is the difference between blah blah and blah blah which is mainly about the terminology that I come across as a software engineer. I wanted to create content when learning. So I decided to start this topic and please help me append the content commenting below if you don&amp;rsquo;t mind ;)
  what is the difference between new and make in golang? new is going to initialize memory and return a pointer to the object.</description>
     </item>
     
     <item>
       <title>From hamming distance to leetcode thought--leetcode 477</title>
-      <link>http://www.runpinghuang.top/blog/2018-03-09/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-03-09/</link>
       <pubDate>Fri, 09 Mar 2018 12:17:25 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-03-09/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-03-09/</guid>
       <description>今天写到了leetcode第477道题目的时候表示十分激动，一方面觉得刷leetcode很久没有刷到这么有趣的题目了，第二方面也是想记录一下刷leetcode的过程中的体会。
 刷leetcode从一开始觉得很枯燥乏味,到现在几乎每天刷一道leetcode，似乎成为了饭后散步一样习以为常的事情了。这其中主要有亮点是我觉得刷leetcode带给我的好处。 - 刷leetcode的过程中逼着我去看一些绕口的英文句子。 在不知不觉中训练了我边看英文边思考的能力。 - 越来越掌握一门语言其实只要刷一遍leetcode就能懂个八九十了。
 对于第一点当然是不言自明的了，对于第二点，我刚开始的时候没有这种感觉，不过后期刷了一页leetcode之后，体会颇深。我用的是python，所以每次做完题我都会去discussion里面找大神们的神操作，慢慢的竟然爱上了python哲学一般简洁的编程思想，很多技巧真的是只要一行就能实现java十几行的操作。这点让我每次对比完大神的操作和我自己的笨操作之后，总有一种what shit am I writing的感觉，然后就是试着模仿大神们的操作，重现一次implementation。我相信不只是python，java、scala或者golang都可以在里面找到对应的解释，我认为这是我目前发现的学习语言的捷径。
@@ -310,10 +310,10 @@ Explanation: In binary representation, the 4 is 0100, 14 is 1110, and 2 is 0010 
     
     <item>
       <title>What the hack is `offset` in computer science</title>
-      <link>http://www.runpinghuang.top/blog/2018-03-06/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-03-06/</link>
       <pubDate>Tue, 06 Mar 2018 22:00:54 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-03-06/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-03-06/</guid>
       <description>Recently, I&amp;rsquo;ve been working on SQLAlchemy to query data from a large table having nearly 4,000,000 rows of data. My goal is to transfer it into hbase. Since I want to do it fast without setting up extra login steps. I chose python as a fast processing language. But another problem poped up quickly very quickly.
  The table is too large to fit into the memory!!!
  So I decided to use pagination as a technique for separating the table into several small tables.</description>
@@ -321,19 +321,19 @@ Explanation: In binary representation, the 4 is 0100, 14 is 1110, and 2 is 0010 
     
     <item>
       <title>What docker volumes can do</title>
-      <link>http://www.runpinghuang.top/blog/2018-02-21/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-02-21/</link>
       <pubDate>Wed, 21 Feb 2018 16:23:22 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-02-21/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-02-21/</guid>
       <description>I recently have to build a model server project with docker. The reason why I used docker is I want to separate the model server, rest api and the redis service. The python scripts that are used in the model server layer for generating model should be loaded as part of the container since this container is a service for serving model querying which require write locally and test virtually.</description>
     </item>
     
     <item>
       <title>My understanding on blockchain so far</title>
-      <link>http://www.runpinghuang.top/blog/2017-12-23/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-12-23/</link>
       <pubDate>Sat, 23 Dec 2017 11:43:39 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-12-23/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-12-23/</guid>
       <description>Block chain has been talked a lot in the field of high tech industry. Being able to understand this decentralized technology is a plus for my career and able to implement it practicely will even better. I will talk about some information I have learnt so far in this post including the implementation of blockchain using javascript.
  继上次写的一篇博文What is bitcoin mining?之后，这次继续写下关于bitcoin技术的笔记。
 相信看这篇文章的读者们应该或多或少对blockchain和bitcoin有所了解了，如果这里面涉及到的一些术语觉得不理解，可以试图从reference那里找到答案，实在不行可以wiki之或者直接评论告诉我哦。那我主要在这里梳理一下blockchain到底解决什么问题和其中我认为很有趣的技术细节。
@@ -344,40 +344,40 @@ bitcoin要解决的问题是去交易的中介，类似于银行在传统的交�
     
     <item>
       <title>Python built-in function cheat sheet</title>
-      <link>http://www.runpinghuang.top/blog/2017-12-21/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-12-21/</link>
       <pubDate>Thu, 21 Dec 2017 13:42:35 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-12-21/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-12-21/</guid>
       <description>ord: turn a char type into unicode code chr: reverse of ord lambda: creating anonymous function in python. Generally combined with the map, filter and reduce function to manipulate with collections.
 foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # multiply by 2 for each element print(filter(lambda x:x%2==0, foo)) # keep only the element that could be devided by 2 from functools import reduce print(reduce(lambda x,y:x+y, foo)) # sum all the element reduce(lambda x, y : x if x&amp;gt;y else y, foo) # get the maximum num inside the list  Some exercise on lambda expression &#39;&#39;&#39; Order Number	Book Title and Author	Quantity	Price per Item 34587	Learning Python, Mark Lutz	4	40.</description>
     </item>
     
     <item>
       <title>Python memory management strategy</title>
-      <link>http://www.runpinghuang.top/blog/2017-12-20/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-12-20/</link>
       <pubDate>Wed, 20 Dec 2017 09:53:54 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-12-20/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-12-20/</guid>
       <description>hex(id(var)) for getting the var address
   variables having the same value is pointing to the same address. Meanning variables inside the global scope having the same value will get a same address. This is for the primitive types. Comparing to c++, the array&amp;rsquo;s address is the address of the first element. In python, array has its own address and the first element inside the array has other address.</description>
     </item>
     
     <item>
       <title>Different ways of copying arrays in golang</title>
-      <link>http://www.runpinghuang.top/blog/2017-12-17/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-12-17/</link>
       <pubDate>Sun, 17 Dec 2017 15:25:00 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-12-17/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-12-17/</guid>
       <description>Recently I&amp;rsquo;ve been using golang as the programming language for solving leetcode problems. I came across with the problems of array copying.
 func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy(grid, sum) fmt.Printf(&amp;quot;%p\n&amp;quot;, &amp;amp;sum) fmt.Printf(&amp;quot;%p\n&amp;quot;, &amp;amp;grid) } // 0xc42000a080 // 0xc42000a060  The result of the above code shows that go actaully assign a new address for the newly created array. But when I try to modify the value inside the sum matrix, the corresponding value of the grid is also changed.</description>
     </item>
     
     <item>
       <title>How python virtualenv actually works?</title>
-      <link>http://www.runpinghuang.top/blog/2017-12-16/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-12-16/</link>
       <pubDate>Sat, 16 Dec 2017 09:50:49 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-12-16/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-12-16/</guid>
       <description>I&amp;rsquo;ve been
 there is an option for virtualenv to make the project relocatable, just use virtualenv --relocatable which is used to change the absolute path of the scripte reside in bin file into relative.
 alternitives for virtualenv  virtualenv-small-sitepy rvirtulenv Just use $PYTHONHOME pythonv  using pip as an api Example of using pip as an api
@@ -386,10 +386,10 @@ from pip.req import InstallRequirement, RequirementSet from pip.index import Pac
     
     <item>
       <title>Python unittest</title>
-      <link>http://www.runpinghuang.top/blog/2017-12-14/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-12-14/</link>
       <pubDate>Thu, 14 Dec 2017 22:32:51 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-12-14/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-12-14/</guid>
       <description>Python has a builtin module called unittest which is used for writing unittest in python. But I have marely used it before. So I decided to write a blog for recording the usage of this module.
 &amp;rdquo;&amp;lsquo;python
 Initialize a test class import unittest
@@ -399,58 +399,58 @@ Triggering the unit test To trigger the unit test: - python -m unittest test_***
     
     <item>
       <title>Different syntax for creating matrix and array in Different language</title>
-      <link>http://www.runpinghuang.top/blog/2017-12-12/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-12-12/</link>
       <pubDate>Tue, 12 Dec 2017 09:20:58 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-12-12/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-12-12/</guid>
       <description>Golang grid := [][]int{ []int{1,2,3} []int{4,5,6} []int{7,8,9} } // declaring emptyGrid := [3][3]int  C++ int a[3][4] = { {1,2,3}, {4,5,6}, {7,8,9} }; // or vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; grid(3, vector&amp;lt;int&amp;gt;(3));  Java &amp;rdquo;&amp;lsquo;java
 &amp;rdquo;&amp;rsquo;</description>
     </item>
     
     <item>
       <title>Differences for loop syntax in different language</title>
-      <link>http://www.runpinghuang.top/blog/2017-12-11/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-12-11/</link>
       <pubDate>Mon, 11 Dec 2017 16:24:10 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-12-11/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-12-11/</guid>
       <description>Java for (int i; i &amp;lt; 100 ;i++){ // do something }  Python for index, value in range(100){ # do something }  Scala for (var a &amp;lt;- 1 to 10){ println(a) } &amp;lt;!-- or --&amp;gt; &amp;lt;!-- 10 not included --&amp;gt; for (var b &amp;lt;- 1 until 10){ println(b) }  Go for i := 0; i &amp;lt; 100; i++ { fmt.Println(i) }  Different useage of yield between python and scala def get_generator(): for i in range(10): if i % 3 ==0: yield i  The yield statement should always inside a function to generate a generator object.</description>
     </item>
     
     <item>
       <title>Strings, bytes, runes and characters in Go</title>
-      <link>http://www.runpinghuang.top/blog/2017-12-01/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-12-01/</link>
       <pubDate>Fri, 01 Dec 2017 17:37:46 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-12-01/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-12-01/</guid>
       <description>Strings: composition of runes runes: integer of utf-8 representation
 8 bits = 1 byte 1,024 bytes = 1 kilobyte 1,024 kilobytes = 1 megabyte 1,024 megabytes = 1 gigabyte 1,024 gigabytes = 1 terabyte  #Reference Strings, bytes, runes and characters in Go</description>
     </item>
     
     <item>
       <title>Golang learning 4 -- Function</title>
-      <link>http://www.runpinghuang.top/blog/2017-11-21/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-11-21/</link>
       <pubDate>Tue, 21 Nov 2017 11:21:07 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-11-21/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-11-21/</guid>
       <description>Handling error 在go里面，个人感觉有几个很有用的包很有用，下面就记录一下。 - use fmt.Errorf(), fmt.Fprintf(os.Stderr, &amp;quot;&amp;quot;) or log.Fatalf() to back probagate the error to the caller - If using log.Fatalf() for returning an error, use function like log.SetPrefix() for formatting the log message - EOF error: define EOF using &amp;lsquo;var err := errors.New(&amp;ldquo;EOF&amp;rdquo;)&amp;rsquo; and check the EOF error type by if err == io.EOF go推荐所有在中间过程产生的error都抛给caller，再链式的返回main函数，所有中间产生error都应该被看作是bug。</description>
     </item>
     
     <item>
       <title>Golang learning 3 -- composite type</title>
-      <link>http://www.runpinghuang.top/blog/2017-11-19/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-11-19/</link>
       <pubDate>Sun, 19 Nov 2017 00:00:44 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-11-19/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-11-19/</guid>
       <description>Array 几乎所有的编程语言都是从array开始的，因为array实在是太重要了，基本上很多算法都是基于array来展开的，Go 当然也不例外啦。Array 是定长的，可扩展的集合类型叫_slice_。
 initializing array q := […]int{1,2,3} //length are defined by the element number var q = [3]int{1,2} // the third element is 0 // define with index and value pairs type Currency int const ( USD Currency = iota EUR GBP RMB ) symbol := [...]string{USD: &amp;quot;$&amp;quot;, EUR: &amp;quot;€&amp;quot;, GBP: &amp;quot;£&amp;quot;, RMB: &amp;quot;¥&amp;quot;}  Notice  [3]int{} and [4]int{} are different types which means length are also one of the feature for defining different array types.</description>
     </item>
     
     <item>
       <title>Golang learning 2</title>
-      <link>http://www.runpinghuang.top/blog/2017-11-13/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-11-13/</link>
       <pubDate>Mon, 13 Nov 2017 11:16:44 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-11-13/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-11-13/</guid>
       <description>一个array会包含三个信息：capacity， length还有一个指向数组头部的pointer。  初始化一个map 在go里面，map实际上是hashtable的reference，因此很多hashtable的特性他都具备。go里面的key是唯一的，因此可以作为set来使用。
 m := make(map[string] int)  也可以写成
 m := map[string] int{}  这是初始化一个empty的map，如果要初始化值，可以在大括号中加入dictionary的key/value。值得注意的是，map并不像普通的array那样，可以用&amp;amp;符号来取得其地址，因为每次加入一个元素的时候都会rehash，所以地址一直在变的。</description>
@@ -458,10 +458,10 @@ m := map[string] int{}  这是初始化一个empty的map，如果要初始化值
     
     <item>
       <title>Golang learning 1</title>
-      <link>http://www.runpinghuang.top/blog/2017-11-10/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-11-10/</link>
       <pubDate>Fri, 10 Nov 2017 11:43:01 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-11-10/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-11-10/</guid>
       <description>Welcome to my journey of learning Golang
  Starting from today, I will write a post describing my journey of learning Golang by reading [The Go Programming Language](). It is a long book though, so I will try my best to keep updating the post about my learning on Golang everyday.
 As a kick off post, I don&amp;rsquo;t want to start with the hello world application, I want to point out some syntax that is new for Go comparing other language that I have used like JAVA and Python.</description>
@@ -469,10 +469,10 @@ As a kick off post, I don&amp;rsquo;t want to start with the hello world applica
     
     <item>
       <title>数据加密</title>
-      <link>http://www.runpinghuang.top/blog/2017-11-05/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-11-05/</link>
       <pubDate>Sun, 05 Nov 2017 20:39:51 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-11-05/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-11-05/</guid>
       <description>As data grow, data encryption become a hot topic to protect our data from disclose. You don&amp;rsquo;t necessarily need to know how exactly it works, but you have to know what it is at least. That is what I&amp;rsquo;m trying to do in this post.
  读硕士的时候也有讲过加密的东西，但是当时也是模棱两可的知道有这么回事。直到最近因为项目的需要还有看了一部叫做citizen four的纪录片（讲述男神edward snowden揭露美国通过“棱镜计划”对人民进行监视的行为）有感而发，数据的保密无疑对于个人隐私来说是很重要的，但是随着学习的深入你会发现，加密算法种类真的很多甚至所有的名次加在一次甚至会很乱，于是我想写一篇博客总结一下这段时间的学习，也借此机会普及一下加密的知识和应用，如有不妥，忘指正。
 加密算法(Encryption) 首先加密算法分成对称（sync）的和非对称（async）两种的。他们的区别就在于公钥和私钥是否相同，公私钥相同的称为对称加密，公私钥不同的称为非对称加密。那什么是公钥什么是私钥呢？在密码学中，有个规定是算法应该是被允许公开的，那要怎么保证在别人得知加密算法后仍然能够取得保密效果呢？于是历史上的大神们就提出先由发送者生成一对公私钥，这对公私钥可以互相解开经过对方加密的内容（这里可能不太妥，希望得到指正）。公钥顾名思义是公开给public的，私钥则是由消息发送方生成的。在希望建立ssh连接的两台机器之间可以用ssh-genkey进行密码对的生成，你可以打开~/.ssh/id_rsa文件查看生成的公司钥信息，这个也是搭建hadoop集群必须执行的步骤来确保集群之间的通信。这里先不做具体实现的部分，等以后有时间再把加密的算法实现写在我的gist里面。 哪些对称加密算法：DES, 3DES, blowfish 哪些非对称加密算法： RSA， SM2（中国国家密码局专利，在商用密码机中比较常用，貌似银行也是大多用这个）
@@ -483,20 +483,20 @@ digest:结果的hash value cipher:fdsa
     
     <item>
       <title>Assemble a data analysis platform -- Bazooka</title>
-      <link>http://www.runpinghuang.top/blog/2017-10-29/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-10-29/</link>
       <pubDate>Sun, 29 Oct 2017 17:05:56 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-10-29/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-10-29/</guid>
       <description>Never settle &amp;mdash;- One plus
  I&amp;rsquo;ve always wanted to have a super monster platform rather then 4 core, integrated graphics card, windows os etc. But due to the high budget, I chose to just stick with my little mac air which is obvious not an option for building big application. Finally, after my first project of re-decorating my apartment, I launch my second project called Bazooka which is the mother board of my so called monster desktop(In my opinion).</description>
     </item>
     
     <item>
       <title>Dynamic proxy in Java</title>
-      <link>http://www.runpinghuang.top/blog/2017-10-26/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-10-26/</link>
       <pubDate>Thu, 26 Oct 2017 17:52:13 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-10-26/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-10-26/</guid>
       <description>Proxy your call to the professional, save you some more time
  I recently read a great slides talking about Proxy pattern in Java which has confused me for a long time. I&amp;rsquo;ve always consider it as something like the delegator pattern which is like adding a new layer for a specified class so that clients can do more other things when calling it.
 It turns out that there could be more to do with java dynamic proxy.</description>
@@ -504,29 +504,29 @@ It turns out that there could be more to do with java dynamic proxy.</descriptio
     
     <item>
       <title>Some thought about choosing a framework</title>
-      <link>http://www.runpinghuang.top/blog/2017-10-19/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-10-19/</link>
       <pubDate>Thu, 19 Oct 2017 15:43:15 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-10-19/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-10-19/</guid>
       <description> Find out why companies like Google, MSN, and Vevo use Angular. Or why companies like Sony, Reddit, and Pinterest use Backbone. Or why companies like Netflix, Yahoo, and LinkedIn use Ember. &amp;ndash; Zack Argyle
  </description>
     </item>
     
     <item>
       <title>What is bitcoin mining?</title>
-      <link>http://www.runpinghuang.top/blog/2017-10-11/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-10-11/</link>
       <pubDate>Wed, 11 Oct 2017 10:15:03 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-10-11/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-10-11/</guid>
       <description>Bitcoin has been in the field for a while and friends of mine have been talking about bitcoin for a while. I have also read some of the articles talking about bitcoin, the hashing and the trustful features. But to be honest, these concepts still remain a mist for me. I decided to really figure out them in the way that I think and try to explain it as clear as possible.</description>
     </item>
     
     <item>
       <title>TCP connection and disconnection</title>
-      <link>http://www.runpinghuang.top/blog/2017-09-24/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-09-24/</link>
       <pubDate>Sun, 24 Sep 2017 10:22:56 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-09-24/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-09-24/</guid>
       <description>TCP建立连接和断开链接一直是个让我很费解的问题，为什么要三番四次的来回折腾呢？于是我决定用形象的说法来讲一下我的理解。
 为什么需要三次建立连接 如果采用两次握手的话，打个比方，去饭店吃饭，人太多了要拿号，拿号的动作(SYN_SEND)相当于第一次握手，店家给号的动作(SYN_RECV)相当于第二次握手，如果这样就结束了，那店家作为服务方就会跟你建立连接，也就是保证把位置给你，直到你要结束消费，但是很多情况是我们拿了号之后有可能觉得要等太久了，想换一家吃饭，结果就跑了，这样店家就会一直等我们，导致台位浪费，所以需要额外增加第三次的握手，也就是叫号的动作(ESTABLISHED)。
 为什么分手还要四次啊 还是拿饭馆的例子说事，断开连接的过程实际上相当于我们入店消费完成以后要结账的过程。首先我们(client)跟服务员(server)招手，告诉他们我们需要结账(FIN_WAIT1)， 服务员看到后点头示意他们知道了(CLOSE_WAIT)，我们等服务员过来(FIN_WAIT2)，服务员过来以后，再次确认菜都上齐了并且告诉我们最后价格(LAST_ACK)，我们看了一下单子确认价格正确之后付款，然后我们进入(TIME_WAIT)，等待服务员确认收款，最后我们就可以愉快的走人啦。</description>
@@ -534,20 +534,20 @@ It turns out that there could be more to do with java dynamic proxy.</descriptio
     
     <item>
       <title>Encrypting sensitive information</title>
-      <link>http://www.runpinghuang.top/blog/2017-09-21/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-09-21/</link>
       <pubDate>Thu, 21 Sep 2017 14:06:05 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-09-21/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-09-21/</guid>
       <description>I recently have to deal with encrypting some sensitive information which lead me to get to know the encryption algorithms. However, the goal is to encrypt only part of the information in a manner of no decryption.
 At the mean time, I remember when I was having internet security class back at ESIGELEC during my master degree, my tutor told us that the general way for encryption is using public key and private key which leads to two-way function(decryptable).</description>
     </item>
     
     <item>
       <title>Dig into PCA -- from my point of view</title>
-      <link>http://www.runpinghuang.top/blog/2017-09-17/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-09-17/</link>
       <pubDate>Sun, 17 Sep 2017 23:51:50 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-09-17/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-09-17/</guid>
       <description>This is a topic that I am very interesting about. These concepts are related to a fundamental theory called PCA which is a tool to reduce the dimension of a matrix(dataset)
 矩阵对应一个线性变换是在同一组基下有意义。默认情况下是在标准基下进行变换。
 $$ \begin{bmatrix} { a }_{ 1,1 } &amp;amp; { a }_{ 1,2 } &amp;amp; \dots &amp;amp; { a }_{ 1,n } \\
@@ -557,20 +557,20 @@ $$ \begin{bmatrix} { a }_{ 1,1 } &amp;amp; { a }_{ 1,2 } &amp;amp; \dots &amp;am
     
     <item>
       <title>Migration</title>
-      <link>http://www.runpinghuang.top/blog/2017-09-14/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-09-14/</link>
       <pubDate>Wed, 13 Sep 2017 11:27:27 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-09-14/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-09-14/</guid>
       <description>From hexo to django I still love blogging the knowledge that I lean everyday. It is like my RAM is not very large like 2 Gb or so. I really need to flush the things that I read just now to my laptop which performs the function like the hard disk and later on compact them together.
 From django to hugo Django is great. But for rendering a static webpage like blog or company advertisement, it is better to use a generator framework like hexo though since the process of deploying django is so time consuming.</description>
     </item>
     
     <item>
       <title>Pom configuration in Maven</title>
-      <link>http://www.runpinghuang.top/blog/2017-09-01/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-09-01/</link>
       <pubDate>Fri, 01 Sep 2017 04:05:25 -0600</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-09-01/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-09-01/</guid>
       <description> package How to package all the dependencies into one jar
 &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;maven-assembly-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.5.5&amp;lt;/version&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;archive&amp;gt; &amp;lt;manifest&amp;gt; &amp;lt;mainClass&amp;gt;com.xxg.Main&amp;lt;/mainClass&amp;gt; &amp;lt;/manifest&amp;gt; &amp;lt;/archive&amp;gt; &amp;lt;descriptorRefs&amp;gt; &amp;lt;descriptorRef&amp;gt;jar-with-dependencies&amp;lt;/descriptorRef&amp;gt; &amp;lt;/descriptorRefs&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;executions&amp;gt; &amp;lt;execution&amp;gt; &amp;lt;id&amp;gt;make-assembly&amp;lt;/id&amp;gt; &amp;lt;phase&amp;gt;package&amp;lt;/phase&amp;gt; &amp;lt;goals&amp;gt; &amp;lt;goal&amp;gt;single&amp;lt;/goal&amp;gt; &amp;lt;/goals&amp;gt; &amp;lt;/execution&amp;gt; &amp;lt;/executions&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; &amp;lt;/build&amp;gt;  不同环境下打包配置文件并在在工程中指定 package and single equals mvn pakcage assembly:single
 Reference </description>
@@ -578,10 +578,10 @@ Reference </description>
     
     <item>
       <title>Support vector machine</title>
-      <link>http://www.runpinghuang.top/blog/2017-06-20/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-06-20/</link>
       <pubDate>Tue, 20 Jun 2017 04:05:25 -0600</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-06-20/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-06-20/</guid>
       <description>v is the point to be classified.
 w is a vector points to the hyperplane perpendicularly.
 $$hyperplane:y=w\cdot \xrightarrow { V } +b$$
@@ -593,19 +593,19 @@ if w * v + v = 0, then the v is on the decision boundary which is also the hyper
     
     <item>
       <title>Using bitmap</title>
-      <link>http://www.runpinghuang.top/blog/2017-05-22/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-05-22/</link>
       <pubDate>Mon, 22 May 2017 04:05:25 -0600</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-05-22/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-05-22/</guid>
       <description>Manipulating big data like 1 billion (1 billion == 1,000,000,000 == “十亿”, 1 million == 1,000,000 == “百万” which I always forget how to transform back and forth) , is quite memory consuming if we just use an array for storing it. We can either divide the file into smaller file and process them accordingly (ideas like map reduce, will talk about it later in another post) or use ‘bitmap’ and ‘hashmap’.</description>
     </item>
     
     <item>
       <title>Hbase Design</title>
-      <link>http://www.runpinghuang.top/blog/2015-12-21/</link>
+      <link>https://pingrunhuang.github.io/blog/2015-12-21/</link>
       <pubDate>Mon, 21 Dec 2015 04:05:25 -0600</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2015-12-21/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2015-12-21/</guid>
       <description>HBase is an open source distributed database built on top of hadoop eco-system. It is becoming a popular choice for application who need fast and random access to large amount of data. In this post, I want to explain my summary on reading the paper written by Amandeep khurana on explaining the design of HBase architecture. This post is not meant to be read at one time since it is too long.</description>
     </item>
     

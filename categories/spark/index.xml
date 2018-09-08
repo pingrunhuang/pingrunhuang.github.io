@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spark on Frank Huang</title>
-    <link>http://www.runpinghuang.top/categories/spark/</link>
+    <link>https://pingrunhuang.github.io/categories/spark/</link>
     <description>Recent content in Spark on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 26 Aug 2018 14:31:37 +0800</lastBuildDate>
     
-	<atom:link href="http://www.runpinghuang.top/categories/spark/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pingrunhuang.github.io/categories/spark/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>High performance spark 3</title>
-      <link>http://www.runpinghuang.top/blog/2018-08-26/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-08-26/</link>
       <pubDate>Sun, 26 Aug 2018 14:31:37 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-08-26/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-08-26/</guid>
       <description>Result files when saving dataframes into local disks Depending on how many partitions that you have(In the local mode, the number of partitions are the same as the number of executor when you specified local[2] or so), the result files will be splitted into the same number of small files with names like this part-00000-b424da68-3426-4da4-b9ac-8050e06dca3f-c000.csv. In order to avoid this, we need to specify the coalesce action in order to shrink the number of partitions.</description>
     </item>
     
     <item>
       <title>Puzzles for Spark application</title>
-      <link>http://www.runpinghuang.top/blog/2018-07-31/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-07-31/</link>
       <pubDate>Tue, 31 Jul 2018 15:04:30 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-07-31/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-07-31/</guid>
       <description>Suppose we have an RDD of key/value pairs where the key is the student names and the value is the courses that the students have chosen(which could be duplicated!!!). How to determine a set of distinct courses that each student has chosen?
  //groupByKey rdd.groupByKey(record=&amp;gt;(record._t, record._2.sum)) // 计算所有学生的选课数 val zero = new collection.mutable.Set[String]() // take in 3 parameters: val result = rdd.aggregateByKey( zero // the initial container to accept the value )( (set, v) =&amp;gt; set+=v, // an accumulator that merge values in one partition (set1, set2) =&amp;gt; set1 ++= set2 // a combiner that merge collections from different partitions )   Suppose we have an RDD of key/value pairs where the key is the receiver names of orders and value is the description of the orders.</description>
     </item>
     
     <item>
       <title>problem with rdd.foreach</title>
-      <link>http://www.runpinghuang.top/blog/2018-06-30/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-06-30/</link>
       <pubDate>Sat, 30 Jun 2018 19:40:28 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-06-30/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-06-30/</guid>
       <description>foreach will clean up all the resouces inside the
 var normalRows = Seq[Seq[String]]() df.foreach(row =&amp;gt; { var newRow = Seq[String]() columnMap.keys.foreach(key =&amp;gt; { val updatedCell = formateDate(row.getAs(key)) newRow = newRow :+ updatedCell } ) normalRows = normalRows :+ newRow } ) println(normalRows.isEmpty)// true  When you check the source code of the foreach function, you will find the following:
 /** * Applies a function f to all elements of this RDD.</description>
@@ -43,10 +43,10 @@ var normalRows = Seq[Seq[String]]() df.foreach(row =&amp;gt; { var newRow = Seq[
     
     <item>
       <title>RDD tutorial</title>
-      <link>http://www.runpinghuang.top/blog/2018-06-29/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-06-29/</link>
       <pubDate>Fri, 29 Jun 2018 00:24:04 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-06-29/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-06-29/</guid>
       <description>RDD stands for risilient distributed dataset. Resilient comes because the ability to recomput the RDD.
 RDD is lazy evaluated meaning it will not start to compute until it sees an action.
 common actions  take() :is taking small number of elements in RDD at the driver program. collect(): take all the data to a single machine&amp;rsquo;s memory persist() or cache(): are used for avoiding computing an action from scratch.  since rdd is lazily evaluated, which means we can think of it as a collection of instructions to work on the RDD.</description>

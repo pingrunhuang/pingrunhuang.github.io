@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scala on Frank Huang</title>
-    <link>http://www.runpinghuang.top/categories/scala/</link>
+    <link>https://pingrunhuang.github.io/categories/scala/</link>
     <description>Recent content in Scala on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 26 Jun 2018 15:43:28 +0800</lastBuildDate>
     
-	<atom:link href="http://www.runpinghuang.top/categories/scala/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pingrunhuang.github.io/categories/scala/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>What is closure?</title>
-      <link>http://www.runpinghuang.top/blog/2018-06-26/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-06-26/</link>
       <pubDate>Tue, 26 Jun 2018 15:43:28 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-06-26/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-06-26/</guid>
       <description>最近在学习scala的时候，又一次遇到了closure这个词，在以前学习python装饰器的时候就已经对closure有所接触了，那时候对closure的理解还只是停留在函数中包含函数的阶段，理解可能比较片面。最近在学习scala的过程中对closure又有了新的认识，于是想整理成blog，顺便对closure做一个系统一点的总结。有兴趣的也可以看看我之前关于python装饰器的一些理解link。
 所以本篇文章结束之后，你将会学习到closure在 python 和 scala 中的差异和共性，同时也会学习到怎么利用这两门语言来实现closure。
  a function object that is created at runtime is called a closure

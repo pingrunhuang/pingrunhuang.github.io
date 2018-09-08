@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Structure on Frank Huang</title>
-    <link>http://www.runpinghuang.top/categories/data-structure/</link>
+    <link>https://pingrunhuang.github.io/categories/data-structure/</link>
     <description>Recent content in Data Structure on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Fri, 04 May 2018 12:03:46 +0800</lastBuildDate>
     
-	<atom:link href="http://www.runpinghuang.top/categories/data-structure/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pingrunhuang.github.io/categories/data-structure/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>3 ws of Bloomfilter</title>
-      <link>http://www.runpinghuang.top/blog/2018-05-04/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-05-04/</link>
       <pubDate>Fri, 04 May 2018 12:03:46 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-05-04/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-05-04/</guid>
       <description>Hey guys, today I wanna talk about a new data structure used in hbase for fast random scan. I categorized this topics into the hbase subdirectory because it caught my attention when I try to split regions in hbase manually. In this blog, I will be explaining what is bloomfilter, why it is useful for hbase for fast random access and most importantly, when to use it for our own application.</description>
     </item>
     
     <item>
       <title>Using bitmap</title>
-      <link>http://www.runpinghuang.top/blog/2017-05-22/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-05-22/</link>
       <pubDate>Mon, 22 May 2017 04:05:25 -0600</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-05-22/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-05-22/</guid>
       <description>Manipulating big data like 1 billion (1 billion == 1,000,000,000 == “十亿”, 1 million == 1,000,000 == “百万” which I always forget how to transform back and forth) , is quite memory consuming if we just use an array for storing it. We can either divide the file into smaller file and process them accordingly (ideas like map reduce, will talk about it later in another post) or use ‘bitmap’ and ‘hashmap’.</description>
     </item>
     

@@ -24,7 +24,7 @@ digest:结果的hash value cipher:fdsa
 digest:结果的hash value cipher:fdsa
 应用  文件校验(checksum)：由于哈希算法生成的字符串具有稍微修改哪怕一位数字都会造成哈希结果的明显差异，因此在文件传输过程中，利用文件中自带的哈希值，和用原文进行哈希生成的新的哈希值进行比对，如果两者相同，则传输的结果文件被认为未被改动，从而保证完整性(integrity)。 数字签名(digital signature)：对与一些大content的东西或者一些特殊信息进行传输的过程中，如何保证发送过来的数据真的是你所认为的发送者发送的呢？这个时候可以让发送者先用私钥钥对原文本哈希过的值进行加密，加密的值append到内容末尾作为签名。客户端再用公钥解密数字签名，并且对content的东西进行哈希，二者进行比对，如果一致则可确认发送者的身份。这其中可能会有公钥被换的情况，这时候就需要certificate authenticator（ca）生成digital certificate 来做认证。这里我只是简要的说一下我的理解，具体还要看阮大神的生动讲解。https也用到了这里的知识。 bit coin 也用到了哈希的办法，挖矿的实质就是对哈希值进行暴力反解，这里可以看我的另外一篇博客What is bitcoin mining &hellip;&hellip;  Summary 密码学是一个博大精深的数学分支，其中涉及到很多的证明，我们这里知识简单介绍并且直接拿结论过来用，如果想知道具体怎么操作，可以找相关的论文进行查询。在商用领域一般会采购加密机进行加密的操作，关于加密机的东西我最近也还在测试，主要也是发送指令，返回加密结果，不同在于加密机相当于一个全职的用于加密的服务器(dedicated to encryption 很是敬业)。不同加密机工作原理或者api可能不一样，但是基本方式也是输入ip和指令，得到结果的过程。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://www.runpinghuang.top/blog/2017-11-05/" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-11-05/" />
 
 
 
@@ -49,7 +49,7 @@ digest:结果的hash value cipher:fdsa
      数据加密 
 
 </title>
-<link rel="canonical" href="http://www.runpinghuang.top/blog/2017-11-05/">
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2017-11-05/">
 
 
 
@@ -66,11 +66,11 @@ digest:结果的hash value cipher:fdsa
 
 
     
-    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a49.965150317%20%2b0800%20CST%20m%3d%2b0.209967690">
-    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a49.965150317%20%2b0800%20CST%20m%3d%2b0.209967690">
-    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a49.965150317%20%2b0800%20CST%20m%3d%2b0.209967690">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2018-09-08%2014%3a29%3a09.329225464%20%2b0800%20CST%20m%3d%2b0.648947164">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2018-09-08%2014%3a29%3a09.329225464%20%2b0800%20CST%20m%3d%2b0.648947164">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2018-09-08%2014%3a29%3a09.329225464%20%2b0800%20CST%20m%3d%2b0.648947164">
     
-        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a49.965150317%20%2b0800%20CST%20m%3d%2b0.209967690">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2018-09-08%2014%3a29%3a09.329225464%20%2b0800%20CST%20m%3d%2b0.648947164">
     
 
 
@@ -78,7 +78,7 @@ digest:结果的hash value cipher:fdsa
 
 <link rel="shortcut icon"
 
-    href="http://www.runpinghuang.top/img/floyd.ico"
+    href="https://pingrunhuang.github.io/img/floyd.ico"
 
 >
 
@@ -87,7 +87,7 @@ digest:结果的hash value cipher:fdsa
 
 
 
-<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
 </head>
 
 
@@ -123,22 +123,22 @@ digest:结果的hash value cipher:fdsa
                     
                 
                 
-                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
             
-            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
             
               <h3 class="self-intro">import this</h3>
             
             <nav>
                 <ul>
                     
-                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
                     
-                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
                     
-                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
                     
-                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
                     
                 </ul>
             </nav>
@@ -151,39 +151,39 @@ digest:结果的hash value cipher:fdsa
         <div class="content">
 
         
-            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
         
 
         
-            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
         
 
         
-            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
         
 
         
-            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
-        
-
-        
-
-        
-            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
         
 
         
 
         
-            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
         
 
         
-            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
         
 
         
-            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
         
         
         </div>
@@ -202,7 +202,7 @@ digest:结果的hash value cipher:fdsa
 
 </div>
 
-                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
                 </div>
                 <div class="meta">
                     
@@ -240,7 +240,7 @@ cipher:fdsa</p>
 <ul>
 <li>文件校验(checksum)：由于哈希算法生成的字符串具有稍微修改哪怕一位数字都会造成哈希结果的明显差异，因此在文件传输过程中，利用文件中自带的哈希值，和用原文进行哈希生成的新的哈希值进行比对，如果两者相同，则传输的结果文件被认为未被改动，从而保证完整性(integrity)。</li>
 <li>数字签名(digital signature)：对与一些大content的东西或者一些特殊信息进行传输的过程中，如何保证发送过来的数据真的是你所认为的发送者发送的呢？这个时候可以让发送者先用私钥钥对原文本哈希过的值进行加密，加密的值append到内容末尾作为签名。客户端再用公钥解密数字签名，并且对content的东西进行哈希，二者进行比对，如果一致则可确认发送者的身份。这其中可能会有公钥被换的情况，这时候就需要<code>certificate authenticator（ca）</code>生成<code>digital certificate</code> 来做认证。这里我只是简要的说一下我的理解，具体还要看<a href="http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html">阮大神的生动讲解</a>。https也用到了这里的知识。</li>
-<li>bit coin 也用到了哈希的办法，挖矿的实质就是对哈希值进行暴力反解，这里可以看我的另外一篇博客<a href="http://www.runpinghuang.top/blog/2017-10-11/">What is bitcoin mining</a></li>
+<li>bit coin 也用到了哈希的办法，挖矿的实质就是对哈希值进行暴力反解，这里可以看我的另外一篇博客<a href="https://pingrunhuang.github.io/blog/2017-10-11/">What is bitcoin mining</a></li>
 <li>&hellip;&hellip;</li>
 </ul>
 
@@ -260,7 +260,7 @@ cipher:fdsa</p>
 <a href="http://blog.csdn.net/pony_maggie/article/details/39780825">谈谈PBOC3.0中使用的国密SM2算法</a></p>
 
                 <br>
-		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
             </div>
             <br>
             

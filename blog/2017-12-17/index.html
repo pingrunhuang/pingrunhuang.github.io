@@ -16,7 +16,7 @@ func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy
 <meta property="og:description" content="Recently I&rsquo;ve been using golang as the programming language for solving leetcode problems. I came across with the problems of array copying.
 func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy(grid, sum) fmt.Printf(&quot;%p\n&quot;, &amp;sum) fmt.Printf(&quot;%p\n&quot;, &amp;grid) } // 0xc42000a080 // 0xc42000a060  The result of the above code shows that go actaully assign a new address for the newly created array. But when I try to modify the value inside the sum matrix, the corresponding value of the grid is also changed." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://www.runpinghuang.top/blog/2017-12-17/" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-12-17/" />
 
 
 
@@ -41,7 +41,7 @@ func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy
      Different ways of copying arrays in golang 
 
 </title>
-<link rel="canonical" href="http://www.runpinghuang.top/blog/2017-12-17/">
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2017-12-17/">
 
 
 
@@ -58,11 +58,11 @@ func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy
 
 
     
-    <link rel="stylesheet" href="http://www.runpinghuang.top/css/reset.css?t=2018-09-08%2014%3a05%3a49.956756136%20%2b0800%20CST%20m%3d%2b0.201573450">
-    <link rel="stylesheet" href="http://www.runpinghuang.top/css/pygments.css?t=2018-09-08%2014%3a05%3a49.956756136%20%2b0800%20CST%20m%3d%2b0.201573450">
-    <link rel="stylesheet" href="http://www.runpinghuang.top/css/main.css?t=2018-09-08%2014%3a05%3a49.956756136%20%2b0800%20CST%20m%3d%2b0.201573450">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2018-09-08%2014%3a29%3a09.324367374%20%2b0800%20CST%20m%3d%2b0.644089077">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2018-09-08%2014%3a29%3a09.324367374%20%2b0800%20CST%20m%3d%2b0.644089077">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2018-09-08%2014%3a29%3a09.324367374%20%2b0800%20CST%20m%3d%2b0.644089077">
     
-        <link rel="stylesheet" href="http://www.runpinghuang.top/css/override.css?t=2018-09-08%2014%3a05%3a49.956756136%20%2b0800%20CST%20m%3d%2b0.201573450">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2018-09-08%2014%3a29%3a09.324367374%20%2b0800%20CST%20m%3d%2b0.644089077">
     
 
 
@@ -70,7 +70,7 @@ func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy
 
 <link rel="shortcut icon"
 
-    href="http://www.runpinghuang.top/img/floyd.ico"
+    href="https://pingrunhuang.github.io/img/floyd.ico"
 
 >
 
@@ -79,7 +79,7 @@ func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy
 
 
 
-<script type="text/javascript" src="http://www.runpinghuang.top/js/app.js"></script>
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
 </head>
 
 
@@ -115,22 +115,22 @@ func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy
                     
                 
                 
-                <a href="http://www.runpinghuang.top/"><img class="avatar" src="http://www.runpinghuang.top/img/profile.png" srcset="http://www.runpinghuang.top/img/profile.png 1x,http://www.runpinghuang.top/img/profile-2x.png 2x,http://www.runpinghuang.top/img/profile-3x.png 3x,http://www.runpinghuang.top/img/profile-4x.png 4x"></a>
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
             
-            <a href="http://www.runpinghuang.top/"><div class="name">Frank Huang</div></a>
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
             
               <h3 class="self-intro">import this</h3>
             
             <nav>
                 <ul>
                     
-                        <li class="nav-about"><a href="http://www.runpinghuang.top/about/resume"><span>About</span></a></li>
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
                     
-                        <li class="nav-code"><a href="http://www.runpinghuang.top/code/"><span>Code</span></a></li>
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
                     
-                        <li class="nav-Life blog"><a href="http://www.runpinghuang.top/lifeblog/"><span>Life</span></a></li>
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
                     
-                        <li class="nav-Technical-blog"><a href="http://www.runpinghuang.top/blog/"><span>Tech</span></a></li>
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
                     
                 </ul>
             </nav>
@@ -143,39 +143,39 @@ func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy
         <div class="content">
 
         
-            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/github.svg" alt="github" /></a>
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
         
 
         
-            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/twitter.svg" alt="twitter" /></a>
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
         
 
         
-            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/mastodon.svg" alt="mastodon" /></a>
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
         
 
         
-            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/linkedin.svg" alt="linkedin" /></a>
-        
-
-        
-
-        
-            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/instagram.svg" alt="instagram" /></a>
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
         
 
         
 
         
-            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="http://www.runpinghuang.top/img/email.svg" alt="email" /></a>
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
         
 
         
-            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="http://www.runpinghuang.top/img/flickr.jpg" alt="flickr" /></a>
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
         
 
         
-            <a href="http://www.runpinghuang.top/index.xml"><img class="icon" src="http://www.runpinghuang.top/img/rss.svg" alt="rss" /></a>
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
         
         
         </div>
@@ -194,7 +194,7 @@ func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy
 
 </div>
 
-                    <div class="initials"><a href="http://www.runpinghuang.top">ad</a></div>
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
                 </div>
                 <div class="meta">
                     
@@ -233,7 +233,7 @@ func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy
 <p>So the problem is, if Golang is passing</p>
 
                 <br>
-		            <p><a href="http://www.runpinghuang.top">Back to posts</a></p>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
             </div>
             <br>
             

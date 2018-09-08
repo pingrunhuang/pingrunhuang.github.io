@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blockchain on Frank Huang</title>
-    <link>http://www.runpinghuang.top/categories/blockchain/</link>
+    <link>https://pingrunhuang.github.io/categories/blockchain/</link>
     <description>Recent content in Blockchain on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 23 Dec 2017 11:43:39 +0800</lastBuildDate>
     
-	<atom:link href="http://www.runpinghuang.top/categories/blockchain/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pingrunhuang.github.io/categories/blockchain/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My understanding on blockchain so far</title>
-      <link>http://www.runpinghuang.top/blog/2017-12-23/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-12-23/</link>
       <pubDate>Sat, 23 Dec 2017 11:43:39 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-12-23/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-12-23/</guid>
       <description>Block chain has been talked a lot in the field of high tech industry. Being able to understand this decentralized technology is a plus for my career and able to implement it practicely will even better. I will talk about some information I have learnt so far in this post including the implementation of blockchain using javascript.
  继上次写的一篇博文What is bitcoin mining?之后，这次继续写下关于bitcoin技术的笔记。
 相信看这篇文章的读者们应该或多或少对blockchain和bitcoin有所了解了，如果这里面涉及到的一些术语觉得不理解，可以试图从reference那里找到答案，实在不行可以wiki之或者直接评论告诉我哦。那我主要在这里梳理一下blockchain到底解决什么问题和其中我认为很有趣的技术细节。
@@ -27,10 +27,10 @@ bitcoin要解决的问题是去交易的中介，类似于银行在传统的交�
     
     <item>
       <title>What is bitcoin mining?</title>
-      <link>http://www.runpinghuang.top/blog/2017-10-11/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-10-11/</link>
       <pubDate>Wed, 11 Oct 2017 10:15:03 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-10-11/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-10-11/</guid>
       <description>Bitcoin has been in the field for a while and friends of mine have been talking about bitcoin for a while. I have also read some of the articles talking about bitcoin, the hashing and the trustful features. But to be honest, these concepts still remain a mist for me. I decided to really figure out them in the way that I think and try to explain it as clear as possible.</description>
     </item>
     

@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Computer Science on Frank Huang</title>
-    <link>http://www.runpinghuang.top/categories/computer-science/</link>
+    <link>https://pingrunhuang.github.io/categories/computer-science/</link>
     <description>Recent content in Computer Science on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 29 Aug 2018 14:53:15 +0800</lastBuildDate>
     
-	<atom:link href="http://www.runpinghuang.top/categories/computer-science/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pingrunhuang.github.io/categories/computer-science/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>What is port forwarding?</title>
-      <link>http://www.runpinghuang.top/blog/2018-08-29/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-08-29/</link>
       <pubDate>Wed, 29 Aug 2018 14:53:15 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-08-29/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-08-29/</guid>
       <description>Recently when I used aws EMR for setting up the hadoop eco-system, I found an interesting technique called local port forwarding which forward the local port to the protected master node service without the need to expose the target port to the Internet. Such a brilliant idea leaded me to the deeper research on this topic.
 What is port forwarding?  Port Forwarding allows remote computers (for example, computers on the Internet) to connect to a specific computer or service within a private local-area network (LAN)</description>
     </item>
     
     <item>
       <title>What is Round Robin?</title>
-      <link>http://www.runpinghuang.top/blog/2018-08-04/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-08-04/</link>
       <pubDate>Sat, 04 Aug 2018 15:43:07 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-08-04/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-08-04/</guid>
       <description>Recently, when I check out the policy of spark job scheduler which include FIFO, Fair scheduler. In the context of Fair scheduler, round-robin style is mentioned. I recall that in the setup of nginx, round robin is also used. So I wanted to write a blog about what is round robin style and when to use it inspired by this software design.
 What is round robin? When to use it?</description>
     </item>
     
     <item>
       <title>What the hack does ACID mean in database?</title>
-      <link>http://www.runpinghuang.top/blog/2018-07-23/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-07-23/</link>
       <pubDate>Mon, 23 Jul 2018 09:22:26 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-07-23/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-07-23/</guid>
       <description>I&amp;rsquo;ve always wondered about the term ACID mean in database since I took the database course back in my bachelor degree.
 In computer science, ACID (Atomicity, Consistency, Isolation, Durability) .
  A stands for atomicity, meaning a transaction is treated as a whole which should either be success or fail. C stands for consistency, meaning data stored in database should be queried in the same status aka value in any time.</description>
@@ -44,30 +44,30 @@ In computer science, ACID (Atomicity, Consistency, Isolation, Durability) .
     
     <item>
       <title>How to set up my blog system?</title>
-      <link>http://www.runpinghuang.top/blog/2018-07-04/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-07-04/</link>
       <pubDate>Wed, 04 Jul 2018 00:05:23 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-07-04/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-07-04/</guid>
       <description>I&amp;rsquo;ve been using my blog system for quite a long time and find that the architecture of it happend to be very interesting. I think it is quite a good example to share for you ;) (Yeah, you dude!)
 Here are the basic components that make up the blog system. * archtype framework: hugo * comment system: isso (containerized) * user tracking system: matomo (containerized) * theme: cocoa * server engine: nginx * cloud platform: AWS</description>
     </item>
     
     <item>
       <title>Gerrit push vs git push</title>
-      <link>http://www.runpinghuang.top/blog/2018-06-19/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-06-19/</link>
       <pubDate>Tue, 19 Jun 2018 22:59:51 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-06-19/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-06-19/</guid>
       <description>Recently I&amp;rsquo;ve been using gerrit as a version control tool. I was taking it for granted that gerrit is some sort of github. But unfortunately, it is not. Gerrit has its own logical way of managing the version. One example is git push.
 In github, I use git push origin &amp;lt;branch_name&amp;gt; for push changes to the remote repo where the branch_name is just simply the same name as remote like master or dev.</description>
     </item>
     
     <item>
       <title>TiDB 三架马车</title>
-      <link>http://www.runpinghuang.top/blog/2018-05-24/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-05-24/</link>
       <pubDate>Thu, 24 May 2018 11:43:17 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-05-24/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-05-24/</guid>
       <description> I&amp;rsquo;ve been recommended to read the following 3 blogs introduced by the pingcap team who built the TiDB(a NewSQL relational database). Inside the blogs, storage, computation, coordination are discussed which correspond to the module of TiKV, TiDb abd PD(placement driver) developed by pingcap.
 Reference  English version
  https://pingcap.com/blog/2017-07-11-tidbinternal1/ https://pingcap.com/blog/2017-07-11-tidbinternal2/ https://pingcap.com/blog/2017-07-20-tidbinternal3/  Chinese version
@@ -76,20 +76,20 @@ Reference  English version
     
     <item>
       <title>collection of &#39;What is the difference between&#39;</title>
-      <link>http://www.runpinghuang.top/blog/2018-04-25/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-04-25/</link>
       <pubDate>Wed, 25 Apr 2018 22:41:16 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-04-25/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-04-25/</guid>
       <description>This post is a collection of what is the difference between blah blah and blah blah which is mainly about the terminology that I come across as a software engineer. I wanted to create content when learning. So I decided to start this topic and please help me append the content commenting below if you don&amp;rsquo;t mind ;)
  what is the difference between new and make in golang? new is going to initialize memory and return a pointer to the object.</description>
     </item>
     
     <item>
       <title>What the hack is `offset` in computer science</title>
-      <link>http://www.runpinghuang.top/blog/2018-03-06/</link>
+      <link>https://pingrunhuang.github.io/blog/2018-03-06/</link>
       <pubDate>Tue, 06 Mar 2018 22:00:54 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2018-03-06/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2018-03-06/</guid>
       <description>Recently, I&amp;rsquo;ve been working on SQLAlchemy to query data from a large table having nearly 4,000,000 rows of data. My goal is to transfer it into hbase. Since I want to do it fast without setting up extra login steps. I chose python as a fast processing language. But another problem poped up quickly very quickly.
  The table is too large to fit into the memory!!!
  So I decided to use pagination as a technique for separating the table into several small tables.</description>
@@ -97,29 +97,29 @@ Reference  English version
     
     <item>
       <title>Different syntax for creating matrix and array in Different language</title>
-      <link>http://www.runpinghuang.top/blog/2017-12-12/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-12-12/</link>
       <pubDate>Tue, 12 Dec 2017 09:20:58 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-12-12/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-12-12/</guid>
       <description>Golang grid := [][]int{ []int{1,2,3} []int{4,5,6} []int{7,8,9} } // declaring emptyGrid := [3][3]int  C++ int a[3][4] = { {1,2,3}, {4,5,6}, {7,8,9} }; // or vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; grid(3, vector&amp;lt;int&amp;gt;(3));  Java &amp;rdquo;&amp;lsquo;java
 &amp;rdquo;&amp;rsquo;</description>
     </item>
     
     <item>
       <title>Differences for loop syntax in different language</title>
-      <link>http://www.runpinghuang.top/blog/2017-12-11/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-12-11/</link>
       <pubDate>Mon, 11 Dec 2017 16:24:10 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-12-11/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-12-11/</guid>
       <description>Java for (int i; i &amp;lt; 100 ;i++){ // do something }  Python for index, value in range(100){ # do something }  Scala for (var a &amp;lt;- 1 to 10){ println(a) } &amp;lt;!-- or --&amp;gt; &amp;lt;!-- 10 not included --&amp;gt; for (var b &amp;lt;- 1 until 10){ println(b) }  Go for i := 0; i &amp;lt; 100; i++ { fmt.Println(i) }  Different useage of yield between python and scala def get_generator(): for i in range(10): if i % 3 ==0: yield i  The yield statement should always inside a function to generate a generator object.</description>
     </item>
     
     <item>
       <title>TCP connection and disconnection</title>
-      <link>http://www.runpinghuang.top/blog/2017-09-24/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-09-24/</link>
       <pubDate>Sun, 24 Sep 2017 10:22:56 +0800</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-09-24/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-09-24/</guid>
       <description>TCP建立连接和断开链接一直是个让我很费解的问题，为什么要三番四次的来回折腾呢？于是我决定用形象的说法来讲一下我的理解。
 为什么需要三次建立连接 如果采用两次握手的话，打个比方，去饭店吃饭，人太多了要拿号，拿号的动作(SYN_SEND)相当于第一次握手，店家给号的动作(SYN_RECV)相当于第二次握手，如果这样就结束了，那店家作为服务方就会跟你建立连接，也就是保证把位置给你，直到你要结束消费，但是很多情况是我们拿了号之后有可能觉得要等太久了，想换一家吃饭，结果就跑了，这样店家就会一直等我们，导致台位浪费，所以需要额外增加第三次的握手，也就是叫号的动作(ESTABLISHED)。
 为什么分手还要四次啊 还是拿饭馆的例子说事，断开连接的过程实际上相当于我们入店消费完成以后要结账的过程。首先我们(client)跟服务员(server)招手，告诉他们我们需要结账(FIN_WAIT1)， 服务员看到后点头示意他们知道了(CLOSE_WAIT)，我们等服务员过来(FIN_WAIT2)，服务员过来以后，再次确认菜都上齐了并且告诉我们最后价格(LAST_ACK)，我们看了一下单子确认价格正确之后付款，然后我们进入(TIME_WAIT)，等待服务员确认收款，最后我们就可以愉快的走人啦。</description>
@@ -127,10 +127,10 @@ Reference  English version
     
     <item>
       <title>Pom configuration in Maven</title>
-      <link>http://www.runpinghuang.top/blog/2017-09-01/</link>
+      <link>https://pingrunhuang.github.io/blog/2017-09-01/</link>
       <pubDate>Fri, 01 Sep 2017 04:05:25 -0600</pubDate>
       
-      <guid>http://www.runpinghuang.top/blog/2017-09-01/</guid>
+      <guid>https://pingrunhuang.github.io/blog/2017-09-01/</guid>
       <description> package How to package all the dependencies into one jar
 &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;maven-assembly-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.5.5&amp;lt;/version&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;archive&amp;gt; &amp;lt;manifest&amp;gt; &amp;lt;mainClass&amp;gt;com.xxg.Main&amp;lt;/mainClass&amp;gt; &amp;lt;/manifest&amp;gt; &amp;lt;/archive&amp;gt; &amp;lt;descriptorRefs&amp;gt; &amp;lt;descriptorRef&amp;gt;jar-with-dependencies&amp;lt;/descriptorRef&amp;gt; &amp;lt;/descriptorRefs&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;executions&amp;gt; &amp;lt;execution&amp;gt; &amp;lt;id&amp;gt;make-assembly&amp;lt;/id&amp;gt; &amp;lt;phase&amp;gt;package&amp;lt;/phase&amp;gt; &amp;lt;goals&amp;gt; &amp;lt;goal&amp;gt;single&amp;lt;/goal&amp;gt; &amp;lt;/goals&amp;gt; &amp;lt;/execution&amp;gt; &amp;lt;/executions&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; &amp;lt;/build&amp;gt;  不同环境下打包配置文件并在在工程中指定 package and single equals mvn pakcage assembly:single
 Reference </description>
