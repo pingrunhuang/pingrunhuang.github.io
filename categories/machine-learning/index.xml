@@ -19,11 +19,25 @@
       <guid>https://pingrunhuang.github.io/blog/2018-07-09/</guid>
       <description>Suppose we have a
 spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
-spark 参数配置 &amp;ndash;conf -&amp;gt; shell parameter -&amp;gt; conf/spark-defaults.conf spark.yarn.am.memory
- increase the yarn cluster max threshold set yarn-site.xml yarn.scheduler.maximum-allocation-mb  yarn 对应node manager 和
-TMUX usage cheetsheet  resize pane size(down move 2 lines): ctrl+b : resize-pane -D 2
- Start new named session: tmux new -s [session name]
- Detach from session: ctrl+b d</description>
+spark 参数配置 &amp;ndash;conf -&amp;gt; shell parameter -&amp;gt; conf/spark-defaults.conf - num-executors - executor-cores - spark.default.parallelism - total-executor-cores
+memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%) - spark.storage.memoryFraction: cache/persist operation - spark.shuffle.memoryFraction: memory for shuffle manipulation - executor-memory: total memory for each executor - driver-memory
+参数说明：Total cores for all executors.
+作者：chenjieit619 来源：CSDN 原文：https://blog.</description>
+    </item>
+    
+    <item>
+      <title>Support vector machine</title>
+      <link>https://pingrunhuang.github.io/blog/2017-06-20/</link>
+      <pubDate>Tue, 20 Jun 2017 04:05:25 -0600</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-06-20/</guid>
+      <description>v is the point to be classified.
+w is a vector points to the hyperplane perpendicularly.
+$$hyperplane:y=w\cdot \xrightarrow { V } +b$$
+There are 2 classes which are black and red respectively.
+if w v + b &amp;gt; 0, then the v belongs to black
+if w v + b &amp;lt; 0, then the v belongs to red
+if w * v + v = 0, then the v is on the decision boundary which is also the hyperplane.</description>
     </item>
     
   </channel>

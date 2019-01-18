@@ -6,10 +6,20 @@
     <description>Recent content in Python on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 16 Aug 2018 10:51:45 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 10 Nov 2018 22:34:02 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Different ways of creating a virtual environment</title>
+      <link>https://pingrunhuang.github.io/blog/2018-11-10/</link>
+      <pubDate>Sat, 10 Nov 2018 22:34:02 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-11-10/</guid>
+      <description>During my daily coing experience using python, I have come across a problem of creating a virtual environment using python. It is quite a mess that tons of different ways of creating virtrual environment exists. So I decided to make a summary on different ways of creating a virtual environment.
+virtualenv  Usage: specify the interpreter you want to use: virtualenv -p &amp;lt;path_of_the_intereter&amp;gt; &amp;lt;env_name&amp;gt;  mkvirtualenv A wrapper of virtualenv package which is aim to deal with multiple virtual environment.</description>
+    </item>
     
     <item>
       <title>Regular expression with python</title>
@@ -33,13 +43,13 @@ def genTownName(foo): if township.find(&amp;quot;f&amp;quot;)!=-1: result = True
     </item>
     
     <item>
-      <title>Understanding how to generate tree in one line of code</title>
+      <title>How to use defaultdict in python</title>
       <link>https://pingrunhuang.github.io/blog/2018-07-30/</link>
       <pubDate>Mon, 30 Jul 2018 18:19:12 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-07-30/</guid>
-      <description>tree = lambda : defaultdict(tree)
- In today&amp;rsquo;s code review, I found an interesting coding style in python where a dictionary of tree like can be generated in just one line of code.
+      <description>why tree = lambda : defaultdict(tree)  Alternatively
+def Tree(): return defaultdict(Tree)  In today&amp;rsquo;s code review, I found an interesting coding style in python where a dictionary of tree like can be generated in just one line of code.
 In order to explain this issue, we will first need to understand how defaultdict object works. As I really don&amp;rsquo;t know where to find the source code of this implementation, check out this link to see how it work.</description>
     </item>
     

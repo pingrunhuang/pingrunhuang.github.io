@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming Language on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/programming-language/</link>
+    <description>Recent content in Programming Language on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 28 Dec 2018 10:47:28 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/programming-language/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>learning scala 2</title>
+      <link>https://pingrunhuang.github.io/blog/2018-12-28/</link>
+      <pubDate>Fri, 28 Dec 2018 10:47:28 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-12-28/</guid>
+      <description>Some tricks  How does reduceLeft work(aka find the max object)? It is quite normal that sometimes we want to find out the object that has the maximum value that we want to get in a collection. The instinct might be using the max function in Java that comes along with the collection where we need to define the comparable class. But this is quite not functional programming work. In this case, we want to just have a function to tell the compiler that we want which property to compare.</description>
+    </item>
+    
+    <item>
+      <title>Learning Scala 1</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-15/</link>
+      <pubDate>Wed, 15 Nov 2017 17:45:19 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-15/</guid>
+      <description>Imperative vs Functional programing
+ Trait Trait is like interface in java
+trait Iterator[A] { def hasNext : boolean def next() : A }  Differences: - You could define concrete implementation of method inside Trait
+sealed regex import scala.util.matching.Regex object  function predicate val nameHasUpperCase = name.exists(_.isUpper)  foreach val text = &amp;quot;hello world&amp;quot; text.foreach(_.toUpper) text.foreach(println) // or for (x &amp;lt;- text) println(x)  instantiate an array val numNames = Array(&amp;quot;zero&amp;quot;, &amp;quot;one&amp;quot;, &amp;quot;two&amp;quot;) is equivalent to val numNames = Array.</description>
+    </item>
+    
+  </channel>
+</rss>

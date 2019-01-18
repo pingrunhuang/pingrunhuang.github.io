@@ -55,7 +55,7 @@ Explanation: In binary representation, the 4 is 0100, 14 is 1110, and 2 is 0010 
       <pubDate>Sun, 17 Sep 2017 23:51:50 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-09-17/</guid>
-      <description>This is a topic that I am very interesting about. These concepts are related to a fundamental theory called PCA which is a tool to reduce the dimension of a matrix(dataset)
+      <description>This is a topic that I am very interested about. These concepts are related to a fundamental theory called PCA which is a tool to reduce the dimension of a matrix(dataset)
 矩阵对应一个线性变换是在同一组基下有意义。默认情况下是在标准基下进行变换。
 $$ \begin{bmatrix} { a }_{ 1,1 } &amp;amp; { a }_{ 1,2 } &amp;amp; \dots &amp;amp; { a }_{ 1,n } \\
 \dots &amp;amp; \dots &amp;amp; \dots &amp;amp; \dots \\

@@ -41,7 +41,7 @@
     <item>
       <title>Data Science</title>
       <link>https://pingrunhuang.github.io/categories/data-science/</link>
-      <pubDate>Tue, 20 Jun 2017 04:05:25 -0600</pubDate>
+      <pubDate>Mon, 21 Dec 2015 04:05:25 -0600</pubDate>
       
       <guid>https://pingrunhuang.github.io/categories/data-science/</guid>
       <description></description>
@@ -59,7 +59,7 @@
     <item>
       <title>Design Pattern</title>
       <link>https://pingrunhuang.github.io/categories/design-pattern/</link>
-      <pubDate>Thu, 26 Oct 2017 17:52:13 +0800</pubDate>
+      <pubDate>Sun, 14 Oct 2018 23:24:32 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/categories/design-pattern/</guid>
       <description></description>
@@ -129,9 +129,18 @@
     </item>
     
     <item>
+      <title>Programming Language</title>
+      <link>https://pingrunhuang.github.io/categories/programming-language/</link>
+      <pubDate>Fri, 28 Dec 2018 10:47:28 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/programming-language/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Python</title>
       <link>https://pingrunhuang.github.io/categories/python/</link>
-      <pubDate>Thu, 16 Aug 2018 10:51:45 +0800</pubDate>
+      <pubDate>Sat, 10 Nov 2018 22:34:02 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/categories/python/</guid>
       <description></description>
@@ -161,6 +170,15 @@
       <pubDate>Sun, 26 Aug 2018 14:31:37 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/categories/spark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sql</title>
+      <link>https://pingrunhuang.github.io/categories/sql/</link>
+      <pubDate>Thu, 10 Jan 2019 11:47:55 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/sql/</guid>
       <description></description>
     </item>
     

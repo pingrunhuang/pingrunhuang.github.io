@@ -6,10 +6,21 @@
     <description>Recent content in Design Pattern on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 26 Oct 2017 17:52:13 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 14 Oct 2018 23:24:32 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/categories/design-pattern/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Strategy pattern</title>
+      <link>https://pingrunhuang.github.io/blog/2018-10-14/</link>
+      <pubDate>Sun, 14 Oct 2018 23:24:32 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-10-14/</guid>
+      <description>The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
+ This is quoted from the book called .
+From my daily development experience, I encountered a lot of class end with impl or start with I. I know they are meant for implementation and interface. But how come they are becoming some kind of must have for every java project that I encountered.</description>
+    </item>
     
     <item>
       <title>Dynamic proxy in Java</title>

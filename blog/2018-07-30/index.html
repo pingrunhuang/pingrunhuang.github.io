@@ -9,13 +9,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
-<meta name="description" content="tree = lambda : defaultdict(tree)
- In today&rsquo;s code review, I found an interesting coding style in python where a dictionary of tree like can be generated in just one line of code.
+<meta name="description" content="why tree = lambda : defaultdict(tree)  Alternatively
+def Tree(): return defaultdict(Tree)  In today&rsquo;s code review, I found an interesting coding style in python where a dictionary of tree like can be generated in just one line of code.
 In order to explain this issue, we will first need to understand how defaultdict object works. As I really don&rsquo;t know where to find the source code of this implementation, check out this link to see how it work.">
 
-<meta property="og:title" content="Understanding how to generate tree in one line of code" />
-<meta property="og:description" content="tree = lambda : defaultdict(tree)
- In today&rsquo;s code review, I found an interesting coding style in python where a dictionary of tree like can be generated in just one line of code.
+<meta property="og:title" content="How to use defaultdict in python" />
+<meta property="og:description" content="why tree = lambda : defaultdict(tree)  Alternatively
+def Tree(): return defaultdict(Tree)  In today&rsquo;s code review, I found an interesting coding style in python where a dictionary of tree like can be generated in just one line of code.
 In order to explain this issue, we will first need to understand how defaultdict object works. As I really don&rsquo;t know where to find the source code of this implementation, check out this link to see how it work." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-07-30/" />
@@ -40,7 +40,7 @@ In order to explain this issue, we will first need to understand how defaultdict
 <title>
 
 
-     Understanding how to generate tree in one line of code 
+     How to use defaultdict in python 
 
 </title>
 <link rel="canonical" href="https://pingrunhuang.github.io/blog/2018-07-30/">
@@ -60,11 +60,11 @@ In order to explain this issue, we will first need to understand how defaultdict
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2018-09-08%2016%3a16%3a33.756518477%20%2b0800%20CST%20m%3d%2b0.290697031">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2018-09-08%2016%3a16%3a33.756518477%20%2b0800%20CST%20m%3d%2b0.290697031">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2018-09-08%2016%3a16%3a33.756518477%20%2b0800%20CST%20m%3d%2b0.290697031">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2019-01-18%2012%3a10%3a31.445025714%20%2b0800%20CST%20m%3d%2b0.329115609">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2019-01-18%2012%3a10%3a31.445025714%20%2b0800%20CST%20m%3d%2b0.329115609">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2019-01-18%2012%3a10%3a31.445025714%20%2b0800%20CST%20m%3d%2b0.329115609">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2018-09-08%2016%3a16%3a33.756518477%20%2b0800%20CST%20m%3d%2b0.290697031">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2019-01-18%2012%3a10%3a31.445025714%20%2b0800%20CST%20m%3d%2b0.329115609">
     
 
 
@@ -95,6 +95,10 @@ In order to explain this issue, we will first need to understand how defaultdict
                 
                 
                 
+                
+                    
+                
+                    
                 
                     
                 
@@ -192,7 +196,7 @@ In order to explain this issue, we will first need to understand how defaultdict
                 <div class="title-container">
                     <div class="page-heading">
 
-    Understanding how to generate tree in one line of code
+    How to use defaultdict in python
 
 </div>
 
@@ -208,9 +212,18 @@ In order to explain this issue, we will first need to understand how defaultdict
                 </div>
             </div>
             <div class="markdown">
-                <blockquote>
-<p>tree = lambda : defaultdict(tree)</p>
-</blockquote>
+                
+
+<h1 id="why">why</h1>
+
+<pre><code class="language-python">tree = lambda : defaultdict(tree)
+</code></pre>
+
+<p>Alternatively</p>
+
+<pre><code class="language-python">def Tree():
+    return defaultdict(Tree) 
+</code></pre>
 
 <p>In today&rsquo;s code review, I found an interesting coding style in python where a dictionary of tree like can be generated in just one line of code.</p>
 

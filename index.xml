@@ -6,10 +6,80 @@
     <description>Recent content on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 29 Aug 2018 14:53:15 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 17 Jan 2019 07:33:48 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Full frame camera comparison</title>
+      <link>https://pingrunhuang.github.io/2019/full-frame-camera-comparison/</link>
+      <pubDate>Thu, 17 Jan 2019 07:33:48 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2019/full-frame-camera-comparison/</guid>
+      <description>    Canon EOS R Sony A7 mark3 Nikon Z6 Nikon z7 canon 6d mark2 Nikon D850     time released 2018&amp;frasl;10 2017&amp;frasl;10 2018&amp;frasl;11 2018 2017 2017   type full frame mirrorless full frame mirrorless full frame mirrorless full frame mirrorless full frame DSLR full frame DSLR   price ￥13999.00 ￥16699.00 ￥16290.00 ￥23900.00     built-in stabalizatio   y y      </description>
+    </item>
+    
+    <item>
+      <title>SQL self join use case</title>
+      <link>https://pingrunhuang.github.io/blog/2019-01-10/</link>
+      <pubDate>Thu, 10 Jan 2019 11:47:55 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-01-10/</guid>
+      <description>How to query on timeseries data based on time window? Suppose I have the following time series data: I want to calculate mean, std value inside a time window with the value of 2 for different name. I used to use spark to first group by name and then do the calculation in the list within the different group. This is actually quite fast. But I later on figured out that we can first self join based on the time window condition like below:</description>
+    </item>
+    
+    <item>
+      <title>learning scala 2</title>
+      <link>https://pingrunhuang.github.io/blog/2018-12-28/</link>
+      <pubDate>Fri, 28 Dec 2018 10:47:28 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-12-28/</guid>
+      <description>Some tricks  How does reduceLeft work(aka find the max object)? It is quite normal that sometimes we want to find out the object that has the maximum value that we want to get in a collection. The instinct might be using the max function in Java that comes along with the collection where we need to define the comparable class. But this is quite not functional programming work. In this case, we want to just have a function to tell the compiler that we want which property to compare.</description>
+    </item>
+    
+    <item>
+      <title>不同帧率(frame rate)下的快门(shutter speed)选择</title>
+      <link>https://pingrunhuang.github.io/2018/%E4%B8%8D%E5%90%8C%E5%B8%A7%E7%8E%87frame-rate%E4%B8%8B%E7%9A%84%E5%BF%AB%E9%97%A8shutter-speed%E9%80%89%E6%8B%A9/</link>
+      <pubDate>Sun, 09 Dec 2018 11:12:39 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2018/%E4%B8%8D%E5%90%8C%E5%B8%A7%E7%8E%87frame-rate%E4%B8%8B%E7%9A%84%E5%BF%AB%E9%97%A8shutter-speed%E9%80%89%E6%8B%A9/</guid>
+      <description> youtube上面有很多关于shutter speed和快门的关系介绍。总而言之，就是要保证shutter speed的速度是frame rate的两倍，例如如果我想使用24fps的frame rate进行拍摄，那我的shutter speed应该使用1/50s进行拍摄，也就是说，一秒钟生成的照片序列得到的曝光时间是0.5秒，即有一半的时间快门是关闭的。这样的好处是保证视频的结果跟人眼的一致性。就像人在看快速移动的物体的时候，实际上是有一点模糊的，如果太快门很快，虽然提高了清晰度，但是变得失真了。
+那很多时候我们可能需要拍摄类似24fps或者30fps的视频，意味着我们需要快门速度是1/50或者1/60，但是这种速度在高光下面很容易产生过曝的问题，那这时候我们有三种解决方案: 1. 减小光圈 2. 降低iso 3. 增加ND滤镜
+Reference  https://youtu.be/kJ_nP7IvhUM https://youtu.be/bB21OGR8DSo https://youtu.be/jBFOp-Re3QE  </description>
+    </item>
+    
+    <item>
+      <title>Different ways of creating a virtual environment</title>
+      <link>https://pingrunhuang.github.io/blog/2018-11-10/</link>
+      <pubDate>Sat, 10 Nov 2018 22:34:02 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-11-10/</guid>
+      <description>During my daily coing experience using python, I have come across a problem of creating a virtual environment using python. It is quite a mess that tons of different ways of creating virtrual environment exists. So I decided to make a summary on different ways of creating a virtual environment.
+virtualenv  Usage: specify the interpreter you want to use: virtualenv -p &amp;lt;path_of_the_intereter&amp;gt; &amp;lt;env_name&amp;gt;  mkvirtualenv A wrapper of virtualenv package which is aim to deal with multiple virtual environment.</description>
+    </item>
+    
+    <item>
+      <title>Strategy pattern</title>
+      <link>https://pingrunhuang.github.io/blog/2018-10-14/</link>
+      <pubDate>Sun, 14 Oct 2018 23:24:32 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-10-14/</guid>
+      <description>The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
+ This is quoted from the book called .
+From my daily development experience, I encountered a lot of class end with impl or start with I. I know they are meant for implementation and interface. But how come they are becoming some kind of must have for every java project that I encountered.</description>
+    </item>
+    
+    <item>
+      <title>Dealing with null value in postgresql</title>
+      <link>https://pingrunhuang.github.io/blog/2018-09-11/</link>
+      <pubDate>Tue, 11 Sep 2018 09:54:08 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-09-11/</guid>
+      <description> Suppose I have a schema of the following
+a|b|c 1| |1 ...  \copy The above value
+insert COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS E&#39;\x1E&#39; CSV QUOTE E&#39;\&#39;&#39;;  COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS &#39;,&#39; CSV QUOTE &#39;&#39;&#39;&#39;;  </description>
+    </item>
     
     <item>
       <title>What is port forwarding?</title>
@@ -124,6 +194,15 @@ What is round robin? When to use it?</description>
     </item>
     
     <item>
+      <title>High performance spark 2</title>
+      <link>https://pingrunhuang.github.io/blog/2018-08-03/</link>
+      <pubDate>Fri, 03 Aug 2018 00:06:28 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-08-03/</guid>
+      <description>how to use persistence level check in production val storagelevel :StorageLevel = StorageLevel.MEMORY_AND_DISK if (storagelevel != StorageLevel.None){ action.persist(storagelevel) }  Types of reuse Cache Persist  useDisk: only if the recomputation cost is too high useMemory: only when DIST_ONLY storage level is used. useOfHeap: enable RDD to be stored in an external system. deserialized: storage include the __SER suffix such as MEMORY_ONLY_SER enable serialization. replication: option that end in such as _2 .</description>
+    </item>
+    
+    <item>
       <title>Puzzles for Spark application</title>
       <link>https://pingrunhuang.github.io/blog/2018-07-31/</link>
       <pubDate>Tue, 31 Jul 2018 15:04:30 +0800</pubDate>
@@ -134,13 +213,13 @@ What is round robin? When to use it?</description>
     </item>
     
     <item>
-      <title>Understanding how to generate tree in one line of code</title>
+      <title>How to use defaultdict in python</title>
       <link>https://pingrunhuang.github.io/blog/2018-07-30/</link>
       <pubDate>Mon, 30 Jul 2018 18:19:12 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-07-30/</guid>
-      <description>tree = lambda : defaultdict(tree)
- In today&amp;rsquo;s code review, I found an interesting coding style in python where a dictionary of tree like can be generated in just one line of code.
+      <description>why tree = lambda : defaultdict(tree)  Alternatively
+def Tree(): return defaultdict(Tree)  In today&amp;rsquo;s code review, I found an interesting coding style in python where a dictionary of tree like can be generated in just one line of code.
 In order to explain this issue, we will first need to understand how defaultdict object works. As I really don&amp;rsquo;t know where to find the source code of this implementation, check out this link to see how it work.</description>
     </item>
     
@@ -168,6 +247,19 @@ In computer science, ACID (Atomicity, Consistency, Isolation, Durability) .
     </item>
     
     <item>
+      <title>High Performance Spark 1</title>
+      <link>https://pingrunhuang.github.io/blog/2018-07-20/</link>
+      <pubDate>Fri, 20 Jul 2018 09:18:33 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-07-20/</guid>
+      <description>Spark resource allocation sparkcontext -&amp;gt; executors -&amp;gt;
+1 node can have many executors -&amp;gt; an executor cannot span multiple nodes -&amp;gt; each executor can have multiple partitions
+chapter 2 job &amp;lt;==&amp;gt; action stages &amp;lt;==&amp;gt; shuffle dependency(which means only happen in wide transformation) tasks &amp;lt;==&amp;gt; the smallest unit of the spark execution hierachy
+chapter 3  How to filter only unhappy pandas? pandaInfo.filter(pandaInfo(&amp;ldquo;happy&amp;rdquo;) !== true)
+Compare multiple columns pandaInfo.and(pandaInfo(&amp;ldquo;happy&amp;rdquo;)(0) &amp;gt; pandaInfo(&amp;ldquo;attributes&amp;rdquo;)(1))</description>
+    </item>
+    
+    <item>
       <title>讲究才是根本</title>
       <link>https://pingrunhuang.github.io/2018/%E8%AE%B2%E7%A9%B6%E6%89%8D%E6%98%AF%E6%A0%B9%E6%9C%AC/</link>
       <pubDate>Tue, 17 Jul 2018 01:09:00 +0800</pubDate>
@@ -186,11 +278,10 @@ In computer science, ACID (Atomicity, Consistency, Isolation, Durability) .
       <guid>https://pingrunhuang.github.io/blog/2018-07-09/</guid>
       <description>Suppose we have a
 spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
-spark 参数配置 &amp;ndash;conf -&amp;gt; shell parameter -&amp;gt; conf/spark-defaults.conf spark.yarn.am.memory
- increase the yarn cluster max threshold set yarn-site.xml yarn.scheduler.maximum-allocation-mb  yarn 对应node manager 和
-TMUX usage cheetsheet  resize pane size(down move 2 lines): ctrl+b : resize-pane -D 2
- Start new named session: tmux new -s [session name]
- Detach from session: ctrl+b d</description>
+spark 参数配置 &amp;ndash;conf -&amp;gt; shell parameter -&amp;gt; conf/spark-defaults.conf - num-executors - executor-cores - spark.default.parallelism - total-executor-cores
+memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%) - spark.storage.memoryFraction: cache/persist operation - spark.shuffle.memoryFraction: memory for shuffle manipulation - executor-memory: total memory for each executor - driver-memory
+参数说明：Total cores for all executors.
+作者：chenjieit619 来源：CSDN 原文：https://blog.</description>
     </item>
     
     <item>
@@ -321,6 +412,18 @@ In github, I use git push origin &amp;lt;branch_name&amp;gt; for push changes to
 Reference  English version
  https://pingcap.com/blog/2017-07-11-tidbinternal1/ https://pingcap.com/blog/2017-07-11-tidbinternal2/ https://pingcap.com/blog/2017-07-20-tidbinternal3/  Chinese version
  https://www.pingcap.com/blog-cn/tidb-internal-1/ https://www.pingcap.com/blog-cn/tidb-internal-2/ https://www.pingcap.com/blog-cn/tidb-internal-3/   </description>
+    </item>
+    
+    <item>
+      <title>Learning Snowboarding</title>
+      <link>https://pingrunhuang.github.io/2018/learning-snowboarding/</link>
+      <pubDate>Thu, 10 May 2018 23:10:46 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2018/learning-snowboarding/</guid>
+      <description> 滑雪一直是我想要征服的一项运动，就好像冲浪一样，对于这种滑翔的运动简直没有抵抗能力。因此在即将去北京之前，我参加了一个培训班，在这里真正系统的完成一套训练，价格虽然不菲，但我也因此认识了很多也同样爱好滑雪的同伴。这篇博客，希望在介绍滑雪的基本动作的同时，谈谈我从滑雪训练中学习到的道理。
+ falling leaf &amp;ndash; 落叶飘
+ traverse running &amp;ndash; 斜滑降
+ 花环飘 &amp;ndash; 尚不知道英文名叫什么，但是基本上就是不断调整板头的方向，从一开始30度下坡，变成45度，在刹车，再继续调整板头，直到板子可以顺利的到达90度的位置。 换刃 &amp;ndash; 板面要基本达到跟地面贴合后才能开始转向。 前后刃交替 &amp;ndash; 重点是换刃减速的过程中，重心和用力蹬地要同时进行。背朝下坡降落，换刃过程要快。  Snowboarding教会了我什么呢？  学会提前预判形势，提前作出相应的调整。在很多人眼中，包括我在没接触snowboarding之前，只知道这是一个很酷的运动，如果体力够好，终究是会像滑板一样学会的。真正接触过后，其实真心觉得这是一个很烧脑的运动。不过与其说烧脑，不如说这是一个很需要对当下形势在几秒钟作出最优判断（也可以称之为肌肉记忆）的运动。在你起步进行滑行的时候，在考虑到是否会撞到别人，自己是否会受伤的情况下，去对地形环境做一个大概的预估，然后选择一条最佳的路线滑行。然后这只是开头，过程中难免会出现意想不到的情况，这时候要求你去对形势做判断，是否需要停下来，如果要继续滑行，我要做什么身体调整，前脚还是后脚需要泄力或者发力。这些都是一个好的滑手需要在短短几秒钟的时间得出的结论。当然，这是需要平时持之以恒的训练来达到肌肉强化记忆，从而在关键时刻可以发挥出来。这一系列的反应在我看来，跟职业生涯是非常的相似的。这一年工作的时间里，我得到最深刻的体验也莫过于此。工作有时候真的就是那几秒钟的发力分出高低，这与平时的积累密不可分，但更重要的是，关键时候顶住压力，准确预判，当机立断。说到这里，不知道大家是否看过红海行动，反正里面人物众多，我唯独只记得顾顺。顾顺说话很不客气，人缘不好，但他说，子弹是躲不掉的，关键时刻，压力能让你更加专注。这些品质让他成为一个很好的狙击手。这些品质，在我学snowboarding的时候像警钟一样不断提醒我。  </description>
     </item>
     
     <item>
@@ -590,6 +693,18 @@ initializing array q := […]int{1,2,3} //length are defined by the element numb
     </item>
     
     <item>
+      <title>Learning Scala 1</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-15/</link>
+      <pubDate>Wed, 15 Nov 2017 17:45:19 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-15/</guid>
+      <description>Imperative vs Functional programing
+ Trait Trait is like interface in java
+trait Iterator[A] { def hasNext : boolean def next() : A }  Differences: - You could define concrete implementation of method inside Trait
+sealed regex import scala.util.matching.Regex object  function predicate val nameHasUpperCase = name.exists(_.isUpper)  foreach val text = &amp;quot;hello world&amp;quot; text.foreach(_.toUpper) text.foreach(println) // or for (x &amp;lt;- text) println(x)  instantiate an array val numNames = Array(&amp;quot;zero&amp;quot;, &amp;quot;one&amp;quot;, &amp;quot;two&amp;quot;) is equivalent to val numNames = Array.</description>
+    </item>
+    
+    <item>
       <title>Golang learning 2</title>
       <link>https://pingrunhuang.github.io/blog/2017-11-13/</link>
       <pubDate>Mon, 13 Nov 2017 11:16:44 +0800</pubDate>
@@ -749,7 +864,7 @@ At the mean time, I remember when I was having internet security class back at E
       <pubDate>Sun, 17 Sep 2017 23:51:50 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-09-17/</guid>
-      <description>This is a topic that I am very interesting about. These concepts are related to a fundamental theory called PCA which is a tool to reduce the dimension of a matrix(dataset)
+      <description>This is a topic that I am very interested about. These concepts are related to a fundamental theory called PCA which is a tool to reduce the dimension of a matrix(dataset)
 矩阵对应一个线性变换是在同一组基下有意义。默认情况下是在标准基下进行变换。
 $$ \begin{bmatrix} { a }_{ 1,1 } &amp;amp; { a }_{ 1,2 } &amp;amp; \dots &amp;amp; { a }_{ 1,n } \\
 \dots &amp;amp; \dots &amp;amp; \dots &amp;amp; \dots \\

@@ -11,20 +11,18 @@
 <meta name="author" content="Frank Huang">
 <meta name="description" content="Suppose we have a
 spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
-spark 参数配置 &ndash;conf -&gt; shell parameter -&gt; conf/spark-defaults.conf spark.yarn.am.memory
- increase the yarn cluster max threshold set yarn-site.xml yarn.scheduler.maximum-allocation-mb  yarn 对应node manager 和
-TMUX usage cheetsheet  resize pane size(down move 2 lines): ctrl&#43;b : resize-pane -D 2
- Start new named session: tmux new -s [session name]
- Detach from session: ctrl&#43;b d">
+spark 参数配置 &ndash;conf -&gt; shell parameter -&gt; conf/spark-defaults.conf - num-executors - executor-cores - spark.default.parallelism - total-executor-cores
+memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%) - spark.storage.memoryFraction: cache/persist operation - spark.shuffle.memoryFraction: memory for shuffle manipulation - executor-memory: total memory for each executor - driver-memory
+参数说明：Total cores for all executors.
+作者：chenjieit619 来源：CSDN 原文：https://blog.">
 
 <meta property="og:title" content="My thougts about Linear Regression" />
 <meta property="og:description" content="Suppose we have a
 spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
-spark 参数配置 &ndash;conf -&gt; shell parameter -&gt; conf/spark-defaults.conf spark.yarn.am.memory
- increase the yarn cluster max threshold set yarn-site.xml yarn.scheduler.maximum-allocation-mb  yarn 对应node manager 和
-TMUX usage cheetsheet  resize pane size(down move 2 lines): ctrl&#43;b : resize-pane -D 2
- Start new named session: tmux new -s [session name]
- Detach from session: ctrl&#43;b d" />
+spark 参数配置 &ndash;conf -&gt; shell parameter -&gt; conf/spark-defaults.conf - num-executors - executor-cores - spark.default.parallelism - total-executor-cores
+memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%) - spark.storage.memoryFraction: cache/persist operation - spark.shuffle.memoryFraction: memory for shuffle manipulation - executor-memory: total memory for each executor - driver-memory
+参数说明：Total cores for all executors.
+作者：chenjieit619 来源：CSDN 原文：https://blog." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-07-09/" />
 
@@ -68,11 +66,11 @@ TMUX usage cheetsheet  resize pane size(down move 2 lines): ctrl&#43;b : resize-
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2018-09-08%2016%3a16%3a33.758390311%20%2b0800%20CST%20m%3d%2b0.292568848">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2018-09-08%2016%3a16%3a33.758390311%20%2b0800%20CST%20m%3d%2b0.292568848">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2018-09-08%2016%3a16%3a33.758390311%20%2b0800%20CST%20m%3d%2b0.292568848">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2019-01-18%2012%3a10%3a31.450945604%20%2b0800%20CST%20m%3d%2b0.335035482">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2019-01-18%2012%3a10%3a31.450945604%20%2b0800%20CST%20m%3d%2b0.335035482">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2019-01-18%2012%3a10%3a31.450945604%20%2b0800%20CST%20m%3d%2b0.335035482">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2018-09-08%2016%3a16%3a33.758390311%20%2b0800%20CST%20m%3d%2b0.292568848">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2019-01-18%2012%3a10%3a31.450945604%20%2b0800%20CST%20m%3d%2b0.335035482">
     
 
 
@@ -103,6 +101,10 @@ TMUX usage cheetsheet  resize pane size(down move 2 lines): ctrl&#43;b : resize-
                 
                 
                 
+                
+                    
+                
+                    
                 
                     
                 
@@ -226,6 +228,27 @@ yarn.Client: Application report for application (state: ACCEPTED)</p>
 <h1 id="spark-参数配置">spark 参数配置</h1>
 
 <p>&ndash;conf  -&gt; shell parameter -&gt; conf/spark-defaults.conf
+- num-executors
+- executor-cores
+- spark.default.parallelism
+- total-executor-cores</p>
+
+<h3 id="memory-setting">memory setting:</h3>
+
+<p>memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%)
+- spark.storage.memoryFraction: cache/persist operation
+- spark.shuffle.memoryFraction: memory for shuffle manipulation
+- executor-memory: total memory for each executor
+- driver-memory</p>
+
+<p>参数说明：Total cores for all executors.</p>
+
+<hr />
+
+<p>作者：chenjieit619
+来源：CSDN
+原文：<a href="https://blog.csdn.net/chenjieit619/article/details/53421080">https://blog.csdn.net/chenjieit619/article/details/53421080</a>
+版权声明：本文为博主原创文章，转载请附上博文链接！
 spark.yarn.am.memory</p>
 
 <ul>

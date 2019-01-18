@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>High performance spark 2</title>
+      <link>https://pingrunhuang.github.io/blog/2018-08-03/</link>
+      <pubDate>Fri, 03 Aug 2018 00:06:28 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-08-03/</guid>
+      <description>how to use persistence level check in production val storagelevel :StorageLevel = StorageLevel.MEMORY_AND_DISK if (storagelevel != StorageLevel.None){ action.persist(storagelevel) }  Types of reuse Cache Persist  useDisk: only if the recomputation cost is too high useMemory: only when DIST_ONLY storage level is used. useOfHeap: enable RDD to be stored in an external system. deserialized: storage include the __SER suffix such as MEMORY_ONLY_SER enable serialization. replication: option that end in such as _2 .</description>
+    </item>
+    
+    <item>
       <title>Puzzles for Spark application</title>
       <link>https://pingrunhuang.github.io/blog/2018-07-31/</link>
       <pubDate>Tue, 31 Jul 2018 15:04:30 +0800</pubDate>
@@ -28,6 +37,19 @@
       <guid>https://pingrunhuang.github.io/blog/2018-07-31/</guid>
       <description>Suppose we have an RDD of key/value pairs where the key is the student names and the value is the courses that the students have chosen(which could be duplicated!!!). How to determine a set of distinct courses that each student has chosen?
  //groupByKey rdd.groupByKey(record=&amp;gt;(record._t, record._2.sum)) // 计算所有学生的选课数 val zero = new collection.mutable.Set[String]() // take in 3 parameters: val result = rdd.aggregateByKey( zero // the initial container to accept the value )( (set, v) =&amp;gt; set+=v, // an accumulator that merge values in one partition (set1, set2) =&amp;gt; set1 ++= set2 // a combiner that merge collections from different partitions )   Suppose we have an RDD of key/value pairs where the key is the receiver names of orders and value is the description of the orders.</description>
+    </item>
+    
+    <item>
+      <title>High Performance Spark 1</title>
+      <link>https://pingrunhuang.github.io/blog/2018-07-20/</link>
+      <pubDate>Fri, 20 Jul 2018 09:18:33 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-07-20/</guid>
+      <description>Spark resource allocation sparkcontext -&amp;gt; executors -&amp;gt;
+1 node can have many executors -&amp;gt; an executor cannot span multiple nodes -&amp;gt; each executor can have multiple partitions
+chapter 2 job &amp;lt;==&amp;gt; action stages &amp;lt;==&amp;gt; shuffle dependency(which means only happen in wide transformation) tasks &amp;lt;==&amp;gt; the smallest unit of the spark execution hierachy
+chapter 3  How to filter only unhappy pandas? pandaInfo.filter(pandaInfo(&amp;ldquo;happy&amp;rdquo;) !== true)
+Compare multiple columns pandaInfo.and(pandaInfo(&amp;ldquo;happy&amp;rdquo;)(0) &amp;gt; pandaInfo(&amp;ldquo;attributes&amp;rdquo;)(1))</description>
     </item>
     
     <item>
