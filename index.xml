@@ -6,10 +6,41 @@
     <description>Recent content on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 17 Jan 2019 07:33:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Apr 2019 06:47:50 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Neural network</title>
+      <link>https://pingrunhuang.github.io/blog/2019-04-10/</link>
+      <pubDate>Wed, 10 Apr 2019 06:47:50 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-04-10/</guid>
+      <description>Lost function for logistic classification:
+$$J=-\frac{1}{m} \sum_{i=0}^{m}\left(y^{(i)} \log \left(a^{[2](i)}\right)+\left(1-y^{(i)}\right) \log \left(1-a^{[2](i)}\right)\right)$$</description>
+    </item>
+    
+    <item>
+      <title>Traveling to Bali in May of 2019 </title>
+      <link>https://pingrunhuang.github.io/2019/traveling-to-bali-in-may-of-2019/</link>
+      <pubDate>Thu, 28 Mar 2019 22:23:31 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2019/traveling-to-bali-in-may-of-2019/</guid>
+      <description>Preparation Expense:  Flight round trip: 3119 rmb  Spot The main goal of this trip is to master my surfing skill. Therefore, some of the famous spots should be considered before hand.
+ the bukit cangu uluwatu kuta beach  However, visiting some vocano is also my target for this trip.
+ TUKAD CEPUNG WATERFALL UBUD MONKEY FOREST HANDARA GOLF &amp;amp; RESORT BALI SEKUMPUL WATERFALL mount batur  #!</description>
+    </item>
+    
+    <item>
+      <title>Data structure and algorithms used for the geo data processing -- part 1</title>
+      <link>https://pingrunhuang.github.io/blog/2019-02-27/</link>
+      <pubDate>Wed, 27 Feb 2019 18:06:41 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-02-27/</guid>
+      <description>Recently, I&amp;rsquo;ve been involved in a project called Pony Plus where the most part of the target is to increase the efficiency of calculation geo data(distance between point to point for example. Some classical algorithms such as dijkstra are used in the field.
+Glossary  gtfs: general transit feed specification   Questions need to be answered  given a set of points, avoid area, vehichle and some set of rules, calculate the duration from points[0] to poinsn.</description>
+    </item>
     
     <item>
       <title>Full frame camera comparison</title>
@@ -17,7 +48,7 @@
       <pubDate>Thu, 17 Jan 2019 07:33:48 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/2019/full-frame-camera-comparison/</guid>
-      <description>    Canon EOS R Sony A7 mark3 Nikon Z6 Nikon z7 canon 6d mark2 Nikon D850     time released 2018&amp;frasl;10 2017&amp;frasl;10 2018&amp;frasl;11 2018 2017 2017   type full frame mirrorless full frame mirrorless full frame mirrorless full frame mirrorless full frame DSLR full frame DSLR   price ￥13999.00 ￥16699.00 ￥16290.00 ￥23900.00     built-in stabalizatio   y y      </description>
+      <description>Canon EOS R Sony A7 mark3 Nikon Z6 Nikon z7 canon 6d mark2 Nikon D850     time released 2018&amp;frasl;10 2017&amp;frasl;10 2018&amp;frasl;11 2018 2017 2017   type full frame mirrorless full frame mirrorless full frame mirrorless full frame mirrorless full frame DSLR full frame DSLR   price ￥13999.00 ￥16699.00 ￥16290.00 ￥23900.00     built-in stabalizatio   y y     mount   z mount z mount              mega pixel   24.</description>
     </item>
     
     <item>
@@ -173,6 +204,16 @@ In this blog, I will summarize some ways to exclude
     </item>
     
     <item>
+      <title>My understanding on asynchronous programming in python</title>
+      <link>https://pingrunhuang.github.io/blog/2018-08-09/</link>
+      <pubDate>Thu, 09 Aug 2018 23:47:22 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-08-09/</guid>
+      <description>Why do we need asynchronous?  Chess master Judit Polgár hosts a chess exhibition in which she plays multiple amateur players. She has two ways of conducting the exhibition: synchronously and asynchronously. Assumptions: - 24 opponents - Judit makes each chess move in 5 seconds - Opponents each take 55 seconds to make a move - Games average 30 pair-moves (60 moves total)
+Synchronous version: Judit plays one game at a time, never two at the same time, until the game is complete.</description>
+    </item>
+    
+    <item>
       <title>python variable scope</title>
       <link>https://pingrunhuang.github.io/blog/2018-08-07/</link>
       <pubDate>Tue, 07 Aug 2018 09:46:56 +0800</pubDate>
@@ -277,11 +318,9 @@ Compare multiple columns pandaInfo.and(pandaInfo(&amp;ldquo;happy&amp;rdquo;)(0)
       
       <guid>https://pingrunhuang.github.io/blog/2018-07-09/</guid>
       <description>Suppose we have a
-spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
+for variables that are correlated  lasso regression ridge regression  spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
 spark 参数配置 &amp;ndash;conf -&amp;gt; shell parameter -&amp;gt; conf/spark-defaults.conf - num-executors - executor-cores - spark.default.parallelism - total-executor-cores
-memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%) - spark.storage.memoryFraction: cache/persist operation - spark.shuffle.memoryFraction: memory for shuffle manipulation - executor-memory: total memory for each executor - driver-memory
-参数说明：Total cores for all executors.
-作者：chenjieit619 来源：CSDN 原文：https://blog.</description>
+memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%) - spark.storage.memoryFraction: cache/persist operation - spark.shuffle.memoryFraction: memory for shuffle manipulation - executor-memory: total memory for each executor - driver-memory</description>
     </item>
     
     <item>
@@ -461,10 +500,10 @@ Richard Feyman once said: &amp;ldquo;The best way to learn knowledge is to teach
     
     <item>
       <title>1987--观后感</title>
-      <link>https://pingrunhuang.github.io/2018/1987--%E8%A7%82%E5%90%8E%E6%84%9F/</link>
+      <link>https://pingrunhuang.github.io/2018/1987-%E8%A7%82%E5%90%8E%E6%84%9F/</link>
       <pubDate>Mon, 02 Apr 2018 22:56:39 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/2018/1987--%E8%A7%82%E5%90%8E%E6%84%9F/</guid>
+      <guid>https://pingrunhuang.github.io/2018/1987-%E8%A7%82%E5%90%8E%E6%84%9F/</guid>
       <description>啊，好久没有写观后感了，记得上一次写还是小学的时候被老师逼着写完自己都不知道自己在说什么东西的观后感。但人是一个很奇怪的生物，以前反感的东西越长大却越觉得有道理。写下这篇观后感也是因为每次看完这篇电影心情久久无法平复，好像是得写下点什么来捋一捋思路，发朋友圈又写不了几个字，那就写一片博客吧。也好，开个先河，以后有时间在框架里面加一个观后感的专栏好了。
  人是健忘的，好了伤疤忘了疼的道理大家都知道，却也重复的犯着。这时候，能有人勇敢的站出来记录下真相，是一件非常了不起的事情。1987正是这样一部电影。其实1987应该就着出租车司机一起看。
 一部讲述韩国历史上反对独运动顶峰的电影
@@ -705,14 +744,14 @@ sealed regex import scala.util.matching.Regex object  function predicate val nam
     </item>
     
     <item>
-      <title>Golang learning 2</title>
+      <title>Golang learning 2 -- collection</title>
       <link>https://pingrunhuang.github.io/blog/2017-11-13/</link>
       <pubDate>Mon, 13 Nov 2017 11:16:44 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-11-13/</guid>
-      <description>一个array会包含三个信息：capacity， length还有一个指向数组头部的pointer。  初始化一个map 在go里面，map实际上是hashtable的reference，因此很多hashtable的特性他都具备。go里面的key是唯一的，因此可以作为set来使用。
-m := make(map[string] int)  也可以写成
-m := map[string] int{}  这是初始化一个empty的map，如果要初始化值，可以在大括号中加入dictionary的key/value。值得注意的是，map并不像普通的array那样，可以用&amp;amp;符号来取得其地址，因为每次加入一个元素的时候都会rehash，所以地址一直在变的。</description>
+      <description>Slice 一个slice会包含三个信息：capacity， length还有一个指向数组头部的pointer。 length must be less then capacity.
+len() to check the length, cap() to check the capacity of a slice. Let us see an example first to have some intuition:
+x := make([]int, 5, 10) // [0 0 0 0 0] x := x[:10] // [0 0 0 0 0 0 0 0 0 0] x[:12] // panic: runtime error: slice bounds out of range  From the code above, we can see that capacity is basically the golang solution for dynamic memory allocation.</description>
     </item>
     
     <item>

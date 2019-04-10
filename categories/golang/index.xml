@@ -51,14 +51,14 @@ initializing array q := […]int{1,2,3} //length are defined by the element numb
     </item>
     
     <item>
-      <title>Golang learning 2</title>
+      <title>Golang learning 2 -- collection</title>
       <link>https://pingrunhuang.github.io/blog/2017-11-13/</link>
       <pubDate>Mon, 13 Nov 2017 11:16:44 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-11-13/</guid>
-      <description>一个array会包含三个信息：capacity， length还有一个指向数组头部的pointer。  初始化一个map 在go里面，map实际上是hashtable的reference，因此很多hashtable的特性他都具备。go里面的key是唯一的，因此可以作为set来使用。
-m := make(map[string] int)  也可以写成
-m := map[string] int{}  这是初始化一个empty的map，如果要初始化值，可以在大括号中加入dictionary的key/value。值得注意的是，map并不像普通的array那样，可以用&amp;amp;符号来取得其地址，因为每次加入一个元素的时候都会rehash，所以地址一直在变的。</description>
+      <description>Slice 一个slice会包含三个信息：capacity， length还有一个指向数组头部的pointer。 length must be less then capacity.
+len() to check the length, cap() to check the capacity of a slice. Let us see an example first to have some intuition:
+x := make([]int, 5, 10) // [0 0 0 0 0] x := x[:10] // [0 0 0 0 0 0 0 0 0 0] x[:12] // panic: runtime error: slice bounds out of range  From the code above, we can see that capacity is basically the golang solution for dynamic memory allocation.</description>
     </item>
     
     <item>

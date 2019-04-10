@@ -18,11 +18,9 @@
       
       <guid>https://pingrunhuang.github.io/blog/2018-07-09/</guid>
       <description>Suppose we have a
-spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
+for variables that are correlated  lasso regression ridge regression  spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
 spark 参数配置 &amp;ndash;conf -&amp;gt; shell parameter -&amp;gt; conf/spark-defaults.conf - num-executors - executor-cores - spark.default.parallelism - total-executor-cores
-memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%) - spark.storage.memoryFraction: cache/persist operation - spark.shuffle.memoryFraction: memory for shuffle manipulation - executor-memory: total memory for each executor - driver-memory
-参数说明：Total cores for all executors.
-作者：chenjieit619 来源：CSDN 原文：https://blog.</description>
+memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%) - spark.storage.memoryFraction: cache/persist operation - spark.shuffle.memoryFraction: memory for shuffle manipulation - executor-memory: total memory for each executor - driver-memory</description>
     </item>
     
     <item>
