@@ -12,13 +12,13 @@
     
     
     <item>
-      <title>Neural network</title>
+      <title>Multilayer Neural network -- note of deeplearning.ai from coursera</title>
       <link>https://pingrunhuang.github.io/blog/2019-04-10/</link>
       <pubDate>Wed, 10 Apr 2019 06:47:50 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2019-04-10/</guid>
-      <description>Lost function for logistic classification:
-$$J=-\frac{1}{m} \sum_{i=0}^{m}\left(y^{(i)} \log \left(a^{[2](i)}\right)+\left(1-y^{(i)}\right) \log \left(1-a^{[2](i)}\right)\right)$$</description>
+      <description>Lost function for logistic classification: $$ J=-\frac{1}{m} \sum_{i=0}^{m}\left(y^{(i)} \log \left(a^{[2](i)}\right)+\left(1-y^{(i)}\right) \log \left(1-a^{[2](i)}\right)\right) $$
+Several questions to take away: forward phase: 1. what to cache in layer l? backprop phase: 1. what derivative value should be calculated for layer l? 2. what will be the output for layer l? 3. what will the input for layer l? 4. why is the update parameter work by subtracting the derivative? that is $$ \boldsymbol{W}^{[I]}=\boldsymbol{W}^{[I]}-\alpha d \boldsymbol{W}^{[I]} $$ 5.</description>
     </item>
     
   </channel>

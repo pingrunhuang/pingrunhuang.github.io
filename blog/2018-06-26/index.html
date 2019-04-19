@@ -58,11 +58,11 @@
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2019-04-10%2008%3a44%3a38.507494%20%2b0800%20CST%20m%3d%2b0.303066353">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2019-04-10%2008%3a44%3a38.507494%20%2b0800%20CST%20m%3d%2b0.303066353">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2019-04-10%2008%3a44%3a38.507494%20%2b0800%20CST%20m%3d%2b0.303066353">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2019-04-19%2017%3a34%3a18.532341%20%2b0800%20CST%20m%3d%2b0.426764442">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2019-04-19%2017%3a34%3a18.532341%20%2b0800%20CST%20m%3d%2b0.426764442">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2019-04-19%2017%3a34%3a18.532341%20%2b0800%20CST%20m%3d%2b0.426764442">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2019-04-10%2008%3a44%3a38.507494%20%2b0800%20CST%20m%3d%2b0.303066353">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2019-04-19%2017%3a34%3a18.532341%20%2b0800%20CST%20m%3d%2b0.426764442">
     
 
 
@@ -212,7 +212,7 @@
             <div class="markdown">
                 
 
-<p>最近在学习scala的时候，又一次遇到了<code>closure</code>这个词，在以前学习python装饰器的时候就已经对closure有所接触了，那时候对closure的理解还只是停留在函数中包含函数的阶段，理解可能比较片面。最近在学习scala的过程中对<code>closure</code>又有了新的认识，于是想整理成blog，顺便对<code>closure</code>做一个系统一点的总结。有兴趣的也可以看看我之前关于python装饰器的一些理解<a href="http://www.runpinghuang.top/blog/2018-06-12/">link</a>。</p>
+<p>最近在学习scala的时候，又一次遇到了<code>closure</code>这个词，在以前学习python装饰器的时候就已经对closure有所接触了，那时候对closure的理解还只是停留在函数中包含函数的阶段，理解可能比较片面。最近在学习scala的过程中对<code>closure</code>又有了新的认识，于是想整理成blog，顺便对<code>closure</code>做一个系统一点的总结。有兴趣的也可以看看我之前关于python装饰器的一些理解<a href="http://pingrunhuang.github.io/blog/2018-06-12/">link</a>。</p>
 
 <p>所以本篇文章结束之后，你将会学习到<code>closure</code>在 <strong>python</strong> 和 <strong>scala</strong> 中的差异和共性，同时也会学习到怎么利用这两门语言来实现<code>closure</code>。</p>
 
@@ -255,22 +255,6 @@ act1(1)
 
             
             
-            <section id="isso-thread"></section>
-            <script data-isso="http://www.runpinghuang.top:9090" src="http://www.runpinghuang.top:9090/js/embed.min.js" 
-            data-isso-css="true"
-            data-isso-lang="en"
-            data-isso-reply-to-self="true"
-            data-isso-require-author="true"
-            data-isso-require-email="false"
-            data-isso-max-comments-top="10"
-            data-isso-max-comments-nested="5"
-            data-isso-reveal-on-click="5"
-            data-isso-avatar="true"
-            data-isso-avatar-bg="#f0f0f0"
-            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
-            data-isso-vote="true"
-            data-vote-levels="[-5,5,15]"></script>
-            
         </div>
     </div>
 </section>
@@ -299,8 +283,26 @@ act1(1)
   gtag('config', 'UA-125392221-1');
 </script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
 </script>
+    
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 
 </body>
 </html>

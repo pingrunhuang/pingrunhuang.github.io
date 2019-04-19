@@ -12,13 +12,13 @@
     
     
     <item>
-      <title>Neural network</title>
+      <title>Multilayer Neural network -- note of deeplearning.ai from coursera</title>
       <link>https://pingrunhuang.github.io/blog/2019-04-10/</link>
       <pubDate>Wed, 10 Apr 2019 06:47:50 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2019-04-10/</guid>
-      <description>Lost function for logistic classification:
-$$J=-\frac{1}{m} \sum_{i=0}^{m}\left(y^{(i)} \log \left(a^{[2](i)}\right)+\left(1-y^{(i)}\right) \log \left(1-a^{[2](i)}\right)\right)$$</description>
+      <description>Lost function for logistic classification: $$ J=-\frac{1}{m} \sum_{i=0}^{m}\left(y^{(i)} \log \left(a^{[2](i)}\right)+\left(1-y^{(i)}\right) \log \left(1-a^{[2](i)}\right)\right) $$
+Several questions to take away: forward phase: 1. what to cache in layer l? backprop phase: 1. what derivative value should be calculated for layer l? 2. what will be the output for layer l? 3. what will the input for layer l? 4. why is the update parameter work by subtracting the derivative? that is $$ \boldsymbol{W}^{[I]}=\boldsymbol{W}^{[I]}-\alpha d \boldsymbol{W}^{[I]} $$ 5.</description>
     </item>
     
     <item>
@@ -27,9 +27,7 @@ $$J=-\frac{1}{m} \sum_{i=0}^{m}\left(y^{(i)} \log \left(a^{[2](i)}\right)+\left(
       <pubDate>Thu, 28 Mar 2019 22:23:31 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/2019/traveling-to-bali-in-may-of-2019/</guid>
-      <description>Preparation Expense:  Flight round trip: 3119 rmb  Spot The main goal of this trip is to master my surfing skill. Therefore, some of the famous spots should be considered before hand.
- the bukit cangu uluwatu kuta beach  However, visiting some vocano is also my target for this trip.
- TUKAD CEPUNG WATERFALL UBUD MONKEY FOREST HANDARA GOLF &amp;amp; RESORT BALI SEKUMPUL WATERFALL mount batur  #!</description>
+      <description>Preparation Expense:  Flight round trip: 3119 rmb + 60 rmb taxi accomadation: 26-28 289 rmb  plan  4&amp;frasl;27: 5:45 beijing capital airpot T2, 12:05 arrived, surfing in the afternoon 4&amp;frasl;28: (batur hiking for sunrise)[https://www.klook.com/zh-CN/activity/7797-mount-batur-sunrise-trekking-bali/?krt=r22&amp;amp;krid=ceac5b0c-54ed-4d5b-5002-c97fcf2bc148] 4&amp;frasl;29: surfing at the morning (uluwatu黄昏)[https://www.klook.com/zh-CN/activity/153-uluwatu-temple-sunset-kecak-fire-dance-bali/?krt=r22&amp;amp;krid=ceac5b0c-54ed-4d5b-5002-c97fcf2bc148] 4&amp;frasl;30: surfing 4&amp;frasl;30: (east nusa)[https://www.klook.com/zh-CN/activity/15917-east-nusa-penida-day-trip-bali/] 5&amp;frasl;1: 5&amp;frasl;2: 5&amp;frasl;3: 19:55飞机登巴萨国际机场D，4:20到达北京  Spot The main goal of this trip is to master my surfing skill. Therefore, some of the famous spots should be considered before hand.</description>
     </item>
     
     <item>
