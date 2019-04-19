@@ -12,6 +12,54 @@
     
     
     <item>
+      <title>How to improve your neural net -- note of deeplearning.ai from coursera </title>
+      <link>https://pingrunhuang.github.io/blog/2019-04-19/</link>
+      <pubDate>Fri, 19 Apr 2019 07:16:06 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-04-19/</guid>
+      <description>Regularization Problems  what is high bias and high variance?
+  High bias: meaning training data performance problems  bigger neural net train longer different architect  High variance: meaning dev set performance problems aka overfitting  need more data: develop the train / dev / test set. regularization: weight decay   in order to prevent overfitting, one should keep the weight low
+Regularization in Logistic regression Regularization in Neural Net L1 regu L2 regu</description>
+    </item>
+    
+    <item>
+      <title>pgrouting note</title>
+      <link>https://pingrunhuang.github.io/blog/2019-04-17/</link>
+      <pubDate>Wed, 17 Apr 2019 17:36:51 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-04-17/</guid>
+      <description>pgrouting vertion: 2.6.2 首先呢，在很多blog里面也说了，pgrouting不单单可以用在路径选择问题上，只要对cost和reverse_cost做相应的取值改变，就可以做很多其他事情，比如在很多套餐组合中，怎么选取脂肪量最低的组合等等。
+ Terminology route：路网数据里面表示某条路，例如北三环路。 link: 或称为segment，将路切分成小的部分。
+create topology pgr_createtopology: pgr_createtopology(text edge_table, double precision tolerance, text the_geom:=&#39;the_geom&#39;, text id:=&#39;id&#39;, text source:=&#39;source&#39;,text target:=&#39;target&#39;, text rows_where:=&#39;true&#39;, boolean clean:=false)
+ edge_table: text Network table name. (may contain the schema name AS well) tolerance: float8 Snapping tolerance of disconnected edges. (in projection unit) the_geom: text Geometry column name of the network table. Default value is the_geom. id: text Primary key column name of the network table.</description>
+    </item>
+    
+    <item>
+      <title>k8s first try</title>
+      <link>https://pingrunhuang.github.io/blog/2019-04-16/</link>
+      <pubDate>Tue, 16 Apr 2019 19:47:25 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-04-16/</guid>
+      <description>Template for defining yaml file for orchestration:
+apiVersion: v1 kind: Pod/Deployment metadata: name: labels: app: web Spec: replicas: 2 containers: - name: image: command: args: workingDir: ports: env: resources: volumeMounts: livenessProbe: readinessProbe: lifecycle: terminationMessagePath: imagePullPolicy: securityContext: stdin: stdinOnce: tty:   use kubectl explain  to check out term
+ storage template for defining storage.yaml:
+kind: StorageClass apiVersion: storage.k8s.io/v1 metadata: name: jupyterhub-share namespace: jhub provisioner: kubernetes.io/no-provisioner   what is the relationship between pv, pvc and storage?</description>
+    </item>
+    
+    <item>
+      <title>Postgis note</title>
+      <link>https://pingrunhuang.github.io/blog/2019-04-15/</link>
+      <pubDate>Mon, 15 Apr 2019 09:30:51 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-04-15/</guid>
+      <description>什么是postgis postgis是基于postgresql开发的专门用于查询地理数据的插件。能够用sql语句实现很多原先需要很多复杂计算逻辑的地理数据查询功能，比如点和点之间的距离，路的长度，区域的面积等。
+术语 SRID: spatial reference identifier，也就是我们平常说的坐标系统。 WKT: well-known text，postgis的基本数据的二进制数据的字符串表示。 WKB: well-known binary，postgis中真正保存的二进制数据。
+基本数据类型 Geometry 其他地理数据的泛化类型，包含SRID表示该类型的地理数据在什么样的地理坐标系下。
+Point: 几种得到point的方法 1. ST_GeographyFromText(&#39;SRID=4326;POINT(-43.23456 72.4567772)&#39; 2. &#39;POINT(0 0)&#39;::geometry作为函数的参数快速生成点。 3. ST_StartPoint(the_geom)给定某条线形geometry，得到开始点。 4. ST_EndPoint(the_geom)得到终止点。 5. ST_POINT(2.5,2.5)快速得到一个点 示例: SELECT AddGeometryColumn(&amp;lsquo;public&amp;rsquo;, &amp;lsquo;my_geometries&amp;rsquo;, &amp;lsquo;my_points&amp;rsquo;, -1, &amp;lsquo;POINT&amp;rsquo;, 2); call AddGeometryColumn function to add column called my_points with geometry type of POINT with 2 dimensions and srid is -1 INSERT INTO my_geometries (name,my_points) VALUES (&amp;lsquo;Home&amp;rsquo;,ST_GeomFromText(&amp;lsquo;POINT(0 0)&amp;rsquo;));
+Linestring: 几种实例化Linestring的方法： 1. &#39;LINESTRING ( 0 0, 0 2 )&#39;::geometry 2.</description>
+    </item>
+    
+    <item>
       <title>Multilayer Neural network -- note of deeplearning.ai from coursera</title>
       <link>https://pingrunhuang.github.io/blog/2019-04-10/</link>
       <pubDate>Wed, 10 Apr 2019 06:47:50 +0800</pubDate>
@@ -19,6 +67,19 @@
       <guid>https://pingrunhuang.github.io/blog/2019-04-10/</guid>
       <description>Lost function for logistic classification: $$ J=-\frac{1}{m} \sum_{i=0}^{m}\left(y^{(i)} \log \left(a^{[2](i)}\right)+\left(1-y^{(i)}\right) \log \left(1-a^{[2](i)}\right)\right) $$
 Several questions to take away: forward phase: 1. what to cache in layer l? backprop phase: 1. what derivative value should be calculated for layer l? 2. what will be the output for layer l? 3. what will the input for layer l? 4. why is the update parameter work by subtracting the derivative? that is $$ \boldsymbol{W}^{[I]}=\boldsymbol{W}^{[I]}-\alpha d \boldsymbol{W}^{[I]} $$ 5.</description>
+    </item>
+    
+    <item>
+      <title>Computational Thinking for Problem Solving</title>
+      <link>https://pingrunhuang.github.io/blog/2019-03-14/</link>
+      <pubDate>Thu, 14 Mar 2019 07:38:35 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-03-14/</guid>
+      <description>Starting from today, I decided to start learning courses in coursera and get some note about the coursed that I took.
+Starting from the first one is Computational Thinking for Problem Solving.
+In our daily life, we are facing different problems and in order to solve them, computational thinking could be a suitable way to do that.
+ decomposition: devide a huge problem to sub managable problems.
+ pattern recognition: finding similarities in sub problems.</description>
     </item>
     
     <item>

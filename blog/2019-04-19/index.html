@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="Regularization Problems  what is high bias and high variance?
+  High bias: meaning training data performance problems  bigger neural net train longer different architect  High variance: meaning dev set performance problems aka overfitting  need more data: develop the train / dev / test set. regularization: weight decay   in order to prevent overfitting, one should keep the weight low
+Regularization in Logistic regression Regularization in Neural Net L1 regu L2 regu">
+
+<meta property="og:title" content="How to improve your neural net -- note of deeplearning.ai from coursera " />
+<meta property="og:description" content="Regularization Problems  what is high bias and high variance?
+  High bias: meaning training data performance problems  bigger neural net train longer different architect  High variance: meaning dev set performance problems aka overfitting  need more data: develop the train / dev / test set. regularization: weight decay   in order to prevent overfitting, one should keep the weight low
+Regularization in Logistic regression Regularization in Neural Net L1 regu L2 regu" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2019-04-19/" />
+<meta property="article:published_time" content="2019-04-19T07:16:06&#43;08:00"/>
+<meta property="article:modified_time" content="2019-04-19T07:16:06&#43;08:00"/>
+
+
+<title>
+
+
+     How to improve your neural net -- note of deeplearning.ai from coursera  
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2019-04-19/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2019-04-19%2017%3a39%3a52.675755%20%2b0800%20CST%20m%3d%2b0.427843876">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2019-04-19%2017%3a39%3a52.675755%20%2b0800%20CST%20m%3d%2b0.427843876">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2019-04-19%2017%3a39%3a52.675755%20%2b0800%20CST%20m%3d%2b0.427843876">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2019-04-19%2017%3a39%3a52.675755%20%2b0800%20CST%20m%3d%2b0.427843876">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    How to improve your neural net -- note of deeplearning.ai from coursera 
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Fri Apr 19 2019 07:16:06 CST'>Apr 19, 2019</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h1 id="regularization">Regularization</h1>
+
+<h2 id="problems">Problems</h2>
+
+<blockquote>
+<p>what is high bias and high variance?</p>
+</blockquote>
+
+<ol>
+<li>High bias: meaning training data performance problems
+
+<ol>
+<li>bigger neural net</li>
+<li>train longer</li>
+<li>different architect</li>
+</ol></li>
+<li>High variance: meaning dev set performance problems aka overfitting
+
+<ol>
+<li>need more data: develop the train / dev / test set.</li>
+<li>regularization: weight decay</li>
+</ol></li>
+</ol>
+
+<p>in order to prevent overfitting, one should keep the weight low</p>
+
+<h2 id="regularization-in-logistic-regression">Regularization in Logistic regression</h2>
+
+<h2 id="regularization-in-neural-net">Regularization in Neural Net</h2>
+
+<p>L1 regu
+L2 regu</p>
+
+<h2 id="why-regularization-prevent-overfitting">Why regularization prevent overfitting</h2>
+
+<p>Recall the distribution of the activate function, when the lambda is relative large which means penalize the weight so that the <code>W</code> is relatively small. This will cause the result of the linear function to near by 0 which will cause the input space of the <code>activation</code> function around 0. Wheras the distribution around 0 is almost linear.</p>
+
+<p>Tips: turn off the regularization part off when debuggin until it is bug free.</p>
+
+<h2 id="dropout-rugularization">Dropout rugularization</h2>
+
+<p>drop out some of the neurons in each hidden layer randomly.</p>
+
+<h3 id="inverted-dropout">Inverted dropout</h3>
+
+<p>here is the implementation:</p>
+
+<pre><code class="language-python">dropout[l] = np.random.rand(a[l].shape(0), a[l].shape(1))&lt;keep_prob # (1)
+a[l] = np.multiply(a[l], d[l]) # (2)
+a[l] /= keep_prob # (3)
+</code></pre>
+
+<p>For (1), keep_prob is the ratio to keep the number of neurons.
+Reason for (3) is <code>z[l+1] = W[l+1] * a[l] + b[l+1]</code>, in order to let <code>z[l+1]</code> stay still, we need to bump up the value of a with keep_prob. This is called the inverted dropout.</p>
+
+<h3 id="in-test-phase">In test phase</h3>
+
+<p>Don&rsquo;t use dropout for the sake of testing.</p>
+
+<h2 id="why-dropout-work">Why dropout work?</h2>
+
+<p>Essentially, the low value of weight caused the overfitting. So we need to figure out a way of lowering down the value of weight.
+Intuition:
+eliminate some of the neuron randomly so that the network need to expand out the weights.</p>
+
+<p>Thought: the regularization is used for the backprop phase cause it essentially just change the value of cost function <code>J</code>? (for adjusting the weight)</p>
+
+<h1 id="other-regularization-tech">Other regularization tech</h1>
+
+<ol>
+<li>Data augmentation: rotate the image, zoom in image, flip image(for image processing)</li>
+<li>Early stopping: iterate not that much.</li>
+</ol>
+
+<h1 id="normalization">Normalization</h1>
+
+<p>##</p>
+
+<h2 id="why-normalize-features">Why normalize features?</h2>
+
+<p>target: transform the input feature into similar range (variance). This will make cost function easier or faster to converge.</p>
+
+<h2 id="gradients-vanishing-and-exploding">Gradients vanishing and exploding</h2>
+
+<h2 id="different-ways-for-init-w">Different ways for init w</h2>
+
+<p><code>W[l] = np.random.rand(n[l-1]) * np.sqrt(2/n[l-1])</code> for RELU as activation function. Others like <code>Xavier initialization</code>.</p>
+
+<h2 id="backprop-check">backprop check</h2>
+
+<p>For the parameter space <code>W[0],b[0],W[1],b[1]......W[n[l]],b[n[l]]</code>, reshape and concate them into a huge vector <code>theta</code>. Moreover, turns the <code>J(W,b)</code> into <code>J(theta)</code></p>
+
+<pre><code class="language-python">epsilon = 0.001
+
+for i in range(len(theta)):
+    d_theta[i] = (J(theta[i]+epsilon)-J(theta[i]+epsilon)) / (2*epsilon)
+</code></pre>
+
+<p>check if <code>np.sqrt((d_theta[i] - theta[i])**2) / np.sqrt(d_theta[i]**2) - np.sqrt(theta[i]**2)</code> is smaller then some acceptable small value.</p>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125392221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125392221-1');
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+    
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>
+

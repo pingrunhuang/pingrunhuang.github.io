@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Coursera on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/coursera/</link>
+    <description>Recent content in Coursera on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 14 Mar 2019 07:38:35 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/coursera/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Computational Thinking for Problem Solving</title>
+      <link>https://pingrunhuang.github.io/blog/2019-03-14/</link>
+      <pubDate>Thu, 14 Mar 2019 07:38:35 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-03-14/</guid>
+      <description>Starting from today, I decided to start learning courses in coursera and get some note about the coursed that I took.
+Starting from the first one is Computational Thinking for Problem Solving.
+In our daily life, we are facing different problems and in order to solve them, computational thinking could be a suitable way to do that.
+ decomposition: devide a huge problem to sub managable problems.
+ pattern recognition: finding similarities in sub problems.</description>
+    </item>
+    
+  </channel>
+</rss>

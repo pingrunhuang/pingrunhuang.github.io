@@ -6,10 +6,31 @@
     <description>Recent content in Machine Learning on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 09 Jul 2018 08:05:03 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 19 Apr 2019 07:16:06 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to improve your neural net -- note of deeplearning.ai from coursera </title>
+      <link>https://pingrunhuang.github.io/blog/2019-04-19/</link>
+      <pubDate>Fri, 19 Apr 2019 07:16:06 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-04-19/</guid>
+      <description>Regularization Problems  what is high bias and high variance?
+  High bias: meaning training data performance problems  bigger neural net train longer different architect  High variance: meaning dev set performance problems aka overfitting  need more data: develop the train / dev / test set. regularization: weight decay   in order to prevent overfitting, one should keep the weight low
+Regularization in Logistic regression Regularization in Neural Net L1 regu L2 regu</description>
+    </item>
+    
+    <item>
+      <title>Multilayer Neural network -- note of deeplearning.ai from coursera</title>
+      <link>https://pingrunhuang.github.io/blog/2019-04-10/</link>
+      <pubDate>Wed, 10 Apr 2019 06:47:50 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-04-10/</guid>
+      <description>Lost function for logistic classification: $$ J=-\frac{1}{m} \sum_{i=0}^{m}\left(y^{(i)} \log \left(a^{[2](i)}\right)+\left(1-y^{(i)}\right) \log \left(1-a^{[2](i)}\right)\right) $$
+Several questions to take away: forward phase: 1. what to cache in layer l? backprop phase: 1. what derivative value should be calculated for layer l? 2. what will be the output for layer l? 3. what will the input for layer l? 4. why is the update parameter work by subtracting the derivative? that is $$ \boldsymbol{W}^{[I]}=\boldsymbol{W}^{[I]}-\alpha d \boldsymbol{W}^{[I]} $$ 5.</description>
+    </item>
     
     <item>
       <title>My thougts about Linear Regression</title>

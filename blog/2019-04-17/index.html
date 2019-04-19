@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="pgrouting vertion: 2.6.2 首先呢，在很多blog里面也说了，pgrouting不单单可以用在路径选择问题上，只要对cost和reverse_cost做相应的取值改变，就可以做很多其他事情，比如在很多套餐组合中，怎么选取脂肪量最低的组合等等。
+ Terminology route：路网数据里面表示某条路，例如北三环路。 link: 或称为segment，将路切分成小的部分。
+create topology pgr_createtopology: pgr_createtopology(text edge_table, double precision tolerance, text the_geom:=&#39;the_geom&#39;, text id:=&#39;id&#39;, text source:=&#39;source&#39;,text target:=&#39;target&#39;, text rows_where:=&#39;true&#39;, boolean clean:=false)
+ edge_table: text Network table name. (may contain the schema name AS well) tolerance: float8 Snapping tolerance of disconnected edges. (in projection unit) the_geom: text Geometry column name of the network table. Default value is the_geom. id: text Primary key column name of the network table.">
+
+<meta property="og:title" content="pgrouting note" />
+<meta property="og:description" content="pgrouting vertion: 2.6.2 首先呢，在很多blog里面也说了，pgrouting不单单可以用在路径选择问题上，只要对cost和reverse_cost做相应的取值改变，就可以做很多其他事情，比如在很多套餐组合中，怎么选取脂肪量最低的组合等等。
+ Terminology route：路网数据里面表示某条路，例如北三环路。 link: 或称为segment，将路切分成小的部分。
+create topology pgr_createtopology: pgr_createtopology(text edge_table, double precision tolerance, text the_geom:=&#39;the_geom&#39;, text id:=&#39;id&#39;, text source:=&#39;source&#39;,text target:=&#39;target&#39;, text rows_where:=&#39;true&#39;, boolean clean:=false)
+ edge_table: text Network table name. (may contain the schema name AS well) tolerance: float8 Snapping tolerance of disconnected edges. (in projection unit) the_geom: text Geometry column name of the network table. Default value is the_geom. id: text Primary key column name of the network table." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2019-04-17/" />
+<meta property="article:published_time" content="2019-04-17T17:36:51&#43;08:00"/>
+<meta property="article:modified_time" content="2019-04-17T17:36:51&#43;08:00"/>
+
+
+<title>
+
+
+     pgrouting note 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2019-04-17/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2019-04-19%2017%3a39%3a52.675064%20%2b0800%20CST%20m%3d%2b0.427152754">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2019-04-19%2017%3a39%3a52.675064%20%2b0800%20CST%20m%3d%2b0.427152754">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2019-04-19%2017%3a39%3a52.675064%20%2b0800%20CST%20m%3d%2b0.427152754">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2019-04-19%2017%3a39%3a52.675064%20%2b0800%20CST%20m%3d%2b0.427152754">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    pgrouting note
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Wed Apr 17 2019 17:36:51 CST'>Apr 17, 2019</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<blockquote>
+<p>pgrouting vertion: 2.6.2
+首先呢，在很多blog里面也说了，pgrouting不单单可以用在路径选择问题上，只要对cost和reverse_cost做相应的取值改变，就可以做很多其他事情，比如在很多套餐组合中，怎么选取脂肪量最低的组合等等。</p>
+</blockquote>
+
+<h1 id="terminology">Terminology</h1>
+
+<p>route：路网数据里面表示某条路，例如北三环路。
+link: 或称为segment，将路切分成小的部分。</p>
+
+<h2 id="create-topology">create topology</h2>
+
+<p>pgr_createtopology:
+<code>pgr_createtopology(text edge_table, double precision tolerance,
+                   text the_geom:='the_geom', text id:='id',
+                   text source:='source',text target:='target',
+                   text rows_where:='true', boolean clean:=false)</code></p>
+
+<blockquote>
+<p>edge_table: text Network table name. (may contain the schema name AS well)
+tolerance: float8 Snapping tolerance of disconnected edges. (in projection unit)
+the_geom: text Geometry column name of the network table. Default value is the_geom.
+id: text Primary key column name of the network table. Default value is id.
+source: text Source column name of the network table. Default value is source.
+target: text Target column name of the network table. Default value is target.
+rows_where: text Condition to SELECT a subset or rows. Default value is true to indicate all rows that where source or target have a null value, otherwise the condition is used.
+clean: boolean Clean any previous topology. Default value is false.</p>
+</blockquote>
+
+<ul>
+<li>before creating topology: better add index to source and target column</li>
+<li>to get length: could use st_length(geom)</li>
+<li>Don’t limit yourself to solving problems involving time and distance. For example, you can easily download a table of calories from your local McDonald’s, group the food items into sandwiches, drinks, and sides, and ask the question of the least fattening meal you can consume
+provided that you must order something from each group—the McRouting problem.</li>
+</ul>
+
+<h3 id="routing">Routing</h3>
+
+<ul>
+<li><p>pgr_createTopology
+在进行路径选择之前需要建立建立的拓扑结构。</p></li>
+
+<li><p>pgr_dijkstra</p>
+
+<pre><code>create extension postgis;
+create extension pgrouting;
+CREATE TABLE edge_table (
+id BIGSERIAL,
+dir character varying,
+source BIGINT,
+target BIGINT,
+cost FLOAT,
+reverse_cost FLOAT,
+x1 FLOAT,
+y1 FLOAT,
+x2 FLOAT,
+y2 FLOAT,
+the_geom geometry
+);
+</code></pre></li>
+
+<li><p>pgr_contractGraph
+在进行长距离，比如说跨省份的路径选择的时候，需要使用<code>contraction hierarchy</code>算法进行更高效的计算，这时候需要提前进行图上面点的contract操作。<br />
+函数声明：pgr_contractGraph(edges_sql, contraction_order)</p>
+
+<ul>
+<li><code>contraction_order</code>: Ordered contraction operations.1 = Dead end contraction, 2 = Linear contraction</li>
+<li><code>forbidden_vertices</code>:</li>
+<li><code>max_cycles</code>:</li>
+<li><code>directed</code>: When true the graph is considered as Directed. When false the graph is considered as Undirected.</li>
+</ul></li>
+</ul>
+
+<h3 id="常见的地理数据计算场景">常见的地理数据计算场景</h3>
+
+<ol>
+<li>计算两个geometry之间是否相交: <code>SELECT ST_Intersects(geometry geomA , geometry geomB);</code>，返回<code>t</code>代表相交，返回<code>f</code>代表不相交。</li>
+<li>计算距离某个geometry的所有点: <code>geometry ST_Buffer(geometry g1, float radius_of_buffer);</code></li>
+<li>计算两点的夹角: <code>SELECT degrees(ST_Azimuth(ST_Point(25, 45), ST_Point(75, 100))) AS degA_B;</code>，假设结果是pi/2，表示第一个点的从北边顺时针转90度即可得到第二个点所在的方位。</li>
+<li>给定两个点的坐标，找出两个点之间的路径:</li>
+<li>找出前k个最短的距离: <code>pgr_ksp(edges_sql, start_vid, end_vid, K);</code></li>
+<li>计算行车距离: <code>pgr_drivingDistance(edges_sql:required, start_vids:required, distance:required, directed, equicost)</code>在给定distance的条件下得到所有cost小于该distance的所有点。</li>
+<li>根据地址名称，返回对应的经纬度:</li>
+<li>根据尾号禁行：</li>
+</ol>
+
+<h3 id="需要解决的一些问题">需要解决的一些问题</h3>
+
+<p>假设我们从四维购买的导航数据最终希望达到高德实现的功能，或者能够实现高德部分能提供的服务，那我们需要
+1. 禁行路线，禁行区域和尾号禁行怎么在计算路径的时候体现
+2. 车型的速度限制
+3. 根据地址名称，找到对应的经纬度
+4. 分时段的信息如何加入routing？
+5. 路径的可行方向如何影响最终的道路cost？
+6. 正向可行的cost定义？
+7. 逆向可行的cost定义？
+8. 双向可行的cost定义？
+9. 如何解决路径的起始点和终止点不在路网的问题？</p>
+
+<h3 id="使用到的算法">使用到的算法</h3>
+
+<ol>
+<li>a* algorithms</li>
+<li>ch algorithms</li>
+<li>dijkstra algorithms</li>
+</ol>
+
+<p>问题拆解：</p>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125392221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125392221-1');
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+    
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>
+
