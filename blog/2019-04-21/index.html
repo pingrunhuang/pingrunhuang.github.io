@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="This week&rsquo;s topic is about speeding up the learning process.
+Mini batch epoch: a single run through the whole training examples. If we are using mini batch technique with T batches, we will run T times of gradient descent wheras without mini batch, we will get only 1 time of gradient descent.
+Notation $$ a^{[l]\{t\}(m)} $$ means the the activation value of m examples in t minibatch in lth layer.">
+
+<meta property="og:title" content="How to improve your neural net week 2: note of deeplearning.ai from coursera" />
+<meta property="og:description" content="This week&rsquo;s topic is about speeding up the learning process.
+Mini batch epoch: a single run through the whole training examples. If we are using mini batch technique with T batches, we will run T times of gradient descent wheras without mini batch, we will get only 1 time of gradient descent.
+Notation $$ a^{[l]\{t\}(m)} $$ means the the activation value of m examples in t minibatch in lth layer." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2019-04-21/" />
+
+
+
+<meta property="article:published_time" content="2019-04-21T12:46:43&#43;08:00"/>
+<meta property="article:modified_time" content="2019-04-21T12:46:43&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     How to improve your neural net week 2: note of deeplearning.ai from coursera 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2019-04-21/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.548088702%20%2b0800%20CST%20m%3d%2b0.970070789">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.548088702%20%2b0800%20CST%20m%3d%2b0.970070789">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.548088702%20%2b0800%20CST%20m%3d%2b0.970070789">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.548088702%20%2b0800%20CST%20m%3d%2b0.970070789">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    How to improve your neural net week 2: note of deeplearning.ai from coursera
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sun Apr 21 2019 12:46:43 CST'>Apr 21, 2019</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>3 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>This week&rsquo;s topic is about speeding up the learning process.</p>
+
+<h1 id="mini-batch">Mini batch</h1>
+
+<p>epoch: a single run through the whole training examples. If we are using mini batch technique with T batches, we will run T times of gradient descent wheras without mini batch, we will get only 1 time of gradient descent.</p>
+
+<h3 id="notation">Notation</h3>
+
+<p><code>$$ a^{[l]\{t\}(m)} $$</code> means the the activation value of <strong>m</strong> examples in <strong>t</strong> minibatch in <strong>lth</strong> layer.</p>
+
+<h3 id="how-to-choose-the-size-for-each-batch">How to choose the size for each batch?</h3>
+
+<p>Recall in the previous note when we implement a deep nn with all the examples stack up to a matrix, it is actually a indicating we are using <code>m</code> as the mini batch size. Here we introduce 2 types of batch:<br />
+1. stochastic gradient descent: the size of each batch is 1.<br />
+2. batch gradient descent: <code>1 &lt; batch size &lt;= m</code></p>
+
+<blockquote>
+<p>Choose <code>2^6</code>, <code>2^7</code>, <code>2^8</code> in practice.</p>
+</blockquote>
+
+<p>Choosing a right batch size is vital for cost function to fall down to local optimal. This lead to another optimization technique taught by andrew called momentum.</p>
+
+<h1 id="gradient-descent-with-momentum">Gradient descent with momentum</h1>
+
+<p>Suppose we have a huge amount of time series dataset</p>
+
+<p><img src="https://pingrunhuang.github.io/blog/2019-04-21/cost&amp;#32;function.png" alt="" /></p>
+
+<p><code>$$ (1-\beta)^{1\over\beta} ={1 \over \exp} $$</code> this is saying we are decaying <code>$$ {1\over\beta} $$</code> units of previous average data as the current value.</p>
+
+<pre><code class="language-python">v = 0
+beta = 0.9 # adjust the value of beta for tuning how many days you want as your time window.
+for i in range(1, len(examples)):
+    v = beta * v + (1-beta)*examples[i-1]
+</code></pre>
+
+<p>this is just an estimation for calculating the average value in the previous <code>$$ {1\over\beta} $$</code> units.
+<code>$$ \begin{array}{l}{v_{d W}=\beta v_{d W}+(1-\beta) d W} \\ {v_{d b}=\beta v_{d b}+(1-\beta) d b} \\ {W=W-\alpha v_{d W}, \quad b=b-\alpha v_{d b}}\end{array} $$</code>
+the larger <code>$$ {v_{d W}=\beta v_{d W}+(1-\beta) d W} $$</code> this term is, the greater the oscillation the gradient descent will get. Otherwise, the lesser. When <code>beta</code> is 0, this equation is actually traditional gradient descent.</p>
+
+<h3 id="what-is-the-relationship-between-beta-and-the-gradient-descent">What is the relationship between beta and the gradient descent?</h3>
+
+<h3 id="problems">Problems</h3>
+
+<p>For i = 0, 1, 2 &hellip; which in the early stage, the estimated value will cause large bias from the actual value. Since we have <code>$$ v_{t}=\beta v_{t-1}+(1-\beta) \theta_{t} $$</code>, for t == 0, we have v = 0. To avoid this, we let <code>$$ v \over (1-\beta^{t}) $$</code></p>
+
+<p>This whole process is actually called <code>Exponentially weighted averages</code> or <code>exponentially moving averages</code>. We can apply this to gradient descent. This is how momentum work, to avoid huge oscillations due to the large value of learning rate. !(source code of implementation here)[]</p>
+
+<h1 id="rmsprop-root-mean-square-prop">RMSprop(root mean square prop)</h1>
+
+<p>apply the</p>
+
+<h1 id="adam-optimization">Adam optimization</h1>
+
+<p>combine momentum and RMSprop and bias correction together.</p>
+
+<p>Hyperparameter choise:</p>
+
+<pre><code class="language-python">alpha = # need to be tuned
+beta1 = 0.9
+beta2 = 0.99
+epsilon = 10 ** (-8)
+</code></pre>
+
+<h1 id="learning-rate-decay">Learning rate decay</h1>
+
+<p>reduce learning rate alpha gradually for converge to local optimal.</p>
+
+<h1 id="problem-with-local-optima">Problem with local optima</h1>
+
+<p>andrew claim we don&rsquo;t need to worry about the bad local optima problem for nn.</p>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125392221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125392221-1');
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+    
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>
+

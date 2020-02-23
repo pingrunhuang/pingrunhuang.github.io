@@ -6,10 +6,20 @@
     <description>Recent content in Blockchain on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 23 Dec 2017 11:43:39 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 20 Feb 2020 16:10:54 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/categories/blockchain/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My first step into the crytp world</title>
+      <link>https://pingrunhuang.github.io/blog/2020-02-20/</link>
+      <pubDate>Thu, 20 Feb 2020 16:10:54 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2020-02-20/</guid>
+      <description>In 2019, I started a position as a quant developer in crypto.com. So half of the year later, in 2020, I decided to actually stacking my own money into trading crypto. See how the return rate will be at the end of this year.
+ Memorial moment of my first BTC purchase How it goes? I&amp;rsquo;m living in China which means the alternative exchange to purchase btc is pretty limit.</description>
+    </item>
     
     <item>
       <title>My understanding on blockchain so far</title>

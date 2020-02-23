@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="年轻也许就是一个不断尝试的过程，无关乎结果的好坏
+ 没错，当你们看到我现在写的这篇博客的时候，我应该已经至少在我自己的层面做了辞职的决定，剩下的只是information和negotiation了。做这个决定不是冲动的，是一次又一次聆听自己内心声音而产生的决定。辞职并不是因为老东家有多不好，相反的，老东家真的很好，是一家真正在干实事的公司。但是很多时候能否一起共事就像谈恋爱一样，只有合不合适而已。如何判断合适不合适其实很简单，看核心业务是不是你有想法的而且有能力或者愿意后半生在这上面倾注心血的赛道。如果到了三四十岁才来尝试这些问题就太晚了，越是工作我越发现快速尝试快速失败才是这个时代的人或者公司应该抱有的态度。
+ so far我的职业生涯路线图 1. 业务技术都只是皮毛，先把自己扔进去再说 2. 业务还是不懂，技术到了中级水平，去试一下呗 3. 业务懂，技术有对应的方案可以实现，上!
+ 其实从我的职业生涯开始，我就一直在创业公司中工作，我觉得从创业公司的人身上能够看到很多创业者应该有的品质，如果所处的员工是一种创自己的事业的精神面貌在对待工作，那这家公司多半能够成功，否则公司也只会不温不火。
+工作了两年的时间里，终于有机会负责一个项目从头开始，但是说实话是一个比较坑的项目&ndash;GIS导航。
+两个问题 1. 如果是刚入职场两年的你会怎么应对gis这个问题 2. 如果你的家人不在北京，你会因为什么原因在一家不起眼的初创公司异地办公
+整个项目最终没有下文难道作为团队leader的你没有责任么？为什么一开始不把整个问题的复杂性先想好呢？
+项目初期一定要定义好问题的边界，哪些能做哪些不能做，哪些应该做哪些不是我要做的。这些问题是工作之后才发现的，其实有时候领导就想知道这个问题能不能解决，能解决的话需要多少人力，需要什么样的人来做，不能解决的话为什么。而不是一定要把这件事做出来，而是一定要有根据的阐述这个问题为什么不能做。
+对于地理导航数据这个项目来说，其实我的本意也是想利用地理数据庞大的计算和数据，最终是能跟spark或者我们目前使用的aws的emr进行结合，但是没想到中间有这么多坑，而且大家都对gis数据相当抵触，根本找不到人可以帮忙，我自己也相当痛苦。 这次的事情也同时让我学到了很多，包括想要从业务反推大数据的应用这个想法，其实如果从领导层对大数据的不care到反推其实是个很困难的过程。
+有个细节，我记得有一次是在我们三个人的群里面，我是一直在提出一些技术问题，得不到解决的，我记得当时你的反馈是这种太细节的东西可以不用问我，那我其实这些也不懂啊，我一般是找过资料之后找不到解决方案才在群里面说话的，我觉得领导应该是在知道问题之后，如果找不到合适的人请教的话应该决定这个项目到底要不要终止。
+再者，我觉得这种摇摆不定，不确定因素太多的项目更需要一个经验多的负责人带队，这个经验多并不一定是技术多么牛，而是业务上了解我们到底需不需要这些东西。我认为我在这个项目做了我应该做的事情了，想问一下你，如果是你在我这个年龄的时候你会选择怎么处理这个项目（一个看似简单，实则充满各种domain knowledge的项目）。
+其实一开始弄gis这个数据的时候公司就有很多反对的声音了，但是我还是选择了相信团队leader的想法，因为当时的我觉得leader是比较贴近业务的，更知道需要什么样的功能来支撑产品，但是这在后来证明是错误的，其实也给我的职业生涯上了很重要的一课，即使leader想要的功能也是需要质疑的，这个时代批判精神是需要的。
+所谓的更加纯粹，除了多线发展的问题之外，作为初创公司，我认为最好的工作环境应该像参加一个hackerthon一样的环境，大家每天来是聚在一起，有人提问题，大家一起解决问题的，但是我呆过的中国公司都是各自为政，特别是小马，其他人根本不清楚小马最近在做什么。
+最根本的问题是容错的空间，在小马容错的空间基本没有，在杉树容错的范围太大了
+总结 最近有幸跟同事一起玩德州扑克，后知后觉，职业生涯有时候还蛮像德扑的，你不一定要在你的每一个职业生涯拐点都着急着进入，更应该做的是停下来，思考一下，你觉得什么行业是你想要做的，你觉得你的技术能够在这个行业发挥什么价值？这个问题对于一个进入职场2年的人来说，我认为还是很有必要的。如果技术人到了最后发现自己除了技术，没有业务上的增长，这样的人被优化也是早晚的事了。所以年轻的时候多尝试，多培养各方面的兴趣爱好，对于以后做选择我认为是直接因素。
+最后，在这个十字路口上我想告诉自己，不要强迫自己做不擅长的事情，除非你真的热爱。
+After working for about 2 years as a full time software engineer, I end up working in a startup.
+ Define the boarder of the problem.  Recently I&rsquo;ve watched a fantastic interview taken by Matt D&rsquo;avella who invited Ramit and talk about how do you negotiate with your boss to discuss higher value.">
+
+<meta property="og:title" content="关于第二次辞职的决定" />
+<meta property="og:description" content="年轻也许就是一个不断尝试的过程，无关乎结果的好坏
+ 没错，当你们看到我现在写的这篇博客的时候，我应该已经至少在我自己的层面做了辞职的决定，剩下的只是information和negotiation了。做这个决定不是冲动的，是一次又一次聆听自己内心声音而产生的决定。辞职并不是因为老东家有多不好，相反的，老东家真的很好，是一家真正在干实事的公司。但是很多时候能否一起共事就像谈恋爱一样，只有合不合适而已。如何判断合适不合适其实很简单，看核心业务是不是你有想法的而且有能力或者愿意后半生在这上面倾注心血的赛道。如果到了三四十岁才来尝试这些问题就太晚了，越是工作我越发现快速尝试快速失败才是这个时代的人或者公司应该抱有的态度。
+ so far我的职业生涯路线图 1. 业务技术都只是皮毛，先把自己扔进去再说 2. 业务还是不懂，技术到了中级水平，去试一下呗 3. 业务懂，技术有对应的方案可以实现，上!
+ 其实从我的职业生涯开始，我就一直在创业公司中工作，我觉得从创业公司的人身上能够看到很多创业者应该有的品质，如果所处的员工是一种创自己的事业的精神面貌在对待工作，那这家公司多半能够成功，否则公司也只会不温不火。
+工作了两年的时间里，终于有机会负责一个项目从头开始，但是说实话是一个比较坑的项目&ndash;GIS导航。
+两个问题 1. 如果是刚入职场两年的你会怎么应对gis这个问题 2. 如果你的家人不在北京，你会因为什么原因在一家不起眼的初创公司异地办公
+整个项目最终没有下文难道作为团队leader的你没有责任么？为什么一开始不把整个问题的复杂性先想好呢？
+项目初期一定要定义好问题的边界，哪些能做哪些不能做，哪些应该做哪些不是我要做的。这些问题是工作之后才发现的，其实有时候领导就想知道这个问题能不能解决，能解决的话需要多少人力，需要什么样的人来做，不能解决的话为什么。而不是一定要把这件事做出来，而是一定要有根据的阐述这个问题为什么不能做。
+对于地理导航数据这个项目来说，其实我的本意也是想利用地理数据庞大的计算和数据，最终是能跟spark或者我们目前使用的aws的emr进行结合，但是没想到中间有这么多坑，而且大家都对gis数据相当抵触，根本找不到人可以帮忙，我自己也相当痛苦。 这次的事情也同时让我学到了很多，包括想要从业务反推大数据的应用这个想法，其实如果从领导层对大数据的不care到反推其实是个很困难的过程。
+有个细节，我记得有一次是在我们三个人的群里面，我是一直在提出一些技术问题，得不到解决的，我记得当时你的反馈是这种太细节的东西可以不用问我，那我其实这些也不懂啊，我一般是找过资料之后找不到解决方案才在群里面说话的，我觉得领导应该是在知道问题之后，如果找不到合适的人请教的话应该决定这个项目到底要不要终止。
+再者，我觉得这种摇摆不定，不确定因素太多的项目更需要一个经验多的负责人带队，这个经验多并不一定是技术多么牛，而是业务上了解我们到底需不需要这些东西。我认为我在这个项目做了我应该做的事情了，想问一下你，如果是你在我这个年龄的时候你会选择怎么处理这个项目（一个看似简单，实则充满各种domain knowledge的项目）。
+其实一开始弄gis这个数据的时候公司就有很多反对的声音了，但是我还是选择了相信团队leader的想法，因为当时的我觉得leader是比较贴近业务的，更知道需要什么样的功能来支撑产品，但是这在后来证明是错误的，其实也给我的职业生涯上了很重要的一课，即使leader想要的功能也是需要质疑的，这个时代批判精神是需要的。
+所谓的更加纯粹，除了多线发展的问题之外，作为初创公司，我认为最好的工作环境应该像参加一个hackerthon一样的环境，大家每天来是聚在一起，有人提问题，大家一起解决问题的，但是我呆过的中国公司都是各自为政，特别是小马，其他人根本不清楚小马最近在做什么。
+最根本的问题是容错的空间，在小马容错的空间基本没有，在杉树容错的范围太大了
+总结 最近有幸跟同事一起玩德州扑克，后知后觉，职业生涯有时候还蛮像德扑的，你不一定要在你的每一个职业生涯拐点都着急着进入，更应该做的是停下来，思考一下，你觉得什么行业是你想要做的，你觉得你的技术能够在这个行业发挥什么价值？这个问题对于一个进入职场2年的人来说，我认为还是很有必要的。如果技术人到了最后发现自己除了技术，没有业务上的增长，这样的人被优化也是早晚的事了。所以年轻的时候多尝试，多培养各方面的兴趣爱好，对于以后做选择我认为是直接因素。
+最后，在这个十字路口上我想告诉自己，不要强迫自己做不擅长的事情，除非你真的热爱。
+After working for about 2 years as a full time software engineer, I end up working in a startup.
+ Define the boarder of the problem.  Recently I&rsquo;ve watched a fantastic interview taken by Matt D&rsquo;avella who invited Ramit and talk about how do you negotiate with your boss to discuss higher value." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/2019/%E5%85%B3%E4%BA%8E%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%BE%9E%E8%81%8C%E7%9A%84%E5%86%B3%E5%AE%9A/" />
+
+
+
+<meta property="article:published_time" content="2019-05-25T21:54:14&#43;08:00"/>
+<meta property="article:modified_time" content="2019-05-25T21:54:14&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     关于第二次辞职的决定 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/2019/%E5%85%B3%E4%BA%8E%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%BE%9E%E8%81%8C%E7%9A%84%E5%86%B3%E5%AE%9A/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.542740768%20%2b0800%20CST%20m%3d%2b0.964722855">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.542740768%20%2b0800%20CST%20m%3d%2b0.964722855">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.542740768%20%2b0800%20CST%20m%3d%2b0.964722855">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.542740768%20%2b0800%20CST%20m%3d%2b0.964722855">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    关于第二次辞职的决定
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sat May 25 2019 21:54:14 CST'>May 25, 2019</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>One minute read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<blockquote>
+<p>年轻也许就是一个不断尝试的过程，无关乎结果的好坏</p>
+</blockquote>
+
+<p>没错，当你们看到我现在写的这篇博客的时候，我应该已经至少在我自己的层面做了辞职的决定，剩下的只是information和negotiation了。做这个决定不是冲动的，是一次又一次聆听自己内心声音而产生的决定。辞职并不是因为老东家有多不好，相反的，老东家真的很好，是一家真正在干实事的公司。但是很多时候能否一起共事就像谈恋爱一样，只有合不合适而已。如何判断合适不合适其实很简单，看核心业务是不是你有想法的而且有能力或者愿意后半生在这上面倾注心血的赛道。如果到了三四十岁才来尝试这些问题就太晚了，越是工作我越发现快速尝试快速失败才是这个时代的人或者公司应该抱有的态度。</p>
+
+<blockquote>
+<p>so far我的职业生涯路线图
+1. 业务技术都只是皮毛，先把自己扔进去再说
+2. 业务还是不懂，技术到了中级水平，去试一下呗
+3. 业务懂，技术有对应的方案可以实现，上!</p>
+</blockquote>
+
+<p>其实从我的职业生涯开始，我就一直在创业公司中工作，我觉得从创业公司的人身上能够看到很多创业者应该有的品质，如果所处的员工是一种创自己的事业的精神面貌在对待工作，那这家公司多半能够成功，否则公司也只会不温不火。</p>
+
+<p>工作了两年的时间里，终于有机会负责一个项目从头开始，但是说实话是一个比较坑的项目&ndash;GIS导航。</p>
+
+<p>两个问题
+1. 如果是刚入职场两年的你会怎么应对gis这个问题
+2. 如果你的家人不在北京，你会因为什么原因在一家不起眼的初创公司异地办公</p>
+
+<p>整个项目最终没有下文难道作为团队leader的你没有责任么？为什么一开始不把整个问题的复杂性先想好呢？</p>
+
+<p>项目初期一定要定义好问题的边界，哪些能做哪些不能做，哪些应该做哪些不是我要做的。这些问题是工作之后才发现的，其实有时候领导就想知道这个问题能不能解决，能解决的话需要多少人力，需要什么样的人来做，不能解决的话为什么。而不是一定要把这件事做出来，而是一定要有根据的阐述这个问题为什么不能做。</p>
+
+<p>对于地理导航数据这个项目来说，其实我的本意也是想利用地理数据庞大的计算和数据，最终是能跟spark或者我们目前使用的aws的emr进行结合，但是没想到中间有这么多坑，而且大家都对gis数据相当抵触，根本找不到人可以帮忙，我自己也相当痛苦。
+这次的事情也同时让我学到了很多，包括想要从业务反推大数据的应用这个想法，其实如果从领导层对大数据的不care到反推其实是个很困难的过程。</p>
+
+<p>有个细节，我记得有一次是在我们三个人的群里面，我是一直在提出一些技术问题，得不到解决的，我记得当时你的反馈是这种太细节的东西可以不用问我，那我其实这些也不懂啊，我一般是找过资料之后找不到解决方案才在群里面说话的，我觉得领导应该是在知道问题之后，如果找不到合适的人请教的话应该决定这个项目到底要不要终止。</p>
+
+<p>再者，我觉得这种摇摆不定，不确定因素太多的项目更需要一个经验多的负责人带队，这个经验多并不一定是技术多么牛，而是业务上了解我们到底需不需要这些东西。我认为我在这个项目做了我应该做的事情了，想问一下你，如果是你在我这个年龄的时候你会选择怎么处理这个项目（一个看似简单，实则充满各种domain knowledge的项目）。</p>
+
+<p>其实一开始弄gis这个数据的时候公司就有很多反对的声音了，但是我还是选择了相信团队leader的想法，因为当时的我觉得leader是比较贴近业务的，更知道需要什么样的功能来支撑产品，但是这在后来证明是错误的，其实也给我的职业生涯上了很重要的一课，即使leader想要的功能也是需要质疑的，这个时代批判精神是需要的。</p>
+
+<p>所谓的更加纯粹，除了多线发展的问题之外，作为初创公司，我认为最好的工作环境应该像参加一个hackerthon一样的环境，大家每天来是聚在一起，有人提问题，大家一起解决问题的，但是我呆过的中国公司都是各自为政，特别是小马，其他人根本不清楚小马最近在做什么。</p>
+
+<p>最根本的问题是容错的空间，在小马容错的空间基本没有，在杉树容错的范围太大了</p>
+
+<h1 id="总结">总结</h1>
+
+<p>最近有幸跟同事一起玩德州扑克，后知后觉，职业生涯有时候还蛮像德扑的，你不一定要在你的每一个职业生涯拐点都着急着进入，更应该做的是停下来，思考一下，你觉得什么行业是你想要做的，你觉得你的技术能够在这个行业发挥什么价值？这个问题对于一个进入职场2年的人来说，我认为还是很有必要的。如果技术人到了最后发现自己除了技术，没有业务上的增长，这样的人被优化也是早晚的事了。所以年轻的时候多尝试，多培养各方面的兴趣爱好，对于以后做选择我认为是直接因素。<br />
+最后，在这个十字路口上我想告诉自己，不要强迫自己做不擅长的事情，除非你真的热爱。</p>
+
+<p>After working for about 2 years as a full time software engineer, I end up working in a startup.</p>
+
+<ol>
+<li>Define the boarder of the problem.</li>
+</ol>
+
+<p>Recently I&rsquo;ve watched a fantastic interview taken by <a href="https://youtu.be/_NgA9dZC5qo">Matt D&rsquo;avella</a> who invited Ramit and talk about how do you negotiate with your boss to discuss higher value.</p>
+
+<p>In your career, you will always meet a situation where your manager or pm ask you about, how long do you estimate that the project could be done? So you better estimate how many resources every step of the project that you have done will take. The more you esitmate, the better you can answer these questions.</p>
+
+<p>google: travel agent</p>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125392221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125392221-1');
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+    
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vertx on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/vertx/</link>
+    <description>Recent content in Vertx on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 10 Jun 2019 22:28:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/vertx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Learning Vertx by building Microservices</title>
+      <link>https://pingrunhuang.github.io/blog/2019-06-10/</link>
+      <pubDate>Mon, 10 Jun 2019 22:28:46 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-06-10/</guid>
+      <description>It&amp;rsquo;s been a long time for not writing technical blogs. Recently I&amp;rsquo;ve been working on how to store geo data and query routing result efficiently. Due to the historical issue, we chose Vertx as the back bone framework out of the consideration of concurrency. So starting today, I will keep on writing about how I learn and apply it to the real problems I came across and document them.</description>
+    </item>
+    
+  </channel>
+</rss>

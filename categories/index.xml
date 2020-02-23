@@ -23,7 +23,7 @@
     <item>
       <title>Blockchain</title>
       <link>https://pingrunhuang.github.io/categories/blockchain/</link>
-      <pubDate>Sat, 23 Dec 2017 11:43:39 +0800</pubDate>
+      <pubDate>Thu, 20 Feb 2020 16:10:54 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/categories/blockchain/</guid>
       <description></description>
@@ -32,7 +32,7 @@
     <item>
       <title>Computer Science</title>
       <link>https://pingrunhuang.github.io/categories/computer-science/</link>
-      <pubDate>Wed, 29 Aug 2018 14:53:15 +0800</pubDate>
+      <pubDate>Sun, 30 Jun 2019 15:19:27 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/categories/computer-science/</guid>
       <description></description>
@@ -120,11 +120,38 @@
     </item>
     
     <item>
+      <title>Interview Skills</title>
+      <link>https://pingrunhuang.github.io/categories/interview-skills/</link>
+      <pubDate>Sat, 22 Jun 2019 21:59:44 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/interview-skills/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://pingrunhuang.github.io/categories/java/</link>
+      <pubDate>Thu, 27 Jun 2019 15:58:39 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>K8s</title>
       <link>https://pingrunhuang.github.io/categories/k8s/</link>
       <pubDate>Tue, 16 Apr 2019 19:47:25 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/categories/k8s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kafka</title>
+      <link>https://pingrunhuang.github.io/categories/kafka/</link>
+      <pubDate>Wed, 24 Jul 2019 00:21:40 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/kafka/</guid>
       <description></description>
     </item>
     
@@ -140,7 +167,7 @@
     <item>
       <title>Machine Learning</title>
       <link>https://pingrunhuang.github.io/categories/machine-learning/</link>
-      <pubDate>Fri, 19 Apr 2019 07:16:06 +0800</pubDate>
+      <pubDate>Thu, 25 Apr 2019 06:55:21 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/categories/machine-learning/</guid>
       <description></description>
@@ -152,6 +179,15 @@
       <pubDate>Wed, 17 Apr 2019 17:36:51 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/categories/postgis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Product Management</title>
+      <link>https://pingrunhuang.github.io/categories/product-management/</link>
+      <pubDate>Sun, 22 Sep 2019 12:00:09 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/product-management/</guid>
       <description></description>
     </item>
     
@@ -215,6 +251,15 @@
       <pubDate>Thu, 19 Oct 2017 15:43:15 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/categories/thinking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vertx</title>
+      <link>https://pingrunhuang.github.io/categories/vertx/</link>
+      <pubDate>Mon, 10 Jun 2019 22:28:46 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/vertx/</guid>
       <description></description>
     </item>
     

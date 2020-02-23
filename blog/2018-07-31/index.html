@@ -17,8 +17,21 @@
  //groupByKey rdd.groupByKey(record=&gt;(record._t, record._2.sum)) // 计算所有学生的选课数 val zero = new collection.mutable.Set[String]() // take in 3 parameters: val result = rdd.aggregateByKey( zero // the initial container to accept the value )( (set, v) =&gt; set&#43;=v, // an accumulator that merge values in one partition (set1, set2) =&gt; set1 &#43;&#43;= set2 // a combiner that merge collections from different partitions )   Suppose we have an RDD of key/value pairs where the key is the receiver names of orders and value is the description of the orders." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-07-31/" />
+
+
+
 <meta property="article:published_time" content="2018-07-31T15:04:30&#43;08:00"/>
 <meta property="article:modified_time" content="2018-07-31T15:04:30&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
 
 
 <title>
@@ -44,11 +57,11 @@
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2019-04-19%2017%3a39%3a52.73264%20%2b0800%20CST%20m%3d%2b0.484728157">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2019-04-19%2017%3a39%3a52.73264%20%2b0800%20CST%20m%3d%2b0.484728157">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2019-04-19%2017%3a39%3a52.73264%20%2b0800%20CST%20m%3d%2b0.484728157">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.573935454%20%2b0800%20CST%20m%3d%2b0.995917541">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.573935454%20%2b0800%20CST%20m%3d%2b0.995917541">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.573935454%20%2b0800%20CST%20m%3d%2b0.995917541">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2019-04-19%2017%3a39%3a52.73264%20%2b0800%20CST%20m%3d%2b0.484728157">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.573935454%20%2b0800%20CST%20m%3d%2b0.995917541">
     
 
 
@@ -79,8 +92,6 @@
                 
                 
                 
-                
-                    
                 
                     
                 

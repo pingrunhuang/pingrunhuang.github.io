@@ -6,10 +6,29 @@
     <description>Recent content in Computer Science on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 29 Aug 2018 14:53:15 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 30 Jun 2019 15:19:27 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/categories/computer-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data storage inspired by video production</title>
+      <link>https://pingrunhuang.github.io/blog/2019-06-30/</link>
+      <pubDate>Sun, 30 Jun 2019 15:19:27 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-06-30/</guid>
+      <description>There are plenty of concepts related to computer science in video production actually which are so confusing for one want to get into the field of shooting higher quality of video. So in this blog. I will introduce some researches that I have done on these concepts from the perspective of a software engineer. Hopefully I can explain them clearly and get the chance to talk about how I get inspired to apply storing data in database by the way data get stored in video.</description>
+    </item>
+    
+    <item>
+      <title>Learning concurrency programing with Java -- Part 2</title>
+      <link>https://pingrunhuang.github.io/blog/2019-06-11/</link>
+      <pubDate>Tue, 11 Jun 2019 08:05:23 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-06-11/</guid>
+      <description>Different queue in Java ArrayBlockingQueue  same lock for consumer and producer won&amp;rsquo;t create more memory when adding for deleting element  LinkedBlockingQueue  Will create a new node when adding or deleting element Specify a fixed size when initialize. Both consumer and producer will block when reaching this size. By default Integer.MAX_VALUE. Do remember to specify otherwise, gc memory will overflow. Different locks for consumer and producer(How???)
+ 找前端做展示</description>
+    </item>
     
     <item>
       <title>What is port forwarding?</title>
@@ -75,7 +94,7 @@ Reference  English version
     </item>
     
     <item>
-      <title>collection of &#39;What is the difference between&#39;</title>
+      <title>Collection of &#39;What is the difference between&#39;</title>
       <link>https://pingrunhuang.github.io/blog/2018-04-25/</link>
       <pubDate>Wed, 25 Apr 2018 22:41:16 +0800</pubDate>
       
@@ -112,6 +131,16 @@ Reference  English version
       
       <guid>https://pingrunhuang.github.io/blog/2017-12-11/</guid>
       <description>Java for (int i; i &amp;lt; 100 ;i++){ // do something }  Python for index, value in range(100){ # do something }  Scala for (var a &amp;lt;- 1 to 10){ println(a) } &amp;lt;!-- or --&amp;gt; &amp;lt;!-- 10 not included --&amp;gt; for (var b &amp;lt;- 1 until 10){ println(b) }  Go for i := 0; i &amp;lt; 100; i++ { fmt.Println(i) }  Different useage of yield between python and scala def get_generator(): for i in range(10): if i % 3 ==0: yield i  The yield statement should always inside a function to generate a generator object.</description>
+    </item>
+    
+    <item>
+      <title>Learning concurrency programing with Java -- Part 1</title>
+      <link>https://pingrunhuang.github.io/blog/2017-11-02/</link>
+      <pubDate>Thu, 02 Nov 2017 14:22:09 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-11-02/</guid>
+      <description>Reentrancy Each object has an intrinsic lock which when one thread is holding it, other thread could not request it. But reentrancy make the lock held by the thread itself be able to acquire it again.
+How does it work Each object holding a intrinsic lock will hold a count to the acquisition of that lock and the owning of the thread. Every reentrancy will cause the the count increment 1.</description>
     </item>
     
     <item>

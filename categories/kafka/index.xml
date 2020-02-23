@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kafka on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/kafka/</link>
+    <description>Recent content in Kafka on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 24 Jul 2019 00:21:40 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/kafka/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Different parameters meaning in Kafka</title>
+      <link>https://pingrunhuang.github.io/blog/2019-07-24/</link>
+      <pubDate>Wed, 24 Jul 2019 00:21:40 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-07-24/</guid>
+      <description>key.serializer and value.serializer: decide what algo for serialization. buffer.memory: the the size of memory size that producer could buffer before sending to consumer. batch.size: the size one single batch that each request could carry. linger.ms: after how many ms, no matter the batch is full, send it regardlessly. max.request.size: the size of data that each request could carry. acks: persistent strategy. Each leader inside different partitions will keep track of a list called In-sync Replicas to keep track of the followers that are syncing with leader.</description>
+    </item>
+    
+  </channel>
+</rss>

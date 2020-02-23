@@ -12,12 +12,48 @@
     
     
     <item>
+      <title>Comparison between Python and Java -- from a videographer point of view</title>
+      <link>https://pingrunhuang.github.io/2019/comparison-between-python-and-java----from-a-videographer-point-of-view/</link>
+      <pubDate>Tue, 11 Jun 2019 07:23:59 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2019/comparison-between-python-and-java----from-a-videographer-point-of-view/</guid>
+      <description>As you may notice, I&amp;rsquo;ve been using Python and Java for quite a long time ever since I started programming. I love these two languages and they are both fantastic. But as time goes by, I&amp;rsquo;ve noticed that they both suite for different purpose. As a videographer, I figured out that this kind of difference just like the different use case between action cam and mirrorless cam(I wouldn&amp;rsquo;t say DSLR cause nowaday I think pretty much videographer would agree that mirrorless cam is more convinient and good enough for shooting).</description>
+    </item>
+    
+    <item>
+      <title>关于第二次辞职的决定</title>
+      <link>https://pingrunhuang.github.io/2019/%E5%85%B3%E4%BA%8E%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%BE%9E%E8%81%8C%E7%9A%84%E5%86%B3%E5%AE%9A/</link>
+      <pubDate>Sat, 25 May 2019 21:54:14 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/2019/%E5%85%B3%E4%BA%8E%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%BE%9E%E8%81%8C%E7%9A%84%E5%86%B3%E5%AE%9A/</guid>
+      <description>年轻也许就是一个不断尝试的过程，无关乎结果的好坏
+ 没错，当你们看到我现在写的这篇博客的时候，我应该已经至少在我自己的层面做了辞职的决定，剩下的只是information和negotiation了。做这个决定不是冲动的，是一次又一次聆听自己内心声音而产生的决定。辞职并不是因为老东家有多不好，相反的，老东家真的很好，是一家真正在干实事的公司。但是很多时候能否一起共事就像谈恋爱一样，只有合不合适而已。如何判断合适不合适其实很简单，看核心业务是不是你有想法的而且有能力或者愿意后半生在这上面倾注心血的赛道。如果到了三四十岁才来尝试这些问题就太晚了，越是工作我越发现快速尝试快速失败才是这个时代的人或者公司应该抱有的态度。
+ so far我的职业生涯路线图 1. 业务技术都只是皮毛，先把自己扔进去再说 2. 业务还是不懂，技术到了中级水平，去试一下呗 3. 业务懂，技术有对应的方案可以实现，上!
+ 其实从我的职业生涯开始，我就一直在创业公司中工作，我觉得从创业公司的人身上能够看到很多创业者应该有的品质，如果所处的员工是一种创自己的事业的精神面貌在对待工作，那这家公司多半能够成功，否则公司也只会不温不火。
+工作了两年的时间里，终于有机会负责一个项目从头开始，但是说实话是一个比较坑的项目&amp;ndash;GIS导航。
+两个问题 1. 如果是刚入职场两年的你会怎么应对gis这个问题 2. 如果你的家人不在北京，你会因为什么原因在一家不起眼的初创公司异地办公
+整个项目最终没有下文难道作为团队leader的你没有责任么？为什么一开始不把整个问题的复杂性先想好呢？
+项目初期一定要定义好问题的边界，哪些能做哪些不能做，哪些应该做哪些不是我要做的。这些问题是工作之后才发现的，其实有时候领导就想知道这个问题能不能解决，能解决的话需要多少人力，需要什么样的人来做，不能解决的话为什么。而不是一定要把这件事做出来，而是一定要有根据的阐述这个问题为什么不能做。
+对于地理导航数据这个项目来说，其实我的本意也是想利用地理数据庞大的计算和数据，最终是能跟spark或者我们目前使用的aws的emr进行结合，但是没想到中间有这么多坑，而且大家都对gis数据相当抵触，根本找不到人可以帮忙，我自己也相当痛苦。 这次的事情也同时让我学到了很多，包括想要从业务反推大数据的应用这个想法，其实如果从领导层对大数据的不care到反推其实是个很困难的过程。
+有个细节，我记得有一次是在我们三个人的群里面，我是一直在提出一些技术问题，得不到解决的，我记得当时你的反馈是这种太细节的东西可以不用问我，那我其实这些也不懂啊，我一般是找过资料之后找不到解决方案才在群里面说话的，我觉得领导应该是在知道问题之后，如果找不到合适的人请教的话应该决定这个项目到底要不要终止。
+再者，我觉得这种摇摆不定，不确定因素太多的项目更需要一个经验多的负责人带队，这个经验多并不一定是技术多么牛，而是业务上了解我们到底需不需要这些东西。我认为我在这个项目做了我应该做的事情了，想问一下你，如果是你在我这个年龄的时候你会选择怎么处理这个项目（一个看似简单，实则充满各种domain knowledge的项目）。
+其实一开始弄gis这个数据的时候公司就有很多反对的声音了，但是我还是选择了相信团队leader的想法，因为当时的我觉得leader是比较贴近业务的，更知道需要什么样的功能来支撑产品，但是这在后来证明是错误的，其实也给我的职业生涯上了很重要的一课，即使leader想要的功能也是需要质疑的，这个时代批判精神是需要的。
+所谓的更加纯粹，除了多线发展的问题之外，作为初创公司，我认为最好的工作环境应该像参加一个hackerthon一样的环境，大家每天来是聚在一起，有人提问题，大家一起解决问题的，但是我呆过的中国公司都是各自为政，特别是小马，其他人根本不清楚小马最近在做什么。
+最根本的问题是容错的空间，在小马容错的空间基本没有，在杉树容错的范围太大了
+总结 最近有幸跟同事一起玩德州扑克，后知后觉，职业生涯有时候还蛮像德扑的，你不一定要在你的每一个职业生涯拐点都着急着进入，更应该做的是停下来，思考一下，你觉得什么行业是你想要做的，你觉得你的技术能够在这个行业发挥什么价值？这个问题对于一个进入职场2年的人来说，我认为还是很有必要的。如果技术人到了最后发现自己除了技术，没有业务上的增长，这样的人被优化也是早晚的事了。所以年轻的时候多尝试，多培养各方面的兴趣爱好，对于以后做选择我认为是直接因素。
+最后，在这个十字路口上我想告诉自己，不要强迫自己做不擅长的事情，除非你真的热爱。
+After working for about 2 years as a full time software engineer, I end up working in a startup.
+ Define the boarder of the problem.  Recently I&amp;rsquo;ve watched a fantastic interview taken by Matt D&amp;rsquo;avella who invited Ramit and talk about how do you negotiate with your boss to discuss higher value.</description>
+    </item>
+    
+    <item>
       <title>Traveling to Bali in May of 2019 </title>
       <link>https://pingrunhuang.github.io/2019/traveling-to-bali-in-may-of-2019/</link>
       <pubDate>Thu, 28 Mar 2019 22:23:31 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/2019/traveling-to-bali-in-may-of-2019/</guid>
-      <description>Preparation Expense:  Flight round trip: 3119 rmb + 60 rmb taxi accomadation: 26-28 289 rmb  plan  4&amp;frasl;27: 5:45 beijing capital airpot T2, 12:05 arrived, surfing in the afternoon 4&amp;frasl;28: (batur hiking for sunrise)[https://www.klook.com/zh-CN/activity/7797-mount-batur-sunrise-trekking-bali/?krt=r22&amp;amp;krid=ceac5b0c-54ed-4d5b-5002-c97fcf2bc148] 4&amp;frasl;29: surfing at the morning (uluwatu黄昏)[https://www.klook.com/zh-CN/activity/153-uluwatu-temple-sunset-kecak-fire-dance-bali/?krt=r22&amp;amp;krid=ceac5b0c-54ed-4d5b-5002-c97fcf2bc148] 4&amp;frasl;30: surfing 4&amp;frasl;30: (east nusa)[https://www.klook.com/zh-CN/activity/15917-east-nusa-penida-day-trip-bali/] 5&amp;frasl;1: 5&amp;frasl;2: 5&amp;frasl;3: 19:55飞机登巴萨国际机场D，4:20到达北京  Spot The main goal of this trip is to master my surfing skill. Therefore, some of the famous spots should be considered before hand.</description>
+      <description>Preparation Expense:  Flight round trip: 3119 rmb + 60 rmb taxi accomadation: 04/27-04/28 145rmb, 04/28-05/03 900rmb group trip fee:
+  plan  4&amp;frasl;27: 5:45 beijing capital airpot T2, 12:05 arrived, surfing in the afternoon 4&amp;frasl;28: surfing at the morning (uluwatu黄昏)[https://www.klook.com/zh-CN/activity/153-uluwatu-temple-sunset-kecak-fire-dance-bali/?krt=r22&amp;amp;krid=ceac5b0c-54ed-4d5b-5002-c97fcf2bc148] 4&amp;frasl;29: surfing 4&amp;frasl;30: (east nusa)[https://www.klook.com/zh-CN/activity/15917-east-nusa-penida-day-trip-bali/] 5&amp;frasl;1: (batur hiking for sunrise)[https://www.klook.com/zh-CN/activity/7797-mount-batur-sunrise-trekking-bali/?krt=r22&amp;amp;krid=ceac5b0c-54ed-4d5b-5002-c97fcf2bc148] 5&amp;frasl;2: 5&amp;frasl;3: 19:55飞机登巴萨国际机场D，4:20到达北京  Spot The main goal of this trip is to master my surfing skill. Therefore, some of the famous spots should be considered before hand.</description>
     </item>
     
     <item>
@@ -118,10 +154,10 @@ Richard Feyman once said: &amp;ldquo;The best way to learn knowledge is to teach
     
     <item>
       <title>1987--观后感</title>
-      <link>https://pingrunhuang.github.io/2018/1987-%E8%A7%82%E5%90%8E%E6%84%9F/</link>
+      <link>https://pingrunhuang.github.io/2018/1987--%E8%A7%82%E5%90%8E%E6%84%9F/</link>
       <pubDate>Mon, 02 Apr 2018 22:56:39 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/2018/1987-%E8%A7%82%E5%90%8E%E6%84%9F/</guid>
+      <guid>https://pingrunhuang.github.io/2018/1987--%E8%A7%82%E5%90%8E%E6%84%9F/</guid>
       <description>啊，好久没有写观后感了，记得上一次写还是小学的时候被老师逼着写完自己都不知道自己在说什么东西的观后感。但人是一个很奇怪的生物，以前反感的东西越长大却越觉得有道理。写下这篇观后感也是因为每次看完这篇电影心情久久无法平复，好像是得写下点什么来捋一捋思路，发朋友圈又写不了几个字，那就写一片博客吧。也好，开个先河，以后有时间在框架里面加一个观后感的专栏好了。
  人是健忘的，好了伤疤忘了疼的道理大家都知道，却也重复的犯着。这时候，能有人勇敢的站出来记录下真相，是一件非常了不起的事情。1987正是这样一部电影。其实1987应该就着出租车司机一起看。
 一部讲述韩国历史上反对独运动顶峰的电影

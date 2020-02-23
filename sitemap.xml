@@ -3,6 +3,66 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://pingrunhuang.github.io/blog/2020-02-20/</loc>
+    <lastmod>2020-02-20T16:10:54+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/blog/2019-09-22/</loc>
+    <lastmod>2019-09-22T12:00:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/blog/2019-07-24/</loc>
+    <lastmod>2019-07-24T00:21:40+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/blog/2019-06-30/</loc>
+    <lastmod>2019-06-30T15:19:27+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/blog/2019-06-27/</loc>
+    <lastmod>2019-06-27T15:58:39+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/blog/2019-06-22/</loc>
+    <lastmod>2019-06-22T21:59:44+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/blog/2019-06-11/</loc>
+    <lastmod>2019-06-11T08:05:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/2019/comparison-between-python-and-java----from-a-videographer-point-of-view/</loc>
+    <lastmod>2019-06-11T07:23:59+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/blog/2019-06-10/</loc>
+    <lastmod>2019-06-10T22:28:46+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/2019/%E5%85%B3%E4%BA%8E%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%BE%9E%E8%81%8C%E7%9A%84%E5%86%B3%E5%AE%9A/</loc>
+    <lastmod>2019-05-25T21:54:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/blog/2019-04-25/</loc>
+    <lastmod>2019-04-25T06:55:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/blog/2019-04-21/</loc>
+    <lastmod>2019-04-21T12:46:43+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pingrunhuang.github.io/blog/2019-04-19/</loc>
     <lastmod>2019-04-19T07:16:06+08:00</lastmod>
   </url>
@@ -253,7 +313,7 @@
   </url>
   
   <url>
-    <loc>https://pingrunhuang.github.io/2018/1987-%E8%A7%82%E5%90%8E%E6%84%9F/</loc>
+    <loc>https://pingrunhuang.github.io/2018/1987--%E8%A7%82%E5%90%8E%E6%84%9F/</loc>
     <lastmod>2018-04-02T22:56:39+08:00</lastmod>
   </url>
   
@@ -370,6 +430,11 @@
   <url>
     <loc>https://pingrunhuang.github.io/blog/2017-11-05/</loc>
     <lastmod>2017-11-05T20:39:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/blog/2017-11-02/</loc>
+    <lastmod>2017-11-02T14:22:09+08:00</lastmod>
   </url>
   
   <url>
@@ -503,6 +568,10 @@
   </url>
   
   <url>
+    <loc>https://pingrunhuang.github.io/about/resume/readme/</loc>
+  </url>
+  
+  <url>
     <loc>https://pingrunhuang.github.io/about/resume/</loc>
   </url>
   
@@ -520,7 +589,7 @@
   
   <url>
     <loc>https://pingrunhuang.github.io/categories/blockchain/</loc>
-    <lastmod>2017-12-23T11:43:39+08:00</lastmod>
+    <lastmod>2020-02-20T16:10:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -532,7 +601,7 @@
   
   <url>
     <loc>https://pingrunhuang.github.io/categories/computer-science/</loc>
-    <lastmod>2018-08-29T14:53:15+08:00</lastmod>
+    <lastmod>2019-06-30T15:19:27+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -580,7 +649,7 @@
   
   <url>
     <loc>https://pingrunhuang.github.io/</loc>
-    <lastmod>2019-04-19T07:16:06+08:00</lastmod>
+    <lastmod>2020-02-20T16:10:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -597,8 +666,26 @@
   </url>
   
   <url>
+    <loc>https://pingrunhuang.github.io/categories/interview-skills/</loc>
+    <lastmod>2019-06-22T21:59:44+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/categories/java/</loc>
+    <lastmod>2019-06-27T15:58:39+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://pingrunhuang.github.io/categories/k8s/</loc>
     <lastmod>2019-04-16T19:47:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/categories/kafka/</loc>
+    <lastmod>2019-07-24T00:21:40+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -610,13 +697,19 @@
   
   <url>
     <loc>https://pingrunhuang.github.io/categories/machine-learning/</loc>
-    <lastmod>2019-04-19T07:16:06+08:00</lastmod>
+    <lastmod>2019-04-25T06:55:21+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://pingrunhuang.github.io/categories/postgis/</loc>
     <lastmod>2019-04-17T17:36:51+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/categories/product-management/</loc>
+    <lastmod>2019-09-22T12:00:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -664,6 +757,12 @@
   <url>
     <loc>https://pingrunhuang.github.io/categories/thinking/</loc>
     <lastmod>2017-10-19T15:43:15+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pingrunhuang.github.io/categories/vertx/</loc>
+    <lastmod>2019-06-10T22:28:46+08:00</lastmod>
     <priority>0</priority>
   </url>
   
