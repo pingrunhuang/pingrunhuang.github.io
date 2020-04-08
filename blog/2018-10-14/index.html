@@ -19,21 +19,8 @@ From my daily development experience, I encountered a lot of class end with impl
 From my daily development experience, I encountered a lot of class end with impl or start with I. I know they are meant for implementation and interface. But how come they are becoming some kind of must have for every java project that I encountered." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-10-14/" />
-
-
-
-<meta property="article:published_time" content="2018-10-14T23:24:32&#43;08:00"/>
-<meta property="article:modified_time" content="2018-10-14T23:24:32&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-10-14T23:24:32+08:00" />
+<meta property="article:modified_time" content="2018-10-14T23:24:32+08:00" />
 
 
 <title>
@@ -59,11 +46,11 @@ From my daily development experience, I encountered a lot of class end with impl
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.55952652%20%2b0800%20CST%20m%3d%2b0.981508607">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.55952652%20%2b0800%20CST%20m%3d%2b0.981508607">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.55952652%20%2b0800%20CST%20m%3d%2b0.981508607">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.6184528%20%2b0800%20CST%20m%3d%2b0.956805901">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.6184528%20%2b0800%20CST%20m%3d%2b0.956805901">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.6184528%20%2b0800%20CST%20m%3d%2b0.956805901">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.55952652%20%2b0800%20CST%20m%3d%2b0.981508607">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.6184528%20%2b0800%20CST%20m%3d%2b0.956805901">
     
 
 
@@ -209,54 +196,38 @@ From my daily development experience, I encountered a lot of class end with impl
                 </div>
             </div>
             <div class="markdown">
-                
-
-<blockquote>
+                <blockquote>
 <p>The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
 </blockquote>
-
-<p>This is quoted from the book called <HEAD FIRST DESIGN PATTERN>.</p>
-
+<p>This is quoted from the book called <!-- raw HTML omitted -->.</p>
 <p>From my daily development experience, I encountered a lot of class end with <code>impl</code> or start with <code>I</code>. I know they are meant for implementation and interface. But how come they are becoming some kind of must have for every java project that I encountered. Until recently, I watched the video explaining the <code>strategy pattern</code> which clear all the doubt that I had. So I decided to write down the summary and also comparing to functional language like python.</p>
-
 <p>The basic idea of</p>
-
 <p>flavor composition than inheritence.</p>
-
-<pre><code class="language-Java">public interface IQuach{
-    public void quach();
-}
-public interface IFly{
-    public void fly();
-}
-</code></pre>
-
-<p>For each specific duck, a concret implementation of fly should be put in the block.</p>
-
-<pre><code class="language-Java">public class Duck{
-    IQuach q;
-    IFly   f;
-    public Duck(IQuach q, IFly f){
-        this.q=q;
-        this.f=f;
-    }
-    public void fly(){
-        this.q.fly();
-    }
-}
-</code></pre>
-
-<pre><code class="language-Java">public class JetFlyImpl implements IFly{
-    public void fly(){
-        // jet fly algo
-    }
-}
-</code></pre>
-
-<p>This way, we can change the algo of quach method and fly method in a flexable way. I can just add more different algo for the same method withou changing the client code.</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-Java" data-lang="Java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IQuach</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">quach</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IFly</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div><p>For each specific duck, a concret implementation of fly should be put in the block.</p>
+<div class="highlight"><pre class="chroma"><code class="language-Java" data-lang="Java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Duck</span><span class="o">{</span>
+    <span class="n">IQuach</span> <span class="n">q</span><span class="o">;</span>
+    <span class="n">IFly</span>   <span class="n">f</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Duck</span><span class="o">(</span><span class="n">IQuach</span> <span class="n">q</span><span class="o">,</span> <span class="n">IFly</span> <span class="n">f</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">q</span><span class="o">=</span><span class="n">q</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">f</span><span class="o">=</span><span class="n">f</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">(){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">q</span><span class="o">.</span><span class="na">fly</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-Java" data-lang="Java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">JetFlyImpl</span> <span class="kd">implements</span> <span class="n">IFly</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">(){</span>
+        <span class="c1">// jet fly algo
+</span><span class="c1"></span>    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>This way, we can change the algo of quach method and fly method in a flexable way. I can just add more different algo for the same method withou changing the client code.</p>
 <h1 id="reference">Reference</h1>
-
 <ul>
 <li><a href="https://www.youtube.com/watch?v=v9ejT8FO-7I">https://www.youtube.com/watch?v=v9ejT8FO-7I</a></li>
 </ul>

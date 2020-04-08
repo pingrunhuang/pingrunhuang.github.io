@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming Language on Frank Huang</title>
@@ -28,8 +28,8 @@
       <guid>https://pingrunhuang.github.io/blog/2017-11-15/</guid>
       <description>Imperative vs Functional programing
  Trait Trait is like interface in java
-trait Iterator[A] { def hasNext : boolean def next() : A }  Differences: - You could define concrete implementation of method inside Trait
-sealed regex import scala.util.matching.Regex object  function predicate val nameHasUpperCase = name.exists(_.isUpper)  foreach val text = &amp;quot;hello world&amp;quot; text.foreach(_.toUpper) text.foreach(println) // or for (x &amp;lt;- text) println(x)  instantiate an array val numNames = Array(&amp;quot;zero&amp;quot;, &amp;quot;one&amp;quot;, &amp;quot;two&amp;quot;) is equivalent to val numNames = Array.</description>
+trait Iterator[A] {def hasNext : booleandef next() : A}Differences:
+ You could define concrete implementation of method inside Trait  sealed regex import scala.util.matching.Regexobject function predicate val nameHasUpperCase = name.exists(_.isUpper)foreach val text = &amp;#34;hello world&amp;#34;text.foreach(_.toUpper)text.foreach(println)// orfor (x &amp;lt;- text)println(x)instantiate an array val numNames = Array(&amp;quot;zero&amp;quot;, &amp;quot;one&amp;quot;, &amp;quot;two&amp;quot;) is equivalent to val numNames = Array.</description>
     </item>
     
   </channel>

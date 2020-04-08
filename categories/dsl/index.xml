@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DSL on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/dsl/</link>
+    <description>Recent content in DSL on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 10 Jan 2019 11:47:55 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/dsl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SQL self join use case</title>
+      <link>https://pingrunhuang.github.io/blog/2019-01-10/</link>
+      <pubDate>Thu, 10 Jan 2019 11:47:55 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-01-10/</guid>
+      <description>How to query on timeseries data based on time window? Suppose I have the following time series data: I want to calculate mean, std value inside a time window with the value of 2 for different name. I used to use spark to first group by name and then do the calculation in the list within the different group. This is actually quite fast. But I later on figured out that we can first self join based on the time window condition like below:</description>
+    </item>
+    
+    <item>
+      <title>Dealing with null value in postgresql</title>
+      <link>https://pingrunhuang.github.io/blog/2018-09-11/</link>
+      <pubDate>Tue, 11 Sep 2018 09:54:08 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-09-11/</guid>
+      <description>Suppose I have a schema of the following
+a|b|c1| |1...\copy The above value
+insert COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS E&#39;\x1E&#39; CSV QUOTE E&#39;\&#39;&#39;;COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS &#39;,&#39; CSV QUOTE &#39;&#39;&#39;&#39;;</description>
+    </item>
+    
+  </channel>
+</rss>

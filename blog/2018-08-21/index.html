@@ -15,21 +15,8 @@
 <meta property="og:description" content="Recently I have to deal with data pipeline with large volumn of data. I was using python script first to make plenty of sessions query for each row of data because of cascading query between different tables. This caused bottleneck for only 400,000 rows of data which required almost 2 hrs of processing time. I have used different approches like batch querying the dimension table or even async programming to separate the compute and insert operation." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-08-21/" />
-
-
-
-<meta property="article:published_time" content="2018-08-21T00:13:03&#43;08:00"/>
-<meta property="article:modified_time" content="2018-08-21T00:13:03&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-08-21T00:13:03+08:00" />
+<meta property="article:modified_time" content="2018-08-21T00:13:03+08:00" />
 
 
 <title>
@@ -55,11 +42,11 @@
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.565290859%20%2b0800%20CST%20m%3d%2b0.987272946">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.565290859%20%2b0800%20CST%20m%3d%2b0.987272946">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.565290859%20%2b0800%20CST%20m%3d%2b0.987272946">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.600436%20%2b0800%20CST%20m%3d%2b0.938789101">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.600436%20%2b0800%20CST%20m%3d%2b0.938789101">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.600436%20%2b0800%20CST%20m%3d%2b0.938789101">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.565290859%20%2b0800%20CST%20m%3d%2b0.987272946">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.600436%20%2b0800%20CST%20m%3d%2b0.938789101">
     
 
 
@@ -205,94 +192,88 @@
                 </div>
             </div>
             <div class="markdown">
-                
-
-<p>Recently I have to deal with data pipeline with large volumn of data. I was using python script first to make plenty of sessions query for each row of data because of <code>cascading query</code> between different tables. This caused bottleneck for only 400,000 rows of data which required almost 2 hrs of processing time. I have used different approches like batch querying the dimension table or even async programming to separate the compute and insert operation. But both turns out to be a not quite well performance. So I decided to turn to <code>spark</code>.</p>
-
+                <p>Recently I have to deal with data pipeline with large volumn of data. I was using python script first to make plenty of sessions query for each row of data because of <code>cascading query</code> between different tables. This caused bottleneck for only 400,000 rows of data which required almost 2 hrs of processing time. I have used different approches like batch querying the dimension table or even async programming to separate the compute and insert operation. But both turns out to be a not quite well performance. So I decided to turn to <code>spark</code>.</p>
 <h1 id="what-you-will-learn-from-this-blog">What you will learn from this blog?</h1>
-
 <ul>
 <li>I will take a note on how to use <code>aws EMR</code> for quick set up cluster for computing purpose.</li>
 <li>some basic computing skill with <code>spark</code> in scala.</li>
 </ul>
-
 <h1 id="what-is-emr">What is EMR?</h1>
-
-<p>EMR stands for <code>Elastic Mapreduce</code>.
-<img src="https://pingrunhuang.github.io/content/blog/2018-08-21/aws.png" alt="" /></p>
-
-<h1 id="how">How ?</h1>
-
-<p>You will have 3 options for submitting your jobs on the cluster.
-1. via the web-ui
-2. using the awscli
-3. restful api</p>
-
+<p>EMR stands for <code>Elastic Mapreduce</code>. 
+<img src="https://pingrunhuang.github.io/content/blog/2018-08-21/aws.png" alt=""></p>
+<h1 id="how-">How ?</h1>
+<p>You will have 3 options for submitting your jobs on the cluster.</p>
+<ol>
+<li>via the web-ui</li>
+<li>using the awscli</li>
+<li>restful api</li>
+</ol>
 <h1 id="what-can-we-do-in-this-platform">What can we do in this platform?</h1>
-
-<p>Streaming?
+<p>Streaming? 
 ETL?
 Machine Learning?</p>
-
 <h1 id="choosing-instances">Choosing instances</h1>
-
 <ul>
 <li>Master: coordinating different components inside the cluster.</li>
 <li>Core:</li>
 <li>Task:</li>
 </ul>
-
-<p>instance type:
-- c4.xxxx: compute optimized
-    - Batch processing workloads
-    - Media transcoding
-    - High-performance web servers
-    - High-performance computing (HPC)
-    - Scientific modeling
-    - Dedicated gaming servers and ad serving engines
-Machine learning inference and other compute-intensive applications
-- d2.xxxx
-- i3.xxxx: storage optimized.
-- m4.xxxx: general purpose
-- r4.xxxx</p>
-
+<p>instance type:</p>
+<ul>
+<li>c4.xxxx: compute optimized
+<ul>
+<li>Batch processing workloads</li>
+<li>Media transcoding</li>
+<li>High-performance web servers</li>
+<li>High-performance computing (HPC)</li>
+<li>Scientific modeling</li>
+<li>Dedicated gaming servers and ad serving engines
+Machine learning inference and other compute-intensive applications</li>
+</ul>
+</li>
+<li>d2.xxxx</li>
+<li>i3.xxxx: storage optimized.</li>
+<li>m4.xxxx: general purpose</li>
+<li>r4.xxxx</li>
+</ul>
 <p><a href="https://amazonaws-china.com/ec2/instance-types/">https://amazonaws-china.com/ec2/instance-types/</a></p>
-
 <h1 id="pricing">Pricing</h1>
-
 <ul>
 <li>Spot instance</li>
-
-<li><p>Price will be adjusted due to the current highest price in the current area.(Take about 5 to 10 minutes to set up)</p></li>
-
-<li><p>On demand instance</p></li>
-
-<li><p>Price is static.(Set up immediately)</p></li>
-
-<li></li>
-
-<li><p><a href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/using-spot-instances.html">https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/using-spot-instances.html</a></p></li>
 </ul>
-
-<h1 id="how-to-run-a-script-when-boostraping">how to run a script when boostraping?</h1>
-
-<p>add a custom jar reside at <code>s3://region.elasticmapreduce/libs/script-runner/script-runner.jar</code> and set the arguments.</p>
-
-<h1 id="some-thoughts-that-i-have-during-using-aws-emr">Some thoughts that I have during using aws EMR?</h1>
-
 <ol>
-<li><p>how does data map from s3 to the instance(aka how does aws handle data stored in s3 to be read from instance)?</p></li>
-
-<li><p>In the world of python, data should be better arraged in the form of dictionary while in the context of spark, data should be better thought of as <code>RDD</code> in some sense.</p></li>
-
-<li><p>How does spot fleets work?</p></li>
-
-<li><p>HBase on Amazon
-<img src="https://pingrunhuang.github.io/content/blog/2018-08-21/cluster-setting.png" alt="" /></p></li>
+<li>Price will be adjusted due to the current highest price in the current area.(Take about 5 to 10 minutes to set up)</li>
 </ol>
-
+<ul>
+<li>On demand instance</li>
+</ul>
+<ol>
+<li>Price is static.(Set up immediately)</li>
+<li></li>
+</ol>
+<ul>
+<li><a href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/using-spot-instances.html">https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/using-spot-instances.html</a></li>
+</ul>
+<h1 id="how-to-run-a-script-when-boostraping">how to run a script when boostraping?</h1>
+<p>add a custom jar reside at <code>s3://region.elasticmapreduce/libs/script-runner/script-runner.jar</code> and set the arguments.</p>
+<h1 id="some-thoughts-that-i-have-during-using-aws-emr">Some thoughts that I have during using aws EMR?</h1>
+<ol>
+<li>
+<p>how does data map from s3 to the instance(aka how does aws handle data stored in s3 to be read from instance)?</p>
+</li>
+<li>
+<p>In the world of python, data should be better arraged in the form of dictionary while in the context of spark, data should be better thought of as <code>RDD</code> in some sense.</p>
+</li>
+<li>
+<p>How does spot fleets work?</p>
+</li>
+<li>
+<p>HBase on Amazon 
+<img src="https://pingrunhuang.github.io/content/blog/2018-08-21/cluster-setting.png" alt=""></p>
+</li>
+</ol>
+<h1 id="heading"></h1>
 <h1 id="reference">Reference</h1>
-
 <ul>
 <li><a href="http://docs.amazonaws.cn/en_us/emr/latest/ManagementGuide/emr-mgmt.pdf">http://docs.amazonaws.cn/en_us/emr/latest/ManagementGuide/emr-mgmt.pdf</a></li>
 <li><a href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/spot-fleet.html">https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/spot-fleet.html</a></li>

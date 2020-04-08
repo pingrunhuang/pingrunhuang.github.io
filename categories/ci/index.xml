@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CI on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/ci/</link>
+    <description>Recent content in CI on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 16 Mar 2020 13:41:15 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/ci/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Learning Jenkins</title>
+      <link>https://pingrunhuang.github.io/blog/2020-03-16/</link>
+      <pubDate>Mon, 16 Mar 2020 13:41:15 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2020-03-16/</guid>
+      <description>For the workspace that Jenkins used when creating a new project: Jenkins will also create a workspace under /var/lib/jenkins/workspace/&amp;lt;your project name&amp;gt;</description>
+    </item>
+    
+  </channel>
+</rss>

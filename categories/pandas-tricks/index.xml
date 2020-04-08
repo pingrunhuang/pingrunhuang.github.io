@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pandas tricks on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/pandas-tricks/</link>
+    <description>Recent content in pandas tricks on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 07 Aug 2019 10:24:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/pandas-tricks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tricks for dealing with large data</title>
+      <link>https://pingrunhuang.github.io/blog/2019-08-07/</link>
+      <pubDate>Wed, 07 Aug 2019 10:24:57 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-08-07/</guid>
+      <description># read chunk of dataframe df_chunk = pd.read_csv(r&amp;#39;../input/data.csv&amp;#39;, chunksize=1000000)chunk_list = [] # append each chunk df here  # Each chunk is in df format for chunk in df_chunk: # perform data filtering: drop not necessary columns, change column dtypes chunk_filter = chunk_preprocessing(chunk)# Once the data filtering is done, append the chunk to list chunk_list.append(chunk_filter)# concat the list into dataframe  df_concat = pd.</description>
+    </item>
+    
+  </channel>
+</rss>

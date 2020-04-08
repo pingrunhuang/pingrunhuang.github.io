@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>K8s on Frank Huang</title>
+    <title>k8s on Frank Huang</title>
     <link>https://pingrunhuang.github.io/categories/k8s/</link>
-    <description>Recent content in K8s on Frank Huang</description>
+    <description>Recent content in k8s on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 16 Apr 2019 19:47:25 +0800</lastBuildDate>
@@ -18,9 +18,9 @@
       
       <guid>https://pingrunhuang.github.io/blog/2019-04-16/</guid>
       <description>Template for defining yaml file for orchestration:
-apiVersion: v1 kind: Pod/Deployment metadata: name: labels: app: web Spec: replicas: 2 containers: - name: image: command: args: workingDir: ports: env: resources: volumeMounts: livenessProbe: readinessProbe: lifecycle: terminationMessagePath: imagePullPolicy: securityContext: stdin: stdinOnce: tty:   use kubectl explain  to check out term
+apiVersion:v1kind:Pod/Deploymentmetadata:name:labels:app:webSpec:replicas:2containers:- name:image:command:args:workingDir:ports:env:resources:volumeMounts:livenessProbe:readinessProbe:lifecycle:terminationMessagePath:imagePullPolicy:securityContext:stdin:stdinOnce:tty: use kubectl explain to check out term
  storage template for defining storage.yaml:
-kind: StorageClass apiVersion: storage.k8s.io/v1 metadata: name: jupyterhub-share namespace: jhub provisioner: kubernetes.io/no-provisioner   what is the relationship between pv, pvc and storage?</description>
+kind: StorageClassapiVersion: storage.k8s.io/v1metadata:name: jupyterhub-sharenamespace: jhubprovisioner: kubernetes.io/no-provisioner what is the relationship between pv, pvc and storage? As (Gokhan Simsek)[https://softwareengineeringdaily.com/2019/01/11/why-is-storage-on-kubernetes-is-so-hard/] mentioned, there are two ways of dealing with storage: statically or dynamically. pv+pvc is for static provisioning. pvc+storage is for dynamic provisioning. In the previous pattern, one will have to define capacity in the pv.</description>
     </item>
     
   </channel>

@@ -9,31 +9,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
-<meta name="description" content=" Suppose I have a schema of the following
-a|b|c 1| |1 ...  \copy The above value
-insert COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS E&#39;\x1E&#39; CSV QUOTE E&#39;\&#39;&#39;;  COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS &#39;,&#39; CSV QUOTE &#39;&#39;&#39;&#39;;  ">
+<meta name="description" content="Suppose I have a schema of the following
+a|b|c1| |1...\copy The above value
+insert COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS E&#39;\x1E&#39; CSV QUOTE E&#39;\&#39;&#39;;COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS &#39;,&#39; CSV QUOTE &#39;&#39;&#39;&#39;;">
 
 <meta property="og:title" content="Dealing with null value in postgresql" />
-<meta property="og:description" content=" Suppose I have a schema of the following
-a|b|c 1| |1 ...  \copy The above value
-insert COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS E&#39;\x1E&#39; CSV QUOTE E&#39;\&#39;&#39;;  COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS &#39;,&#39; CSV QUOTE &#39;&#39;&#39;&#39;;  " />
+<meta property="og:description" content="Suppose I have a schema of the following
+a|b|c1| |1...\copy The above value
+insert COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS E&#39;\x1E&#39; CSV QUOTE E&#39;\&#39;&#39;;COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS &#39;,&#39; CSV QUOTE &#39;&#39;&#39;&#39;;" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-09-11/" />
-
-
-
-<meta property="article:published_time" content="2018-09-11T09:54:08&#43;08:00"/>
-<meta property="article:modified_time" content="2018-09-11T09:54:08&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-09-11T09:54:08+08:00" />
+<meta property="article:modified_time" content="2018-09-11T09:54:08+08:00" />
 
 
 <title>
@@ -59,11 +46,11 @@ insert COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS E&#39;\x1E&
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.560293803%20%2b0800%20CST%20m%3d%2b0.982275890">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.560293803%20%2b0800%20CST%20m%3d%2b0.982275890">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.560293803%20%2b0800%20CST%20m%3d%2b0.982275890">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.614448%20%2b0800%20CST%20m%3d%2b0.952801101">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.614448%20%2b0800%20CST%20m%3d%2b0.952801101">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.614448%20%2b0800%20CST%20m%3d%2b0.952801101">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.560293803%20%2b0800%20CST%20m%3d%2b0.982275890">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.614448%20%2b0800%20CST%20m%3d%2b0.952801101">
     
 
 
@@ -209,27 +196,16 @@ insert COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS E&#39;\x1E&
                 </div>
             </div>
             <div class="markdown">
-                
-
-<p>Suppose I have a schema of the following</p>
-
+                <p>Suppose I have a schema of the following</p>
 <pre><code>a|b|c
 1| |1
 ...
-</code></pre>
-
-<h1 id="copy">\copy</h1>
-
+</code></pre><h1 id="copy">\copy</h1>
 <p>The above value</p>
-
 <h1 id="insert">insert</h1>
-
 <pre><code>COPY my_table FROM 'c:\downloads\file.csv' DELIMITERS E'\x1E' CSV QUOTE E'\'';
+</code></pre><pre><code>COPY my_table FROM 'c:\downloads\file.csv' DELIMITERS ',' CSV QUOTE '''';
 </code></pre>
-
-<pre><code>COPY my_table FROM 'c:\downloads\file.csv' DELIMITERS ',' CSV QUOTE '''';
-</code></pre>
-
                 <br>
 		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
             </div>

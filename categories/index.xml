@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Frank Huang</title>
@@ -6,22 +6,31 @@
     <description>Recent content in Categories on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 27 Feb 2019 18:06:41 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2020 09:38:42 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Algorithm</title>
-      <link>https://pingrunhuang.github.io/categories/algorithm/</link>
-      <pubDate>Wed, 27 Feb 2019 18:06:41 +0800</pubDate>
+      <title>python</title>
+      <link>https://pingrunhuang.github.io/categories/python/</link>
+      <pubDate>Tue, 07 Apr 2020 09:38:42 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/categories/algorithm/</guid>
+      <guid>https://pingrunhuang.github.io/categories/python/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Blockchain</title>
+      <title>Design pattern</title>
+      <link>https://pingrunhuang.github.io/categories/design-pattern/</link>
+      <pubDate>Mon, 06 Apr 2020 15:33:37 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/design-pattern/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blockchain</title>
       <link>https://pingrunhuang.github.io/categories/blockchain/</link>
       <pubDate>Thu, 20 Feb 2020 16:10:54 +0800</pubDate>
       
@@ -30,124 +39,16 @@
     </item>
     
     <item>
-      <title>Computer Science</title>
-      <link>https://pingrunhuang.github.io/categories/computer-science/</link>
-      <pubDate>Sun, 30 Jun 2019 15:19:27 +0800</pubDate>
+      <title>product management</title>
+      <link>https://pingrunhuang.github.io/categories/product-management/</link>
+      <pubDate>Sun, 22 Sep 2019 12:00:09 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/categories/computer-science/</guid>
+      <guid>https://pingrunhuang.github.io/categories/product-management/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Coursera</title>
-      <link>https://pingrunhuang.github.io/categories/coursera/</link>
-      <pubDate>Thu, 14 Mar 2019 07:38:35 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/coursera/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Science</title>
-      <link>https://pingrunhuang.github.io/categories/data-science/</link>
-      <pubDate>Mon, 21 Dec 2015 04:05:25 -0600</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/data-science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Structure</title>
-      <link>https://pingrunhuang.github.io/categories/data-structure/</link>
-      <pubDate>Fri, 04 May 2018 12:03:46 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/data-structure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Design Pattern</title>
-      <link>https://pingrunhuang.github.io/categories/design-pattern/</link>
-      <pubDate>Sun, 14 Oct 2018 23:24:32 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/design-pattern/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Diy</title>
-      <link>https://pingrunhuang.github.io/categories/diy/</link>
-      <pubDate>Sun, 29 Oct 2017 17:05:56 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/diy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>https://pingrunhuang.github.io/categories/docker/</link>
-      <pubDate>Wed, 21 Feb 2018 16:23:22 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Encoding</title>
-      <link>https://pingrunhuang.github.io/categories/encoding/</link>
-      <pubDate>Sun, 05 Nov 2017 20:39:51 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/encoding/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://pingrunhuang.github.io/categories/git/</link>
-      <pubDate>Wed, 27 Jun 2018 22:56:50 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Golang</title>
-      <link>https://pingrunhuang.github.io/categories/golang/</link>
-      <pubDate>Sun, 17 Dec 2017 15:25:00 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Interview Skills</title>
-      <link>https://pingrunhuang.github.io/categories/interview-skills/</link>
-      <pubDate>Sat, 22 Jun 2019 21:59:44 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/interview-skills/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Java</title>
-      <link>https://pingrunhuang.github.io/categories/java/</link>
-      <pubDate>Thu, 27 Jun 2019 15:58:39 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>K8s</title>
-      <link>https://pingrunhuang.github.io/categories/k8s/</link>
-      <pubDate>Tue, 16 Apr 2019 19:47:25 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/k8s/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kafka</title>
+      <title>kafka</title>
       <link>https://pingrunhuang.github.io/categories/kafka/</link>
       <pubDate>Wed, 24 Jul 2019 00:21:40 +0800</pubDate>
       
@@ -156,11 +57,38 @@
     </item>
     
     <item>
-      <title>Linux</title>
-      <link>https://pingrunhuang.github.io/categories/linux/</link>
-      <pubDate>Tue, 28 Aug 2018 10:05:35 +0800</pubDate>
+      <title>computer science</title>
+      <link>https://pingrunhuang.github.io/categories/computer-science/</link>
+      <pubDate>Sun, 30 Jun 2019 15:19:27 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/categories/linux/</guid>
+      <guid>https://pingrunhuang.github.io/categories/computer-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://pingrunhuang.github.io/categories/java/</link>
+      <pubDate>Thu, 27 Jun 2019 15:58:39 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>interview skills</title>
+      <link>https://pingrunhuang.github.io/categories/interview-skills/</link>
+      <pubDate>Sat, 22 Jun 2019 21:59:44 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/interview-skills/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vertx</title>
+      <link>https://pingrunhuang.github.io/categories/vertx/</link>
+      <pubDate>Mon, 10 Jun 2019 22:28:46 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/vertx/</guid>
       <description></description>
     </item>
     
@@ -174,7 +102,7 @@
     </item>
     
     <item>
-      <title>Postgis</title>
+      <title>postgis</title>
       <link>https://pingrunhuang.github.io/categories/postgis/</link>
       <pubDate>Wed, 17 Apr 2019 17:36:51 +0800</pubDate>
       
@@ -183,11 +111,38 @@
     </item>
     
     <item>
-      <title>Product Management</title>
-      <link>https://pingrunhuang.github.io/categories/product-management/</link>
-      <pubDate>Sun, 22 Sep 2019 12:00:09 +0800</pubDate>
+      <title>k8s</title>
+      <link>https://pingrunhuang.github.io/categories/k8s/</link>
+      <pubDate>Tue, 16 Apr 2019 19:47:25 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/categories/product-management/</guid>
+      <guid>https://pingrunhuang.github.io/categories/k8s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coursera</title>
+      <link>https://pingrunhuang.github.io/categories/coursera/</link>
+      <pubDate>Thu, 14 Mar 2019 07:38:35 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/coursera/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>algorithm</title>
+      <link>https://pingrunhuang.github.io/categories/algorithm/</link>
+      <pubDate>Wed, 27 Feb 2019 18:06:41 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DSL</title>
+      <link>https://pingrunhuang.github.io/categories/dsl/</link>
+      <pubDate>Thu, 10 Jan 2019 11:47:55 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/dsl/</guid>
       <description></description>
     </item>
     
@@ -201,34 +156,16 @@
     </item>
     
     <item>
-      <title>Python</title>
-      <link>https://pingrunhuang.github.io/categories/python/</link>
-      <pubDate>Sat, 10 Nov 2018 22:34:02 +0800</pubDate>
+      <title>Linux</title>
+      <link>https://pingrunhuang.github.io/categories/linux/</link>
+      <pubDate>Tue, 28 Aug 2018 10:05:35 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/categories/python/</guid>
+      <guid>https://pingrunhuang.github.io/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Research</title>
-      <link>https://pingrunhuang.github.io/categories/research/</link>
-      <pubDate>Wed, 22 Aug 2018 00:46:55 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/research/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Scala</title>
-      <link>https://pingrunhuang.github.io/categories/scala/</link>
-      <pubDate>Tue, 26 Jun 2018 15:43:28 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/scala/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Spark</title>
+      <title>spark</title>
       <link>https://pingrunhuang.github.io/categories/spark/</link>
       <pubDate>Sun, 26 Aug 2018 14:31:37 +0800</pubDate>
       
@@ -237,11 +174,83 @@
     </item>
     
     <item>
-      <title>Sql</title>
-      <link>https://pingrunhuang.github.io/categories/sql/</link>
-      <pubDate>Thu, 10 Jan 2019 11:47:55 +0800</pubDate>
+      <title>research</title>
+      <link>https://pingrunhuang.github.io/categories/research/</link>
+      <pubDate>Wed, 22 Aug 2018 00:46:55 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/categories/sql/</guid>
+      <guid>https://pingrunhuang.github.io/categories/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GIT</title>
+      <link>https://pingrunhuang.github.io/categories/git/</link>
+      <pubDate>Wed, 27 Jun 2018 22:56:50 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scala</title>
+      <link>https://pingrunhuang.github.io/categories/scala/</link>
+      <pubDate>Tue, 26 Jun 2018 15:43:28 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/scala/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data structure</title>
+      <link>https://pingrunhuang.github.io/categories/data-structure/</link>
+      <pubDate>Fri, 04 May 2018 12:03:46 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/data-structure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data science</title>
+      <link>https://pingrunhuang.github.io/categories/data-science/</link>
+      <pubDate>Sat, 17 Mar 2018 21:11:56 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://pingrunhuang.github.io/categories/docker/</link>
+      <pubDate>Wed, 21 Feb 2018 16:23:22 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://pingrunhuang.github.io/categories/golang/</link>
+      <pubDate>Sun, 17 Dec 2017 15:25:00 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>encoding</title>
+      <link>https://pingrunhuang.github.io/categories/encoding/</link>
+      <pubDate>Sun, 05 Nov 2017 20:39:51 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/encoding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DIY</title>
+      <link>https://pingrunhuang.github.io/categories/diy/</link>
+      <pubDate>Sun, 29 Oct 2017 17:05:56 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/categories/diy/</guid>
       <description></description>
     </item>
     
@@ -251,15 +260,6 @@
       <pubDate>Thu, 19 Oct 2017 15:43:15 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/categories/thinking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vertx</title>
-      <link>https://pingrunhuang.github.io/categories/vertx/</link>
-      <pubDate>Mon, 10 Jun 2019 22:28:46 +0800</pubDate>
-      
-      <guid>https://pingrunhuang.github.io/categories/vertx/</guid>
       <description></description>
     </item>
     

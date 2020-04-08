@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>paper on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/paper/</link>
+    <description>Recent content in paper on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 01 Mar 2019 07:48:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/paper/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An Adaptive Dynamic Programming Algorithm for Dynamic Fleet Management, II: Multiperiod Travel Times</title>
+      <link>https://pingrunhuang.github.io/blog/2019-03-01/</link>
+      <pubDate>Fri, 01 Mar 2019 07:48:45 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-03-01/</guid>
+      <description>文章解读
+Reference  https://castlelab.princeton.edu/html/Papers/Godfrey%20Powell%20-%20ADP%20for%20fleet%20management%20II%20-%20multi-period%20travel%20times.pdf  </description>
+    </item>
+    
+  </channel>
+</rss>

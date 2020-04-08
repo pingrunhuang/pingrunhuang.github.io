@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hive on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/hive/</link>
+    <description>Recent content in hive on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 13 Jun 2018 14:32:55 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/hive/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Issue: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient</title>
+      <link>https://pingrunhuang.github.io/blog/2018-06-13/</link>
+      <pubDate>Wed, 13 Jun 2018 14:32:55 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-06-13/</guid>
+      <description>As the title metioned, a sort of metastore service should be running so that the hive cli could be issued. At first I thought it was like a system service such as service mysqld start to let the metastore start running. But turns out that the service application should be opening all the time.
+Without further setting, hive --service metastore could fix the issue. But this will cause the service run on the fore-ground.</description>
+    </item>
+    
+  </channel>
+</rss>

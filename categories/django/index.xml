@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>django on Frank Huang</title>
+    <link>https://pingrunhuang.github.io/categories/django/</link>
+    <description>Recent content in django on Frank Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 30 Jul 2019 12:11:44 +0800</lastBuildDate>
+    
+	<atom:link href="https://pingrunhuang.github.io/categories/django/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Issues of django</title>
+      <link>https://pingrunhuang.github.io/blog/2019-07-30/</link>
+      <pubDate>Tue, 30 Jul 2019 12:11:44 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-07-30/</guid>
+      <description>When rendering templates in django, there is one issue that kept me stuck.  suppose you have 2 templates in 2 sub-apps. Both of which reference 2 different static files with the same name. This case, django will serve both page with the same static file from the first app(follow the sequence from settings.py installed_apps attribute)
+ I think this would be an issue since it will cause some rendering problems.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Frank Huang</title>
@@ -28,7 +28,7 @@ In this blog, I will summarize some ways to exclude
       <pubDate>Tue, 29 May 2018 20:05:39 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-05-29/</guid>
-      <description>Tips for using vim  Cursor movement: hjkl for left, up, down, right, [number]j to relative line down, [number]k to relative line down, G to the last row, gg to the first row, $ to the end of current row, 0 or ^ to the start of current row, line number+G to the specified row, &amp;lt;ctrl&amp;gt;+o to jump back to the previous position, &amp;lt;ctrl&amp;gt;+i undo the jump back operation. &amp;lt;ctrl&amp;gt;+B to page up, &amp;lt;ctrl&amp;gt;+D to page down.</description>
+      <description>Tips for using vim   Cursor movement: hjkl for left, up, down, right, [number]j to relative line down, [number]k to relative line down, G to the last row, gg to the first row, $ to the end of current row, 0 or ^ to the start of current row, line number+G to the specified row, &amp;lt;ctrl&amp;gt;+o to jump back to the previous position, &amp;lt;ctrl&amp;gt;+i undo the jump back operation. &amp;lt;ctrl&amp;gt;+B to page up, &amp;lt;ctrl&amp;gt;+D to page down.</description>
     </item>
     
   </channel>

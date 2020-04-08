@@ -10,30 +10,15 @@
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
 <meta name="description" content="How to split data into train/dev/test The goal of having dev set is to select the model having the best performance for the final test.
-1. Small data situation: 60%/20%/20% or so 2. Large data situation: 98%/1%/1% or so
-Why does the dev and test set should be better to have a same distribution? The goal of having dev set is to select a model with the best performance which will be tested in the test set.">
+ Small data situation: 60%/20%/20% or so Large data situation: 98%/1%/1% or so  Why does the dev and test set should be better to have a same distribution? The goal of having dev set is to select a model with the best performance which will be tested in the test set.">
 
 <meta property="og:title" content="How to improve your neural net week 1: note of deeplearning.ai from coursera" />
 <meta property="og:description" content="How to split data into train/dev/test The goal of having dev set is to select the model having the best performance for the final test.
-1. Small data situation: 60%/20%/20% or so 2. Large data situation: 98%/1%/1% or so
-Why does the dev and test set should be better to have a same distribution? The goal of having dev set is to select a model with the best performance which will be tested in the test set." />
+ Small data situation: 60%/20%/20% or so Large data situation: 98%/1%/1% or so  Why does the dev and test set should be better to have a same distribution? The goal of having dev set is to select a model with the best performance which will be tested in the test set." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2019-04-19/" />
-
-
-
-<meta property="article:published_time" content="2019-04-19T07:16:06&#43;08:00"/>
-<meta property="article:modified_time" content="2019-04-19T07:16:06&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2019-04-19T07:16:06+08:00" />
+<meta property="article:modified_time" content="2019-04-19T07:16:06+08:00" />
 
 
 <title>
@@ -59,11 +44,11 @@ Why does the dev and test set should be better to have a same distribution? The 
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.548088579%20%2b0800%20CST%20m%3d%2b0.970070666">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.548088579%20%2b0800%20CST%20m%3d%2b0.970070666">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.548088579%20%2b0800%20CST%20m%3d%2b0.970070666">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.6324651%20%2b0800%20CST%20m%3d%2b0.970818201">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.6324651%20%2b0800%20CST%20m%3d%2b0.970818201">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.6324651%20%2b0800%20CST%20m%3d%2b0.970818201">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.548088579%20%2b0800%20CST%20m%3d%2b0.970070666">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.6324651%20%2b0800%20CST%20m%3d%2b0.970818201">
     
 
 
@@ -209,136 +194,98 @@ Why does the dev and test set should be better to have a same distribution? The 
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h2 id="how-to-split-data-into-train-dev-test">How to split data into train/dev/test</h2>
-
-<p>The goal of having dev set is to select the model having the best performance for the final test.<br />
-1. Small data situation: 60%/20%/20% or so
-2. Large data situation: 98%/1%/1% or so</p>
-
+                <h2 id="how-to-split-data-into-traindevtest">How to split data into train/dev/test</h2>
+<p>The goal of having dev set is to select the model having the best performance for the final test.</p>
+<ol>
+<li>Small data situation: 60%/20%/20% or so</li>
+<li>Large data situation: 98%/1%/1% or so</li>
+</ol>
 <h2 id="why-does-the-dev-and-test-set-should-be-better-to-have-a-same-distribution">Why does the dev and test set should be better to have a same distribution?</h2>
-
 <p>The goal of having dev set is to select a model with the best performance which will be tested in the test set. Therefore, having the same distribution for dev set and test set is importante.</p>
-
 <h1 id="regularization">Regularization</h1>
-
 <h2 id="problems">Problems</h2>
-
 <blockquote>
 <p>what is high bias and high variance?</p>
 </blockquote>
-
-<p>Essentially, having training set have higher error (like above 10%) is high bias(not trained enough).<br />
-Having the test set to have higher error means the model is high variance (not generalizing well).<br />
-1. High bias: meaning training data performance problems
-   1. bigger neural net
-   2. train longer (increase iteration)
-   3. different architect
-2. High variance: meaning dev set performance problems aka overfitting
-   1. need more data: develop the train / dev / test set. (quite not feasible)
-   2. regularization: weight decay</p>
-
+<p>Essentially, having training set have higher error (like above 10%) is high bias(not trained enough).<br>
+Having the test set to have higher error means the model is high variance (not generalizing well).</p>
+<ol>
+<li>High bias: meaning training data performance problems
+<ol>
+<li>bigger neural net</li>
+<li>train longer (increase iteration)</li>
+<li>different architect</li>
+</ol>
+</li>
+<li>High variance: meaning dev set performance problems aka overfitting
+<ol>
+<li>need more data: develop the train / dev / test set. (quite not feasible)</li>
+<li>regularization: weight decay</li>
+</ol>
+</li>
+</ol>
 <p>In order to prevent overfitting, one should keep the weight low</p>
-
 <h2 id="regularization-in-logistic-regression">Regularization in Logistic regression</h2>
-
 <h2 id="regularization-in-neural-net">Regularization in Neural Net</h2>
-
-<p>L1 regularization(aka lasso regression):<br />
-<code>$$ J(w, b) = \frac{1}{m} \sum_{i=1}^{n}\left(y_{i}-h_{\theta}\left(w_{i}\right)\right)^{2}+\frac{\lambda}{2 m}\|w\|_{1} $$</code><br />
-L2 regularization(aka ridge regularization):<br />
+<p>L1 regularization(aka lasso regression):<br>
+<code>$$ J(w, b) = \frac{1}{m} \sum_{i=1}^{n}\left(y_{i}-h_{\theta}\left(w_{i}\right)\right)^{2}+\frac{\lambda}{2 m}\|w\|_{1} $$</code><br>
+L2 regularization(aka ridge regularization):<br>
 <code>$$ J(w, b) = \frac{1}{m} \sum_{i=1}^{n}\left(y_{i}-h_{\theta}\left(w_{i}\right)\right)^{2}+\frac{\lambda}{2 m}\sum_{i=1}^{n} w_{i}^{2} $$</code></p>
-
-<p><code>lambda</code> is called the regularization parameter. More specifically,
+<p><code>lambda</code> is called the regularization parameter. More specifically, 
 <code>$$J = -\frac{1}{m} \sum\limits_{i = 1}^{m} \large{(}\small y^{(i)}\log\left(a^{[L](i)}\right) + (1-y^{(i)})\log\left(1- a^{[L](i)}\right) \large{)} \tag{1}$$</code></p>
-
 <p><code>$$J_{regularized} = \small \underbrace{-\frac{1}{m} \sum\limits_{i = 1}^{m} \large{(}\small y^{(i)}\log\left(a^{[L](i)}\right) + (1-y^{(i)})\log\left(1- a^{[L](i)}\right) \large{)} }_\text{cross-entropy cost} + \underbrace{\frac{1}{m} \frac{\lambda}{2} \sum\limits_l\sum\limits_k\sum\limits_j W_{k,j}^{[l]2} }_\text{L2 regularization cost} \tag{2}$$</code></p>
-
 <h2 id="why-regularization-prevent-overfitting">Why regularization prevent overfitting</h2>
-
 <ol>
 <li>Think of the L2 regularization when we are penalizing the weight matrix to almost equal to 0 which means some of the neuron get eliminated. This will cause the neural net to become more simple so that it won&rsquo;t get overfitted. So the high variance case will be brought down to a high bias case.</li>
-<li>Recall the distribution of the activate function, when the lambda is relatively large which means penalize the weight so that the <code>W</code> is relatively small. This will cause the result of the linear function to near by 0 which will cause the input space of the <code>activation</code> function around 0. Wheras the distribution around 0 is almost linear. So the goal of having a complex activation function is vanished.<br />
+<li>Recall the distribution of the activate function, when the lambda is relatively large which means penalize the weight so that the <code>W</code> is relatively small. This will cause the result of the linear function to near by 0 which will cause the input space of the <code>activation</code> function around 0. Wheras the distribution around 0 is almost linear. So the goal of having a complex activation function is vanished.<br>
 Tips: turn off the regularization part off when debuggin until it is bug free.</li>
 </ol>
-
 <h3 id="how-does-increase-or-decrease-regularization-parameter-lembda-affect-the-the-neural-net">How does increase or decrease regularization parameter lembda affect the the neural net?</h3>
-
 <p>Recall the goal of having a regularization term <code>$\frac{1}{m} \frac{\lambda}{2} \sum_{l} \sum_{k} \sum_{j} W_{k, j}^{[l] 2}$</code> is to penalize the weight matrix. You might ask: why it is penalizing? Good question. Since eventually, neural network is to reduce the value of the optimization funciton <code>J</code>. Therefore, the larger the value of <code>lambda</code>, the smaller the weight matrix will get which is equal to zeoring out some value of the weight matrix so that the neural net will have fewer neurons in each layer. So we will end up with a simpler archetecture of neural net.</p>
-
 <p>So basically the <code>lambda</code> will affect the neural net archetecture and activation function.</p>
-
 <h2 id="dropout-rugularization">Dropout rugularization</h2>
-
 <p>Drop out some of the neurons in each hidden layer randomly. It is a regularization technique to help prevent overfitting.</p>
-
 <h3 id="inverted-dropout">Inverted dropout</h3>
-
 <p>here is the implementation:</p>
-
-<pre><code class="language-python">dropout[l] = np.random.rand(a[l].shape(0), a[l].shape(1))&lt;keep_prob # (1)
-a[l] = np.multiply(a[l], d[l]) # (2)
-a[l] /= keep_prob # (3)
-</code></pre>
-
-<p>For (1), keep_prob is the ratio to keep the number of neurons.
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dropout</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">&lt;</span><span class="n">keep_prob</span> <span class="c1"># (1)</span>
+<span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="n">l</span><span class="p">])</span> <span class="c1"># (2)</span>
+<span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">/=</span> <span class="n">keep_prob</span> <span class="c1"># (3)</span>
+</code></pre></div><p>For (1), keep_prob is the ratio to keep the number of neurons. 
 Reason for (3) is <code>z(l+1) = W(l+1) * a(l) + b(l+1)</code>, in order to let <code>z(l+1)</code> stay still, we need to bump up the value of a with keep_prob. This is called the inverted dropout.</p>
-
 <blockquote>
 <p>2 things to notice</p>
 </blockquote>
-
 <ol>
 <li>During testing time, you don&rsquo;t apply randomly drop out and do not keep 1/keep_prop factor.</li>
 <li>Increasing the regularization parameter will reduce the effect of regularization which will cause overfitting issue meaning lower the training error and higher the testing error.</li>
 </ol>
-
 <h3 id="in-test-phase">In test phase</h3>
-
 <p>Don&rsquo;t use dropout for the sake of testing.</p>
-
 <h2 id="why-dropout-work">Why dropout work?</h2>
-
 <p>Essentially, the low value of weight caused the overfitting. So we need to figure out a way of lowering down the value of weight.
-Intuition:
+Intuition: 
 eliminate some of the neuron randomly so that the network need to expand out the weights.</p>
-
 <p>Thought: the regularization is used for the backprop phase cause it essentially just change the value of cost function <code>J</code>? (for adjusting the weight)</p>
-
 <h1 id="other-regularization-tech">Other regularization tech</h1>
-
 <ol>
 <li>Data augmentation: rotate the image, zoom in image, flip image(for image processing)</li>
 <li>Early stopping: iterate not that much.</li>
 </ol>
-
 <h1 id="normalization">Normalization</h1>
-
 <h2 id="why-normalize-features">Why normalize features?</h2>
-
 <p>target: transform the input feature into similar range (variance). This will make cost function easier or faster to converge.</p>
-
 <h2 id="gradients-vanishing-and-exploding">Gradients vanishing and exploding</h2>
-
 <p>Think of a situation where we have a 150 layers of deep neural net. And we don&rsquo;t not carefully initialize the weights.The results will get exploded(w&gt;1) or vanished(w&lt;1) eventually. Therefore, we will need to initialize parameters carefully in order to let it vary a lot.</p>
-
 <h2 id="different-ways-for-init-w">Different ways for init w</h2>
-
 <p><code>W(l) = np.random.rand(n(l-1)) * np.sqrt(2/n(l-1))</code> for RELU as activation function. Others like <code>Xavier initialization</code>.</p>
-
 <h2 id="backprop-check">backprop check</h2>
-
 <p>For the parameter space <code>W(0),b(0),W(1),b(1)......W(n(l)),b(n(l))</code>, reshape and concate them into a huge vector <code>theta</code>. Moreover, turns the <code>J(W,b)</code> into <code>J(theta)</code>.
 <code>$$ \frac{\partial J}{\partial \theta}=\lim _{\varepsilon \rightarrow 0} \frac{J(\theta+\varepsilon)-J(\theta-\varepsilon)}{2 \varepsilon} $$</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.001</span>
 
-<pre><code class="language-python">epsilon = 0.001
-
-for i in range(len(theta)):
-    d_theta[i] = (J(theta[i]+epsilon)-J(theta[i]+epsilon)) / (2*epsilon)
-</code></pre>
-
-<p>check if <code>np.sqrt((d_theta(i) - theta(i))**2) / np.sqrt(d_theta(i)**2) - np.sqrt(theta(i)**2)</code> is smaller then some acceptable small value.</p>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">theta</span><span class="p">)):</span>
+    <span class="n">d_theta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">J</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">-</span><span class="n">J</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">epsilon</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">)</span>
+</code></pre></div><p>check if <code>np.sqrt((d_theta(i) - theta(i))**2) / np.sqrt(d_theta(i)**2) - np.sqrt(theta(i)**2)</code> is smaller then some acceptable small value.</p>
 
                 <br>
 		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>

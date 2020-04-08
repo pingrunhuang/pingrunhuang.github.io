@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Research on Frank Huang</title>
+    <title>research on Frank Huang</title>
     <link>https://pingrunhuang.github.io/categories/research/</link>
-    <description>Recent content in Research on Frank Huang</description>
+    <description>Recent content in research on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 22 Aug 2018 00:46:55 +0800</lastBuildDate>
@@ -17,7 +17,7 @@
       <pubDate>Wed, 22 Aug 2018 00:46:55 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-08-22/</guid>
-      <description>S3 Map hive table to S3 bucket CREATE EXTERNAL TABLE posts (title STRING, comment_count INT) LOCATION &#39;s3://my-bucket/files/&#39;;  Use hive on S3 $ beeline $ beeline&amp;gt; !connect jdbc:hive2://localhost:10000 $ Enter username for jdbc:hive2://localhost:10000: admin $ Enter password for jdbc:hive2://localhost:10000: admin  More options could be checked by typing help on the terminal</description>
+      <description>S3 Map hive table to S3 bucket CREATE EXTERNAL TABLE posts (title STRING, comment_count INT)LOCATION &#39;s3://my-bucket/files/&#39;;Use hive on S3 $ beeline$ beeline&amp;gt; !connect jdbc:hive2://localhost:10000$ Enter username for jdbc:hive2://localhost:10000: admin$ Enter password for jdbc:hive2://localhost:10000: adminMore options could be checked by typing help on the terminal</description>
     </item>
     
     <item>

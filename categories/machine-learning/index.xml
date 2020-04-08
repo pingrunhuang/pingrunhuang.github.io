@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on Frank Huang</title>
@@ -17,10 +17,7 @@
       <pubDate>Thu, 25 Apr 2019 06:55:21 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2019-04-25/</guid>
-      <description>Orthogonalization  fit training set well on cost:
- fit dev set well on cost:
- fit test set well on cost:
- perform well on real world:  evaluation metric precision: of the examples that your classifier recognizes as cats recall: of all the images that really are cats, what percentage were correctly recognized by your classifier F1 score: combine precision and recall, average: harmonic mean
+      <description>Orthogonalization  fit training set well on cost: fit dev set well on cost: fit test set well on cost: perform well on real world:  evaluation metric precision: of the examples that your classifier recognizes as cats recall: of all the images that really are cats, what percentage were correctly recognized by your classifier F1 score: combine precision and recall, average: harmonic mean
 distribution of dev and test set size on dev/test set?</description>
     </item>
     
@@ -42,8 +39,7 @@ Notation $$ a^{[l]\{t\}(m)} $$ means the the activation value of m examples in t
       
       <guid>https://pingrunhuang.github.io/blog/2019-04-19/</guid>
       <description>How to split data into train/dev/test The goal of having dev set is to select the model having the best performance for the final test.
-1. Small data situation: 60%/20%/20% or so 2. Large data situation: 98%/1%/1% or so
-Why does the dev and test set should be better to have a same distribution? The goal of having dev set is to select a model with the best performance which will be tested in the test set.</description>
+ Small data situation: 60%/20%/20% or so Large data situation: 98%/1%/1% or so  Why does the dev and test set should be better to have a same distribution? The goal of having dev set is to select a model with the best performance which will be tested in the test set.</description>
     </item>
     
     <item>
@@ -64,8 +60,9 @@ Several questions to take away: forward phase: 1. what to cache in layer l? back
       <guid>https://pingrunhuang.github.io/blog/2018-07-09/</guid>
       <description>Suppose we have a
 for variables that are correlated  lasso regression ridge regression  spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
-spark 参数配置 &amp;ndash;conf -&amp;gt; shell parameter -&amp;gt; conf/spark-defaults.conf - num-executors - executor-cores - spark.default.parallelism - total-executor-cores
-memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%) - spark.storage.memoryFraction: cache/persist operation - spark.shuffle.memoryFraction: memory for shuffle manipulation - executor-memory: total memory for each executor - driver-memory</description>
+spark 参数配置 &amp;ndash;conf -&amp;gt; shell parameter -&amp;gt; conf/spark-defaults.conf
+ num-executors executor-cores spark.default.parallelism total-executor-cores  memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%)
+ spark.storage.memoryFraction: cache/persist operation spark.shuffle.memoryFraction: memory for shuffle manipulation executor-memory: total memory for each executor driver-memory  参数说明：Total cores for all executors.</description>
     </item>
     
     <item>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="The word DAG (Directed Acyclical Graphs) has been there for a while. Oozie use it to represent a serial of actions, spark use it as a serial of RDD.
+ So what is DAG? Why using DAG? In what use cases could be utilize DAG? In this post, I am going to explain a little bit.
+What? Basically, this is basically a form of data structure. Directed means it has direction, Asyclic means there doesn&rsquo;t exists another path to go back from">
+
+<meta property="og:title" content="What is DAGs?" />
+<meta property="og:description" content="The word DAG (Directed Acyclical Graphs) has been there for a while. Oozie use it to represent a serial of actions, spark use it as a serial of RDD.
+ So what is DAG? Why using DAG? In what use cases could be utilize DAG? In this post, I am going to explain a little bit.
+What? Basically, this is basically a form of data structure. Directed means it has direction, Asyclic means there doesn&rsquo;t exists another path to go back from" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-01-03/" />
+<meta property="article:published_time" content="2018-01-03T08:32:18+08:00" />
+<meta property="article:modified_time" content="2018-01-03T08:32:18+08:00" />
+
+
+<title>
+
+
+     What is DAGs? 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2018-01-03/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a18%3a30.4236152%20%2b0800%20CST%20m%3d%2b1.868701901">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a18%3a30.4236152%20%2b0800%20CST%20m%3d%2b1.868701901">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a18%3a30.4236152%20%2b0800%20CST%20m%3d%2b1.868701901">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a18%3a30.4236152%20%2b0800%20CST%20m%3d%2b1.868701901">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    What is DAGs?
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Wed Jan 3 2018 08:32:18 CST'>Jan 3, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>One minute read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <blockquote>
+<p>The word <code>DAG</code> (Directed Acyclical Graphs) has been there for a while. Oozie use it to represent a serial of actions, spark use it as a serial of RDD.</p>
+</blockquote>
+<p>So what is <code>DAG</code>? Why using <code>DAG</code>? In what use cases could be utilize <code>DAG</code>? In this post, I am going to explain a little bit.</p>
+<h1 id="what">What?</h1>
+<p>Basically, this is basically a form of data structure. <code>Directed</code> means it has direction, <code>Asyclic</code> means there doesn&rsquo;t exists another path to go back from</p>
+<h1 id="why">Why?</h1>
+<p>最近写leetcode的时候刚好写到<code>next permutation</code>这题，有兴趣可以搜一下。这题实际上非常有意思，我特别喜欢这种可以优化的题目，感觉就像路飞开挂的时候从一档一路飙升到五档的样子。那这题简单的做法就是<code>brute force</code>求解，优化的解法与这里dag没什么关系，这里就不讲了。那<code>brute force</code>的基本思想就是</p>
+<p>DAG 的好处在于方向唯一而且不会有回环，这就保证了数据在流转的时候能够互相独立。传统的mapreduce框架里面，数据与数据之间的转换是blocking 的，也就是说，前置任务没有完成的时候，后置任务无法进行，这就造成了很多时候是大数据集转换依赖于一个完全不相关的小数据集的完成，这实际上降低了效率。而spark使用<code>DAG</code>这种数据结构就很好的解决了这个问题。</p>
+<h1 id="use-cases">Use cases</h1>
+<ul>
+<li>Ethererum</li>
+<li>Spark</li>
+</ul>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="http://www.csie.ntnu.edu.tw/~u91029/DirectedAcyclicGraph.html">http://www.csie.ntnu.edu.tw/~u91029/DirectedAcyclicGraph.html</a> （这个博主非常可爱，良心推荐一波）</li>
+</ul>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125392221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125392221-1');
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+    
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>
+

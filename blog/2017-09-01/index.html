@@ -9,31 +9,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
-<meta name="description" content=" package How to package all the dependencies into one jar
-&lt;build&gt; &lt;plugins&gt; &lt;plugin&gt; &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt; &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt; &lt;version&gt;2.5.5&lt;/version&gt; &lt;configuration&gt; &lt;archive&gt; &lt;manifest&gt; &lt;mainClass&gt;com.xxg.Main&lt;/mainClass&gt; &lt;/manifest&gt; &lt;/archive&gt; &lt;descriptorRefs&gt; &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt; &lt;/descriptorRefs&gt; &lt;/configuration&gt; &lt;executions&gt; &lt;execution&gt; &lt;id&gt;make-assembly&lt;/id&gt; &lt;phase&gt;package&lt;/phase&gt; &lt;goals&gt; &lt;goal&gt;single&lt;/goal&gt; &lt;/goals&gt; &lt;/execution&gt; &lt;/executions&gt; &lt;/plugin&gt; &lt;/plugins&gt; &lt;/build&gt;  不同环境下打包配置文件并在在工程中指定 package and single equals mvn pakcage assembly:single
+<meta name="description" content="package How to package all the dependencies into one jar
+&lt;build&gt;&lt;plugins&gt;&lt;plugin&gt;&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;&lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;&lt;version&gt;2.5.5&lt;/version&gt;&lt;configuration&gt;&lt;archive&gt;&lt;manifest&gt;&lt;mainClass&gt;com.xxg.Main&lt;/mainClass&gt;&lt;/manifest&gt;&lt;/archive&gt;&lt;descriptorRefs&gt;&lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;&lt;/descriptorRefs&gt;&lt;/configuration&gt;&lt;executions&gt;&lt;execution&gt;&lt;id&gt;make-assembly&lt;/id&gt;&lt;phase&gt;package&lt;/phase&gt;&lt;goals&gt;&lt;goal&gt;single&lt;/goal&gt;&lt;/goals&gt;&lt;/execution&gt;&lt;/executions&gt;&lt;/plugin&gt;&lt;/plugins&gt;&lt;/build&gt;不同环境下打包配置文件并在在工程中指定 packageand singleequals mvn pakcage assembly:single
 Reference ">
 
 <meta property="og:title" content="Pom configuration in Maven" />
-<meta property="og:description" content=" package How to package all the dependencies into one jar
-&lt;build&gt; &lt;plugins&gt; &lt;plugin&gt; &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt; &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt; &lt;version&gt;2.5.5&lt;/version&gt; &lt;configuration&gt; &lt;archive&gt; &lt;manifest&gt; &lt;mainClass&gt;com.xxg.Main&lt;/mainClass&gt; &lt;/manifest&gt; &lt;/archive&gt; &lt;descriptorRefs&gt; &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt; &lt;/descriptorRefs&gt; &lt;/configuration&gt; &lt;executions&gt; &lt;execution&gt; &lt;id&gt;make-assembly&lt;/id&gt; &lt;phase&gt;package&lt;/phase&gt; &lt;goals&gt; &lt;goal&gt;single&lt;/goal&gt; &lt;/goals&gt; &lt;/execution&gt; &lt;/executions&gt; &lt;/plugin&gt; &lt;/plugins&gt; &lt;/build&gt;  不同环境下打包配置文件并在在工程中指定 package and single equals mvn pakcage assembly:single
+<meta property="og:description" content="package How to package all the dependencies into one jar
+&lt;build&gt;&lt;plugins&gt;&lt;plugin&gt;&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;&lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;&lt;version&gt;2.5.5&lt;/version&gt;&lt;configuration&gt;&lt;archive&gt;&lt;manifest&gt;&lt;mainClass&gt;com.xxg.Main&lt;/mainClass&gt;&lt;/manifest&gt;&lt;/archive&gt;&lt;descriptorRefs&gt;&lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;&lt;/descriptorRefs&gt;&lt;/configuration&gt;&lt;executions&gt;&lt;execution&gt;&lt;id&gt;make-assembly&lt;/id&gt;&lt;phase&gt;package&lt;/phase&gt;&lt;goals&gt;&lt;goal&gt;single&lt;/goal&gt;&lt;/goals&gt;&lt;/execution&gt;&lt;/executions&gt;&lt;/plugin&gt;&lt;/plugins&gt;&lt;/build&gt;不同环境下打包配置文件并在在工程中指定 packageand singleequals mvn pakcage assembly:single
 Reference " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-09-01/" />
-
-
-
-<meta property="article:published_time" content="2017-09-01T04:05:25-06:00"/>
-<meta property="article:modified_time" content="2017-09-01T04:05:25-06:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-09-01T04:05:25-06:00" />
+<meta property="article:modified_time" content="2017-09-01T04:05:25-06:00" />
 
 
 <title>
@@ -59,11 +46,11 @@ Reference " />
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.639775263%20%2b0800%20CST%20m%3d%2b1.061757350">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.639775263%20%2b0800%20CST%20m%3d%2b1.061757350">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.639775263%20%2b0800%20CST%20m%3d%2b1.061757350">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.5043476%20%2b0800%20CST%20m%3d%2b0.842700701">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.5043476%20%2b0800%20CST%20m%3d%2b0.842700701">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.5043476%20%2b0800%20CST%20m%3d%2b0.842700701">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.639775263%20%2b0800%20CST%20m%3d%2b1.061757350">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.5043476%20%2b0800%20CST%20m%3d%2b0.842700701">
     
 
 
@@ -209,12 +196,8 @@ Reference " />
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h3 id="package">package</h3>
-
+                <h3 id="package">package</h3>
 <p>How to package all the dependencies into one jar</p>
-
 <pre><code>&lt;build&gt;
 	&lt;plugins&gt;
 		&lt;plugin&gt;
@@ -243,13 +226,9 @@ Reference " />
 		&lt;/plugin&gt;
 	&lt;/plugins&gt;
 &lt;/build&gt;
-</code></pre>
-
-<h1 id="不同环境下打包配置文件并在在工程中指定">不同环境下打包配置文件并在在工程中指定</h1>
-
-<p><phase>package</phase> and <goal>single</goal> equals <code>mvn pakcage assembly:single</code></p>
-
-<h2 id="reference-http-xxgblog-com-2015-08-07-maven-create-executable-jar"><a href="http://xxgblog.com/2015/08/07/maven-create-executable-jar/">Reference</a></h2>
+</code></pre><h1 id="不同环境下打包配置文件并在在工程中指定">不同环境下打包配置文件并在在工程中指定</h1>
+<p><!-- raw HTML omitted -->package<!-- raw HTML omitted --> and <!-- raw HTML omitted -->single<!-- raw HTML omitted --> equals <code>mvn pakcage assembly:single</code></p>
+<h2 id="referencehttpxxgblogcom20150807maven-create-executable-jar"><a href="http://xxgblog.com/2015/08/07/maven-create-executable-jar/">Reference</a></h2>
 
                 <br>
 		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>

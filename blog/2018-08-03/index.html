@@ -9,27 +9,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
-<meta name="description" content="how to use persistence level check in production val storagelevel :StorageLevel = StorageLevel.MEMORY_AND_DISK if (storagelevel != StorageLevel.None){ action.persist(storagelevel) }  Types of reuse Cache Persist  useDisk: only if the recomputation cost is too high useMemory: only when DIST_ONLY storage level is used. useOfHeap: enable RDD to be stored in an external system. deserialized: storage include the __SER suffix such as MEMORY_ONLY_SER enable serialization. replication: option that end in such as _2 .">
+<meta name="description" content="how to use persistence level check in production val storagelevel :StorageLevel = StorageLevel.MEMORY_AND_DISKif (storagelevel != StorageLevel.None){action.persist(storagelevel)} Types of reuse Cache Persist  useDisk: only if the recomputation cost is too high useMemory: only when DIST_ONLY storage level is used. useOfHeap: enable RDD to be stored in an external system. deserialized: storage include the __SER suffix such as MEMORY_ONLY_SER enable serialization. replication: option that end in such as _2 .">
 
 <meta property="og:title" content="High performance spark 2" />
-<meta property="og:description" content="how to use persistence level check in production val storagelevel :StorageLevel = StorageLevel.MEMORY_AND_DISK if (storagelevel != StorageLevel.None){ action.persist(storagelevel) }  Types of reuse Cache Persist  useDisk: only if the recomputation cost is too high useMemory: only when DIST_ONLY storage level is used. useOfHeap: enable RDD to be stored in an external system. deserialized: storage include the __SER suffix such as MEMORY_ONLY_SER enable serialization. replication: option that end in such as _2 ." />
+<meta property="og:description" content="how to use persistence level check in production val storagelevel :StorageLevel = StorageLevel.MEMORY_AND_DISKif (storagelevel != StorageLevel.None){action.persist(storagelevel)} Types of reuse Cache Persist  useDisk: only if the recomputation cost is too high useMemory: only when DIST_ONLY storage level is used. useOfHeap: enable RDD to be stored in an external system. deserialized: storage include the __SER suffix such as MEMORY_ONLY_SER enable serialization. replication: option that end in such as _2 ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-08-03/" />
-
-
-
-<meta property="article:published_time" content="2018-08-03T00:06:28&#43;08:00"/>
-<meta property="article:modified_time" content="2018-08-03T00:06:28&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-08-03T00:06:28+08:00" />
+<meta property="article:modified_time" content="2018-08-03T00:06:28+08:00" />
 
 
 <title>
@@ -55,11 +42,11 @@
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.573591083%20%2b0800%20CST%20m%3d%2b0.995573170">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.573591083%20%2b0800%20CST%20m%3d%2b0.995573170">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.573591083%20%2b0800%20CST%20m%3d%2b0.995573170">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.5914266%20%2b0800%20CST%20m%3d%2b0.929779701">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.5914266%20%2b0800%20CST%20m%3d%2b0.929779701">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.5914266%20%2b0800%20CST%20m%3d%2b0.929779701">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.573591083%20%2b0800%20CST%20m%3d%2b0.995573170">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.5914266%20%2b0800%20CST%20m%3d%2b0.929779701">
     
 
 
@@ -205,24 +192,16 @@
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h1 id="how-to-use-persistence-level-check-in-production">how to use persistence level check in production</h1>
-
-<pre><code class="language-scala">val storagelevel :StorageLevel  = StorageLevel.MEMORY_AND_DISK
-if (storagelevel != StorageLevel.None){
-    action.persist(storagelevel)
-} 
+                <h1 id="how-to-use-persistence-level-check-in-production">how to use persistence level check in production</h1>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">storagelevel</span> <span class="k">:</span><span class="kt">StorageLevel</span>  <span class="o">=</span> <span class="nc">StorageLevel</span><span class="o">.</span><span class="nc">MEMORY_AND_DISK</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">storagelevel</span> <span class="o">!=</span> <span class="nc">StorageLevel</span><span class="o">.</span><span class="nc">None</span><span class="o">){</span>
+    <span class="n">action</span><span class="o">.</span><span class="n">persist</span><span class="o">(</span><span class="n">storagelevel</span><span class="o">)</span>
+<span class="o">}</span> 
 
 
-</code></pre>
-
-<h1 id="types-of-reuse">Types of reuse</h1>
-
+</code></pre></div><h1 id="types-of-reuse">Types of reuse</h1>
 <h3 id="cache">Cache</h3>
-
 <h3 id="persist">Persist</h3>
-
 <ul>
 <li>useDisk: only if the recomputation cost is too high</li>
 <li>useMemory: only when <code>DIST_ONLY</code> storage level is used.</li>
@@ -230,59 +209,54 @@ if (storagelevel != StorageLevel.None){
 <li>deserialized: storage include the <code>__SER</code> suffix such as <code>MEMORY_ONLY_SER</code> enable serialization.</li>
 <li>replication: option that end in such as <code>_2</code> .eg <code>DISK_ONLY_2</code> means replicate each partition across 2 nodes.</li>
 </ul>
+<h3 id="what-is-the-difference-between-checkpoint-and-persistdisk_only">what is the difference between checkpoint and persist(DISK_ONLY)?</h3>
+<p>Since <code>checkpoint</code>and <code>persist(DISK_ONLY)</code> are both persisting RDD into disk. But what is the difference between these two? I think there are 2 main differences:</p>
+<ol>
+<li><code>checkpoint</code> will not persist the lineage of the DAG while the <code>persist(DISK_ONLY)</code> will persist the partitions of RDD and also the lineage. This difference make <code>persist</code> very good for other transformation that only require part of the transformation lineage.</li>
+<li>when <code>persist(DISK_ONLY)</code> is called, the spark application will actually ask for the <code>blockmanager</code> to remember the info about the persisted RDD so that everytime when a job is called, it will ask the <code>blockmanager</code> if the RDD is already cached on disk for faster computation. <code>checkpoint</code> will only persist the result of the RDD and persist on external file system like HDFS or S3. Think of it as storing a temperary table on disk for further query. In which case, other spark application can also access it.</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">org.apache.spark.storage.StorageLevel</span>
 
-<h3 id="what-is-the-difference-between-checkpoint-and-persist-disk-only">what is the difference between checkpoint and persist(DISK_ONLY)?</h3>
+<span class="k">val</span> <span class="n">rdd</span> <span class="k">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">10</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">)).</span><span class="n">reduceByKey</span><span class="o">(</span><span class="k">_</span> <span class="o">+</span> <span class="k">_</span><span class="o">)</span>
 
-<p>Since <code>checkpoint</code>and <code>persist(DISK_ONLY)</code> are both persisting RDD into disk. But what is the difference between these two? I think there are 2 main differences:
-1. <code>checkpoint</code> will not persist the lineage of the DAG while the <code>persist(DISK_ONLY)</code> will persist the partitions of RDD and also the lineage. This difference make <code>persist</code> very good for other transformation that only require part of the transformation lineage.
-2. when <code>persist(DISK_ONLY)</code> is called, the spark application will actually ask for the <code>blockmanager</code> to remember the info about the persisted RDD so that everytime when a job is called, it will ask the <code>blockmanager</code> if the RDD is already cached on disk for faster computation. <code>checkpoint</code> will only persist the result of the RDD and persist on external file system like HDFS or S3. Think of it as storing a temperary table on disk for further query. In which case, other spark application can also access it.</p>
+<span class="k">val</span> <span class="n">indCache</span>  <span class="k">=</span> <span class="n">rdd</span><span class="o">.</span><span class="n">mapValues</span><span class="o">(</span><span class="k">_</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="o">)</span>
+<span class="n">indCache</span><span class="o">.</span><span class="n">persist</span><span class="o">(</span><span class="nc">StorageLevel</span><span class="o">.</span><span class="nc">DISK_ONLY</span><span class="o">)</span>
 
-<pre><code class="language-scala">import org.apache.spark.storage.StorageLevel
+<span class="n">indCache</span><span class="o">.</span><span class="n">toDebugString</span>
+<span class="c1">// (8) MapPartitionsRDD[13] at mapValues at &lt;console&gt;:24 [Disk Serialized 1x Replicated]
+</span><span class="c1">//  |  ShuffledRDD[3] at reduceByKey at &lt;console&gt;:21 [Disk Serialized 1x Replicated]
+</span><span class="c1">//  +-(8) MapPartitionsRDD[2] at map at &lt;console&gt;:21 [Disk Serialized 1x Replicated]
+</span><span class="c1">//     |  ParallelCollectionRDD[1] at parallelize at &lt;console&gt;:21 [Disk Serialized 1x Replicated]
+</span><span class="c1"></span>
+<span class="n">indCache</span><span class="o">.</span><span class="n">count</span>
+<span class="c1">// 3
+</span><span class="c1"></span>
+<span class="n">indCache</span><span class="o">.</span><span class="n">toDebugString</span>
+<span class="c1">// (8) MapPartitionsRDD[13] at mapValues at &lt;console&gt;:24 [Disk Serialized 1x Replicated]
+</span><span class="c1">//  |       CachedPartitions: 8; MemorySize: 0.0 B; ExternalBlockStoreSize: 0.0 B; DiskSize: 587.0 B
+</span><span class="c1">//  |  ShuffledRDD[3] at reduceByKey at &lt;console&gt;:21 [Disk Serialized 1x Replicated]
+</span><span class="c1">//  +-(8) MapPartitionsRDD[2] at map at &lt;console&gt;:21 [Disk Serialized 1x Replicated]
+</span><span class="c1">//     |  ParallelCollectionRDD[1] at parallelize at &lt;console&gt;:21 [Disk Serialized 1x Replicated]
+</span><span class="c1"></span>
 
-val rdd = sc.parallelize(1 to 10).map(x =&gt; (x % 3, 1)).reduceByKey(_ + _)
+<span class="k">val</span> <span class="n">indChk</span>  <span class="k">=</span> <span class="n">rdd</span><span class="o">.</span><span class="n">mapValues</span><span class="o">(</span><span class="k">_</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="o">)</span>
+<span class="n">indChk</span><span class="o">.</span><span class="n">checkpoint</span>
 
-val indCache  = rdd.mapValues(_ &gt; 4)
-indCache.persist(StorageLevel.DISK_ONLY)
-
-indCache.toDebugString
-// (8) MapPartitionsRDD[13] at mapValues at &lt;console&gt;:24 [Disk Serialized 1x Replicated]
-//  |  ShuffledRDD[3] at reduceByKey at &lt;console&gt;:21 [Disk Serialized 1x Replicated]
-//  +-(8) MapPartitionsRDD[2] at map at &lt;console&gt;:21 [Disk Serialized 1x Replicated]
-//     |  ParallelCollectionRDD[1] at parallelize at &lt;console&gt;:21 [Disk Serialized 1x Replicated]
-
-indCache.count
-// 3
-
-indCache.toDebugString
-// (8) MapPartitionsRDD[13] at mapValues at &lt;console&gt;:24 [Disk Serialized 1x Replicated]
-//  |       CachedPartitions: 8; MemorySize: 0.0 B; ExternalBlockStoreSize: 0.0 B; DiskSize: 587.0 B
-//  |  ShuffledRDD[3] at reduceByKey at &lt;console&gt;:21 [Disk Serialized 1x Replicated]
-//  +-(8) MapPartitionsRDD[2] at map at &lt;console&gt;:21 [Disk Serialized 1x Replicated]
-//     |  ParallelCollectionRDD[1] at parallelize at &lt;console&gt;:21 [Disk Serialized 1x Replicated]
-
-
-val indChk  = rdd.mapValues(_ &gt; 4)
-indChk.checkpoint
-
-// indChk.toDebugString
-// (8) MapPartitionsRDD[11] at mapValues at &lt;console&gt;:24 []
-//  |  ShuffledRDD[3] at reduceByKey at &lt;console&gt;:21 []
-//  +-(8) MapPartitionsRDD[2] at map at &lt;console&gt;:21 []
-//     |  ParallelCollectionRDD[1] at parallelize at &lt;console&gt;:21 []
-
-indChk.count
-// 3
-
-indChk.toDebugString
-// (8) MapPartitionsRDD[11] at mapValues at &lt;console&gt;:24 []
-//  |  ReliableCheckpointRDD[12] at count at &lt;console&gt;:27 []
-</code></pre>
-
-<h4 id="when-to-use-checkpointing-instead-of-persist-dist-only">When to use checkpointing instead of persist(DIST_ONLY)?</h4>
-
+<span class="c1">// indChk.toDebugString
+</span><span class="c1">// (8) MapPartitionsRDD[11] at mapValues at &lt;console&gt;:24 []
+</span><span class="c1">//  |  ShuffledRDD[3] at reduceByKey at &lt;console&gt;:21 []
+</span><span class="c1">//  +-(8) MapPartitionsRDD[2] at map at &lt;console&gt;:21 []
+</span><span class="c1">//     |  ParallelCollectionRDD[1] at parallelize at &lt;console&gt;:21 []
+</span><span class="c1"></span>
+<span class="n">indChk</span><span class="o">.</span><span class="n">count</span>
+<span class="c1">// 3
+</span><span class="c1"></span>
+<span class="n">indChk</span><span class="o">.</span><span class="n">toDebugString</span>
+<span class="c1">// (8) MapPartitionsRDD[11] at mapValues at &lt;console&gt;:24 []
+</span><span class="c1">//  |  ReliableCheckpointRDD[12] at count at &lt;console&gt;:27 []
+</span></code></pre></div><h4 id="when-to-use-checkpointing-instead-of-persistdist_only">When to use checkpointing instead of persist(DIST_ONLY)?</h4>
 <h3 id="shuffle">Shuffle</h3>
-
-<h1 id="ch6-working-with-key-value-data">ch6 &ndash; Working with Key/Value Data</h1>
+<h1 id="ch6----working-with-keyvalue-data">ch6 &ndash; Working with Key/Value Data</h1>
 
                 <br>
 		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>

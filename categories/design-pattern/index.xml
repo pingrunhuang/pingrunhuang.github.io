@@ -1,15 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Design Pattern on Frank Huang</title>
+    <title>Design pattern on Frank Huang</title>
     <link>https://pingrunhuang.github.io/categories/design-pattern/</link>
-    <description>Recent content in Design Pattern on Frank Huang</description>
+    <description>Recent content in Design pattern on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 14 Oct 2018 23:24:32 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2020 15:33:37 +0800</lastBuildDate>
     
 	<atom:link href="https://pingrunhuang.github.io/categories/design-pattern/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Design Patterns that are useful part 2 -- implemented in python</title>
+      <link>https://pingrunhuang.github.io/blog/2020-04-06/</link>
+      <pubDate>Mon, 06 Apr 2020 15:33:37 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2020-04-06/</guid>
+      <description>Again, these patterns are not supposed to cover all of the pattern that exists in the tech world. Patterns like Singleton, Factory, Builder .etc might not show up here since they are quite common in most code bases. I would only note those that I think might be helpful for my or your future career.
+Prototype pattern A creation pattern which allow faster creation of object with a simple clone method.</description>
+    </item>
+    
+    <item>
+      <title>Design Patterns that are useful part 1 -- implemented in python</title>
+      <link>https://pingrunhuang.github.io/blog/2019-02-14/</link>
+      <pubDate>Thu, 14 Feb 2019 12:27:13 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-02-14/</guid>
+      <description>Bridge pattern For bridge pattern, we define 2 classes that in charge of different things. First one I would call it orchestrator but essentially is the so called bridge which in charge of calling corresponding functions. This class is also exposed to the external client. Second one I would call it instrument which should be an interface or abstract class defining what the . The instance of this class will be aggregated into the orchestrator so that the orchestrator can call whatever functions.</description>
+    </item>
     
     <item>
       <title>Strategy pattern</title>

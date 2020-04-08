@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="Again, these patterns are not supposed to cover all of the pattern that exists in the tech world. Patterns like Singleton, Factory, Builder .etc might not show up here since they are quite common in most code bases. I would only note those that I think might be helpful for my or your future career.
+Prototype pattern A creation pattern which allow faster creation of object with a simple clone method.">
+
+<meta property="og:title" content="Design Patterns that are useful part 2 -- implemented in python" />
+<meta property="og:description" content="Again, these patterns are not supposed to cover all of the pattern that exists in the tech world. Patterns like Singleton, Factory, Builder .etc might not show up here since they are quite common in most code bases. I would only note those that I think might be helpful for my or your future career.
+Prototype pattern A creation pattern which allow faster creation of object with a simple clone method." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2020-04-06/" />
+<meta property="article:published_time" content="2020-04-06T15:33:37+08:00" />
+<meta property="article:modified_time" content="2020-04-06T15:33:37+08:00" />
+
+
+<title>
+
+
+     Design Patterns that are useful part 2 -- implemented in python 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2020-04-06/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.6514816%20%2b0800%20CST%20m%3d%2b0.989834701">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.6514816%20%2b0800%20CST%20m%3d%2b0.989834701">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.6514816%20%2b0800%20CST%20m%3d%2b0.989834701">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.6514816%20%2b0800%20CST%20m%3d%2b0.989834701">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Design Patterns that are useful part 2 -- implemented in python
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Apr 6 2020 15:33:37 CST'>Apr 6, 2020</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <p>Again, these patterns are not supposed to cover all of the pattern that exists in the tech world. Patterns like <code>Singleton</code>, <code>Factory</code>, <code>Builder</code> .etc might not show up here since they are quite common in most code bases. I would only note those that I think might be helpful for my or your future career.</p>
+<h1 id="prototype-pattern">Prototype pattern</h1>
+<p>A creation pattern which allow faster creation of object with a simple <code>clone</code> method.</p>
+<h1 id="adapter-pattern">Adapter pattern</h1>
+<p>A structural pattern for modifying the existing class(either in place or by extending from it) to adapt to other classes.</p>
+<h1 id="flyweight-pattern">Flyweight pattern</h1>
+<p>In such pattern, variables in a class are divided into 2 types, intrinsic(variables that are unique to certain object) and extrinsic(variables that are shared outside object).<br>
+A structural pattern that suggests object only contains intrinsic variables and should not be able to modified outside. For me, this pattern is more of combining singleton with proper separation. Why say so? Check out the following scenario.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Stuff</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">birth</span><span class="p">,</span> <span class="n">gender</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">dep</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">birth</span> <span class="o">=</span> <span class="n">birth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gender</span> <span class="o">=</span> <span class="n">gender</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+<span class="k">class</span> <span class="nc">Company</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stuffs</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stuffs</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">stuffs</span> <span class="k">else</span> <span class="n">stuffs</span>
+</code></pre></div><p>In the situation where the company is just a startup, we might not come across of memory issue, but with the company grow into a global company, hundreds of thousands of people might become stuffs of this successful company. We might run out of memory very quickly. The thing is we could extract the common part of the <code>Stuff</code> like gender, age, department and position into another class called <code>StuffType</code> and make sure only few of the instances get instantiated. In reality, to</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Stuff</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">birth</span><span class="p">,</span> <span class="n">_type</span><span class="p">):</span>
+        <span class="c1"># name and birth are called </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>  
+        <span class="bp">self</span><span class="o">.</span><span class="n">birth</span> <span class="o">=</span> <span class="n">birth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stuff_type</span> <span class="o">=</span> <span class="n">_type</span>
+
+<span class="c1"># this is called the flyweight: contains fields that could be referenced by many objects</span>
+<span class="k">class</span> <span class="nc">StuffType</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">gender</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gender</span> <span class="o">=</span> <span class="n">gender</span>
+
+<span class="c1"># I was thinking of using decorator here to keep the stuff_type attribute unique just like the singleton does</span>
+<span class="c1"># Yes we can do that, but it is not that easy to understand though</span>
+<span class="k">class</span> <span class="nc">StuffTypeFactory</span><span class="p">:</span>
+    <span class="n">type_map</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">gen_type</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">gender</span><span class="p">):</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">gender</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">type_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+            <span class="n">StuffTypeFactory</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">StuffType</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">gender</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">type_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</code></pre></div><h1 id="proxy-pattern">Proxy pattern</h1>
+<h1 id="facade-pattern">Facade pattern</h1>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125392221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125392221-1');
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+    
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>
+

@@ -19,21 +19,8 @@
  So I decided to use pagination as a technique for separating the table into several small tables." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-03-06/" />
-
-
-
-<meta property="article:published_time" content="2018-03-06T22:00:54&#43;08:00"/>
-<meta property="article:modified_time" content="2018-03-06T22:00:54&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-03-06T22:00:54+08:00" />
+<meta property="article:modified_time" content="2018-03-06T22:00:54+08:00" />
 
 
 <title>
@@ -59,11 +46,11 @@
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.594324731%20%2b0800%20CST%20m%3d%2b1.016306818">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.594324731%20%2b0800%20CST%20m%3d%2b1.016306818">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.594324731%20%2b0800%20CST%20m%3d%2b1.016306818">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.5513911%20%2b0800%20CST%20m%3d%2b0.889744201">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.5513911%20%2b0800%20CST%20m%3d%2b0.889744201">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.5513911%20%2b0800%20CST%20m%3d%2b0.889744201">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.594324731%20%2b0800%20CST%20m%3d%2b1.016306818">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.5513911%20%2b0800%20CST%20m%3d%2b0.889744201">
     
 
 
@@ -210,23 +197,16 @@
             </div>
             <div class="markdown">
                 <p>Recently, I&rsquo;ve been working on SQLAlchemy to query data from a large table having nearly <code>4,000,000</code> rows of data. My goal is to transfer it into hbase. Since I want to do it fast without setting up extra login steps. I chose <code>python</code> as a fast processing language. But another problem poped up quickly very quickly.</p>
-
 <blockquote>
 <p>The table is too large to fit into the memory!!!</p>
 </blockquote>
-
 <p>So I decided to use pagination as a technique for separating the table into several small tables. Now, the <code>offset</code> concept come to play. I&rsquo;ve always wondering what does it mean in the world of computer science.</p>
-
 <p>From the explanation of <a href="https://en.wikipedia.org/wiki/Offset_(computer_science)">wikipedia</a>, <code>In computer science, an offset within an array or other data structure object is an integer indicating the distance (displacement) between the beginning of the object and a given element or point, presumably within the same object. The concept of a distance is valid only if all elements of the object are of the same size (typically given in bytes or words).</code>, even more complicated isn&rsquo;t it?</p>
-
 <p>Util I saw the offset function defined in <code>SQLAlchemy</code>, the offset concept is used quite often with pagination along with <code>limit</code> function. In sql, the <code>limit</code> function is used as limitting the number of result. Therefore, we can easily apply that in pagination.</p>
-
 <pre><code>for page in pages:
     result = session.query(...).limit(page_size).offset(page_size * page)
     process(result)
-</code></pre>
-
-<p>This will process the result set batch by batch. Each bacth is devided into page_size defined before hand.<br />
+</code></pre><p>This will process the result set batch by batch. Each bacth is devided into page_size defined before hand.<br>
 So in summary, the offset in computer science from my opinion in plain english is <code>the index of the start element</code>. Feel free to argue with me anyway ;)</p>
 
                 <br>

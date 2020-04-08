@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="So far, we&rsquo;ve seen hypyparameters like alpha in gradient descent, beta in momentum, beta1,beta2 and epsilon in RMSprop, also layers, hidden units, learning rate decay, learning batch size.
+scaling random hyperparameter choice Initially, when using random search for choosing hyperparameters, we probably use np.random.rand() for initialization. But turns out this could end up choosing small part in [0,1] eg. [0.000001, 0.1]. So we use log range instead eg. [lga, lgb] where a and b are randomly chosen from [0,1].">
+
+<meta property="og:title" content="How to improve your neural net week 3: note of deeplearning.ai from coursera" />
+<meta property="og:description" content="So far, we&rsquo;ve seen hypyparameters like alpha in gradient descent, beta in momentum, beta1,beta2 and epsilon in RMSprop, also layers, hidden units, learning rate decay, learning batch size.
+scaling random hyperparameter choice Initially, when using random search for choosing hyperparameters, we probably use np.random.rand() for initialization. But turns out this could end up choosing small part in [0,1] eg. [0.000001, 0.1]. So we use log range instead eg. [lga, lgb] where a and b are randomly chosen from [0,1]." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2019-04-22/" />
+<meta property="article:published_time" content="2019-04-22T06:23:56+08:00" />
+<meta property="article:modified_time" content="2019-04-22T06:23:56+08:00" />
+
+
+<title>
+
+
+     How to improve your neural net week 3: note of deeplearning.ai from coursera 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2019-04-22/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a18%3a30.6237979%20%2b0800%20CST%20m%3d%2b2.068884601">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a18%3a30.6237979%20%2b0800%20CST%20m%3d%2b2.068884601">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a18%3a30.6237979%20%2b0800%20CST%20m%3d%2b2.068884601">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a18%3a30.6237979%20%2b0800%20CST%20m%3d%2b2.068884601">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    How to improve your neural net week 3: note of deeplearning.ai from coursera
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Apr 22 2019 06:23:56 CST'>Apr 22, 2019</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <p>So far, we&rsquo;ve seen hypyparameters like <code>alpha</code> in gradient descent, <code>beta</code> in momentum, <code>beta1</code>,<code>beta2</code> and <code>epsilon</code> in RMSprop, also <code>layers</code>, <code>hidden units</code>, <code>learning rate decay</code>, <code>learning batch size</code>.</p>
+<h1 id="scaling-random-hyperparameter-choice">scaling random hyperparameter choice</h1>
+<p>Initially, when using random search for choosing hyperparameters, we probably use <code>np.random.rand()</code> for initialization. But turns out this could end up choosing small part in <code>[0,1]</code> eg. <code>[0.000001, 0.1]</code>. So we use log range instead eg. <code>[lga, lgb]</code> where a and b are randomly chosen from <code>[0,1]</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div><h1 id="batch-norm">Batch norm</h1>
+<p>The goal of batch norm is to normalize the activation value of each layer to make the training of parameters more efficient. And more often, we are normalizing the <code>Z</code> instead of <code>A</code></p>
+<h3 id="process">Process</h3>
+<p><code>$$ z_{n o r m}^{(i)}=\frac{z^{(i)}-\mu}{\sqrt{\sigma^{2}+\varepsilon}} $$</code>
+<code>$$ \tilde{z}^{(i)} = \gamma z{_{norm}}^{(i)} + \beta $$</code>
+where gamma and beta are learnable params (beta is not the one in the momemtum). In such way, we can map the input space of the activation function into whatever range we want(variance) so that like for sigmoid activation function, we won&rsquo;t end up having the value near 0 where the output is almost linear.</p>
+<h3 id="why-batch-norm-work">Why batch norm work?</h3>
+<ol>
+<li>Side effect on regularization: add noise to the lth layer</li>
+<li>When updating parameters <code>W</code> and <code>b</code> in nn, batch norm ensure that the distribution of each layer input to have equal mean and variance.</li>
+</ol>
+<h2 id="batch-norm-in-test-time">Batch norm in test time</h2>
+<p>Get estimated sigma and beta using exponential weighted average across every small mini-batch seen in training to estimate the sigma and beta for each layer.</p>
+<h1 id="multi-class-classification-problem">multi-class classification problem</h1>
+<h3 id="softmax-regression">Softmax regression</h3>
+<p>In binary classification, we use <code>sigmoid</code> function to calculate the probability. Here to implement multiclass, we use softmax regression <code>$$ \frac{\exp \left(\theta^{(k) \top} x^{(i)}\right)}{\sum_{j=1}^{K} \exp \left(\theta^{(j) \top} x^{(i)}\right)} $$</code>. Input is a (num_classes, 1) vector <code>Z[L]</code> and output is a (num_classes, 1) vector.</p>
+<h3 id="loss-function-of-softmax-regression">Loss function of softmax regression</h3>
+<ol>
+<li><code>$$ -\sum_{j=1}^{C} y_{j} \log \hat{y}_{j} $$</code></li>
+</ol>
+<h3 id="tips-on-writing-and-running-programs-in-tensorflow">Tips on writing and running programs in TensorFlow</h3>
+<ol>
+<li>Create Tensors (variables) that are not yet executed/evaluated.</li>
+<li>Write operations between those Tensors.</li>
+<li>Initialize your Tensors.(tf.global_variables_initializer())</li>
+<li>Create a Session.</li>
+<li>Run the Session. This will run the operations you&rsquo;d written above.</li>
+</ol>
+<h3 id="placeholder-vs-constant">placeholder vs constant</h3>
+<p>When initialization, we can either use placeholer</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span> <span class="c1"># key is the placeholder itself</span>
+</code></pre></div><p>or constant</p>
+<pre><code>tf.constant(12, name='X')
+</code></pre><p>Difference between them is that, the previous one don&rsquo;t have value when initialization. However, use <code>feed_dict</code> for later session running.</p>
+<p><code>tf.nn.sigmoid_cross_entropy_with_logits</code> computes <code>$$ -\frac{1}{m} \sum_{i=1}^{m}\left(y^{(i)} \log \sigma\left(z^{[l][i)}\right)+\left(1-y^{(i)}\right) \log \left(1-\sigma\left(z^{[l](i)}\right)\right)\right. $$</code></p>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125392221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125392221-1');
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+    
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>
+

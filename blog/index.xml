@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Technical Blog on Frank Huang</title>
@@ -10,6 +10,27 @@
     
 	<atom:link href="https://pingrunhuang.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Concurrent programming in Python</title>
+      <link>https://pingrunhuang.github.io/blog/2020-04-07/</link>
+      <pubDate>Tue, 07 Apr 2020 09:38:42 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2020-04-07/</guid>
+      <description>The concurrent lib  from concurrent.futures import ThreadPoolExecutor
+ simple usage of this library
+from concurrent.futures import ThreadPoolExecutorimport timecount = 0def io_bound_task(t):print(&amp;#34;Started {}&amp;#34;.format(t))time.sleep(t)times = [1,3,5,7,9]NUM_WORKERS = min(len(times), 20) # just to make sure to exceed too many workers with ThreadPoolExecutor(NUM_WORKERS) as executor: # call __exit__ and trigger executor.shutdown(wait=True) to wait for all workers done ret = executor.map(io_bound_task, times) # return a generator for x in ret:print(x)Notice in such case, we can only pass one argument to the io bound function which is the element of that iterables.</description>
+    </item>
+    
+    <item>
+      <title>Design Patterns that are useful part 2 -- implemented in python</title>
+      <link>https://pingrunhuang.github.io/blog/2020-04-06/</link>
+      <pubDate>Mon, 06 Apr 2020 15:33:37 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2020-04-06/</guid>
+      <description>Again, these patterns are not supposed to cover all of the pattern that exists in the tech world. Patterns like Singleton, Factory, Builder .etc might not show up here since they are quite common in most code bases. I would only note those that I think might be helpful for my or your future career.
+Prototype pattern A creation pattern which allow faster creation of object with a simple clone method.</description>
+    </item>
     
     <item>
       <title>My first step into the crytp world</title>
@@ -55,8 +76,8 @@ Lately, I&amp;rsquo;ve been thinking about the product of Didi. Or more general,
       <pubDate>Thu, 27 Jun 2019 15:58:39 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2019-06-27/</guid>
-      <description> In a recent porject, I have been using Java as the programming language for the backend compute engine. I have to admit that Java is fast. But the reason why I&amp;rsquo;m not that into it is because of the duplication of code is just everywhere.
-Scenario public abstract class AbstractFather{} public class ChildA extends AbstractFather{} public class ChildB extends AbstractFather{} public class DAO{ }  </description>
+      <description>In a recent porject, I have been using Java as the programming language for the backend compute engine. I have to admit that Java is fast. But the reason why I&amp;rsquo;m not that into it is because of the duplication of code is just everywhere.
+Scenario public abstract class AbstractFather{}public class ChildA extends AbstractFather{}public class ChildB extends AbstractFather{}public class DAO{}</description>
     </item>
     
     <item>
@@ -75,8 +96,9 @@ Scenario public abstract class AbstractFather{} public class ChildA extends Abst
       <pubDate>Tue, 11 Jun 2019 08:05:23 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2019-06-11/</guid>
-      <description>Different queue in Java ArrayBlockingQueue  same lock for consumer and producer won&amp;rsquo;t create more memory when adding for deleting element  LinkedBlockingQueue  Will create a new node when adding or deleting element Specify a fixed size when initialize. Both consumer and producer will block when reaching this size. By default Integer.MAX_VALUE. Do remember to specify otherwise, gc memory will overflow. Different locks for consumer and producer(How???)
- 找前端做展示</description>
+      <description>Different queue in Java ArrayBlockingQueue  same lock for consumer and producer won&amp;rsquo;t create more memory when adding for deleting element  LinkedBlockingQueue   Will create a new node when adding or deleting element
+  Specify a fixed size when initialize. Both consumer and producer will block when reaching this size. By default Integer.MAX_VALUE. Do remember to specify otherwise, gc memory will overflow.
+  Different locks for consumer and producer(How?</description>
     </item>
     
     <item>
@@ -85,7 +107,8 @@ Scenario public abstract class AbstractFather{} public class ChildA extends Abst
       <pubDate>Mon, 10 Jun 2019 22:28:46 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2019-06-10/</guid>
-      <description>It&amp;rsquo;s been a long time for not writing technical blogs. Recently I&amp;rsquo;ve been working on how to store geo data and query routing result efficiently. Due to the historical issue, we chose Vertx as the back bone framework out of the consideration of concurrency. So starting today, I will keep on writing about how I learn and apply it to the real problems I came across and document them.</description>
+      <description>It&amp;rsquo;s been a long time for not writing technical blogs. Recently I&amp;rsquo;ve been working on how to store geo data and query routing result efficiently. Due to the historical issue, we chose Vertx as the back bone framework out of the consideration of concurrency. So starting today, I will keep on writing about how I learn and apply it to the real problems I came across and document them.
+How to write micro service CompositeFuture how get result from it?</description>
     </item>
     
     <item>
@@ -94,10 +117,7 @@ Scenario public abstract class AbstractFather{} public class ChildA extends Abst
       <pubDate>Thu, 25 Apr 2019 06:55:21 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2019-04-25/</guid>
-      <description>Orthogonalization  fit training set well on cost:
- fit dev set well on cost:
- fit test set well on cost:
- perform well on real world:  evaluation metric precision: of the examples that your classifier recognizes as cats recall: of all the images that really are cats, what percentage were correctly recognized by your classifier F1 score: combine precision and recall, average: harmonic mean
+      <description>Orthogonalization  fit training set well on cost: fit dev set well on cost: fit test set well on cost: perform well on real world:  evaluation metric precision: of the examples that your classifier recognizes as cats recall: of all the images that really are cats, what percentage were correctly recognized by your classifier F1 score: combine precision and recall, average: harmonic mean
 distribution of dev and test set size on dev/test set?</description>
     </item>
     
@@ -119,8 +139,7 @@ Notation $$ a^{[l]\{t\}(m)} $$ means the the activation value of m examples in t
       
       <guid>https://pingrunhuang.github.io/blog/2019-04-19/</guid>
       <description>How to split data into train/dev/test The goal of having dev set is to select the model having the best performance for the final test.
-1. Small data situation: 60%/20%/20% or so 2. Large data situation: 98%/1%/1% or so
-Why does the dev and test set should be better to have a same distribution? The goal of having dev set is to select a model with the best performance which will be tested in the test set.</description>
+ Small data situation: 60%/20%/20% or so Large data situation: 98%/1%/1% or so  Why does the dev and test set should be better to have a same distribution? The goal of having dev set is to select a model with the best performance which will be tested in the test set.</description>
     </item>
     
     <item>
@@ -131,7 +150,7 @@ Why does the dev and test set should be better to have a same distribution? The 
       <guid>https://pingrunhuang.github.io/blog/2019-04-17/</guid>
       <description>pgrouting vertion: 2.6.2 首先呢，在很多blog里面也说了，pgrouting不单单可以用在路径选择问题上，只要对cost和reverse_cost做相应的取值改变，就可以做很多其他事情，比如在很多套餐组合中，怎么选取脂肪量最低的组合等等。
  Terminology route：路网数据里面表示某条路，例如北三环路。 link: 或称为segment，将路切分成小的部分。
-create topology pgr_createtopology: pgr_createtopology(text edge_table, double precision tolerance, text the_geom:=&#39;the_geom&#39;, text id:=&#39;id&#39;, text source:=&#39;source&#39;,text target:=&#39;target&#39;, text rows_where:=&#39;true&#39;, boolean clean:=false)
+create topology pgr_createtopology: pgr_createtopology(text edge_table, double precision tolerance,text the_geom:=&#39;the_geom&#39;, text id:=&#39;id&#39;,text source:=&#39;source&#39;,text target:=&#39;target&#39;,text rows_where:=&#39;true&#39;, boolean clean:=false)
  edge_table: text Network table name. (may contain the schema name AS well) tolerance: float8 Snapping tolerance of disconnected edges. (in projection unit) the_geom: text Geometry column name of the network table. Default value is the_geom. id: text Primary key column name of the network table.</description>
     </item>
     
@@ -142,9 +161,9 @@ create topology pgr_createtopology: pgr_createtopology(text edge_table, double p
       
       <guid>https://pingrunhuang.github.io/blog/2019-04-16/</guid>
       <description>Template for defining yaml file for orchestration:
-apiVersion: v1 kind: Pod/Deployment metadata: name: labels: app: web Spec: replicas: 2 containers: - name: image: command: args: workingDir: ports: env: resources: volumeMounts: livenessProbe: readinessProbe: lifecycle: terminationMessagePath: imagePullPolicy: securityContext: stdin: stdinOnce: tty:   use kubectl explain  to check out term
+apiVersion:v1kind:Pod/Deploymentmetadata:name:labels:app:webSpec:replicas:2containers:- name:image:command:args:workingDir:ports:env:resources:volumeMounts:livenessProbe:readinessProbe:lifecycle:terminationMessagePath:imagePullPolicy:securityContext:stdin:stdinOnce:tty: use kubectl explain to check out term
  storage template for defining storage.yaml:
-kind: StorageClass apiVersion: storage.k8s.io/v1 metadata: name: jupyterhub-share namespace: jhub provisioner: kubernetes.io/no-provisioner   what is the relationship between pv, pvc and storage?</description>
+kind: StorageClassapiVersion: storage.k8s.io/v1metadata:name: jupyterhub-sharenamespace: jhubprovisioner: kubernetes.io/no-provisioner what is the relationship between pv, pvc and storage? As (Gokhan Simsek)[https://softwareengineeringdaily.com/2019/01/11/why-is-storage-on-kubernetes-is-so-hard/] mentioned, there are two ways of dealing with storage: statically or dynamically. pv+pvc is for static provisioning. pvc+storage is for dynamic provisioning. In the previous pattern, one will have to define capacity in the pv.</description>
     </item>
     
     <item>
@@ -158,8 +177,9 @@ kind: StorageClass apiVersion: storage.k8s.io/v1 metadata: name: jupyterhub-shar
 WKT: well-known text，postgis的基本数据的二进制数据的字符串表示。
 WKB: well-known binary，postgis中真正保存的二进制数据。
 基本数据类型 Geometry 其他地理数据的泛化类型，包含SRID表示该类型的地理数据在什么样的地理坐标系下。
-Point: 几种得到point的方法 1. ST_GeographyFromText(&#39;SRID=4326;POINT(-43.23456 72.4567772)&#39; 2. &#39;POINT(0 0)&#39;::geometry作为函数的参数快速生成点。 3. ST_StartPoint(the_geom)给定某条线形geometry，得到开始点。 4. ST_EndPoint(the_geom)得到终止点。 5. ST_POINT(2.5,2.5)快速得到一个点 示例: SELECT AddGeometryColumn(&amp;lsquo;public&amp;rsquo;, &amp;lsquo;my_geometries&amp;rsquo;, &amp;lsquo;my_points&amp;rsquo;, -1, &amp;lsquo;POINT&amp;rsquo;, 2); call AddGeometryColumn function to add column called my_points with geometry type of POINT with 2 dimensions and srid is -1 INSERT INTO my_geometries (name,my_points) VALUES (&amp;lsquo;Home&amp;rsquo;,ST_GeomFromText(&amp;lsquo;POINT(0 0)&amp;rsquo;));
-Linestring: 几种实例化Linestring的方法： 1. &#39;LINESTRING ( 0 0, 0 2 )&#39;::geometry 2.</description>
+Point: 几种得到point的方法
+ ST_GeographyFromText(&#39;SRID=4326;POINT(-43.23456 72.4567772)&#39; &#39;POINT(0 0)&#39;::geometry作为函数的参数快速生成点。 ST_StartPoint(the_geom)给定某条线形geometry，得到开始点。 ST_EndPoint(the_geom)得到终止点。 ST_POINT(2.5,2.5)快速得到一个点 示例: SELECT AddGeometryColumn(&amp;lsquo;public&amp;rsquo;, &amp;lsquo;my_geometries&amp;rsquo;, &amp;lsquo;my_points&amp;rsquo;, -1, &amp;lsquo;POINT&amp;rsquo;, 2); call AddGeometryColumn function to add column called my_points with geometry type of POINT with 2 dimensions and srid is -1 INSERT INTO my_geometries (name,my_points) VALUES (&amp;lsquo;Home&amp;rsquo;,ST_GeomFromText(&amp;lsquo;POINT(0 0)&#39;));  Linestring: 几种实例化Linestring的方法：
+ &#39;LINESTRING ( 0 0, 0 2 )&#39;::geometry ST_GeographyFromText(&#39;SRID=4326;LINESTRING(-43.</description>
     </item>
     
     <item>
@@ -181,8 +201,7 @@ Several questions to take away: forward phase: 1. what to cache in layer l? back
       <description>Starting from today, I decided to start learning courses in coursera and get some note about the coursed that I took.
 Starting from the first one is Computational Thinking for Problem Solving.
 In our daily life, we are facing different problems and in order to solve them, computational thinking could be a suitable way to do that.
- decomposition: devide a huge problem to sub managable problems.
- pattern recognition: finding similarities in sub problems.</description>
+ decomposition: devide a huge problem to sub managable problems. pattern recognition: finding similarities in sub problems.</description>
     </item>
     
     <item>
@@ -192,7 +211,16 @@ In our daily life, we are facing different problems and in order to solve them, 
       
       <guid>https://pingrunhuang.github.io/blog/2019-02-27/</guid>
       <description>Recently, I&amp;rsquo;ve been involved in a project called Pony Plus where the most part of the target is to increase the efficiency of calculation geo data(distance between point to point for example. Some classical algorithms such as dijkstra are used in the field.
-Glossary  gtfs: general transit feed specification   Questions need to be answered  given a set of points, avoid area, vehichle and some set of rules, calculate the duration from points[0] to poinsn.</description>
+Glossary  gtfs: general transit feed specification   Questions need to be answered  given a set of points, avoid area, vehichle and some set of rules, calculate the duration from points[0] to poins[n] (each point in points needs to be visited).</description>
+    </item>
+    
+    <item>
+      <title>Design Patterns that are useful part 1 -- implemented in python</title>
+      <link>https://pingrunhuang.github.io/blog/2019-02-14/</link>
+      <pubDate>Thu, 14 Feb 2019 12:27:13 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2019-02-14/</guid>
+      <description>Bridge pattern For bridge pattern, we define 2 classes that in charge of different things. First one I would call it orchestrator but essentially is the so called bridge which in charge of calling corresponding functions. This class is also exposed to the external client. Second one I would call it instrument which should be an interface or abstract class defining what the . The instance of this class will be aggregated into the orchestrator so that the orchestrator can call whatever functions.</description>
     </item>
     
     <item>
@@ -240,9 +268,9 @@ From my daily development experience, I encountered a lot of class end with impl
       <pubDate>Tue, 11 Sep 2018 09:54:08 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-09-11/</guid>
-      <description> Suppose I have a schema of the following
-a|b|c 1| |1 ...  \copy The above value
-insert COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS E&#39;\x1E&#39; CSV QUOTE E&#39;\&#39;&#39;;  COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS &#39;,&#39; CSV QUOTE &#39;&#39;&#39;&#39;;  </description>
+      <description>Suppose I have a schema of the following
+a|b|c1| |1...\copy The above value
+insert COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS E&#39;\x1E&#39; CSV QUOTE E&#39;\&#39;&#39;;COPY my_table FROM &#39;c:\downloads\file.csv&#39; DELIMITERS &#39;,&#39; CSV QUOTE &#39;&#39;&#39;&#39;;</description>
     </item>
     
     <item>
@@ -281,7 +309,7 @@ In this blog, I will summarize some ways to exclude
       <pubDate>Wed, 22 Aug 2018 00:46:55 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-08-22/</guid>
-      <description>S3 Map hive table to S3 bucket CREATE EXTERNAL TABLE posts (title STRING, comment_count INT) LOCATION &#39;s3://my-bucket/files/&#39;;  Use hive on S3 $ beeline $ beeline&amp;gt; !connect jdbc:hive2://localhost:10000 $ Enter username for jdbc:hive2://localhost:10000: admin $ Enter password for jdbc:hive2://localhost:10000: admin  More options could be checked by typing help on the terminal</description>
+      <description>S3 Map hive table to S3 bucket CREATE EXTERNAL TABLE posts (title STRING, comment_count INT)LOCATION &#39;s3://my-bucket/files/&#39;;Use hive on S3 $ beeline$ beeline&amp;gt; !connect jdbc:hive2://localhost:10000$ Enter username for jdbc:hive2://localhost:10000: admin$ Enter password for jdbc:hive2://localhost:10000: adminMore options could be checked by typing help on the terminal</description>
     </item>
     
     <item>
@@ -309,7 +337,8 @@ In this blog, I will summarize some ways to exclude
       <pubDate>Mon, 13 Aug 2018 14:02:35 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-08-13/</guid>
-      <description>FCFS (FIRST COME FIRST SERVE) SSTF (SHORTEST SEEK TIME FIRST) SCAN LOOK SATF (SHORTEST ACCESS TIME FIRST) EDF (EARLIEST DEADLINE FIRST)  REAL TIME 1. EDF &amp;ndash; Earliest Deadline First 2. SCAN-EDF 3. PI (PRIORITY INVERSION) 4. FD-SCAN (FEASIBLE DEADLINE SCAN)</description>
+      <description> FCFS (FIRST COME FIRST SERVE) SSTF (SHORTEST SEEK TIME FIRST) SCAN LOOK SATF (SHORTEST ACCESS TIME FIRST) EDF (EARLIEST DEADLINE FIRST)  REAL TIME
+ EDF &amp;ndash; Earliest Deadline First SCAN-EDF PI (PRIORITY INVERSION) FD-SCAN (FEASIBLE DEADLINE SCAN)  </description>
     </item>
     
     <item>
@@ -318,7 +347,8 @@ In this blog, I will summarize some ways to exclude
       <pubDate>Thu, 09 Aug 2018 23:47:22 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-08-09/</guid>
-      <description>Why do we need asynchronous?  Chess master Judit Polgár hosts a chess exhibition in which she plays multiple amateur players. She has two ways of conducting the exhibition: synchronously and asynchronously. Assumptions: - 24 opponents - Judit makes each chess move in 5 seconds - Opponents each take 55 seconds to make a move - Games average 30 pair-moves (60 moves total)
+      <description>Why do we need asynchronous?  Chess master Judit Polgár hosts a chess exhibition in which she plays multiple amateur players. She has two ways of conducting the exhibition: synchronously and asynchronously. Assumptions:
+ 24 opponents Judit makes each chess move in 5 seconds Opponents each take 55 seconds to make a move Games average 30 pair-moves (60 moves total)
 Synchronous version: Judit plays one game at a time, never two at the same time, until the game is complete.</description>
     </item>
     
@@ -330,7 +360,7 @@ Synchronous version: Judit plays one game at a time, never two at the same time,
       <guid>https://pingrunhuang.github.io/blog/2018-08-07/</guid>
       <description>Today&amp;rsquo;s blog post will be recording my issues on variable scope when using python.
  Below is a kind of normal code snippet that we have used for a long time in our daily development:
-def genTownName(foo): if township.find(&amp;quot;f&amp;quot;)!=-1: result = True print(result)  If you are like me come from the world of java, you might find that the code above makes no sense since the variable result is assigned inside the if statement which should be declared outside it in order to be accessed.</description>
+def genTownName(foo):if township.find(&amp;#34;f&amp;#34;)!=-1:result = Trueprint(result)If you are like me come from the world of java, you might find that the code above makes no sense since the variable result is assigned inside the if statement which should be declared outside it in order to be accessed.</description>
     </item>
     
     <item>
@@ -340,7 +370,7 @@ def genTownName(foo): if township.find(&amp;quot;f&amp;quot;)!=-1: result = True
       
       <guid>https://pingrunhuang.github.io/blog/2018-08-04/</guid>
       <description>Recently, when I check out the policy of spark job scheduler which include FIFO, Fair scheduler. In the context of Fair scheduler, round-robin style is mentioned. I recall that in the setup of nginx, round robin is also used. So I wanted to write a blog about what is round robin style and when to use it inspired by this software design.
-What is round robin? When to use it?</description>
+What is round robin? When to use it? </description>
     </item>
     
     <item>
@@ -349,7 +379,7 @@ What is round robin? When to use it?</description>
       <pubDate>Fri, 03 Aug 2018 00:06:28 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-08-03/</guid>
-      <description>how to use persistence level check in production val storagelevel :StorageLevel = StorageLevel.MEMORY_AND_DISK if (storagelevel != StorageLevel.None){ action.persist(storagelevel) }  Types of reuse Cache Persist  useDisk: only if the recomputation cost is too high useMemory: only when DIST_ONLY storage level is used. useOfHeap: enable RDD to be stored in an external system. deserialized: storage include the __SER suffix such as MEMORY_ONLY_SER enable serialization. replication: option that end in such as _2 .</description>
+      <description>how to use persistence level check in production val storagelevel :StorageLevel = StorageLevel.MEMORY_AND_DISKif (storagelevel != StorageLevel.None){action.persist(storagelevel)} Types of reuse Cache Persist  useDisk: only if the recomputation cost is too high useMemory: only when DIST_ONLY storage level is used. useOfHeap: enable RDD to be stored in an external system. deserialized: storage include the __SER suffix such as MEMORY_ONLY_SER enable serialization. replication: option that end in such as _2 .</description>
     </item>
     
     <item>
@@ -359,7 +389,7 @@ What is round robin? When to use it?</description>
       
       <guid>https://pingrunhuang.github.io/blog/2018-07-31/</guid>
       <description>Suppose we have an RDD of key/value pairs where the key is the student names and the value is the courses that the students have chosen(which could be duplicated!!!). How to determine a set of distinct courses that each student has chosen?
- //groupByKey rdd.groupByKey(record=&amp;gt;(record._t, record._2.sum)) // 计算所有学生的选课数 val zero = new collection.mutable.Set[String]() // take in 3 parameters: val result = rdd.aggregateByKey( zero // the initial container to accept the value )( (set, v) =&amp;gt; set+=v, // an accumulator that merge values in one partition (set1, set2) =&amp;gt; set1 ++= set2 // a combiner that merge collections from different partitions )   Suppose we have an RDD of key/value pairs where the key is the receiver names of orders and value is the description of the orders.</description>
+ //groupByKeyrdd.groupByKey(record=&amp;gt;(record._t, record._2.sum))// 计算所有学生的选课数val zero = new collection.mutable.Set[String]()// take in 3 parameters:val result = rdd.aggregateByKey(zero // the initial container to accept the value)((set, v) =&amp;gt; set+=v, // an accumulator that merge values in one partition (set1, set2) =&amp;gt; set1 ++= set2 // a combiner that merge collections from different partitions) Suppose we have an RDD of key/value pairs where the key is the receiver names of orders and value is the description of the orders.</description>
     </item>
     
     <item>
@@ -368,8 +398,8 @@ What is round robin? When to use it?</description>
       <pubDate>Mon, 30 Jul 2018 18:19:12 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-07-30/</guid>
-      <description>why tree = lambda : defaultdict(tree)  Alternatively
-def Tree(): return defaultdict(Tree)  In today&amp;rsquo;s code review, I found an interesting coding style in python where a dictionary of tree like can be generated in just one line of code.
+      <description>why tree = lambda : defaultdict(tree)Alternatively
+def Tree():return defaultdict(Tree) In today&amp;rsquo;s code review, I found an interesting coding style in python where a dictionary of tree like can be generated in just one line of code.
 In order to explain this issue, we will first need to understand how defaultdict object works. As I really don&amp;rsquo;t know where to find the source code of this implementation, check out this link to see how it work.</description>
     </item>
     
@@ -379,9 +409,9 @@ In order to explain this issue, we will first need to understand how defaultdict
       <pubDate>Wed, 25 Jul 2018 11:17:07 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-07-25/</guid>
-      <description>  The following code are derived from the itertools module.
+      <description> The following code are derived from the itertools module.
  the basic form of generator is using the yield
-def count(start=0, step=1,stop=10): n = start while n&amp;lt;stop: yield n n+=step     what is coroutines? From my point of view, coroutines are just subroutines that
+def count(start=0, step=1,stop=10):n = startwhile n&amp;lt;stop:yield nn+=step what is coroutines? From my point of view, coroutines are just subroutines that
  Reference  https://study.com/academy/lesson/preemptive-vs-non-preemptive-process-scheduling.html  </description>
     </item>
     
@@ -406,7 +436,7 @@ In computer science, ACID (Atomicity, Consistency, Isolation, Durability) .
 1 node can have many executors -&amp;gt; an executor cannot span multiple nodes -&amp;gt; each executor can have multiple partitions
 chapter 2 job &amp;lt;==&amp;gt; action stages &amp;lt;==&amp;gt; shuffle dependency(which means only happen in wide transformation) tasks &amp;lt;==&amp;gt; the smallest unit of the spark execution hierachy
 chapter 3  How to filter only unhappy pandas? pandaInfo.filter(pandaInfo(&amp;ldquo;happy&amp;rdquo;) !== true)
-Compare multiple columns pandaInfo.and(pandaInfo(&amp;ldquo;happy&amp;rdquo;)(0) &amp;gt; pandaInfo(&amp;ldquo;attributes&amp;rdquo;)(1))</description>
+  Compare multiple columns pandaInfo.and(pandaInfo(&amp;ldquo;happy&amp;rdquo;)(0) &amp;gt; pandaInfo(&amp;ldquo;attributes&amp;rdquo;)(1))</description>
     </item>
     
     <item>
@@ -417,8 +447,9 @@ Compare multiple columns pandaInfo.and(pandaInfo(&amp;ldquo;happy&amp;rdquo;)(0)
       <guid>https://pingrunhuang.github.io/blog/2018-07-09/</guid>
       <description>Suppose we have a
 for variables that are correlated  lasso regression ridge regression  spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
-spark 参数配置 &amp;ndash;conf -&amp;gt; shell parameter -&amp;gt; conf/spark-defaults.conf - num-executors - executor-cores - spark.default.parallelism - total-executor-cores
-memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%) - spark.storage.memoryFraction: cache/persist operation - spark.shuffle.memoryFraction: memory for shuffle manipulation - executor-memory: total memory for each executor - driver-memory</description>
+spark 参数配置 &amp;ndash;conf -&amp;gt; shell parameter -&amp;gt; conf/spark-defaults.conf
+ num-executors executor-cores spark.default.parallelism total-executor-cores  memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%)
+ spark.storage.memoryFraction: cache/persist operation spark.shuffle.memoryFraction: memory for shuffle manipulation executor-memory: total memory for each executor driver-memory  参数说明：Total cores for all executors.</description>
     </item>
     
     <item>
@@ -430,8 +461,8 @@ memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%
       <description>尾递归 -&amp;gt; 函数栈 -&amp;gt; 保证入口环境 -&amp;gt; 如何在尾递归中去除不必要的入口环境，从而达到优化效果优化？ -&amp;gt; 代码
  记得以前有人分享过尾递归的东西，当时还是一脸懵逼，但是后来有大牛告诉我，尾递归实际上是把函数的返回放到最后，这样可以使函数的递归调用在最后面直接就返回了，减少了逐层回调的过程，当时我是相信的，但直到最近看了这篇知乎，才知道其实这还不算优化，这只能算是编译器给我们的代码做的优化而已。那我们究竟要怎么做到真正的优化呢？下面我就来讲讲看完这篇文章之后的想法。
 讲到递归，本质上就是在一个stack space上面不断叠加函数空间，直到满足某个条件停止进栈，然后逐层出栈的过程。下面是一个传说中的经优化过的尾递归求阶乘的函数，看样子就是把每一步的阶乘值都放进函数的参数当中，从而在最后的返回中可以直接返回（自行脑补不带r参数的普通递归函数）。但实际上有一点是说不通的，这样的优化其实还是会出现stackoverflow的错误的，毕竟还是需要开辟容量为n的stack space。所以所谓的优化只是编译器对我们的这段代码做了优化，我们所谓的优化还不够彻底。
-def factorial(n,r): if n&amp;lt;=0: return r else: return factorial(n-1,n*r)  观察上面所谓的优化代码，我们之所以还要开辟新的stack space，实际上是要保证一个入口环境，让每一层的返回都可以有迹可循，这其实也是递归的本质思想。但是反观我们经过优化的代码，既然我们在每一层的递归当中都已经有了个空间记录当前递归值，我们是否还有必要另外开辟stack space做这样的reverse trace呢？答案自然是否定的，我们应该想个办法直接了当的返回最终的结果。总体思想就是找个地方把当前阶乘值记录下来。最后n&amp;lt;=0的时候直接就返回那个值，从而保证每个函数一调用完就直接销毁。
-def factorial(n, r): &amp;quot;&amp;quot;&amp;quot; @param n: 层数 @param r: 当前阶乘结果 &amp;quot;&amp;quot;&amp;quot; _n = n _r = r # 定义一个内置函数，用于记录变量的改变值，实际上是后面循环真正使用到的函数 def _factorial(n, r): # 表明当前两个变量不是本地变量，从而保证当函数调用结束后，外部变量的值能够得到改变 nonlocal _n, _r _n = n _r = r while True: if _n &amp;lt;=0: return _r else: _factorial(_n-1, _n*_r)  这其实是知友的回答，这给了我一些思考。while语句实际上可以当作带有stack space性质问题的优化，这种优化的本质思想是去除递归的回调，在原本属于每一层的递归当中去对某个全局变量进行修改，这样所谓的入口环境可以在 while 中的调用过后直接销毁，从而消除stackoverflow的危险。</description>
+def factorial(n,r):if n&amp;lt;=0:return relse:return factorial(n-1,n*r)观察上面所谓的优化代码，我们之所以还要开辟新的stack space，实际上是要保证一个入口环境，让每一层的返回都可以有迹可循，这其实也是递归的本质思想。但是反观我们经过优化的代码，既然我们在每一层的递归当中都已经有了个空间记录当前递归值，我们是否还有必要另外开辟stack space做这样的reverse trace呢？答案自然是否定的，我们应该想个办法直接了当的返回最终的结果。总体思想就是找个地方把当前阶乘值记录下来。最后n&amp;lt;=0的时候直接就返回那个值，从而保证每个函数一调用完就直接销毁。
+def factorial(n, r):&amp;#34;&amp;#34;&amp;#34;@param n: 层数@param r: 当前阶乘结果&amp;#34;&amp;#34;&amp;#34;_n = n_r = r# 定义一个内置函数，用于记录变量的改变值，实际上是后面循环真正使用到的函数 def _factorial(n, r):# 表明当前两个变量不是本地变量，从而保证当函数调用结束后，外部变量的值能够得到改变 nonlocal _n, _r_n = n_r = rwhile True:if _n &amp;lt;=0:return _relse:_factorial(_n-1, _n*_r)这其实是知友的回答，这给了我一些思考。while语句实际上可以当作带有stack space性质问题的优化，这种优化的本质思想是去除递归的回调，在原本属于每一层的递归当中去对某个全局变量进行修改，这样所谓的入口环境可以在 while 中的调用过后直接销毁，从而消除stackoverflow的危险。</description>
     </item>
     
     <item>
@@ -441,7 +472,8 @@ def factorial(n, r): &amp;quot;&amp;quot;&amp;quot; @param n: 层数 @param r: �
       
       <guid>https://pingrunhuang.github.io/blog/2018-07-04/</guid>
       <description>I&amp;rsquo;ve been using my blog system for quite a long time and find that the architecture of it happend to be very interesting. I think it is quite a good example to share for you ;) (Yeah, you dude!)
-Here are the basic components that make up the blog system. * archtype framework: hugo * comment system: isso (containerized) * user tracking system: matomo (containerized) * theme: cocoa * server engine: nginx * cloud platform: AWS</description>
+Here are the basic components that make up the blog system.
+ archtype framework: hugo comment system: isso (containerized) user tracking system: matomo (containerized) theme: cocoa server engine: nginx cloud platform: AWS  I will explain each part respectively as I go further and especially the reason why I use them.</description>
     </item>
     
     <item>
@@ -451,8 +483,8 @@ Here are the basic components that make up the blog system. * archtype framework
       
       <guid>https://pingrunhuang.github.io/blog/2018-06-30/</guid>
       <description>foreach will clean up all the resouces inside the
-var normalRows = Seq[Seq[String]]() df.foreach(row =&amp;gt; { var newRow = Seq[String]() columnMap.keys.foreach(key =&amp;gt; { val updatedCell = formateDate(row.getAs(key)) newRow = newRow :+ updatedCell } ) normalRows = normalRows :+ newRow } ) println(normalRows.isEmpty)// true  When you check the source code of the foreach function, you will find the following:
-/** * Applies a function f to all elements of this RDD.</description>
+var normalRows = Seq[Seq[String]]()df.foreach(row =&amp;gt; {var newRow = Seq[String]()columnMap.keys.foreach(key =&amp;gt; {val updatedCell = formateDate(row.getAs(key))newRow = newRow :+ updatedCell})normalRows = normalRows :+ newRow})println(normalRows.isEmpty)// trueWhen you check the source code of the foreach function, you will find the following:
+/*** Applies a function f to all elements of this RDD.*/def foreach(f: T =&amp;gt; Unit): Unit = withScope {val cleanF = sc.</description>
     </item>
     
     <item>
@@ -489,10 +521,8 @@ switch to production branch create a issue branch and switch to it which allow y
  a function object that is created at runtime is called a closure
  这句话是出自programming in scala一书的，这是我见过对于closure最精炼的抽象了。为什么这么说呢？我们知道代码从source code到进入jvm成为jvm认识的byte code的过程中，是要经历两个步骤的，分别是compiletime和runtime， compiletime的时候ide可以检查出语法错误，这就是IDEA总是标红的原因，而runtime就不一样了，只有到了程序跑起来的时候错误才会抛出。所以我认为closure最根本的思想是希望让函数可以 动态的成为新的函数。 这在python的世界里同样也可以说得通。python的装饰器最根本的思想实际上也是为了让某个函数在被一个新的函数装饰过后能够拥有一些新的功能（比如计时），而把一些共性的代码抽象出来。这个过程实际上就把普通函数升格成高阶函数。这怎么说越说越绕了呢？
 首先，高阶函数就是把函数当参数的函数。我们知道普通函数就是传入一个参数，做一些操作，然后返回。参数一旦确定了，这个函数就确定了。而诸如scala这种函数式编程的语言则视函数为一等公民，因此函数可以当作参数继续传入。这实际上会引发一些很有趣的现象。以下面两个概念为例：
-* (x:Int)=&amp;gt; x+1这个叫做close form
-* (x:Int)=&amp;gt;x+more这个叫做open form
-这种写法叫做function literal。第一个实际上也就是传统函数，实现了加一的映射，第二个函数不仅收x影响，而且还受more的影响，也就是说加多少不能确定。于是乎函数更多的可能行就被激发了，我们可以加2，加3，甚至加激活函数。比如：
-// 激活函数 def act(func: Float =&amp;gt; Float) = (x:Float)=&amp;gt; func(x) def activate(x:Float):Float={ if (x&amp;lt;0){ 0 }else{ x } } val act1 = act(activate) // call act1(1)  Summary closure最简单的理解就是以函数为参数的函数。最重要的是closure的思想，这种抽出共性代码的思想。以上。</description>
+ (x:Int)=&amp;gt; x+1这个叫做close form (x:Int)=&amp;gt;x+more这个叫做open form
+这种写法叫做function literal。第一个实际上也就是传统函数，实现了加一的映射，第二个函数不仅收x影响，而且还受more的影响，也就是说加多少不能确定。于是乎函数更多的可能行就被激发了，我们可以加2，加3，甚至加激活函数。比如：  // 激活函数def act(func: Float =&amp;gt; Float) = (x:Float)=&amp;gt; func(x) def activate(x:Float):Float={if (x&amp;lt;0){0}else{x}}val act1 = act(activate)// callact1(1)Summary closure最简单的理解就是以函数为参数的函数。最重要的是closure的思想，这种抽出共性代码的思想。以上。</description>
     </item>
     
     <item>
@@ -521,7 +551,7 @@ In github, I use git push origin &amp;lt;branch_name&amp;gt; for push changes to
       <pubDate>Tue, 29 May 2018 20:05:39 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-05-29/</guid>
-      <description>Tips for using vim  Cursor movement: hjkl for left, up, down, right, [number]j to relative line down, [number]k to relative line down, G to the last row, gg to the first row, $ to the end of current row, 0 or ^ to the start of current row, line number+G to the specified row, &amp;lt;ctrl&amp;gt;+o to jump back to the previous position, &amp;lt;ctrl&amp;gt;+i undo the jump back operation. &amp;lt;ctrl&amp;gt;+B to page up, &amp;lt;ctrl&amp;gt;+D to page down.</description>
+      <description>Tips for using vim   Cursor movement: hjkl for left, up, down, right, [number]j to relative line down, [number]k to relative line down, G to the last row, gg to the first row, $ to the end of current row, 0 or ^ to the start of current row, line number+G to the specified row, &amp;lt;ctrl&amp;gt;+o to jump back to the previous position, &amp;lt;ctrl&amp;gt;+i undo the jump back operation. &amp;lt;ctrl&amp;gt;+B to page up, &amp;lt;ctrl&amp;gt;+D to page down.</description>
     </item>
     
     <item>
@@ -530,10 +560,10 @@ In github, I use git push origin &amp;lt;branch_name&amp;gt; for push changes to
       <pubDate>Thu, 24 May 2018 11:43:17 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-05-24/</guid>
-      <description> I&amp;rsquo;ve been recommended to read the following 3 blogs introduced by the pingcap team who built the TiDB(a NewSQL relational database). Inside the blogs, storage, computation, coordination are discussed which correspond to the module of TiKV, TiDb abd PD(placement driver) developed by pingcap.
-Reference  English version
- https://pingcap.com/blog/2017-07-11-tidbinternal1/ https://pingcap.com/blog/2017-07-11-tidbinternal2/ https://pingcap.com/blog/2017-07-20-tidbinternal3/  Chinese version
- https://www.pingcap.com/blog-cn/tidb-internal-1/ https://www.pingcap.com/blog-cn/tidb-internal-2/ https://www.pingcap.com/blog-cn/tidb-internal-3/   </description>
+      <description>I&amp;rsquo;ve been recommended to read the following 3 blogs introduced by the pingcap team who built the TiDB(a NewSQL relational database). Inside the blogs, storage, computation, coordination are discussed which correspond to the module of TiKV, TiDb abd PD(placement driver) developed by pingcap.
+Reference   English version
+ https://pingcap.com/blog/2017-07-11-tidbinternal1/ https://pingcap.com/blog/2017-07-11-tidbinternal2/ https://pingcap.com/blog/2017-07-20-tidbinternal3/    Chinese version
+ https://www.pingcap.com/blog-cn/tidb-internal-1/ https://www.pingcap.com/blog-cn/tidb-internal-2/ https://www.pingcap.com/blog-cn/tidb-internal-3/    </description>
     </item>
     
     <item>
@@ -552,7 +582,16 @@ Reference  English version
       
       <guid>https://pingrunhuang.github.io/blog/2018-04-25/</guid>
       <description>This post is a collection of what is the difference between blah blah and blah blah which is mainly about the terminology that I come across as a software engineer. I wanted to create content when learning. So I decided to start this topic and please help me append the content commenting below if you don&amp;rsquo;t mind ;)
- what is the difference between new and make in golang? new is going to initialize memory and return a pointer to the object.</description>
+  what is the difference between new and make in golang? new is going to initialize memory and return a pointer to the object.</description>
+    </item>
+    
+    <item>
+      <title>Different one hot encoding techniques</title>
+      <link>https://pingrunhuang.github.io/blog/2018-03-17/</link>
+      <pubDate>Sat, 17 Mar 2018 21:11:56 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2018-03-17/</guid>
+      <description>Lately I&amp;rsquo;ve been having fun with kaggle competition. Most of the time, we have to transform string to number which is called categorical data to sequencial data. The most common way of doing this is called one-hot-encoding which is an very important step when doing data cleaning. The most common usecase is transform from category data into number. sklearn has functions for this so does pandas. Let&amp;rsquo;s note them down here.</description>
     </item>
     
     <item>
@@ -562,9 +601,9 @@ Reference  English version
       
       <guid>https://pingrunhuang.github.io/blog/2018-03-09/</guid>
       <description>今天写到了leetcode第477道题目的时候表示十分激动，一方面觉得刷leetcode很久没有刷到这么有趣的题目了，第二方面也是想记录一下刷leetcode的过程中的体会。
-刷leetcode从一开始觉得很枯燥乏味,到现在几乎每天刷一道leetcode，似乎成为了饭后散步一样习以为常的事情了。这其中主要有亮点是我觉得刷leetcode带给我的好处。 - 刷leetcode的过程中逼着我去看一些绕口的英文句子。 在不知不觉中训练了我边看英文边思考的能力。 - 越来越掌握一门语言其实只要刷一遍leetcode就能懂个八九十了。
-对于第一点当然是不言自明的了，对于第二点，我刚开始的时候没有这种感觉，不过后期刷了一页leetcode之后，体会颇深。我用的是python，所以每次做完题我都会去discussion里面找大神们的神操作，慢慢的竟然爱上了python哲学一般简洁的编程思想，很多技巧真的是只要一行就能实现java十几行的操作。这点让我每次对比完大神的操作和我自己的笨操作之后，总有一种what shit am I writing的感觉，然后就是试着模仿大神们的操作，重现一次implementation。我相信不只是python，java、scala或者golang都可以在里面找到对应的解释，我认为这是我目前发现的学习语言的捷径。
-好了，言归正传，477这道题真的很棒，不会很复杂，但是也不是一开始就能想到的。以下是题目的description： &amp;ldquo;&amp;rsquo; The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+刷leetcode从一开始觉得很枯燥乏味,到现在几乎每天刷一道leetcode，似乎成为了饭后散步一样习以为常的事情了。这其中主要有亮点是我觉得刷leetcode带给我的好处。
+ 刷leetcode的过程中逼着我去看一些绕口的英文句子。 在不知不觉中训练了我边看英文边思考的能力。 越来越掌握一门语言其实只要刷一遍leetcode就能懂个八九十了。  对于第一点当然是不言自明的了，对于第二点，我刚开始的时候没有这种感觉，不过后期刷了一页leetcode之后，体会颇深。我用的是python，所以每次做完题我都会去discussion里面找大神们的神操作，慢慢的竟然爱上了python哲学一般简洁的编程思想，很多技巧真的是只要一行就能实现java十几行的操作。这点让我每次对比完大神的操作和我自己的笨操作之后，总有一种what shit am I writing的感觉，然后就是试着模仿大神们的操作，重现一次implementation。我相信不只是python，java、scala或者golang都可以在里面找到对应的解释，我认为这是我目前发现的学习语言的捷径。
+好了，言归正传，477这道题真的很棒，不会很复杂，但是也不是一开始就能想到的。以下是题目的description： &#39;&amp;rsquo;&amp;rsquo; The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
 Now your job is to find the total Hamming distance between all pairs of the given numbers.
 Example: Input: 4, 14, 2
 Output: 6
@@ -588,7 +627,7 @@ Explanation: In binary representation, the 4 is 0100, 14 is 1110, and 2 is 0010 
       <pubDate>Wed, 21 Feb 2018 16:23:22 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-02-21/</guid>
-      <description>I recently have to build a model server project with docker. The reason why I used docker is I want to separate the model server, rest api and the redis service. The python scripts that are used in the model server layer for generating model should be loaded as part of the container since this container is a service for serving model querying which require write locally and test virtually.</description>
+      <description>I recently have to build a model server project with docker. The reason why I used docker is I want to separate the model server, rest api and the redis service. The python scripts that are used in the model server layer for generating model should be loaded as part of the container since this container is a service for serving model querying which require write locally and test virtually. So I have to use the volume concept in docker to load the local scripts.</description>
     </item>
     
     <item>
@@ -601,8 +640,7 @@ Explanation: In binary representation, the 4 is 0100, 14 is 1110, and 2 is 0010 
  继上次写的一篇博文What is bitcoin mining?之后，这次继续写下关于bitcoin技术的笔记。
 相信看这篇文章的读者们应该或多或少对blockchain和bitcoin有所了解了，如果这里面涉及到的一些术语觉得不理解，可以试图从reference那里找到答案，实在不行可以wiki之或者直接评论告诉我哦。那我主要在这里梳理一下blockchain到底解决什么问题和其中我认为很有趣的技术细节。
 bitcoin要解决的问题是去交易的中介，类似于银行在传统的交易模型中的地位，这是一个很直观而且亟待解决的问题。这样做似乎很理想，但是有两个很明显的问题需要解决：
-1. 怎么确保每一笔先后发生的交易的先后顺序？
-2. 怎么确保在A到B的交易中，A有足够的金额发给B呢？</description>
+ 怎么确保每一笔先后发生的交易的先后顺序？ 怎么确保在A到B的交易中，A有足够的金额发给B呢？  为了解决第一个问题，blockchain被提出来了。说白了就是一个double linked list，每个新加入的block被作为一个新的节点被加入现存在的blockchain里面。根据satoshi nakamoto提出的论文，每一笔交易在加入整个chain的时候需要经历6个步骤：</description>
     </item>
     
     <item>
@@ -612,7 +650,7 @@ bitcoin要解决的问题是去交易的中介，类似于银行在传统的交�
       
       <guid>https://pingrunhuang.github.io/blog/2017-12-21/</guid>
       <description>ord: turn a char type into unicode code chr: reverse of ord lambda: creating anonymous function in python. Generally combined with the map, filter and reduce function to manipulate with collections.
-foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # multiply by 2 for each element print(filter(lambda x:x%2==0, foo)) # keep only the element that could be devided by 2 from functools import reduce print(reduce(lambda x,y:x+y, foo)) # sum all the element reduce(lambda x, y : x if x&amp;gt;y else y, foo) # get the maximum num inside the list  Some exercise on lambda expression &#39;&#39;&#39; Order Number	Book Title and Author	Quantity	Price per Item 34587	Learning Python, Mark Lutz	4	40.</description>
+foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]print(map(lambda x:x * 2, foo)) # multiply by 2 for each element print(filter(lambda x:x%2==0, foo)) # keep only the element that could be devided by 2 from functools import reduceprint(reduce(lambda x,y:x+y, foo)) # sum all the element reduce(lambda x, y : x if x&amp;gt;y else y, foo) # get the maximum num inside the list Some exercise on lambda expression &amp;#39;&amp;#39;&amp;#39;Order Number	Book Title and Author	Quantity	Price per Item34587	Learning Python, Mark Lutz	4	40.</description>
     </item>
     
     <item>
@@ -632,7 +670,7 @@ foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # mu
       
       <guid>https://pingrunhuang.github.io/blog/2017-12-17/</guid>
       <description>Recently I&amp;rsquo;ve been using golang as the programming language for solving leetcode problems. I came across with the problems of array copying.
-func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy(grid, sum) fmt.Printf(&amp;quot;%p\n&amp;quot;, &amp;amp;sum) fmt.Printf(&amp;quot;%p\n&amp;quot;, &amp;amp;grid) } // 0xc42000a080 // 0xc42000a060  The result of the above code shows that go actaully assign a new address for the newly created array. But when I try to modify the value inside the sum matrix, the corresponding value of the grid is also changed.</description>
+func f1(grid [][]int) int {rows := len(grid)var sum = make([][]int, rows)copy(grid, sum)fmt.Printf(&amp;#34;%p\n&amp;#34;, &amp;amp;sum)fmt.Printf(&amp;#34;%p\n&amp;#34;, &amp;amp;grid)}// 0xc42000a080// 0xc42000a060The result of the above code shows that go actaully assign a new address for the newly created array. But when I try to modify the value inside the sum matrix, the corresponding value of the grid is also changed.</description>
     </item>
     
     <item>
@@ -644,7 +682,7 @@ func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy
       <description>I&amp;rsquo;ve been
 there is an option for virtualenv to make the project relocatable, just use virtualenv --relocatable which is used to change the absolute path of the scripte reside in bin file into relative.
 alternitives for virtualenv  virtualenv-small-sitepy rvirtulenv Just use $PYTHONHOME pythonv  using pip as an api Example of using pip as an api
-from pip.req import InstallRequirement, RequirementSet from pip.index import PackageFinder from pip.locations import build_prefix, src_prefix reqset = RequirementSet(build_dir=build_prefix, src_dir=src_prefix, download_dir=None) req = InstallRequirement.</description>
+from pip.req import InstallRequirement, RequirementSetfrom pip.index import PackageFinderfrom pip.locations import build_prefix, src_prefixreqset = RequirementSet(build_dir=build_prefix, src_dir=src_prefix, download_dir=None)req = InstallRequirement.</description>
     </item>
     
     <item>
@@ -654,10 +692,10 @@ from pip.req import InstallRequirement, RequirementSet from pip.index import Pac
       
       <guid>https://pingrunhuang.github.io/blog/2017-12-14/</guid>
       <description>Python has a builtin module called unittest which is used for writing unittest in python. But I have marely used it before. So I decided to write a blog for recording the usage of this module.
-&amp;rdquo;&amp;lsquo;python
+&amp;lsquo;&amp;lsquo;&amp;lsquo;python
 Initialize a test class import unittest
-class TestCase(unittest.TestCase): # Check if the input value is right def test_(self): self.assertAlmostEqual(func(input), expectedvalue) # check if the input def test*(self): self.assertRaises(ValueError, func, input) &amp;ldquo;&amp;rsquo;
-Triggering the unit test To trigger the unit test: - python -m unittest test_***.</description>
+class TestCase(unittest.TestCase): # Check if the input value is right def test_***(self): self.assertAlmostEqual(func(input), expected_value) # check if the input def test_****(self): self.assertRaises(ValueError, func, input) &#39;&amp;rsquo;&amp;rsquo;
+Triggering the unit test To trigger the unit test:</description>
     </item>
     
     <item>
@@ -666,8 +704,8 @@ Triggering the unit test To trigger the unit test: - python -m unittest test_***
       <pubDate>Tue, 12 Dec 2017 09:20:58 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-12-12/</guid>
-      <description>Golang grid := [][]int{ []int{1,2,3} []int{4,5,6} []int{7,8,9} } // declaring emptyGrid := [3][3]int  C++ int a[3][4] = { {1,2,3}, {4,5,6}, {7,8,9} }; // or vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; grid(3, vector&amp;lt;int&amp;gt;(3));  Java &amp;rdquo;&amp;lsquo;java
-&amp;rdquo;&amp;rsquo;</description>
+      <description>Golang grid := [][]int{[]int{1,2,3}[]int{4,5,6}[]int{7,8,9}}// declaringemptyGrid := [3][3]intC++ int a[3][4] = {{1,2,3},{4,5,6},{7,8,9}};// orvector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; grid(3, vector&amp;lt;int&amp;gt;(3));Java &amp;lsquo;&amp;lsquo;&amp;lsquo;java
+&#39;&amp;rsquo;&amp;rsquo;</description>
     </item>
     
     <item>
@@ -676,7 +714,7 @@ Triggering the unit test To trigger the unit test: - python -m unittest test_***
       <pubDate>Mon, 11 Dec 2017 16:24:10 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-12-11/</guid>
-      <description>Java for (int i; i &amp;lt; 100 ;i++){ // do something }  Python for index, value in range(100){ # do something }  Scala for (var a &amp;lt;- 1 to 10){ println(a) } &amp;lt;!-- or --&amp;gt; &amp;lt;!-- 10 not included --&amp;gt; for (var b &amp;lt;- 1 until 10){ println(b) }  Go for i := 0; i &amp;lt; 100; i++ { fmt.Println(i) }  Different useage of yield between python and scala def get_generator(): for i in range(10): if i % 3 ==0: yield i  The yield statement should always inside a function to generate a generator object.</description>
+      <description>Java for (int i; i &amp;lt; 100 ;i++){// do something }Python for index, value in range(100){# do something }Scala for (var a &amp;lt;- 1 to 10){println(a)}&amp;lt;!-- or --&amp;gt;&amp;lt;!-- 10 not included --&amp;gt;for (var b &amp;lt;- 1 until 10){println(b)}Go for i := 0; i &amp;lt; 100; i++ {fmt.Println(i)}Different useage of yield between python and scala def get_generator():for i in range(10):if i % 3 ==0:yield iThe yield statement should always inside a function to generate a generator object.</description>
     </item>
     
     <item>
@@ -686,7 +724,7 @@ Triggering the unit test To trigger the unit test: - python -m unittest test_***
       
       <guid>https://pingrunhuang.github.io/blog/2017-12-01/</guid>
       <description>Strings: composition of runes runes: integer of utf-8 representation
-8 bits = 1 byte 1,024 bytes = 1 kilobyte 1,024 kilobytes = 1 megabyte 1,024 megabytes = 1 gigabyte 1,024 gigabytes = 1 terabyte  #Reference Strings, bytes, runes and characters in Go</description>
+8 bits = 1 byte1,024 bytes = 1 kilobyte1,024 kilobytes = 1 megabyte1,024 megabytes = 1 gigabyte1,024 gigabytes = 1 terabyte#Reference Strings, bytes, runes and characters in Go</description>
     </item>
     
     <item>
@@ -695,7 +733,8 @@ Triggering the unit test To trigger the unit test: - python -m unittest test_***
       <pubDate>Tue, 21 Nov 2017 11:21:07 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-11-21/</guid>
-      <description>Handling error 在go里面，个人感觉有几个很有用的包很有用，下面就记录一下。 - use fmt.Errorf(), fmt.Fprintf(os.Stderr, &amp;quot;&amp;quot;) or log.Fatalf() to back probagate the error to the caller - If using log.Fatalf() for returning an error, use function like log.SetPrefix() for formatting the log message - EOF error: define EOF using &amp;lsquo;var err := errors.New(&amp;ldquo;EOF&amp;rdquo;)&amp;rsquo; and check the EOF error type by if err == io.EOF go推荐所有在中间过程产生的error都抛给caller，再链式的返回main函数，所有中间产生error都应该被看作是bug。</description>
+      <description>Handling error 在go里面，个人感觉有几个很有用的包很有用，下面就记录一下。
+ use fmt.Errorf(), fmt.Fprintf(os.Stderr, &amp;quot;&amp;quot;) or log.Fatalf() to back probagate the error to the caller If using log.Fatalf() for returning an error, use function like log.SetPrefix() for formatting the log message EOF error: define EOF using &amp;lsquo;var err := errors.New(&amp;ldquo;EOF&amp;rdquo;)&amp;rsquo; and check the EOF error type by if err == io.EOF go推荐所有在中间过程产生的error都抛给caller，再链式的返回main函数，所有中间产生error都应该被看作是bug。  </description>
     </item>
     
     <item>
@@ -705,7 +744,7 @@ Triggering the unit test To trigger the unit test: - python -m unittest test_***
       
       <guid>https://pingrunhuang.github.io/blog/2017-11-19/</guid>
       <description>Array 几乎所有的编程语言都是从array开始的，因为array实在是太重要了，基本上很多算法都是基于array来展开的，Go 当然也不例外啦。Array 是定长的，可扩展的集合类型叫_slice_。
-initializing array q := […]int{1,2,3} //length are defined by the element number var q = [3]int{1,2} // the third element is 0 // define with index and value pairs type Currency int const ( USD Currency = iota EUR GBP RMB ) symbol := [...]string{USD: &amp;quot;$&amp;quot;, EUR: &amp;quot;€&amp;quot;, GBP: &amp;quot;£&amp;quot;, RMB: &amp;quot;¥&amp;quot;}  Notice  [3]int{} and [4]int{} are different types which means length are also one of the feature for defining different array types.</description>
+initializing array q := […]int{1,2,3} //length are defined by the element numbervar q = [3]int{1,2} // the third element is 0// define with index and value pairstype Currency intconst (USD Currency = iotaEURGBPRMB)symbol := [...]string{USD: &amp;#34;$&amp;#34;, EUR: &amp;#34;€&amp;#34;, GBP: &amp;#34;£&amp;#34;, RMB: &amp;#34;¥&amp;#34;}Notice  [3]int{} and [4]int{} are different types which means length are also one of the feature for defining different array types.</description>
     </item>
     
     <item>
@@ -716,8 +755,8 @@ initializing array q := […]int{1,2,3} //length are defined by the element numb
       <guid>https://pingrunhuang.github.io/blog/2017-11-15/</guid>
       <description>Imperative vs Functional programing
  Trait Trait is like interface in java
-trait Iterator[A] { def hasNext : boolean def next() : A }  Differences: - You could define concrete implementation of method inside Trait
-sealed regex import scala.util.matching.Regex object  function predicate val nameHasUpperCase = name.exists(_.isUpper)  foreach val text = &amp;quot;hello world&amp;quot; text.foreach(_.toUpper) text.foreach(println) // or for (x &amp;lt;- text) println(x)  instantiate an array val numNames = Array(&amp;quot;zero&amp;quot;, &amp;quot;one&amp;quot;, &amp;quot;two&amp;quot;) is equivalent to val numNames = Array.</description>
+trait Iterator[A] {def hasNext : booleandef next() : A}Differences:
+ You could define concrete implementation of method inside Trait  sealed regex import scala.util.matching.Regexobject function predicate val nameHasUpperCase = name.exists(_.isUpper)foreach val text = &amp;#34;hello world&amp;#34;text.foreach(_.toUpper)text.foreach(println)// orfor (x &amp;lt;- text)println(x)instantiate an array val numNames = Array(&amp;quot;zero&amp;quot;, &amp;quot;one&amp;quot;, &amp;quot;two&amp;quot;) is equivalent to val numNames = Array.</description>
     </item>
     
     <item>
@@ -728,7 +767,7 @@ sealed regex import scala.util.matching.Regex object  function predicate val nam
       <guid>https://pingrunhuang.github.io/blog/2017-11-13/</guid>
       <description>Slice 一个slice会包含三个信息：capacity， length还有一个指向数组头部的pointer。 length must be less then capacity.
 len() to check the length, cap() to check the capacity of a slice. Let us see an example first to have some intuition:
-x := make([]int, 5, 10) // [0 0 0 0 0] x := x[:10] // [0 0 0 0 0 0 0 0 0 0] x[:12] // panic: runtime error: slice bounds out of range  From the code above, we can see that capacity is basically the golang solution for dynamic memory allocation.</description>
+x := make([]int, 5, 10) // [0 0 0 0 0]x := x[:10] // [0 0 0 0 0 0 0 0 0 0]x[:12] // panic: runtime error: slice bounds out of rangeFrom the code above, we can see that capacity is basically the golang solution for dynamic memory allocation.</description>
     </item>
     
     <item>
@@ -738,7 +777,7 @@ x := make([]int, 5, 10) // [0 0 0 0 0] x := x[:10] // [0 0 0 0 0 0 0 0 0 0] x[:1
       
       <guid>https://pingrunhuang.github.io/blog/2017-11-10/</guid>
       <description>Welcome to my journey of learning Golang
- Starting from today, I will write a post describing my journey of learning Golang by reading [The Go Programming Language](). It is a long book though, so I will try my best to keep updating the post about my learning on Golang everyday.
+ Starting from today, I will write a post describing my journey of learning Golang by reading The Go Programming Language. It is a long book though, so I will try my best to keep updating the post about my learning on Golang everyday.
 As a kick off post, I don&amp;rsquo;t want to start with the hello world application, I want to point out some syntax that is new for Go comparing other language that I have used like JAVA and Python.</description>
     </item>
     
@@ -851,13 +890,24 @@ From django to hugo Django is great. But for rendering a static webpage like blo
     </item>
     
     <item>
+      <title>Pandas notes</title>
+      <link>https://pingrunhuang.github.io/blog/2017-09-13/</link>
+      <pubDate>Wed, 13 Sep 2017 11:22:07 +0800</pubDate>
+      
+      <guid>https://pingrunhuang.github.io/blog/2017-09-13/</guid>
+      <description>dataframe.sum() by default, sum up each cell&amp;rsquo;s value by each column. Specify the axis attribute will to change the sum up rule. 0 means by columns, 1 means by rows.
+check if the dataframe has null value df.isnull().sum().sum() will sum up all the true value for each column and then each row.
+replace a certain value with other value df[&#39;column name&#39;].map({&#39;yes&#39;:1, &#39;no&#39;:0})</description>
+    </item>
+    
+    <item>
       <title>Pom configuration in Maven</title>
       <link>https://pingrunhuang.github.io/blog/2017-09-01/</link>
       <pubDate>Fri, 01 Sep 2017 04:05:25 -0600</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-09-01/</guid>
-      <description> package How to package all the dependencies into one jar
-&amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;maven-assembly-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.5.5&amp;lt;/version&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;archive&amp;gt; &amp;lt;manifest&amp;gt; &amp;lt;mainClass&amp;gt;com.xxg.Main&amp;lt;/mainClass&amp;gt; &amp;lt;/manifest&amp;gt; &amp;lt;/archive&amp;gt; &amp;lt;descriptorRefs&amp;gt; &amp;lt;descriptorRef&amp;gt;jar-with-dependencies&amp;lt;/descriptorRef&amp;gt; &amp;lt;/descriptorRefs&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;executions&amp;gt; &amp;lt;execution&amp;gt; &amp;lt;id&amp;gt;make-assembly&amp;lt;/id&amp;gt; &amp;lt;phase&amp;gt;package&amp;lt;/phase&amp;gt; &amp;lt;goals&amp;gt; &amp;lt;goal&amp;gt;single&amp;lt;/goal&amp;gt; &amp;lt;/goals&amp;gt; &amp;lt;/execution&amp;gt; &amp;lt;/executions&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; &amp;lt;/build&amp;gt;  不同环境下打包配置文件并在在工程中指定 package and single equals mvn pakcage assembly:single
+      <description>package How to package all the dependencies into one jar
+&amp;lt;build&amp;gt;&amp;lt;plugins&amp;gt;&amp;lt;plugin&amp;gt;&amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;maven-assembly-plugin&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;2.5.5&amp;lt;/version&amp;gt;&amp;lt;configuration&amp;gt;&amp;lt;archive&amp;gt;&amp;lt;manifest&amp;gt;&amp;lt;mainClass&amp;gt;com.xxg.Main&amp;lt;/mainClass&amp;gt;&amp;lt;/manifest&amp;gt;&amp;lt;/archive&amp;gt;&amp;lt;descriptorRefs&amp;gt;&amp;lt;descriptorRef&amp;gt;jar-with-dependencies&amp;lt;/descriptorRef&amp;gt;&amp;lt;/descriptorRefs&amp;gt;&amp;lt;/configuration&amp;gt;&amp;lt;executions&amp;gt;&amp;lt;execution&amp;gt;&amp;lt;id&amp;gt;make-assembly&amp;lt;/id&amp;gt;&amp;lt;phase&amp;gt;package&amp;lt;/phase&amp;gt;&amp;lt;goals&amp;gt;&amp;lt;goal&amp;gt;single&amp;lt;/goal&amp;gt;&amp;lt;/goals&amp;gt;&amp;lt;/execution&amp;gt;&amp;lt;/executions&amp;gt;&amp;lt;/plugin&amp;gt;&amp;lt;/plugins&amp;gt;&amp;lt;/build&amp;gt;不同环境下打包配置文件并在在工程中指定 packageand singleequals mvn pakcage assembly:single
 Reference </description>
     </item>
     

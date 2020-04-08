@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content=" 在之前的一篇关于blockchain的文章中，我大致记录了一下运作原理，虽然还有很多细节没有涉及，比如安全问题（51% computing power）等。这次我想主要记录一下一些以blockchain为主题的创业公司他们如何引入类似blockchain的decentralized的概念，也同时动手试着做一个dApps(decentralized apps)。由于写这篇博客的时间临近元旦，因此有比较充足的时间做调研。
+ Background 互联网时代已经从单台服务器(centralized)发展到了多台服务器为中心(distributed)，现在正在向去中心化(decentralized)发展。这些过程分别对应着web1.0， web2.0和web3.0。在这里强烈安利一部美剧叫&quot;silleycon valley&rdquo;，还记得在第四季结束的时候，richard就在结束的时候埋下伏笔，说要对互联网做一次革命。那时候是2016年，当时区块链虽然存在，但是银行巨头们也没有很在意，因此区块链的概念也不是那么为人所知，时隔两年，不懂区块链好像都不好意思上饭桌了，可见技术的更新真的很快。 (richard图)[] 。在decentralized的场景下，很重要的一个特性是单点的宕机并不会导致整个应用的失效，数据还有应用的代码都是分布在每个节点上的。因此，我想在这篇博客里面介绍一些目前为止区块链应用得比较成熟的，而且我个人认为不是为了区块链而区块链的应用。
+Research part 最开始一段时间主要是研究一下decentralized的
+working dApps example:
+ steemit IPFS  working application DNN(Decentralized News Network)  ">
+
+<meta property="og:title" content="Dapps application" />
+<meta property="og:description" content=" 在之前的一篇关于blockchain的文章中，我大致记录了一下运作原理，虽然还有很多细节没有涉及，比如安全问题（51% computing power）等。这次我想主要记录一下一些以blockchain为主题的创业公司他们如何引入类似blockchain的decentralized的概念，也同时动手试着做一个dApps(decentralized apps)。由于写这篇博客的时间临近元旦，因此有比较充足的时间做调研。
+ Background 互联网时代已经从单台服务器(centralized)发展到了多台服务器为中心(distributed)，现在正在向去中心化(decentralized)发展。这些过程分别对应着web1.0， web2.0和web3.0。在这里强烈安利一部美剧叫&quot;silleycon valley&rdquo;，还记得在第四季结束的时候，richard就在结束的时候埋下伏笔，说要对互联网做一次革命。那时候是2016年，当时区块链虽然存在，但是银行巨头们也没有很在意，因此区块链的概念也不是那么为人所知，时隔两年，不懂区块链好像都不好意思上饭桌了，可见技术的更新真的很快。 (richard图)[] 。在decentralized的场景下，很重要的一个特性是单点的宕机并不会导致整个应用的失效，数据还有应用的代码都是分布在每个节点上的。因此，我想在这篇博客里面介绍一些目前为止区块链应用得比较成熟的，而且我个人认为不是为了区块链而区块链的应用。
+Research part 最开始一段时间主要是研究一下decentralized的
+working dApps example:
+ steemit IPFS  working application DNN(Decentralized News Network)  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-01-19/" />
+<meta property="article:published_time" content="2018-01-19T16:27:47+08:00" />
+<meta property="article:modified_time" content="2018-01-19T16:27:47+08:00" />
+
+
+<title>
+
+
+     Dapps application 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2018-01-19/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a18%3a30.4296219%20%2b0800%20CST%20m%3d%2b1.874708601">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a18%3a30.4296219%20%2b0800%20CST%20m%3d%2b1.874708601">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a18%3a30.4296219%20%2b0800%20CST%20m%3d%2b1.874708601">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a18%3a30.4296219%20%2b0800%20CST%20m%3d%2b1.874708601">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Dapps application
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Fri Jan 19 2018 16:27:47 CST'>Jan 19, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>One minute read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <blockquote>
+<p>在之前的一篇关于blockchain的文章中，我大致记录了一下运作原理，虽然还有很多细节没有涉及，比如安全问题（51% computing power）等。这次我想主要记录一下一些以blockchain为主题的创业公司他们如何引入类似blockchain的decentralized的概念，也同时动手试着做一个dApps(decentralized apps)。由于写这篇博客的时间临近元旦，因此有比较充足的时间做调研。</p>
+</blockquote>
+<h1 id="background">Background</h1>
+<p>互联网时代已经从单台服务器(centralized)发展到了多台服务器为中心(distributed)，现在正在向去中心化(decentralized)发展。这些过程分别对应着web1.0， web2.0和web3.0。在这里强烈安利一部美剧叫&quot;silleycon valley&rdquo;，还记得在第四季结束的时候，richard就在结束的时候埋下伏笔，说要对互联网做一次革命。那时候是2016年，当时区块链虽然存在，但是银行巨头们也没有很在意，因此区块链的概念也不是那么为人所知，时隔两年，不懂区块链好像都不好意思上饭桌了，可见技术的更新真的很快。
+(richard图)[]
+。在decentralized的场景下，很重要的一个特性是单点的宕机并不会导致整个应用的失效，数据还有应用的代码都是分布在每个节点上的。因此，我想在这篇博客里面介绍一些目前为止区块链应用得比较成熟的，而且我个人认为不是为了区块链而区块链的应用。</p>
+<h1 id="research-part">Research part</h1>
+<p>最开始一段时间主要是研究一下decentralized的</p>
+<p>working dApps example:</p>
+<ul>
+<li>steemit</li>
+<li>IPFS</li>
+</ul>
+<h1 id="working-application">working application</h1>
+<h3 id="dnndecentralized-news-network">DNN(Decentralized News Network)</h3>
+<h3 id="heading"></h3>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125392221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125392221-1');
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+    
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>
+

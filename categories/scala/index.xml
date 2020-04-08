@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Scala on Frank Huang</title>
+    <title>scala on Frank Huang</title>
     <link>https://pingrunhuang.github.io/categories/scala/</link>
-    <description>Recent content in Scala on Frank Huang</description>
+    <description>Recent content in scala on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 26 Jun 2018 15:43:28 +0800</lastBuildDate>
@@ -22,10 +22,8 @@
  a function object that is created at runtime is called a closure
  这句话是出自programming in scala一书的，这是我见过对于closure最精炼的抽象了。为什么这么说呢？我们知道代码从source code到进入jvm成为jvm认识的byte code的过程中，是要经历两个步骤的，分别是compiletime和runtime， compiletime的时候ide可以检查出语法错误，这就是IDEA总是标红的原因，而runtime就不一样了，只有到了程序跑起来的时候错误才会抛出。所以我认为closure最根本的思想是希望让函数可以 动态的成为新的函数。 这在python的世界里同样也可以说得通。python的装饰器最根本的思想实际上也是为了让某个函数在被一个新的函数装饰过后能够拥有一些新的功能（比如计时），而把一些共性的代码抽象出来。这个过程实际上就把普通函数升格成高阶函数。这怎么说越说越绕了呢？
 首先，高阶函数就是把函数当参数的函数。我们知道普通函数就是传入一个参数，做一些操作，然后返回。参数一旦确定了，这个函数就确定了。而诸如scala这种函数式编程的语言则视函数为一等公民，因此函数可以当作参数继续传入。这实际上会引发一些很有趣的现象。以下面两个概念为例：
-* (x:Int)=&amp;gt; x+1这个叫做close form
-* (x:Int)=&amp;gt;x+more这个叫做open form
-这种写法叫做function literal。第一个实际上也就是传统函数，实现了加一的映射，第二个函数不仅收x影响，而且还受more的影响，也就是说加多少不能确定。于是乎函数更多的可能行就被激发了，我们可以加2，加3，甚至加激活函数。比如：
-// 激活函数 def act(func: Float =&amp;gt; Float) = (x:Float)=&amp;gt; func(x) def activate(x:Float):Float={ if (x&amp;lt;0){ 0 }else{ x } } val act1 = act(activate) // call act1(1)  Summary closure最简单的理解就是以函数为参数的函数。最重要的是closure的思想，这种抽出共性代码的思想。以上。</description>
+ (x:Int)=&amp;gt; x+1这个叫做close form (x:Int)=&amp;gt;x+more这个叫做open form
+这种写法叫做function literal。第一个实际上也就是传统函数，实现了加一的映射，第二个函数不仅收x影响，而且还受more的影响，也就是说加多少不能确定。于是乎函数更多的可能行就被激发了，我们可以加2，加3，甚至加激活函数。比如：  // 激活函数def act(func: Float =&amp;gt; Float) = (x:Float)=&amp;gt; func(x) def activate(x:Float):Float={if (x&amp;lt;0){0}else{x}}val act1 = act(activate)// callact1(1)Summary closure最简单的理解就是以函数为参数的函数。最重要的是closure的思想，这种抽出共性代码的思想。以上。</description>
     </item>
     
   </channel>

@@ -19,21 +19,8 @@ It turns out that there could be more to do with java dynamic proxy.">
 It turns out that there could be more to do with java dynamic proxy." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-10-26/" />
-
-
-
-<meta property="article:published_time" content="2017-10-26T17:52:13&#43;08:00"/>
-<meta property="article:modified_time" content="2017-10-26T17:52:13&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-10-26T17:52:13+08:00" />
+<meta property="article:modified_time" content="2017-10-26T17:52:13+08:00" />
 
 
 <title>
@@ -59,11 +46,11 @@ It turns out that there could be more to do with java dynamic proxy." />
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.622348319%20%2b0800%20CST%20m%3d%2b1.044330406">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.622348319%20%2b0800%20CST%20m%3d%2b1.044330406">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.622348319%20%2b0800%20CST%20m%3d%2b1.044330406">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.5043476%20%2b0800%20CST%20m%3d%2b0.842700701">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.5043476%20%2b0800%20CST%20m%3d%2b0.842700701">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.5043476%20%2b0800%20CST%20m%3d%2b0.842700701">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.622348319%20%2b0800%20CST%20m%3d%2b1.044330406">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.5043476%20%2b0800%20CST%20m%3d%2b0.842700701">
     
 
 
@@ -209,35 +196,23 @@ It turns out that there could be more to do with java dynamic proxy." />
                 </div>
             </div>
             <div class="markdown">
-                
-
-<blockquote>
+                <blockquote>
 <p>Proxy your call to the professional, save you some more time</p>
 </blockquote>
-
 <p>I recently read a great slides talking about Proxy pattern in Java which has confused me for a long time. I&rsquo;ve always consider it as something like the delegator pattern which is like adding a new layer for a specified class so that clients can do more other things when calling it.</p>
-
 <p>It turns out that there could be more to do with java dynamic proxy. What dynamic proxy in java can do is let all the interface could share the same proxy so that creating so many proxy handlers is not necessary. With the simple proxy pattern however, one need to create different proxy object based on different interfaces.</p>
-
 <h1 id="how-does-dynamic-proxy-works-in-java">How does dynamic proxy works in java</h1>
-
-<p><img src="https://pingrunhuang.github.io/blog/2017-10-26/dp.png" alt="" />
+<p><img src="https://pingrunhuang.github.io/blog/2017-10-26/dp.png" alt="">
 This is the pattern of the dynamic proxy. Comparing to the simple proxy, an <code>Invocation handler</code> layer is added.</p>
-
 <h4 id="simple-proxy">Simple proxy</h4>
-
 <p>With the simple proxy pattern, you should create a proxy class first
 <code>public static Object newProxyInstance(ClassLoader loader,Class[] interfaces,InvocationHandler ih) throws IllegalArgumentException</code>: Creates a proxy class defined in the specified class loader and which implements the specified interfaces. In addition, creates an instance of the proxy by invoking the one public proxy constructor which sets the associated invocation handler to the specified handler. Returns a reference to the proxy instance.</p>
-
 <h1 id="summary">Summary</h1>
-
 <p>So in order to have a Generic proxy class, we need to have a <code>proxy handler</code> which implement the <code>InvocationHandler</code> where we override the <code>invoke()</code> method</p>
-
 <h1 id="reference">Reference</h1>
-
-<p><a href="https://web.archive.org/web/20150226062232/http://userpages.umbc.edu/~tarr/dp/lectures/DynProxies-2pp.pdf">Dynamic Proxies In Java</a><br />
-<a href="https://docs.oracle.com/javase/8/docs/technotes/guides/reflection/proxy.html">Dynamic Proxy Classes</a><br />
-<a href="https://www.ibm.com/developerworks/cn/java/j-lo-proxy1/index.html">Java 动态代理机制分析及扩展，第 1 部分</a><br />
+<p><a href="https://web.archive.org/web/20150226062232/http://userpages.umbc.edu/~tarr/dp/lectures/DynProxies-2pp.pdf">Dynamic Proxies In Java</a><br>
+<a href="https://docs.oracle.com/javase/8/docs/technotes/guides/reflection/proxy.html">Dynamic Proxy Classes</a><br>
+<a href="https://www.ibm.com/developerworks/cn/java/j-lo-proxy1/index.html">Java 动态代理机制分析及扩展，第 1 部分</a><br>
 <a href="https://www.ibm.com/developerworks/library/j-jtp08305/index.html">Decorating with dynamic proxies
 </a></p>
 

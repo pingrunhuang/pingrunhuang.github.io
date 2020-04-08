@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Golang on Frank Huang</title>
+    <title>golang on Frank Huang</title>
     <link>https://pingrunhuang.github.io/categories/golang/</link>
-    <description>Recent content in Golang on Frank Huang</description>
+    <description>Recent content in golang on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 17 Dec 2017 15:25:00 +0800</lastBuildDate>
@@ -18,7 +18,7 @@
       
       <guid>https://pingrunhuang.github.io/blog/2017-12-17/</guid>
       <description>Recently I&amp;rsquo;ve been using golang as the programming language for solving leetcode problems. I came across with the problems of array copying.
-func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy(grid, sum) fmt.Printf(&amp;quot;%p\n&amp;quot;, &amp;amp;sum) fmt.Printf(&amp;quot;%p\n&amp;quot;, &amp;amp;grid) } // 0xc42000a080 // 0xc42000a060  The result of the above code shows that go actaully assign a new address for the newly created array. But when I try to modify the value inside the sum matrix, the corresponding value of the grid is also changed.</description>
+func f1(grid [][]int) int {rows := len(grid)var sum = make([][]int, rows)copy(grid, sum)fmt.Printf(&amp;#34;%p\n&amp;#34;, &amp;amp;sum)fmt.Printf(&amp;#34;%p\n&amp;#34;, &amp;amp;grid)}// 0xc42000a080// 0xc42000a060The result of the above code shows that go actaully assign a new address for the newly created array. But when I try to modify the value inside the sum matrix, the corresponding value of the grid is also changed.</description>
     </item>
     
     <item>
@@ -28,7 +28,7 @@ func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy
       
       <guid>https://pingrunhuang.github.io/blog/2017-12-01/</guid>
       <description>Strings: composition of runes runes: integer of utf-8 representation
-8 bits = 1 byte 1,024 bytes = 1 kilobyte 1,024 kilobytes = 1 megabyte 1,024 megabytes = 1 gigabyte 1,024 gigabytes = 1 terabyte  #Reference Strings, bytes, runes and characters in Go</description>
+8 bits = 1 byte1,024 bytes = 1 kilobyte1,024 kilobytes = 1 megabyte1,024 megabytes = 1 gigabyte1,024 gigabytes = 1 terabyte#Reference Strings, bytes, runes and characters in Go</description>
     </item>
     
     <item>
@@ -37,7 +37,8 @@ func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy
       <pubDate>Tue, 21 Nov 2017 11:21:07 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2017-11-21/</guid>
-      <description>Handling error 在go里面，个人感觉有几个很有用的包很有用，下面就记录一下。 - use fmt.Errorf(), fmt.Fprintf(os.Stderr, &amp;quot;&amp;quot;) or log.Fatalf() to back probagate the error to the caller - If using log.Fatalf() for returning an error, use function like log.SetPrefix() for formatting the log message - EOF error: define EOF using &amp;lsquo;var err := errors.New(&amp;ldquo;EOF&amp;rdquo;)&amp;rsquo; and check the EOF error type by if err == io.EOF go推荐所有在中间过程产生的error都抛给caller，再链式的返回main函数，所有中间产生error都应该被看作是bug。</description>
+      <description>Handling error 在go里面，个人感觉有几个很有用的包很有用，下面就记录一下。
+ use fmt.Errorf(), fmt.Fprintf(os.Stderr, &amp;quot;&amp;quot;) or log.Fatalf() to back probagate the error to the caller If using log.Fatalf() for returning an error, use function like log.SetPrefix() for formatting the log message EOF error: define EOF using &amp;lsquo;var err := errors.New(&amp;ldquo;EOF&amp;rdquo;)&amp;rsquo; and check the EOF error type by if err == io.EOF go推荐所有在中间过程产生的error都抛给caller，再链式的返回main函数，所有中间产生error都应该被看作是bug。  </description>
     </item>
     
     <item>
@@ -47,7 +48,7 @@ func f1(grid [][]int) int { rows := len(grid) var sum = make([][]int, rows) copy
       
       <guid>https://pingrunhuang.github.io/blog/2017-11-19/</guid>
       <description>Array 几乎所有的编程语言都是从array开始的，因为array实在是太重要了，基本上很多算法都是基于array来展开的，Go 当然也不例外啦。Array 是定长的，可扩展的集合类型叫_slice_。
-initializing array q := […]int{1,2,3} //length are defined by the element number var q = [3]int{1,2} // the third element is 0 // define with index and value pairs type Currency int const ( USD Currency = iota EUR GBP RMB ) symbol := [...]string{USD: &amp;quot;$&amp;quot;, EUR: &amp;quot;€&amp;quot;, GBP: &amp;quot;£&amp;quot;, RMB: &amp;quot;¥&amp;quot;}  Notice  [3]int{} and [4]int{} are different types which means length are also one of the feature for defining different array types.</description>
+initializing array q := […]int{1,2,3} //length are defined by the element numbervar q = [3]int{1,2} // the third element is 0// define with index and value pairstype Currency intconst (USD Currency = iotaEURGBPRMB)symbol := [...]string{USD: &amp;#34;$&amp;#34;, EUR: &amp;#34;€&amp;#34;, GBP: &amp;#34;£&amp;#34;, RMB: &amp;#34;¥&amp;#34;}Notice  [3]int{} and [4]int{} are different types which means length are also one of the feature for defining different array types.</description>
     </item>
     
     <item>
@@ -58,7 +59,7 @@ initializing array q := […]int{1,2,3} //length are defined by the element numb
       <guid>https://pingrunhuang.github.io/blog/2017-11-13/</guid>
       <description>Slice 一个slice会包含三个信息：capacity， length还有一个指向数组头部的pointer。 length must be less then capacity.
 len() to check the length, cap() to check the capacity of a slice. Let us see an example first to have some intuition:
-x := make([]int, 5, 10) // [0 0 0 0 0] x := x[:10] // [0 0 0 0 0 0 0 0 0 0] x[:12] // panic: runtime error: slice bounds out of range  From the code above, we can see that capacity is basically the golang solution for dynamic memory allocation.</description>
+x := make([]int, 5, 10) // [0 0 0 0 0]x := x[:10] // [0 0 0 0 0 0 0 0 0 0]x[:12] // panic: runtime error: slice bounds out of rangeFrom the code above, we can see that capacity is basically the golang solution for dynamic memory allocation.</description>
     </item>
     
     <item>
@@ -68,7 +69,7 @@ x := make([]int, 5, 10) // [0 0 0 0 0] x := x[:10] // [0 0 0 0 0 0 0 0 0 0] x[:1
       
       <guid>https://pingrunhuang.github.io/blog/2017-11-10/</guid>
       <description>Welcome to my journey of learning Golang
- Starting from today, I will write a post describing my journey of learning Golang by reading [The Go Programming Language](). It is a long book though, so I will try my best to keep updating the post about my learning on Golang everyday.
+ Starting from today, I will write a post describing my journey of learning Golang by reading The Go Programming Language. It is a long book though, so I will try my best to keep updating the post about my learning on Golang everyday.
 As a kick off post, I don&amp;rsquo;t want to start with the hello world application, I want to point out some syntax that is new for Go comparing other language that I have used like JAVA and Python.</description>
     </item>
     

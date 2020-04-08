@@ -10,28 +10,15 @@
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
 <meta name="description" content="ord: turn a char type into unicode code chr: reverse of ord lambda: creating anonymous function in python. Generally combined with the map, filter and reduce function to manipulate with collections.
-foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # multiply by 2 for each element print(filter(lambda x:x%2==0, foo)) # keep only the element that could be devided by 2 from functools import reduce print(reduce(lambda x,y:x&#43;y, foo)) # sum all the element reduce(lambda x, y : x if x&gt;y else y, foo) # get the maximum num inside the list  Some exercise on lambda expression &#39;&#39;&#39; Order Number	Book Title and Author	Quantity	Price per Item 34587	Learning Python, Mark Lutz	4	40.">
+foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]print(map(lambda x:x * 2, foo)) # multiply by 2 for each element print(filter(lambda x:x%2==0, foo)) # keep only the element that could be devided by 2 from functools import reduceprint(reduce(lambda x,y:x&#43;y, foo)) # sum all the element reduce(lambda x, y : x if x&gt;y else y, foo) # get the maximum num inside the list Some exercise on lambda expression &#39;&#39;&#39;Order Number	Book Title and Author	Quantity	Price per Item34587	Learning Python, Mark Lutz	4	40.">
 
 <meta property="og:title" content="Python built-in function cheat sheet" />
 <meta property="og:description" content="ord: turn a char type into unicode code chr: reverse of ord lambda: creating anonymous function in python. Generally combined with the map, filter and reduce function to manipulate with collections.
-foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # multiply by 2 for each element print(filter(lambda x:x%2==0, foo)) # keep only the element that could be devided by 2 from functools import reduce print(reduce(lambda x,y:x&#43;y, foo)) # sum all the element reduce(lambda x, y : x if x&gt;y else y, foo) # get the maximum num inside the list  Some exercise on lambda expression &#39;&#39;&#39; Order Number	Book Title and Author	Quantity	Price per Item 34587	Learning Python, Mark Lutz	4	40." />
+foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]print(map(lambda x:x * 2, foo)) # multiply by 2 for each element print(filter(lambda x:x%2==0, foo)) # keep only the element that could be devided by 2 from functools import reduceprint(reduce(lambda x,y:x&#43;y, foo)) # sum all the element reduce(lambda x, y : x if x&gt;y else y, foo) # get the maximum num inside the list Some exercise on lambda expression &#39;&#39;&#39;Order Number	Book Title and Author	Quantity	Price per Item34587	Learning Python, Mark Lutz	4	40." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-12-21/" />
-
-
-
-<meta property="article:published_time" content="2017-12-21T13:42:35&#43;08:00"/>
-<meta property="article:modified_time" content="2017-12-21T13:42:35&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-21T13:42:35+08:00" />
+<meta property="article:modified_time" content="2017-12-21T13:42:35+08:00" />
 
 
 <title>
@@ -57,11 +44,11 @@ foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # mu
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.598862413%20%2b0800%20CST%20m%3d%2b1.020844500">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.598862413%20%2b0800%20CST%20m%3d%2b1.020844500">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.598862413%20%2b0800%20CST%20m%3d%2b1.020844500">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.5463869%20%2b0800%20CST%20m%3d%2b0.884740001">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.5463869%20%2b0800%20CST%20m%3d%2b0.884740001">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.5463869%20%2b0800%20CST%20m%3d%2b0.884740001">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.598862413%20%2b0800%20CST%20m%3d%2b1.020844500">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.5463869%20%2b0800%20CST%20m%3d%2b0.884740001">
     
 
 
@@ -207,61 +194,50 @@ foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] print(map(lambda x:x * 2, foo)) # mu
                 </div>
             </div>
             <div class="markdown">
-                
-
-<p><code>ord</code>: turn a char type into unicode code
+                <p><code>ord</code>: turn a char type into unicode code
 <code>chr</code>: reverse of <code>ord</code>
 <code>lambda</code>: creating anonymous function in python. Generally combined with the <code>map</code>, <code>filter</code> and <code>reduce</code> function to manipulate with collections.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">foo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">foo</span><span class="p">))</span> <span class="c1"># multiply by 2 for each element</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="n">foo</span><span class="p">))</span> <span class="c1"># keep only the element that could be devided by 2</span>
 
-<pre><code class="language-python">foo = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-print(map(lambda x:x * 2, foo)) # multiply by 2 for each element
-print(filter(lambda x:x%2==0, foo)) # keep only the element that could be devided by 2
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="nb">reduce</span>
 
-from functools import reduce
+<span class="k">print</span><span class="p">(</span><span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="n">foo</span><span class="p">))</span> <span class="c1"># sum all the element</span>
+<span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="n">y</span> <span class="k">else</span> <span class="n">y</span><span class="p">,</span> <span class="n">foo</span><span class="p">)</span> <span class="c1"># get the maximum num inside the list</span>
+</code></pre></div><h1 id="some-exercise-on-lambda-expression">Some exercise on lambda expression</h1>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="s1">&#39;&#39;&#39;
+</span><span class="s1">Order Number	Book Title and Author	Quantity	Price per Item
+</span><span class="s1">34587	Learning Python, Mark Lutz	4	40.95
+</span><span class="s1">98762	Programming Python, Mark Lutz	5	56.80
+</span><span class="s1">77226	Head First Python, Paul Barry	3	32.95
+</span><span class="s1">88112	Einführung in Python3, Bernd Klein	3	24.99
+</span><span class="s1">
+</span><span class="s1">Write a Python program, which returns a list with 2-tuples. Each tuple consists of a the order number and the product of the price per items and the quantity. The product should be increased by 10,- € if the value of the order is less than 100,00 €. 
+</span><span class="s1">Write a Python program using lambda and map.
+</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="n">orders</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="s2">&#34;34587&#34;</span><span class="p">,</span> <span class="s2">&#34;Learning Python, Mark Lutz&#34;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">40.95</span><span class="p">],</span> 
+	       <span class="p">[</span><span class="s2">&#34;98762&#34;</span><span class="p">,</span> <span class="s2">&#34;Programming Python, Mark Lutz&#34;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">56.80</span><span class="p">],</span> 
+           <span class="p">[</span><span class="s2">&#34;77226&#34;</span><span class="p">,</span> <span class="s2">&#34;Head First Python, Paul Barry&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="mf">32.95</span><span class="p">],</span>
+           <span class="p">[</span><span class="s2">&#34;88112&#34;</span><span class="p">,</span> <span class="s2">&#34;Einführung in Python3, Bernd Klein&#34;</span><span class="p">,</span> 	<span class="mi">3</span><span class="p">,</span> <span class="mf">24.99</span><span class="p">]]</span>
 
-print(reduce(lambda x,y:x+y, foo)) # sum all the element
-reduce(lambda x, y : x if x&gt;y else y, foo) # get the maximum num inside the list
-</code></pre>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">100</span> <span class="k">else</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="mi">10</span><span class="p">),</span> <span class="n">orders</span><span class="p">))</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># The same bookshop, but this time we work on a different list. The sublists of our lists look like this: </span>
+<span class="c1"># [ordernumber, (article number, quantity, price per unit), ... (article number, quantity, price per unit) ] </span>
+<span class="c1"># Write a program which returns a list of two tuples with (order number, total amount of order).</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="nb">reduce</span>
 
-<h1 id="some-exercise-on-lambda-expression">Some exercise on lambda expression</h1>
+<span class="n">orders</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="s2">&#34;5464&#34;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">9.99</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;8274&#34;</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mf">12.99</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;9744&#34;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mf">44.95</span><span class="p">)],</span> 
+	       <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="s2">&#34;5464&#34;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mf">9.99</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;9744&#34;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mf">44.95</span><span class="p">)],</span>
+	       <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="s2">&#34;5464&#34;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mf">9.99</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;88112&#34;</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mf">24.99</span><span class="p">)],</span>
+           <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="s2">&#34;8732&#34;</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mf">11.99</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;7733&#34;</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mf">18.99</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;88112&#34;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">39.95</span><span class="p">)]</span> <span class="p">]</span>
 
-<pre><code class="language-python">'''
-Order Number	Book Title and Author	Quantity	Price per Item
-34587	Learning Python, Mark Lutz	4	40.95
-98762	Programming Python, Mark Lutz	5	56.80
-77226	Head First Python, Paul Barry	3	32.95
-88112	Einführung in Python3, Bernd Klein	3	24.99
-
-Write a Python program, which returns a list with 2-tuples. Each tuple consists of a the order number and the product of the price per items and the quantity. The product should be increased by 10,- € if the value of the order is less than 100,00 €. 
-Write a Python program using lambda and map.
-'''
-orders = [ [&quot;34587&quot;, &quot;Learning Python, Mark Lutz&quot;, 4, 40.95], 
-	       [&quot;98762&quot;, &quot;Programming Python, Mark Lutz&quot;, 5, 56.80], 
-           [&quot;77226&quot;, &quot;Head First Python, Paul Barry&quot;, 3,32.95],
-           [&quot;88112&quot;, &quot;Einführung in Python3, Bernd Klein&quot;, 	3, 24.99]]
-
-result = list(map(lambda x:(x[0], x[2]*x[3] if x[2]*x[3] &gt;= 100 else x[2]*x[3]+10), orders))
-</code></pre>
-
-<pre><code class="language-python"># The same bookshop, but this time we work on a different list. The sublists of our lists look like this: 
-# [ordernumber, (article number, quantity, price per unit), ... (article number, quantity, price per unit) ] 
-# Write a program which returns a list of two tuples with (order number, total amount of order).
-from functools import reduce
-
-orders = [ [1, (&quot;5464&quot;, 4, 9.99), (&quot;8274&quot;,18,12.99), (&quot;9744&quot;, 9, 44.95)], 
-	       [2, (&quot;5464&quot;, 9, 9.99), (&quot;9744&quot;, 9, 44.95)],
-	       [3, (&quot;5464&quot;, 9, 9.99), (&quot;88112&quot;, 11, 24.99)],
-           [4, (&quot;8732&quot;, 7, 11.99), (&quot;7733&quot;,11,18.99), (&quot;88112&quot;, 5, 39.95)] ]
-
-# generate the result [[1, 39.96, 233.82, 404.55], [2, 89.91, 404.55], [3, 89.91, 274.89], [4, 83.93, 208.89, 199.75]]
-result = list(map(lambda x: [x[0]] + list(map(lambda y: y[1]*y[2] , x[1:])) , orders))
-result = list(map(lambda x: (x[0], reduce(lambda y,z:y+z, x[1:])) , result))
-result = list(map(lambda x: (x[0], x[1]) if x[1]&gt;=100 else (x[0], x[1]), result ))
-# [(1, 678.3299999999999), (2, 494.46000000000004), (3, 364.79999999999995), (4, 492.57)]
-</code></pre>
-
-<p>想象在<code>reduce</code>表达式中，每一个先前的结果的累计结果应该跟后面即将累计的item具有相同的类型。想象是在玩扑克牌的前缀累加，前面累加的结果是数字，因此可以跟后面的数字再进行累加。</p>
-
+<span class="c1"># generate the result [[1, 39.96, 233.82, 404.55], [2, 89.91, 404.55], [3, 89.91, 274.89], [4, 83.93, 208.89, 199.75]]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span> <span class="p">,</span> <span class="n">orders</span><span class="p">))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">:</span><span class="n">y</span><span class="o">+</span><span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span> <span class="p">,</span> <span class="n">result</span><span class="p">))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">100</span> <span class="k">else</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">result</span> <span class="p">))</span>
+<span class="c1"># [(1, 678.3299999999999), (2, 494.46000000000004), (3, 364.79999999999995), (4, 492.57)]</span>
+</code></pre></div><p>想象在<code>reduce</code>表达式中，每一个先前的结果的累计结果应该跟后面即将累计的item具有相同的类型。想象是在玩扑克牌的前缀累加，前面累加的结果是数字，因此可以跟后面的数字再进行累加。</p>
 <pre><code>1 2 3 4 5 6
 | | | | | |
 1+2
@@ -270,55 +246,37 @@ result = list(map(lambda x: (x[0], x[1]) if x[1]&gt;=100 else (x[0], x[1]), resu
       10+5
          15+6
             21
-</code></pre>
-
-<p><code>sorted</code>: sorted method is used to sort a collection. Here is the definition of sorted method <code>sorted(iterable, cmp=None, key=None, reverse=False)</code>.</p>
-
-<pre><code class="language-python">
-</code></pre>
-
-<p><code>zip</code>: return an iterator of tuples.</p>
-
-<pre><code class="language-python">zip('ABCD', 'xy') --&gt; Ax By
-zip([1,2,3,4], [2,3,4,5]) --&gt; [(1,2),(2,3),(3,4),(4,5)]
-zip([1,2,3,4], [2,3,4]) --&gt; [(1,2),(2,3),(3,4)]
-</code></pre>
-
-<p><code>bin</code>: for getting the binary of an integer</p>
-
+</code></pre><p><code>sorted</code>: sorted method is used to sort a collection. Here is the definition of sorted method <code>sorted(iterable, cmp=None, key=None, reverse=False)</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python">
+</code></pre></div><p><code>zip</code>: return an iterator of tuples.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">zip</span><span class="p">(</span><span class="s1">&#39;ABCD&#39;</span><span class="p">,</span> <span class="s1">&#39;xy&#39;</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Ax</span> <span class="n">By</span>
+<span class="nb">zip</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span> <span class="o">--&gt;</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)]</span>
+<span class="nb">zip</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="o">--&gt;</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+</code></pre></div><p><code>bin</code>: for getting the binary of an integer</p>
 <p><code>int('binaryString', 2)</code>: reverse from binary string to integer</p>
-
 <p><code>vars</code>: Return the <strong>dict</strong> attribute for a module, class, instance, or any other object with a <strong>dict</strong> attribute corresponding to different kind of attributes inside them. For example, type <code>vars()</code> in the python console, <code>{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;}</code> will be returned.</p>
-
 <p><code>all</code>: equivalent to</p>
-
 <pre><code>def all(iterable):
     for element in iterable:
         if not element:
             return False
     return True
-</code></pre>
-
-<p><code>any</code>: return true if any element in the iterable is True.</p>
-
+</code></pre><p><code>any</code>: return true if any element in the iterable is True.</p>
 <pre><code>def any(iterable):
     for element in iterable:
         if element:
             return True
     return False
-</code></pre>
-
-<p><code>Counter</code>: accepting a list for calculating the occurence of the different elements. Returning a dictionary with element as key and occurence as value.</p>
-
+</code></pre><p><code>Counter</code>: accepting a list for calculating the occurence of the different elements. Returning a dictionary with element as key and occurence as value.</p>
 <pre><code>c= Counter('abdbfbfasfdbfdasfdsarewafdsavsca')
 c.most_common(3) # like [('a',5), ('b',4)] where each element occur more then 3 times
 c['a'] # print the occurence of a
-</code></pre>
-
-<p>#Reference
-- <a href="https://www.python-course.eu/python3_lambda.php">https://www.python-course.eu/python3_lambda.php</a>
-- <a href="https://wiki.python.org/moin/HowTo/Sorting">https://wiki.python.org/moin/HowTo/Sorting</a>
-- <a href="https://github.com/pingrunhuang/Learning-Python">https://github.com/pingrunhuang/Learning-Python</a></p>
+</code></pre><p>#Reference</p>
+<ul>
+<li><a href="https://www.python-course.eu/python3_lambda.php">https://www.python-course.eu/python3_lambda.php</a></li>
+<li><a href="https://wiki.python.org/moin/HowTo/Sorting">https://wiki.python.org/moin/HowTo/Sorting</a></li>
+<li><a href="https://github.com/pingrunhuang/Learning-Python">https://github.com/pingrunhuang/Learning-Python</a></li>
+</ul>
 
                 <br>
 		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>

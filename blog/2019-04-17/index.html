@@ -11,31 +11,18 @@
 <meta name="author" content="Frank Huang">
 <meta name="description" content="pgrouting vertion: 2.6.2 首先呢，在很多blog里面也说了，pgrouting不单单可以用在路径选择问题上，只要对cost和reverse_cost做相应的取值改变，就可以做很多其他事情，比如在很多套餐组合中，怎么选取脂肪量最低的组合等等。
  Terminology route：路网数据里面表示某条路，例如北三环路。 link: 或称为segment，将路切分成小的部分。
-create topology pgr_createtopology: pgr_createtopology(text edge_table, double precision tolerance, text the_geom:=&#39;the_geom&#39;, text id:=&#39;id&#39;, text source:=&#39;source&#39;,text target:=&#39;target&#39;, text rows_where:=&#39;true&#39;, boolean clean:=false)
+create topology pgr_createtopology: pgr_createtopology(text edge_table, double precision tolerance,text the_geom:=&#39;the_geom&#39;, text id:=&#39;id&#39;,text source:=&#39;source&#39;,text target:=&#39;target&#39;,text rows_where:=&#39;true&#39;, boolean clean:=false)
  edge_table: text Network table name. (may contain the schema name AS well) tolerance: float8 Snapping tolerance of disconnected edges. (in projection unit) the_geom: text Geometry column name of the network table. Default value is the_geom. id: text Primary key column name of the network table.">
 
 <meta property="og:title" content="pgrouting note" />
 <meta property="og:description" content="pgrouting vertion: 2.6.2 首先呢，在很多blog里面也说了，pgrouting不单单可以用在路径选择问题上，只要对cost和reverse_cost做相应的取值改变，就可以做很多其他事情，比如在很多套餐组合中，怎么选取脂肪量最低的组合等等。
  Terminology route：路网数据里面表示某条路，例如北三环路。 link: 或称为segment，将路切分成小的部分。
-create topology pgr_createtopology: pgr_createtopology(text edge_table, double precision tolerance, text the_geom:=&#39;the_geom&#39;, text id:=&#39;id&#39;, text source:=&#39;source&#39;,text target:=&#39;target&#39;, text rows_where:=&#39;true&#39;, boolean clean:=false)
+create topology pgr_createtopology: pgr_createtopology(text edge_table, double precision tolerance,text the_geom:=&#39;the_geom&#39;, text id:=&#39;id&#39;,text source:=&#39;source&#39;,text target:=&#39;target&#39;,text rows_where:=&#39;true&#39;, boolean clean:=false)
  edge_table: text Network table name. (may contain the schema name AS well) tolerance: float8 Snapping tolerance of disconnected edges. (in projection unit) the_geom: text Geometry column name of the network table. Default value is the_geom. id: text Primary key column name of the network table." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2019-04-17/" />
-
-
-
-<meta property="article:published_time" content="2019-04-17T17:36:51&#43;08:00"/>
-<meta property="article:modified_time" content="2019-04-17T17:36:51&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2019-04-17T17:36:51+08:00" />
+<meta property="article:modified_time" content="2019-04-17T17:36:51+08:00" />
 
 
 <title>
@@ -61,11 +48,11 @@ create topology pgr_createtopology: pgr_createtopology(text edge_table, double p
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.548088573%20%2b0800%20CST%20m%3d%2b0.970070660">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.548088573%20%2b0800%20CST%20m%3d%2b0.970070660">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.548088573%20%2b0800%20CST%20m%3d%2b0.970070660">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.6254586%20%2b0800%20CST%20m%3d%2b0.963811701">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.6254586%20%2b0800%20CST%20m%3d%2b0.963811701">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.6254586%20%2b0800%20CST%20m%3d%2b0.963811701">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.548088573%20%2b0800%20CST%20m%3d%2b0.970070660">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.6254586%20%2b0800%20CST%20m%3d%2b0.963811701">
     
 
 
@@ -211,26 +198,16 @@ create topology pgr_createtopology: pgr_createtopology(text edge_table, double p
                 </div>
             </div>
             <div class="markdown">
-                
-
-<blockquote>
+                <blockquote>
 <p>pgrouting vertion: 2.6.2
 首先呢，在很多blog里面也说了，pgrouting不单单可以用在路径选择问题上，只要对cost和reverse_cost做相应的取值改变，就可以做很多其他事情，比如在很多套餐组合中，怎么选取脂肪量最低的组合等等。</p>
 </blockquote>
-
 <h1 id="terminology">Terminology</h1>
-
 <p>route：路网数据里面表示某条路，例如北三环路。
 link: 或称为segment，将路切分成小的部分。</p>
-
 <h2 id="create-topology">create topology</h2>
-
 <p>pgr_createtopology:
-<code>pgr_createtopology(text edge_table, double precision tolerance,
-                   text the_geom:='the_geom', text id:='id',
-                   text source:='source',text target:='target',
-                   text rows_where:='true', boolean clean:=false)</code></p>
-
+<code>pgr_createtopology(text edge_table, double precision tolerance, text the_geom:='the_geom', text id:='id', text source:='source',text target:='target', text rows_where:='true', boolean clean:=false)</code></p>
 <blockquote>
 <p>edge_table: text Network table name. (may contain the schema name AS well)
 tolerance: float8 Snapping tolerance of disconnected edges. (in projection unit)
@@ -241,53 +218,50 @@ target: text Target column name of the network table. Default value is target.
 rows_where: text Condition to SELECT a subset or rows. Default value is true to indicate all rows that where source or target have a null value, otherwise the condition is used.
 clean: boolean Clean any previous topology. Default value is false.</p>
 </blockquote>
-
 <ul>
 <li>before creating topology: better add index to source and target column</li>
 <li>to get length: could use st_length(geom)</li>
 <li>Don’t limit yourself to solving problems involving time and distance. For example, you can easily download a table of calories from your local McDonald’s, group the food items into sandwiches, drinks, and sides, and ask the question of the least fattening meal you can consume
 provided that you must order something from each group—the McRouting problem.</li>
 </ul>
-
 <h3 id="routing">Routing</h3>
-
 <ul>
-<li><p>pgr_createTopology
-在进行路径选择之前需要建立建立的拓扑结构。</p></li>
-
-<li><p>pgr_dijkstra</p>
-
+<li>
+<p>pgr_createTopology
+在进行路径选择之前需要建立建立的拓扑结构。</p>
+</li>
+<li>
+<p>pgr_dijkstra</p>
+</li>
+</ul>
 <pre><code>create extension postgis;
 create extension pgrouting;
 CREATE TABLE edge_table (
-id BIGSERIAL,
-dir character varying,
-source BIGINT,
-target BIGINT,
-cost FLOAT,
-reverse_cost FLOAT,
-x1 FLOAT,
-y1 FLOAT,
-x2 FLOAT,
-y2 FLOAT,
-the_geom geometry
+    id BIGSERIAL,
+    dir character varying,
+    source BIGINT,
+    target BIGINT,
+    cost FLOAT,
+    reverse_cost FLOAT,
+    x1 FLOAT,
+    y1 FLOAT,
+    x2 FLOAT,
+    y2 FLOAT,
+    the_geom geometry
 );
-</code></pre></li>
-
-<li><p>pgr_contractGraph
-在进行长距离，比如说跨省份的路径选择的时候，需要使用<code>contraction hierarchy</code>算法进行更高效的计算，这时候需要提前进行图上面点的contract操作。<br />
-函数声明：pgr_contractGraph(edges_sql, contraction_order)</p>
-
+</code></pre><ul>
+<li>pgr_contractGraph
+在进行长距离，比如说跨省份的路径选择的时候，需要使用<code>contraction hierarchy</code>算法进行更高效的计算，这时候需要提前进行图上面点的contract操作。<br>
+函数声明：pgr_contractGraph(edges_sql, contraction_order)
 <ul>
 <li><code>contraction_order</code>: Ordered contraction operations.1 = Dead end contraction, 2 = Linear contraction</li>
 <li><code>forbidden_vertices</code>:</li>
 <li><code>max_cycles</code>:</li>
 <li><code>directed</code>: When true the graph is considered as Directed. When false the graph is considered as Undirected.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="常见的地理数据计算场景">常见的地理数据计算场景</h3>
-
 <ol>
 <li>计算两个geometry之间是否相交: <code>SELECT ST_Intersects(geometry geomA , geometry geomB);</code>，返回<code>t</code>代表相交，返回<code>f</code>代表不相交。</li>
 <li>计算距离某个geometry的所有点: <code>geometry ST_Buffer(geometry g1, float radius_of_buffer);</code></li>
@@ -298,28 +272,25 @@ the_geom geometry
 <li>根据地址名称，返回对应的经纬度:</li>
 <li>根据尾号禁行：</li>
 </ol>
-
 <h3 id="需要解决的一些问题">需要解决的一些问题</h3>
-
-<p>假设我们从四维购买的导航数据最终希望达到高德实现的功能，或者能够实现高德部分能提供的服务，那我们需要
-1. 禁行路线，禁行区域和尾号禁行怎么在计算路径的时候体现
-2. 车型的速度限制
-3. 根据地址名称，找到对应的经纬度
-4. 分时段的信息如何加入routing？
-5. 路径的可行方向如何影响最终的道路cost？
-6. 正向可行的cost定义？
-7. 逆向可行的cost定义？
-8. 双向可行的cost定义？
-9. 如何解决路径的起始点和终止点不在路网的问题？</p>
-
+<p>假设我们从四维购买的导航数据最终希望达到高德实现的功能，或者能够实现高德部分能提供的服务，那我们需要</p>
+<ol>
+<li>禁行路线，禁行区域和尾号禁行怎么在计算路径的时候体现</li>
+<li>车型的速度限制</li>
+<li>根据地址名称，找到对应的经纬度</li>
+<li>分时段的信息如何加入routing？</li>
+<li>路径的可行方向如何影响最终的道路cost？</li>
+<li>正向可行的cost定义？</li>
+<li>逆向可行的cost定义？</li>
+<li>双向可行的cost定义？</li>
+<li>如何解决路径的起始点和终止点不在路网的问题？</li>
+</ol>
 <h3 id="使用到的算法">使用到的算法</h3>
-
 <ol>
 <li>a* algorithms</li>
 <li>ch algorithms</li>
 <li>dijkstra algorithms</li>
 </ol>
-
 <p>问题拆解：</p>
 
                 <br>

@@ -11,31 +11,18 @@
 <meta name="author" content="Frank Huang">
 <meta name="description" content="Imperative vs Functional programing
  Trait Trait is like interface in java
-trait Iterator[A] { def hasNext : boolean def next() : A }  Differences: - You could define concrete implementation of method inside Trait
-sealed regex import scala.util.matching.Regex object  function predicate val nameHasUpperCase = name.exists(_.isUpper)  foreach val text = &quot;hello world&quot; text.foreach(_.toUpper) text.foreach(println) // or for (x &lt;- text) println(x)  instantiate an array val numNames = Array(&quot;zero&quot;, &quot;one&quot;, &quot;two&quot;) is equivalent to val numNames = Array.">
+trait Iterator[A] {def hasNext : booleandef next() : A}Differences:
+ You could define concrete implementation of method inside Trait  sealed regex import scala.util.matching.Regexobject function predicate val nameHasUpperCase = name.exists(_.isUpper)foreach val text = &#34;hello world&#34;text.foreach(_.toUpper)text.foreach(println)// orfor (x &lt;- text)println(x)instantiate an array val numNames = Array(&quot;zero&quot;, &quot;one&quot;, &quot;two&quot;) is equivalent to val numNames = Array.">
 
 <meta property="og:title" content="Learning Scala 1" />
 <meta property="og:description" content="Imperative vs Functional programing
  Trait Trait is like interface in java
-trait Iterator[A] { def hasNext : boolean def next() : A }  Differences: - You could define concrete implementation of method inside Trait
-sealed regex import scala.util.matching.Regex object  function predicate val nameHasUpperCase = name.exists(_.isUpper)  foreach val text = &quot;hello world&quot; text.foreach(_.toUpper) text.foreach(println) // or for (x &lt;- text) println(x)  instantiate an array val numNames = Array(&quot;zero&quot;, &quot;one&quot;, &quot;two&quot;) is equivalent to val numNames = Array." />
+trait Iterator[A] {def hasNext : booleandef next() : A}Differences:
+ You could define concrete implementation of method inside Trait  sealed regex import scala.util.matching.Regexobject function predicate val nameHasUpperCase = name.exists(_.isUpper)foreach val text = &#34;hello world&#34;text.foreach(_.toUpper)text.foreach(println)// orfor (x &lt;- text)println(x)instantiate an array val numNames = Array(&quot;zero&quot;, &quot;one&quot;, &quot;two&quot;) is equivalent to val numNames = Array." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-11-15/" />
-
-
-
-<meta property="article:published_time" content="2017-11-15T17:45:19&#43;08:00"/>
-<meta property="article:modified_time" content="2017-11-15T17:45:19&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-11-15T17:45:19+08:00" />
+<meta property="article:modified_time" content="2017-11-15T17:45:19+08:00" />
 
 
 <title>
@@ -61,11 +48,11 @@ sealed regex import scala.util.matching.Regex object  function predicate val nam
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.606123095%20%2b0800%20CST%20m%3d%2b1.028105182">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.606123095%20%2b0800%20CST%20m%3d%2b1.028105182">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.606123095%20%2b0800%20CST%20m%3d%2b1.028105182">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.598434%20%2b0800%20CST%20m%3d%2b0.936787101">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.598434%20%2b0800%20CST%20m%3d%2b0.936787101">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.598434%20%2b0800%20CST%20m%3d%2b0.936787101">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.606123095%20%2b0800%20CST%20m%3d%2b1.028105182">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.598434%20%2b0800%20CST%20m%3d%2b0.936787101">
     
 
 
@@ -211,137 +198,101 @@ sealed regex import scala.util.matching.Regex object  function predicate val nam
                 </div>
             </div>
             <div class="markdown">
-                
-
-<blockquote>
+                <blockquote>
 <p>Imperative vs Functional programing</p>
 </blockquote>
-
 <h1 id="trait">Trait</h1>
-
 <p>Trait is like interface in java</p>
-
-<pre><code class="language-Scala">trait Iterator[A] {
-    def hasNext : boolean
-    def next() : A
-}
-</code></pre>
-
-<p>Differences:
-- You could define concrete implementation of method inside Trait</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-Scala" data-lang="Scala"><span class="k">trait</span> <span class="nc">Iterator</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">hasNext</span> <span class="k">:</span> <span class="kt">boolean</span>
+    <span class="k">def</span> <span class="n">next</span><span class="o">()</span> <span class="k">:</span> <span class="kt">A</span>
+<span class="o">}</span>
+</code></pre></div><p>Differences:</p>
+<ul>
+<li>You could define concrete implementation of method inside Trait</li>
+</ul>
 <h1 id="sealed">sealed</h1>
-
 <h1 id="regex">regex</h1>
+<div class="highlight"><pre class="chroma"><code class="language-Scala" data-lang="Scala"><span class="k">import</span> <span class="nn">scala.util.matching.Regex</span>
 
-<pre><code class="language-Scala">import scala.util.matching.Regex
+<span class="k">object</span> 
 
-object 
+</code></pre></div><h1 id="function-predicate">function predicate</h1>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">nameHasUpperCase</span> <span class="k">=</span> <span class="n">name</span><span class="o">.</span><span class="n">exists</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">isUpper</span><span class="o">)</span>
+</code></pre></div><h1 id="foreach">foreach</h1>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">text</span> <span class="k">=</span> <span class="s">&#34;hello world&#34;</span>
+<span class="n">text</span><span class="o">.</span><span class="n">foreach</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">toUpper</span><span class="o">)</span>
 
-</code></pre>
-
-<h1 id="function-predicate">function predicate</h1>
-
-<pre><code class="language-scala">val nameHasUpperCase = name.exists(_.isUpper)
-</code></pre>
-
-<h1 id="foreach">foreach</h1>
-
-<pre><code class="language-scala">val text = &quot;hello world&quot;
-text.foreach(_.toUpper)
-
-text.foreach(println)
-// or
-for (x &lt;- text)
-    println(x)
-</code></pre>
-
-<h1 id="instantiate-an-array">instantiate an array</h1>
-
+<span class="n">text</span><span class="o">.</span><span class="n">foreach</span><span class="o">(</span><span class="n">println</span><span class="o">)</span>
+<span class="c1">// or
+</span><span class="c1"></span><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">text</span><span class="o">)</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">x</span><span class="o">)</span>
+</code></pre></div><h1 id="instantiate-an-array">instantiate an array</h1>
 <p><code>val numNames = Array(&quot;zero&quot;, &quot;one&quot;, &quot;two&quot;)</code>
-is equivalent to
+is equivalent to 
 <code>val numNames = Array.apply(&quot;zero&quot;, &quot;one&quot;, &quot;two&quot;)</code></p>
-
 <p>List() is immutable
 Array() is mutable
 Tuple is immutable but can contain different types of elements
 Set() could be mutable or immutable in scala (HashSet)
 Map() could also mutabl or immutable (HashMap)</p>
-
 <p><code>:::</code> for list concatenation
 <code>::</code> for prepending element to a list</p>
-
-<pre><code class="language-scala">val twoThree = List(2, 3)
-val oneTwoThree = 1 :: twoThree
-println(oneTwoThree) # output List(1,2,3)
-</code></pre>
-
-<p>Another way of initialize a list, why?</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">twoThree</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">oneTwoThree</span> <span class="k">=</span> <span class="mi">1</span> <span class="k">:</span><span class="kt">:</span> <span class="kt">twoThree</span>
+<span class="n">println</span><span class="o">(</span><span class="n">oneTwoThree</span><span class="o">)</span> <span class="k">#</span> <span class="n">output</span> <span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">)</span>
+</code></pre></div><p>Another way of initialize a list, why?</p>
 <pre><code>val oneTwoThree = 1 :: 2 :: 3 :: Nil
-</code></pre>
+</code></pre><h1 id="read-file">Read file</h1>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">scala.io.Source</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">args</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
+    <span class="k">for</span><span class="o">(</span><span class="n">line</span> <span class="o">-&gt;</span> <span class="nc">Source</span><span class="o">.</span><span class="n">fromFile</span><span class="o">(</span><span class="n">args</span><span class="o">(</span><span class="mi">0</span><span class="o">))).</span><span class="n">getLines</span><span class="o">()</span>
+        <span class="n">println</span><span class="o">(</span><span class="n">line</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="n">line</span><span class="o">)</span>
+<span class="o">}</span><span class="k">else</span>
+    <span class="nc">Console</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="o">(</span><span class="s">&#34;Please enter file name&#34;</span><span class="o">)</span>
+</code></pre></div><h1 id="for-loop">for loop</h1>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="c1">// The code 0 to 2 is transformed into the method call (0).to(2).
+</span><span class="c1"></span><span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">2</span><span class="o">)</span>
+    <span class="n">print</span><span class="o">(</span><span class="n">i</span><span class="o">)</span>
 
-<h1 id="read-file">Read file</h1>
-
-<pre><code class="language-scala">import scala.io.Source
-if (args.length &gt; 0){
-    for(line -&gt; Source.fromFile(args(0))).getLines()
-        println(line.length + &quot; &quot; + line)
-}else
-    Console.err.println(&quot;Please enter file name&quot;)
-</code></pre>
-
-<h1 id="for-loop">for loop</h1>
-
-<pre><code class="language-scala">// The code 0 to 2 is transformed into the method call (0).to(2).
-for(i &lt;- 1 to 2)
-    print(i)
-
-for(arg &lt;- args)
-    pring(arg)
-</code></pre>
-
-<h1 id="find-the-longest-line-of-a-file">find the longest line of a file</h1>
-
-<pre><code class="language-scala">import scala.io.Source
-def widthOfLength(s: String) = s.length.toString.length
-if (args.length &gt; 0) {
-    val lines = Source.fromFile(args(0)).getLines().toList
-    // how to find the longest line
-    val longestLine = lines.reduceLeft(
-    (a, b) =&gt; if (a.length &gt; b.length) a else b
-    )
-    val maxWidth = widthOfLength(longestLine)
+<span class="k">for</span><span class="o">(</span><span class="n">arg</span> <span class="k">&lt;-</span> <span class="n">args</span><span class="o">)</span>
+    <span class="n">pring</span><span class="o">(</span><span class="n">arg</span><span class="o">)</span>
+</code></pre></div><h1 id="find-the-longest-line-of-a-file">find the longest line of a file</h1>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">scala.io.Source</span>
+<span class="k">def</span> <span class="n">widthOfLength</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="n">s</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">toString</span><span class="o">.</span><span class="n">length</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">args</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">lines</span> <span class="k">=</span> <span class="nc">Source</span><span class="o">.</span><span class="n">fromFile</span><span class="o">(</span><span class="n">args</span><span class="o">(</span><span class="mi">0</span><span class="o">)).</span><span class="n">getLines</span><span class="o">().</span><span class="n">toList</span>
+    <span class="c1">// how to find the longest line
+</span><span class="c1"></span>    <span class="k">val</span> <span class="n">longestLine</span> <span class="k">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">reduceLeft</span><span class="o">(</span>
+    <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">length</span><span class="o">)</span> <span class="n">a</span> <span class="k">else</span> <span class="n">b</span>
+    <span class="o">)</span>
+    <span class="k">val</span> <span class="n">maxWidth</span> <span class="k">=</span> <span class="n">widthOfLength</span><span class="o">(</span><span class="n">longestLine</span><span class="o">)</span>
     
-    for (line &lt;- lines) {
-    val numSpaces = maxWidth - widthOfLength(line)
-    val padding = &quot; &quot; * numSpaces
-    println(padding + line.length +&quot; | &quot;+ line)
-    } 
-}
-else
-    Console.err.println(&quot;Please enter filename&quot;)
-</code></pre>
+    <span class="k">for</span> <span class="o">(</span><span class="n">line</span> <span class="k">&lt;-</span> <span class="n">lines</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">numSpaces</span> <span class="k">=</span> <span class="n">maxWidth</span> <span class="o">-</span> <span class="n">widthOfLength</span><span class="o">(</span><span class="n">line</span><span class="o">)</span>
+    <span class="k">val</span> <span class="n">padding</span> <span class="k">=</span> <span class="s">&#34; &#34;</span> <span class="o">*</span> <span class="n">numSpaces</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">padding</span> <span class="o">+</span> <span class="n">line</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span><span class="s">&#34; | &#34;</span><span class="o">+</span> <span class="n">line</span><span class="o">)</span>
+    <span class="o">}</span> 
+<span class="o">}</span>
+<span class="k">else</span>
+    <span class="nc">Console</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="o">(</span><span class="s">&#34;Please enter filename&#34;</span><span class="o">)</span>
+</code></pre></div><h1 id="singleton-object">Singleton object</h1>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">import</span> <span class="nn">scala.collection.mutable.Map</span>
+    <span class="k">object</span> <span class="nc">ChecksumAccumulator</span> <span class="o">{</span>
+        <span class="k">private</span> <span class="k">val</span> <span class="n">cache</span> <span class="k">=</span> <span class="nc">Map</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">]()</span>
+        <span class="k">def</span> <span class="n">calculate</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">cache</span><span class="o">.</span><span class="n">contains</span><span class="o">(</span><span class="n">s</span><span class="o">))</span>
+            <span class="n">cache</span><span class="o">(</span><span class="n">s</span><span class="o">)</span>
+        <span class="k">else</span> <span class="o">{</span>
+            <span class="k">val</span> <span class="n">acc</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">ChecksumAccumulator</span>
+            <span class="k">for</span> <span class="o">(</span><span class="n">c</span> <span class="k">&lt;-</span> <span class="n">s</span><span class="o">)</span>
+            <span class="n">acc</span><span class="o">.</span><span class="n">add</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">toByte</span><span class="o">)</span>
+            <span class="k">val</span> <span class="n">cs</span> <span class="k">=</span> <span class="n">acc</span><span class="o">.</span><span class="n">checksum</span><span class="o">()</span>
+            <span class="n">cache</span> <span class="o">+=</span> <span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">cs</span><span class="o">)</span>
+            <span class="n">cs</span>
+<span class="o">}</span> <span class="o">}</span>
 
-<h1 id="singleton-object">Singleton object</h1>
-
-<pre><code class="language-scala">import scala.collection.mutable.Map
-    object ChecksumAccumulator {
-        private val cache = Map[String, Int]()
-        def calculate(s: String): Int =
-        if (cache.contains(s))
-            cache(s)
-        else {
-            val acc = new ChecksumAccumulator
-            for (c &lt;- s)
-            acc.add(c.toByte)
-            val cs = acc.checksum()
-            cache += (s -&gt; cs)
-            cs
-} }
-
-</code></pre>
-
+</code></pre></div>
                 <br>
 		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
             </div>

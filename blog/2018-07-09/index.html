@@ -11,31 +11,20 @@
 <meta name="author" content="Frank Huang">
 <meta name="description" content="Suppose we have a
 for variables that are correlated  lasso regression ridge regression  spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
-spark 参数配置 &ndash;conf -&gt; shell parameter -&gt; conf/spark-defaults.conf - num-executors - executor-cores - spark.default.parallelism - total-executor-cores
-memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%) - spark.storage.memoryFraction: cache/persist operation - spark.shuffle.memoryFraction: memory for shuffle manipulation - executor-memory: total memory for each executor - driver-memory">
+spark 参数配置 &ndash;conf -&gt; shell parameter -&gt; conf/spark-defaults.conf
+ num-executors executor-cores spark.default.parallelism total-executor-cores  memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%)
+ spark.storage.memoryFraction: cache/persist operation spark.shuffle.memoryFraction: memory for shuffle manipulation executor-memory: total memory for each executor driver-memory  参数说明：Total cores for all executors.">
 
 <meta property="og:title" content="My thougts about Linear Regression" />
 <meta property="og:description" content="Suppose we have a
 for variables that are correlated  lasso regression ridge regression  spark-submit kept showing: yarn.Client: Application report for application (state: ACCEPTED)
-spark 参数配置 &ndash;conf -&gt; shell parameter -&gt; conf/spark-defaults.conf - num-executors - executor-cores - spark.default.parallelism - total-executor-cores
-memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%) - spark.storage.memoryFraction: cache/persist operation - spark.shuffle.memoryFraction: memory for shuffle manipulation - executor-memory: total memory for each executor - driver-memory" />
+spark 参数配置 &ndash;conf -&gt; shell parameter -&gt; conf/spark-defaults.conf
+ num-executors executor-cores spark.default.parallelism total-executor-cores  memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%)
+ spark.storage.memoryFraction: cache/persist operation spark.shuffle.memoryFraction: memory for shuffle manipulation executor-memory: total memory for each executor driver-memory  参数说明：Total cores for all executors." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-07-09/" />
-
-
-
-<meta property="article:published_time" content="2018-07-09T08:05:03&#43;08:00"/>
-<meta property="article:modified_time" content="2018-07-09T08:05:03&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-07-09T08:05:03+08:00" />
+<meta property="article:modified_time" content="2018-07-09T08:05:03+08:00" />
 
 
 <title>
@@ -61,11 +50,11 @@ memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.580793083%20%2b0800%20CST%20m%3d%2b1.002775170">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.580793083%20%2b0800%20CST%20m%3d%2b1.002775170">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.580793083%20%2b0800%20CST%20m%3d%2b1.002775170">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.5744113%20%2b0800%20CST%20m%3d%2b0.912764401">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.5744113%20%2b0800%20CST%20m%3d%2b0.912764401">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.5744113%20%2b0800%20CST%20m%3d%2b0.912764401">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.580793083%20%2b0800%20CST%20m%3d%2b1.002775170">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.5744113%20%2b0800%20CST%20m%3d%2b0.912764401">
     
 
 
@@ -211,54 +200,46 @@ memory setting: memory is splitted into 3 parts: for tasks(20%), for shuffle(20%
                 </div>
             </div>
             <div class="markdown">
-                
-
-<p>Suppose we have a</p>
-
+                <p>Suppose we have a</p>
 <h1 id="for-variables-that-are-correlated">for variables that are correlated</h1>
-
 <ol>
 <li>lasso regression</li>
 <li>ridge regression</li>
 </ol>
-
 <p>spark-submit kept showing:
 yarn.Client: Application report for application (state: ACCEPTED)</p>
-
 <h1 id="spark-参数配置">spark 参数配置</h1>
-
-<p>&ndash;conf  -&gt; shell parameter -&gt; conf/spark-defaults.conf
-- num-executors
-- executor-cores
-- spark.default.parallelism
-- total-executor-cores</p>
-
+<p>&ndash;conf  -&gt; shell parameter -&gt; conf/spark-defaults.conf</p>
+<ul>
+<li>num-executors</li>
+<li>executor-cores</li>
+<li>spark.default.parallelism</li>
+<li>total-executor-cores</li>
+</ul>
 <h3 id="memory-setting">memory setting:</h3>
-
-<p>memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%)
-- spark.storage.memoryFraction: cache/persist operation
-- spark.shuffle.memoryFraction: memory for shuffle manipulation
-- executor-memory: total memory for each executor
-- driver-memory</p>
-
+<p>memory is splitted into 3 parts: for tasks(20%), for shuffle(20%), for storage(60%)</p>
+<ul>
+<li>spark.storage.memoryFraction: cache/persist operation</li>
+<li>spark.shuffle.memoryFraction: memory for shuffle manipulation</li>
+<li>executor-memory: total memory for each executor</li>
+<li>driver-memory</li>
+</ul>
 <p>参数说明：Total cores for all executors.</p>
-
 <p>spark.yarn.am.memory</p>
-
 <ul>
 <li>increase the yarn cluster max threshold
 set yarn-site.xml
 <code>yarn.scheduler.maximum-allocation-mb</code></li>
 </ul>
-
 <p>yarn 对应node manager 和</p>
-
 <ol>
-<li><p>aws services for big data pipeline</p></li>
-
-<li><p>without dot notation</p></li>
+<li>
+<p>aws services for big data pipeline</p>
+</li>
+<li>
+<p>without dot notation</p>
+</li>
 </ol>
-
 <p>关于spark的lazily evaluation的一些想法
 最近在做数据etl的时候使用spark对数据集进行处理，其中因为需要对类型做转换，所以采用了将sql里面的数据先转换成RDD再转回dataframe的过程。</p>
 

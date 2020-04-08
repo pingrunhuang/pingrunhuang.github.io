@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docker on Frank Huang</title>
+    <title>docker on Frank Huang</title>
     <link>https://pingrunhuang.github.io/categories/docker/</link>
-    <description>Recent content in Docker on Frank Huang</description>
+    <description>Recent content in docker on Frank Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 21 Feb 2018 16:23:22 +0800</lastBuildDate>
@@ -17,7 +17,7 @@
       <pubDate>Wed, 21 Feb 2018 16:23:22 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/blog/2018-02-21/</guid>
-      <description>I recently have to build a model server project with docker. The reason why I used docker is I want to separate the model server, rest api and the redis service. The python scripts that are used in the model server layer for generating model should be loaded as part of the container since this container is a service for serving model querying which require write locally and test virtually.</description>
+      <description>I recently have to build a model server project with docker. The reason why I used docker is I want to separate the model server, rest api and the redis service. The python scripts that are used in the model server layer for generating model should be loaded as part of the container since this container is a service for serving model querying which require write locally and test virtually. So I have to use the volume concept in docker to load the local scripts.</description>
     </item>
     
   </channel>

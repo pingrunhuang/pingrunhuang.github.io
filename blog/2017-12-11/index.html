@@ -9,27 +9,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
-<meta name="description" content="Java for (int i; i &lt; 100 ;i&#43;&#43;){ // do something }  Python for index, value in range(100){ # do something }  Scala for (var a &lt;- 1 to 10){ println(a) } &lt;!-- or --&gt; &lt;!-- 10 not included --&gt; for (var b &lt;- 1 until 10){ println(b) }  Go for i := 0; i &lt; 100; i&#43;&#43; { fmt.Println(i) }  Different useage of yield between python and scala def get_generator(): for i in range(10): if i % 3 ==0: yield i  The yield statement should always inside a function to generate a generator object.">
+<meta name="description" content="Java for (int i; i &lt; 100 ;i&#43;&#43;){// do something }Python for index, value in range(100){# do something }Scala for (var a &lt;- 1 to 10){println(a)}&lt;!-- or --&gt;&lt;!-- 10 not included --&gt;for (var b &lt;- 1 until 10){println(b)}Go for i := 0; i &lt; 100; i&#43;&#43; {fmt.Println(i)}Different useage of yield between python and scala def get_generator():for i in range(10):if i % 3 ==0:yield iThe yield statement should always inside a function to generate a generator object.">
 
 <meta property="og:title" content="Differences for loop syntax in different language" />
-<meta property="og:description" content="Java for (int i; i &lt; 100 ;i&#43;&#43;){ // do something }  Python for index, value in range(100){ # do something }  Scala for (var a &lt;- 1 to 10){ println(a) } &lt;!-- or --&gt; &lt;!-- 10 not included --&gt; for (var b &lt;- 1 until 10){ println(b) }  Go for i := 0; i &lt; 100; i&#43;&#43; { fmt.Println(i) }  Different useage of yield between python and scala def get_generator(): for i in range(10): if i % 3 ==0: yield i  The yield statement should always inside a function to generate a generator object." />
+<meta property="og:description" content="Java for (int i; i &lt; 100 ;i&#43;&#43;){// do something }Python for index, value in range(100){# do something }Scala for (var a &lt;- 1 to 10){println(a)}&lt;!-- or --&gt;&lt;!-- 10 not included --&gt;for (var b &lt;- 1 until 10){println(b)}Go for i := 0; i &lt; 100; i&#43;&#43; {fmt.Println(i)}Different useage of yield between python and scala def get_generator():for i in range(10):if i % 3 ==0:yield iThe yield statement should always inside a function to generate a generator object." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2017-12-11/" />
-
-
-
-<meta property="article:published_time" content="2017-12-11T16:24:10&#43;08:00"/>
-<meta property="article:modified_time" content="2017-12-11T16:24:10&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-12-11T16:24:10+08:00" />
+<meta property="article:modified_time" content="2017-12-11T16:24:10+08:00" />
 
 
 <title>
@@ -55,11 +42,11 @@
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.602870666%20%2b0800%20CST%20m%3d%2b1.024852753">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.602870666%20%2b0800%20CST%20m%3d%2b1.024852753">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.602870666%20%2b0800%20CST%20m%3d%2b1.024852753">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.5834193%20%2b0800%20CST%20m%3d%2b0.921772401">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.5834193%20%2b0800%20CST%20m%3d%2b0.921772401">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.5834193%20%2b0800%20CST%20m%3d%2b0.921772401">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.602870666%20%2b0800%20CST%20m%3d%2b1.024852753">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.5834193%20%2b0800%20CST%20m%3d%2b0.921772401">
     
 
 
@@ -205,54 +192,35 @@
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h1 id="java">Java</h1>
-
-<pre><code class="language-Java">for (int i; i &lt; 100 ;i++){
-    // do something 
-}
-</code></pre>
-
-<h1 id="python">Python</h1>
-
-<pre><code class="language-python">for index, value in range(100){
-    # do something
-}
-</code></pre>
-
-<h1 id="scala">Scala</h1>
-
-<pre><code class="language-Scala">for (var a &lt;- 1 to 10){
-    println(a)
-}
-&lt;!-- or --&gt;
-&lt;!-- 10 not included --&gt;
-for (var b &lt;- 1 until 10){
-    println(b)
-}
-</code></pre>
-
-<h1 id="go">Go</h1>
-
-<pre><code class="language-Go">for i := 0; i &lt; 100; i++ {
-    fmt.Println(i)
-}
-</code></pre>
-
-<h2 id="different-useage-of-yield-between-python-and-scala">Different useage of yield between python and scala</h2>
-
-<pre><code class="language-python">def get_generator():
-    for i in range(10):
-        if i % 3 ==0:
-            yield i
-</code></pre>
-
-<p>The <code>yield</code> statement should always inside a function to generate a <code>generator</code> object. While in scala, the generate statement is:</p>
-
-<pre><code class="language-scala">var v = for{ a &lt;- 1 to 10 if a%3==0}yield a
-</code></pre>
-
+                <h1 id="java">Java</h1>
+<div class="highlight"><pre class="chroma"><code class="language-Java" data-lang="Java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">100</span> <span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+    <span class="c1">// do something 
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></div><h1 id="python">Python</h1>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">){</span>
+    <span class="c1"># do something</span>
+<span class="p">}</span>
+</code></pre></div><h1 id="scala">Scala</h1>
+<div class="highlight"><pre class="chroma"><code class="language-Scala" data-lang="Scala"><span class="k">for</span> <span class="o">(</span><span class="k">var</span> <span class="n">a</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">10</span><span class="o">){</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">a</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="o">&lt;!--</span> <span class="n">or</span> <span class="o">--&gt;</span>
+<span class="o">&lt;!--</span> <span class="mi">10</span> <span class="n">not</span> <span class="n">included</span> <span class="o">--&gt;</span>
+<span class="k">for</span> <span class="o">(</span><span class="k">var</span> <span class="n">b</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">until</span> <span class="mi">10</span><span class="o">){</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">b</span><span class="o">)</span>
+<span class="o">}</span>
+</code></pre></div><h1 id="go">Go</h1>
+<div class="highlight"><pre class="chroma"><code class="language-Go" data-lang="Go"><span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="different-useage-of-yield-between-python-and-scala">Different useage of yield between python and scala</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">get_generator</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">i</span>
+</code></pre></div><p>The <code>yield</code> statement should always inside a function to generate a <code>generator</code> object. While in scala, the generate statement is:</p>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">var</span> <span class="n">v</span> <span class="k">=</span> <span class="k">for</span><span class="o">{</span> <span class="n">a</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">10</span> <span class="k">if</span> <span class="n">a</span><span class="o">%</span><span class="mi">3</span><span class="o">==</span><span class="mi">0</span><span class="o">}</span><span class="k">yield</span> <span class="n">a</span>
+</code></pre></div>
                 <br>
 		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
             </div>

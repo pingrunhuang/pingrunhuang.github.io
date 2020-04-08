@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Life Blog on Frank Huang</title>
@@ -13,10 +13,10 @@
     
     <item>
       <title>Comparison between Python and Java -- from a videographer point of view</title>
-      <link>https://pingrunhuang.github.io/2019/comparison-between-python-and-java----from-a-videographer-point-of-view/</link>
+      <link>https://pingrunhuang.github.io/2019/comparison-between-python-and-java-from-a-videographer-point-of-view/</link>
       <pubDate>Tue, 11 Jun 2019 07:23:59 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/2019/comparison-between-python-and-java----from-a-videographer-point-of-view/</guid>
+      <guid>https://pingrunhuang.github.io/2019/comparison-between-python-and-java-from-a-videographer-point-of-view/</guid>
       <description>As you may notice, I&amp;rsquo;ve been using Python and Java for quite a long time ever since I started programming. I love these two languages and they are both fantastic. But as time goes by, I&amp;rsquo;ve noticed that they both suite for different purpose. As a videographer, I figured out that this kind of difference just like the different use case between action cam and mirrorless cam(I wouldn&amp;rsquo;t say DSLR cause nowaday I think pretty much videographer would agree that mirrorless cam is more convinient and good enough for shooting).</description>
     </item>
     
@@ -28,11 +28,11 @@
       <guid>https://pingrunhuang.github.io/2019/%E5%85%B3%E4%BA%8E%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%BE%9E%E8%81%8C%E7%9A%84%E5%86%B3%E5%AE%9A/</guid>
       <description>年轻也许就是一个不断尝试的过程，无关乎结果的好坏
  没错，当你们看到我现在写的这篇博客的时候，我应该已经至少在我自己的层面做了辞职的决定，剩下的只是information和negotiation了。做这个决定不是冲动的，是一次又一次聆听自己内心声音而产生的决定。辞职并不是因为老东家有多不好，相反的，老东家真的很好，是一家真正在干实事的公司。但是很多时候能否一起共事就像谈恋爱一样，只有合不合适而已。如何判断合适不合适其实很简单，看核心业务是不是你有想法的而且有能力或者愿意后半生在这上面倾注心血的赛道。如果到了三四十岁才来尝试这些问题就太晚了，越是工作我越发现快速尝试快速失败才是这个时代的人或者公司应该抱有的态度。
- so far我的职业生涯路线图 1. 业务技术都只是皮毛，先把自己扔进去再说 2. 业务还是不懂，技术到了中级水平，去试一下呗 3. 业务懂，技术有对应的方案可以实现，上!
- 其实从我的职业生涯开始，我就一直在创业公司中工作，我觉得从创业公司的人身上能够看到很多创业者应该有的品质，如果所处的员工是一种创自己的事业的精神面貌在对待工作，那这家公司多半能够成功，否则公司也只会不温不火。
+ so far我的职业生涯路线图
+ 业务技术都只是皮毛，先把自己扔进去再说 业务还是不懂，技术到了中级水平，去试一下呗 业务懂，技术有对应的方案可以实现，上!   其实从我的职业生涯开始，我就一直在创业公司中工作，我觉得从创业公司的人身上能够看到很多创业者应该有的品质，如果所处的员工是一种创自己的事业的精神面貌在对待工作，那这家公司多半能够成功，否则公司也只会不温不火。
 工作了两年的时间里，终于有机会负责一个项目从头开始，但是说实话是一个比较坑的项目&amp;ndash;GIS导航。
-两个问题 1. 如果是刚入职场两年的你会怎么应对gis这个问题 2. 如果你的家人不在北京，你会因为什么原因在一家不起眼的初创公司异地办公
-整个项目最终没有下文难道作为团队leader的你没有责任么？为什么一开始不把整个问题的复杂性先想好呢？
+两个问题
+ 如果是刚入职场两年的你会怎么应对gis这个问题 如果你的家人不在北京，你会因为什么原因在一家不起眼的初创公司异地办公  整个项目最终没有下文难道作为团队leader的你没有责任么？为什么一开始不把整个问题的复杂性先想好呢？
 项目初期一定要定义好问题的边界，哪些能做哪些不能做，哪些应该做哪些不是我要做的。这些问题是工作之后才发现的，其实有时候领导就想知道这个问题能不能解决，能解决的话需要多少人力，需要什么样的人来做，不能解决的话为什么。而不是一定要把这件事做出来，而是一定要有根据的阐述这个问题为什么不能做。
 对于地理导航数据这个项目来说，其实我的本意也是想利用地理数据庞大的计算和数据，最终是能跟spark或者我们目前使用的aws的emr进行结合，但是没想到中间有这么多坑，而且大家都对gis数据相当抵触，根本找不到人可以帮忙，我自己也相当痛苦。 这次的事情也同时让我学到了很多，包括想要从业务反推大数据的应用这个想法，其实如果从领导层对大数据的不care到反推其实是个很困难的过程。
 有个细节，我记得有一次是在我们三个人的群里面，我是一直在提出一些技术问题，得不到解决的，我记得当时你的反馈是这种太细节的东西可以不用问我，那我其实这些也不懂啊，我一般是找过资料之后找不到解决方案才在群里面说话的，我觉得领导应该是在知道问题之后，如果找不到合适的人请教的话应该决定这个项目到底要不要终止。
@@ -52,8 +52,7 @@ After working for about 2 years as a full time software engineer, I end up worki
       <pubDate>Thu, 28 Mar 2019 22:23:31 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/2019/traveling-to-bali-in-may-of-2019/</guid>
-      <description>Preparation Expense:  Flight round trip: 3119 rmb + 60 rmb taxi accomadation: 04/27-04/28 145rmb, 04/28-05/03 900rmb group trip fee:
-  plan  4&amp;frasl;27: 5:45 beijing capital airpot T2, 12:05 arrived, surfing in the afternoon 4&amp;frasl;28: surfing at the morning (uluwatu黄昏)[https://www.klook.com/zh-CN/activity/153-uluwatu-temple-sunset-kecak-fire-dance-bali/?krt=r22&amp;amp;krid=ceac5b0c-54ed-4d5b-5002-c97fcf2bc148] 4&amp;frasl;29: surfing 4&amp;frasl;30: (east nusa)[https://www.klook.com/zh-CN/activity/15917-east-nusa-penida-day-trip-bali/] 5&amp;frasl;1: (batur hiking for sunrise)[https://www.klook.com/zh-CN/activity/7797-mount-batur-sunrise-trekking-bali/?krt=r22&amp;amp;krid=ceac5b0c-54ed-4d5b-5002-c97fcf2bc148] 5&amp;frasl;2: 5&amp;frasl;3: 19:55飞机登巴萨国际机场D，4:20到达北京  Spot The main goal of this trip is to master my surfing skill. Therefore, some of the famous spots should be considered before hand.</description>
+      <description>Preparation Expense:  Flight round trip: 3119 rmb + 60 rmb taxi accomadation: 04/27-04/28 145rmb, 04/28-05/03 900rmb group trip fee:  plan  4/27: 5:45 beijing capital airpot T2, 12:05 arrived, surfing in the afternoon 4/28: surfing at the morning (uluwatu黄昏)[https://www.klook.com/zh-CN/activity/153-uluwatu-temple-sunset-kecak-fire-dance-bali/?krt=r22&amp;amp;krid=ceac5b0c-54ed-4d5b-5002-c97fcf2bc148] 4/29: surfing 4/30: (east nusa)[https://www.klook.com/zh-CN/activity/15917-east-nusa-penida-day-trip-bali/] 5/1: (batur hiking for sunrise)[https://www.klook.com/zh-CN/activity/7797-mount-batur-sunrise-trekking-bali/?krt=r22&amp;amp;krid=ceac5b0c-54ed-4d5b-5002-c97fcf2bc148] 5/2: 5/3: 19:55飞机登巴萨国际机场D，4:20到达北京  Spot The main goal of this trip is to master my surfing skill. Therefore, some of the famous spots should be considered before hand.</description>
     </item>
     
     <item>
@@ -62,7 +61,7 @@ After working for about 2 years as a full time software engineer, I end up worki
       <pubDate>Thu, 17 Jan 2019 07:33:48 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/2019/full-frame-camera-comparison/</guid>
-      <description>Canon EOS R Sony A7 mark3 Nikon Z6 Nikon z7 canon 6d mark2 Nikon D850     time released 2018&amp;frasl;10 2017&amp;frasl;10 2018&amp;frasl;11 2018 2017 2017   type full frame mirrorless full frame mirrorless full frame mirrorless full frame mirrorless full frame DSLR full frame DSLR   price ￥13999.00 ￥16699.00 ￥16290.00 ￥23900.00     built-in stabalizatio   y y     mount   z mount z mount              mega pixel   24.</description>
+      <description>Canon EOS R Sony A7 mark3 Nikon Z6 Nikon z7 canon 6d mark2 Nikon D850     time released 2018/10 2017/10 2018/11 2018 2017 2017   type full frame mirrorless full frame mirrorless full frame mirrorless full frame mirrorless full frame DSLR full frame DSLR   price ￥13999.00 ￥16699.00 ￥16290.00 ￥23900.00     built-in stabalizatio   y y     mount   z mount z mount              mega pixel   24.</description>
     </item>
     
     <item>
@@ -71,9 +70,9 @@ After working for about 2 years as a full time software engineer, I end up worki
       <pubDate>Sun, 09 Dec 2018 11:12:39 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/2018/%E4%B8%8D%E5%90%8C%E5%B8%A7%E7%8E%87frame-rate%E4%B8%8B%E7%9A%84%E5%BF%AB%E9%97%A8shutter-speed%E9%80%89%E6%8B%A9/</guid>
-      <description> youtube上面有很多关于shutter speed和快门的关系介绍。总而言之，就是要保证shutter speed的速度是frame rate的两倍，例如如果我想使用24fps的frame rate进行拍摄，那我的shutter speed应该使用1/50s进行拍摄，也就是说，一秒钟生成的照片序列得到的曝光时间是0.5秒，即有一半的时间快门是关闭的。这样的好处是保证视频的结果跟人眼的一致性。就像人在看快速移动的物体的时候，实际上是有一点模糊的，如果太快门很快，虽然提高了清晰度，但是变得失真了。
-那很多时候我们可能需要拍摄类似24fps或者30fps的视频，意味着我们需要快门速度是1/50或者1/60，但是这种速度在高光下面很容易产生过曝的问题，那这时候我们有三种解决方案: 1. 减小光圈 2. 降低iso 3. 增加ND滤镜
-Reference  https://youtu.be/kJ_nP7IvhUM https://youtu.be/bB21OGR8DSo https://youtu.be/jBFOp-Re3QE  </description>
+      <description>youtube上面有很多关于shutter speed和快门的关系介绍。总而言之，就是要保证shutter speed的速度是frame rate的两倍，例如如果我想使用24fps的frame rate进行拍摄，那我的shutter speed应该使用1/50s进行拍摄，也就是说，一秒钟生成的照片序列得到的曝光时间是0.5秒，即有一半的时间快门是关闭的。这样的好处是保证视频的结果跟人眼的一致性。就像人在看快速移动的物体的时候，实际上是有一点模糊的，如果太快门很快，虽然提高了清晰度，但是变得失真了。
+那很多时候我们可能需要拍摄类似24fps或者30fps的视频，意味着我们需要快门速度是1/50或者1/60，但是这种速度在高光下面很容易产生过曝的问题，那这时候我们有三种解决方案:
+ 减小光圈 降低iso 增加ND滤镜  Reference  https://youtu.be/kJ_nP7IvhUM https://youtu.be/bB21OGR8DSo https://youtu.be/jBFOp-Re3QE  </description>
     </item>
     
     <item>
@@ -107,8 +106,7 @@ Reference  https://youtu.be/kJ_nP7IvhUM https://youtu.be/bB21OGR8DSo https://you
       
       <guid>https://pingrunhuang.github.io/2018/%E8%AE%B2%E7%A9%B6%E6%89%8D%E6%98%AF%E6%A0%B9%E6%9C%AC/</guid>
       <description>早前就听很多人说了电影《邪不压正》不好看，评分也只有七点多分，但是不巧，我就不是一个喜欢听别人说的中国人，于是赶在电影上映没多久就立马跑去电影院了，不仅仅是因为一直以来的人生楷模彭于晏担任了男主角，更是因为这是姜文亲自操刀的作品，必须捧个人场。 一进场，确实很多妹子来看彭于晏呢，定睛一看，原来都是带着男朋友来的。于是选了个角落安静的坐下来，等待电影的开始。
-《邪不压正》是一部以民国抗日为背景，讲述那段时间北京的故事。电影以男主角李天然的复仇之旅为线索逐步展开。如果是以这个角度来看这部电影，确实多少有点无聊。但因为事先知道姜文的电影必定晦涩难懂，于是去优酷专门看了圆桌派，借由导演和窦文涛的聊天了解一些其中的玄机。 
-这一看真的让我十分佩服姜文的学识之渊博。故事一开始</description>
+《邪不压正》是一部以民国抗日为背景，讲述那段时间北京的故事。电影以男主角李天然的复仇之旅为线索逐步展开。如果是以这个角度来看这部电影，确实多少有点无聊。但因为事先知道姜文的电影必定晦涩难懂，于是去优酷专门看了圆桌派，借由导演和窦文涛的聊天了解一些其中的玄机。</description>
     </item>
     
     <item>
@@ -132,7 +130,7 @@ Reference  https://youtu.be/kJ_nP7IvhUM https://youtu.be/bB21OGR8DSo https://you
       <pubDate>Thu, 10 May 2018 23:10:46 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/2018/learning-snowboarding/</guid>
-      <description> 滑雪一直是我想要征服的一项运动，就好像冲浪一样，对于这种滑翔的运动简直没有抵抗能力。因此在即将去北京之前，我参加了一个培训班，在这里真正系统的完成一套训练，价格虽然不菲，但我也因此认识了很多也同样爱好滑雪的同伴。这篇博客，希望在介绍滑雪的基本动作的同时，谈谈我从滑雪训练中学习到的道理。
+      <description>滑雪一直是我想要征服的一项运动，就好像冲浪一样，对于这种滑翔的运动简直没有抵抗能力。因此在即将去北京之前，我参加了一个培训班，在这里真正系统的完成一套训练，价格虽然不菲，但我也因此认识了很多也同样爱好滑雪的同伴。这篇博客，希望在介绍滑雪的基本动作的同时，谈谈我从滑雪训练中学习到的道理。
  falling leaf &amp;ndash; 落叶飘
  traverse running &amp;ndash; 斜滑降
  花环飘 &amp;ndash; 尚不知道英文名叫什么，但是基本上就是不断调整板头的方向，从一开始30度下坡，变成45度，在刹车，再继续调整板头，直到板子可以顺利的到达90度的位置。 换刃 &amp;ndash; 板面要基本达到跟地面贴合后才能开始转向。 前后刃交替 &amp;ndash; 重点是换刃减速的过程中，重心和用力蹬地要同时进行。背朝下坡降落，换刃过程要快。  Snowboarding教会了我什么呢？  学会提前预判形势，提前作出相应的调整。在很多人眼中，包括我在没接触snowboarding之前，只知道这是一个很酷的运动，如果体力够好，终究是会像滑板一样学会的。真正接触过后，其实真心觉得这是一个很烧脑的运动。不过与其说烧脑，不如说这是一个很需要对当下形势在几秒钟作出最优判断（也可以称之为肌肉记忆）的运动。在你起步进行滑行的时候，在考虑到是否会撞到别人，自己是否会受伤的情况下，去对地形环境做一个大概的预估，然后选择一条最佳的路线滑行。然后这只是开头，过程中难免会出现意想不到的情况，这时候要求你去对形势做判断，是否需要停下来，如果要继续滑行，我要做什么身体调整，前脚还是后脚需要泄力或者发力。这些都是一个好的滑手需要在短短几秒钟的时间得出的结论。当然，这是需要平时持之以恒的训练来达到肌肉强化记忆，从而在关键时刻可以发挥出来。这一系列的反应在我看来，跟职业生涯是非常的相似的。这一年工作的时间里，我得到最深刻的体验也莫过于此。工作有时候真的就是那几秒钟的发力分出高低，这与平时的积累密不可分，但更重要的是，关键时候顶住压力，准确预判，当机立断。说到这里，不知道大家是否看过红海行动，反正里面人物众多，我唯独只记得顾顺。顾顺说话很不客气，人缘不好，但他说，子弹是躲不掉的，关键时刻，压力能让你更加专注。这些品质让他成为一个很好的狙击手。这些品质，在我学snowboarding的时候像警钟一样不断提醒我。  </description>
@@ -145,8 +143,8 @@ Reference  https://youtu.be/kJ_nP7IvhUM https://youtu.be/bB21OGR8DSo https://you
       
       <guid>https://pingrunhuang.github.io/2018/the-reason-why-i-kept-on-writing-blog/</guid>
       <description>首先，如果你可以翻墙的话，看一下我的这篇vlog。
-   haze
- why you want to change your location to beijing.
+    haze
+  why you want to change your location to beijing.
   如果，你不能看不了，那我就手写一些这一年的感想吧。这一年时间不算长，很多youtuber给了我很多的启发，有生活上的也有个人职业发展，不管是youtuber红人Casey Neistat, Joma 还是蓝诺，他们勇于追求自己的职业自由和财务自由的精神，和对生活的不苟且，一直是我这一年的精神食粮。把一种爱好当成习惯，让肌肉去记忆，从而无需动脑就会自助行动的动力是最难的。
 I&amp;rsquo;m a chinese, yet I use English as my writing language. Because I believe the international trend will be the future yet English is doom to be the standard to communicate globally. Also, I really love english and the way it define grammar.
 Richard Feyman once said: &amp;ldquo;The best way to learn knowledge is to teach others&amp;rdquo;.</description>
@@ -154,10 +152,10 @@ Richard Feyman once said: &amp;ldquo;The best way to learn knowledge is to teach
     
     <item>
       <title>1987--观后感</title>
-      <link>https://pingrunhuang.github.io/2018/1987--%E8%A7%82%E5%90%8E%E6%84%9F/</link>
+      <link>https://pingrunhuang.github.io/2018/1987-%E8%A7%82%E5%90%8E%E6%84%9F/</link>
       <pubDate>Mon, 02 Apr 2018 22:56:39 +0800</pubDate>
       
-      <guid>https://pingrunhuang.github.io/2018/1987--%E8%A7%82%E5%90%8E%E6%84%9F/</guid>
+      <guid>https://pingrunhuang.github.io/2018/1987-%E8%A7%82%E5%90%8E%E6%84%9F/</guid>
       <description>啊，好久没有写观后感了，记得上一次写还是小学的时候被老师逼着写完自己都不知道自己在说什么东西的观后感。但人是一个很奇怪的生物，以前反感的东西越长大却越觉得有道理。写下这篇观后感也是因为每次看完这篇电影心情久久无法平复，好像是得写下点什么来捋一捋思路，发朋友圈又写不了几个字，那就写一片博客吧。也好，开个先河，以后有时间在框架里面加一个观后感的专栏好了。
  人是健忘的，好了伤疤忘了疼的道理大家都知道，却也重复的犯着。这时候，能有人勇敢的站出来记录下真相，是一件非常了不起的事情。1987正是这样一部电影。其实1987应该就着出租车司机一起看。
 一部讲述韩国历史上反对独运动顶峰的电影
@@ -224,7 +222,7 @@ about one and a half years ago, I started my internship in paris.</description>
       <pubDate>Sun, 31 Dec 2017 22:17:22 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/2017/2017%E6%80%BB%E7%BB%93/</guid>
-      <description>  起起落落是人生的常态，但只要每天问自己是否比昨天更进一步的时候，回答是正确的，那么大方向就不会有错了
+      <description> 起起落落是人生的常态，但只要每天问自己是否比昨天更进一步的时候，回答是正确的，那么大方向就不会有错了
  记得第一次发博客到朋友圈的时候，有人就问我，为什么不写在公众号上面。我的回答是第一想方便迁移，第二那样显得没有仪式感。刚开始写博客的时候是2016年，为了能在法国找到实习，就开始把自己学习的知识当做笔记写下来，方便面试官可以了解我的方向和水平。后来写着写着，发现深深的爱上了这个习惯，不仅可以在看书的时候当作笔记记录下来，还能方便日后查阅，同时也建立了自己的portfolio。
 因为当时在国外找实习，于是很多东西都是写成了英文的，不是我装逼，而是有些时候英文的表述真的更直观，毕竟脑子本来就内存不足，还要从英文再翻译成中文显得有些绕弯路。
 那回看2017，经历了人生中算是到目前为止最低谷的时候了，丢了女朋友不说，回国找的工作也是一般般，现在回想起来，年中那段日子很煎熬。在那段日子里学会了抽烟，学会了不正经，但骨子里是知道自己在做什么的，很多事情也是在那段日子想明白的。比如什么都不比家人重要，朋友会是你在社会上很重要的帮手，有些人有些事就随它去吧。
@@ -239,7 +237,9 @@ about one and a half years ago, I started my internship in paris.</description>
       
       <guid>https://pingrunhuang.github.io/2017/traveling-wish-list/</guid>
       <description>basically there are several continents that I want to visit in these few years. Europe and Australia. Though I have already been in France for almost 2 years, but I feel quite regret for not travelling around europe during my study in France. That is why I want to explore europe in a deep mode.
- Grotta della Poesia queenstown new zealand Isle of Skye  http://www.hereinuk.com/25620.html https://www.isleofskye.com/activities/boat-trips  the coromandel</description>
+  Grotta della Poesia
+  queenstown new zealand
+  Isle of Skye</description>
     </item>
     
     <item>
@@ -257,7 +257,7 @@ about one and a half years ago, I started my internship in paris.</description>
       <pubDate>Sun, 01 Oct 2017 19:44:21 +0800</pubDate>
       
       <guid>https://pingrunhuang.github.io/2017/%E8%A5%BF%E5%86%B2%E6%B5%B7%E5%B2%B8%E5%88%9D%E6%8E%A2/</guid>
-      <description> 国庆节到处都是人，去哪里好呢？这个国庆，决定把深圳最好玩的野场西涌搞个透彻，不然都不好意思以后都不好意思带人去深圳最好玩的地方了。
+      <description>国庆节到处都是人，去哪里好呢？这个国庆，决定把深圳最好玩的野场西涌搞个透彻，不然都不好意思以后都不好意思带人去深圳最好玩的地方了。
 怎么去西冲 有车的土豪可以选择开车，但个人不太建议新手开车去，或者应该错开节假日高峰期。因为上山有一段路来回都是单行道，很多老司机会喜欢窜道， 这队医新手来说是很危险的事情，因为一旦发生意外，后面就会堵死了。所以为了你我他，我建议还是选择公交线路。说到公交线路，我终于找到了一条安全快捷的线路了！ 深圳北-&amp;gt;E11-&amp;gt;南澳街道办-&amp;gt;选择拼车或者坐公交（听说有个专线2可以直达，个人没试过）-&amp;gt; 鹤薮村 -&amp;gt;抵达客栈聚集地。这里就是客栈或者民宿散落的地方了，各种各样的民宿任君挑选。
 住 选择住宿就要看你来的目的了，像我是打算来冲浪的，当然是选择靠近沙滩的民宿啦。就我所知，西冲有三个村落是民宿聚集地而且靠近3，4号沙滩的， 分别是鹤薮村，新屋村和芽山村。那么问题就来了，哪些民宿靠近沙滩呢？很不幸的是，这次我因为一些原因选择了较远的村落&amp;ndash;芽山村。这里的坏处也是他的好处就是，相对沙滩比较远，但人也相对少，因此晚上会比较安静。要知道，来这里度假的一般是家人或者团体。团体很喜欢租一个大别墅然后在里面喊歌，这真的很干扰人休息好吗。其次就是鹤薮村了，而经过我实地勘查，最近的还是新屋村距离沙滩大概才1公里，这是直线距离哦。
 冲浪 好了，重点来了，冲浪！我是一个喜欢滑雪，滑板运动的人，我很喜欢踩着板子滑出去的感觉，很畅快，如果可以滑出美妙的曲线和动作，会有一种莫名的满足感。 那么，冲浪就肯定是我必学的技能啦！这是我在沙滩边上看到的几家冲浪店，所以其实没必要提前预定的，到了沙滩后直接上去问价，租板或教学都可以。 虽然我没有都进去看，但问了几家，价格大概都是团体400多，一对一500多的样子。我报了一个460的体验课，因为我觉得以我个人的运动天赋来说，不需要一对一，我只需要有个人示范而且可以问一下问题就好，所以选什么还是要看个人需求啦。个人认为报名不需要提前报，只需要去到沙滩，那里会有很多家俱乐部等你进去询价，easy！ 这是我报名的那家俱乐部，就在沙滩旁边很显眼的绿草坪上，感觉很多浪客会来这里聚集。 这是他家的傻狗，真心傻，只知道吃。。。
@@ -306,8 +306,7 @@ about one and a half years ago, I started my internship in paris.</description>
       
       <guid>https://pingrunhuang.github.io/2017/2017%E4%B8%8A%E5%8D%8A%E5%B9%B4/</guid>
       <description>源起 写这篇文章既是响应小欣同学在微博上的号召，其实更多的是因为想记录自己这一年成长的记录。以前总想着在朋友圈记录下来，以后老了回头看就好了。但是经历了一些事情，朋友圈是不能待了，加上个人觉得朋友圈的记录太过于片段，加之图片等个人的东西不想放在腾讯家的服务器上，所以渐渐的选择淡出朋友圈，转而自己搭建服务器，基于开源框架写一个自己的博客记录生活。有这样的想法差不多有半年了，而自打有这个想法之后就每天把坐公交车等闲杂时间把自己潦草的思绪记录下来，希望这个习惯可以保持下来，在每一年结束的时候可以交给自己一份满意的年末总结。
-感悟 后来我也慢慢想明白了，很多事情选择沉默，特别是对于亲密的人，不去解释，不把话说满，因为懂你的人自然会懂，不懂或者不在乎你的人，说多了倒也成了辩论。以前的我对于我认为对的事情总是喜欢挣个对错，特别是对于亲近的人，总是希望对方按照我的思路来，后来经过一些事情才懂得凡事都没有对错，就算挣到了对错，又能怎么样呢？更何况对于越是亲近的人，这样争执的结果除了短暂的满足感，过后伤害的也只是彼此的关系，又何必呢？2017对我来说真的算是高考之后最重要的一年了，25岁，人生过了四分之一，回国找工作，很多东西不习惯，加入了一个很温馨的大家庭，从基层干起，打磨自己成为一个谦卑的人。学会承担家里的一些事情，不多，但是我看到了他们满意的认可。第一次承担起一个家装的任务，不大，却让我了解了很多。看清了世上很多人情冷暖，怪异荒诞，冲击，但也慢慢接受。这么说的话感觉我好像真的成了历尽沧桑的长者一样，但我还很年轻，要学的还有很多，应该时刻提醒自己保持一颗humble的心。今年还有很特别的礼物就是回国之后看到小侄女的成长，小家伙已经能跑能跳能说话了，看着她感觉看见了我和姐姐小时候，不同的是，她真的很幸福，成长在一个充满爱的环境里，虽然她好像不太喜欢跟我在一起，但是默默的看着她成长，每天逗她外公外婆开心，我也觉得很欣慰。似乎因为她，父母放下了很多，也重拾了很多，从这个角度来说，我们又是幸运的，能够遇上这样一个inspiring的小天使。
-总的来说，今年最大的收获是懂得了取舍。不敢说懂了，但至少是面对一些事情的时候有一个这样的意识，以第三人称的视角观察的第一人称的自己。做减法，不管是朋友，还是工作技能。不贪多，但是要用心cultivate
+感悟 后来我也慢慢想明白了，很多事情选择沉默，特别是对于亲密的人，不去解释，不把话说满，因为懂你的人自然会懂，不懂或者不在乎你的人，说多了倒也成了辩论。以前的我对于我认为对的事情总是喜欢挣个对错，特别是对于亲近的人，总是希望对方按照我的思路来，后来经过一些事情才懂得凡事都没有对错，就算挣到了对错，又能怎么样呢？更何况对于越是亲近的人，这样争执的结果除了短暂的满足感，过后伤害的也只是彼此的关系，又何必呢？2017对我来说真的算是高考之后最重要的一年了，25岁，人生过了四分之一，回国找工作，很多东西不习惯，加入了一个很温馨的大家庭，从基层干起，打磨自己成为一个谦卑的人。学会承担家里的一些事情，不多，但是我看到了他们满意的认可。第一次承担起一个家装的任务，不大，却让我了解了很多。看清了世上很多人情冷暖，怪异荒诞，冲击，但也慢慢接受。这么说的话感觉我好像真的成了历尽沧桑的长者一样，但我还很年轻，要学的还有很多，应该时刻提醒自己保持一颗humble的心。今年还有很特别的礼物就是回国之后看到小侄女的成长，小家伙已经能跑能跳能说话了，看着她感觉看见了我和姐姐小时候，不同的是，她真的很幸福，成长在一个充满爱的环境里，虽然她好像不太喜欢跟我在一起，但是默默的看着她成长，每天逗她外公外婆开心，我也觉得很欣慰。似乎因为她，父母放下了很多，也重拾了很多，从这个角度来说，我们又是幸运的，能够遇上这样一个inspiring的小天使。 总的来说，今年最大的收获是懂得了取舍。不敢说懂了，但至少是面对一些事情的时候有一个这样的意识，以第三人称的视角观察的第一人称的自己。做减法，不管是朋友，还是工作技能。不贪多，但是要用心cultivate
 关于初恋 人们都说初恋是最难忘的，确实是这样的，即使最后因为所谓的不合适而分开，但我相信，那份感情是真的。也许未来的很长一段时间都不会再有这样的感觉了，也许很快就有了，也许再也没有了，拥有过就足够了。
 时间过得真快，这句话一直是老生常谈。记得两年前出国之前还陪过前女友来到某个地方的办公室参加一个讲座，当时还拍下一章照片叫做dream workplace放到了朋友圈，当时真的在心里就种下了一颗种子，想着读设计的她会来这个充满设计感的地方工作，我也要努力来这里工作，那样真的就用隔得那么遥远了。然后，机缘巧合的事情真的就发生了，我跌跌撞撞跟随新加入的公司也搬迁到了这里，真的就是隔壁栋，多么熟悉的场景，这所有的景物都跟那时候一样，每天休息或者下班走过那个我们一起躲雨的屋檐，说来真的像某董拍摄的mv一样。命运总是喜欢跟你开玩笑，有些事情就真的像轮回一样，当年无意中许下的诺言居然就实现了，当年拼了命想要兑现的承诺却再也没有机会了，而你说过再也不回去的地方却会在命运的安排下把你拉回来。也许你还记得，也许你都忘了，也不是那么重要了，就像五月天说的一样，只要平行时空里我们还在一起，而这个时空是否在一起都不重要了，重要的是你真的开心了，有人可以照顾得到好好的，那就足够了。
 总的来说，对于感情，这段日子以来的想法就是要知足，常感恩。

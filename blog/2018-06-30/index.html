@@ -10,30 +10,17 @@
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Frank Huang">
 <meta name="description" content="foreach will clean up all the resouces inside the
-var normalRows = Seq[Seq[String]]() df.foreach(row =&gt; { var newRow = Seq[String]() columnMap.keys.foreach(key =&gt; { val updatedCell = formateDate(row.getAs(key)) newRow = newRow :&#43; updatedCell } ) normalRows = normalRows :&#43; newRow } ) println(normalRows.isEmpty)// true  When you check the source code of the foreach function, you will find the following:
-/** * Applies a function f to all elements of this RDD.">
+var normalRows = Seq[Seq[String]]()df.foreach(row =&gt; {var newRow = Seq[String]()columnMap.keys.foreach(key =&gt; {val updatedCell = formateDate(row.getAs(key))newRow = newRow :&#43; updatedCell})normalRows = normalRows :&#43; newRow})println(normalRows.isEmpty)// trueWhen you check the source code of the foreach function, you will find the following:
+/*** Applies a function f to all elements of this RDD.*/def foreach(f: T =&gt; Unit): Unit = withScope {val cleanF = sc.">
 
 <meta property="og:title" content="problem with rdd.foreach" />
 <meta property="og:description" content="foreach will clean up all the resouces inside the
-var normalRows = Seq[Seq[String]]() df.foreach(row =&gt; { var newRow = Seq[String]() columnMap.keys.foreach(key =&gt; { val updatedCell = formateDate(row.getAs(key)) newRow = newRow :&#43; updatedCell } ) normalRows = normalRows :&#43; newRow } ) println(normalRows.isEmpty)// true  When you check the source code of the foreach function, you will find the following:
-/** * Applies a function f to all elements of this RDD." />
+var normalRows = Seq[Seq[String]]()df.foreach(row =&gt; {var newRow = Seq[String]()columnMap.keys.foreach(key =&gt; {val updatedCell = formateDate(row.getAs(key))newRow = newRow :&#43; updatedCell})normalRows = normalRows :&#43; newRow})println(normalRows.isEmpty)// trueWhen you check the source code of the foreach function, you will find the following:
+/*** Applies a function f to all elements of this RDD.*/def foreach(f: T =&gt; Unit): Unit = withScope {val cleanF = sc." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-06-30/" />
-
-
-
-<meta property="article:published_time" content="2018-06-30T19:40:28&#43;08:00"/>
-<meta property="article:modified_time" content="2018-06-30T19:40:28&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-06-30T19:40:28+08:00" />
+<meta property="article:modified_time" content="2018-06-30T19:40:28+08:00" />
 
 
 <title>
@@ -59,11 +46,11 @@ var normalRows = Seq[Seq[String]]() df.foreach(row =&gt; { var newRow = Seq[Stri
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.583001409%20%2b0800%20CST%20m%3d%2b1.004983496">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.583001409%20%2b0800%20CST%20m%3d%2b1.004983496">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.583001409%20%2b0800%20CST%20m%3d%2b1.004983496">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.5874241%20%2b0800%20CST%20m%3d%2b0.925777201">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.5874241%20%2b0800%20CST%20m%3d%2b0.925777201">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.5874241%20%2b0800%20CST%20m%3d%2b0.925777201">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.583001409%20%2b0800%20CST%20m%3d%2b1.004983496">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.5874241%20%2b0800%20CST%20m%3d%2b0.925777201">
     
 
 
@@ -209,89 +196,69 @@ var normalRows = Seq[Seq[String]]() df.foreach(row =&gt; { var newRow = Seq[Stri
                 </div>
             </div>
             <div class="markdown">
-                
+                <p>foreach will clean up all the resouces inside the</p>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala">    <span class="k">var</span> <span class="n">normalRows</span> <span class="k">=</span> <span class="nc">Seq</span><span class="o">[</span><span class="kt">Seq</span><span class="o">[</span><span class="kt">String</span><span class="o">]]()</span>
 
-<p>foreach will clean up all the resouces inside the</p>
+    <span class="n">df</span><span class="o">.</span><span class="n">foreach</span><span class="o">(</span><span class="n">row</span> <span class="k">=&gt;</span> <span class="o">{</span>
+        <span class="k">var</span> <span class="n">newRow</span> <span class="k">=</span> <span class="nc">Seq</span><span class="o">[</span><span class="kt">String</span><span class="o">]()</span>
 
-<pre><code class="language-scala">    var normalRows = Seq[Seq[String]]()
-
-    df.foreach(row =&gt; {
-        var newRow = Seq[String]()
-
-        columnMap.keys.foreach(key =&gt; {
-            val updatedCell = formateDate(row.getAs(key))
-            newRow = newRow :+ updatedCell
-            }
-        )
-        normalRows = normalRows :+ newRow
-        }
-    )
-    println(normalRows.isEmpty)//    true
-</code></pre>
-
-<p>When you check the source code of the <code>foreach</code> function, you will find the following:</p>
-
-<pre><code class="language-scala">  /**
-   * Applies a function f to all elements of this RDD.
-   */
-  def foreach(f: T =&gt; Unit): Unit = withScope {
-    val cleanF = sc.clean(f)
-    sc.runJob(this, (iter: Iterator[T]) =&gt; iter.foreach(cleanF))
-  }
-</code></pre>
-
-<p>From now, everything make sense that <code>foreach</code> will call the clean closure which</p>
-
-<pre><code class="language-scala">  /**
-   * Clean a closure to make it ready to serialized and send to tasks
-   * (removes unreferenced variables in $outer's, updates REPL variables)
-   * If &lt;tt&gt;checkSerializable&lt;/tt&gt; is set, &lt;tt&gt;clean&lt;/tt&gt; will also proactively
-   * check to see if &lt;tt&gt;f&lt;/tt&gt; is serializable and throw a &lt;tt&gt;SparkException&lt;/tt&gt;
-   * if not.
-   *
-   * @param f the closure to clean
-   * @param checkSerializable whether or not to immediately check &lt;tt&gt;f&lt;/tt&gt; for serializability
-   * @throws SparkException if &lt;tt&gt;checkSerializable&lt;/tt&gt; is set but &lt;tt&gt;f&lt;/tt&gt; is not
-   *   serializable
-   * @return the cleaned closure
-   */
-  private[spark] def clean[F &lt;: AnyRef](f: F, checkSerializable: Boolean = true): F = {
-    ClosureCleaner.clean(f, checkSerializable)
-    f
-  }
-</code></pre>
-
-<h1 id="summary">Summary</h1>
-
+        <span class="n">columnMap</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">foreach</span><span class="o">(</span><span class="n">key</span> <span class="k">=&gt;</span> <span class="o">{</span>
+            <span class="k">val</span> <span class="n">updatedCell</span> <span class="k">=</span> <span class="n">formateDate</span><span class="o">(</span><span class="n">row</span><span class="o">.</span><span class="n">getAs</span><span class="o">(</span><span class="n">key</span><span class="o">))</span>
+            <span class="n">newRow</span> <span class="k">=</span> <span class="n">newRow</span> <span class="k">:</span><span class="kt">+</span> <span class="kt">updatedCell</span>
+            <span class="o">}</span>
+        <span class="o">)</span>
+        <span class="n">normalRows</span> <span class="k">=</span> <span class="n">normalRows</span> <span class="k">:</span><span class="kt">+</span> <span class="kt">newRow</span>
+        <span class="o">}</span>
+    <span class="o">)</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">normalRows</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span><span class="c1">//    true
+</span></code></pre></div><p>When you check the source code of the <code>foreach</code> function, you will find the following:</p>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala">  <span class="cm">/**
+</span><span class="cm">   * Applies a function f to all elements of this RDD.
+</span><span class="cm">   */</span>
+  <span class="k">def</span> <span class="n">foreach</span><span class="o">(</span><span class="n">f</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=&gt;</span> <span class="nc">Unit</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="n">withScope</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">cleanF</span> <span class="k">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">clean</span><span class="o">(</span><span class="n">f</span><span class="o">)</span>
+    <span class="n">sc</span><span class="o">.</span><span class="n">runJob</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="o">(</span><span class="n">iter</span><span class="k">:</span> <span class="kt">Iterator</span><span class="o">[</span><span class="kt">T</span><span class="o">])</span> <span class="k">=&gt;</span> <span class="n">iter</span><span class="o">.</span><span class="n">foreach</span><span class="o">(</span><span class="n">cleanF</span><span class="o">))</span>
+  <span class="o">}</span>
+</code></pre></div><p>From now, everything make sense that <code>foreach</code> will call the clean closure which</p>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala">  <span class="cm">/**
+</span><span class="cm">   * Clean a closure to make it ready to serialized and send to tasks
+</span><span class="cm">   * (removes unreferenced variables in $outer&#39;s, updates REPL variables)
+</span><span class="cm">   * If &lt;tt&gt;checkSerializable&lt;/tt&gt; is set, &lt;tt&gt;clean&lt;/tt&gt; will also proactively
+</span><span class="cm">   * check to see if &lt;tt&gt;f&lt;/tt&gt; is serializable and throw a &lt;tt&gt;SparkException&lt;/tt&gt;
+</span><span class="cm">   * if not.
+</span><span class="cm">   *
+</span><span class="cm">   * @param f the closure to clean
+</span><span class="cm">   * @param checkSerializable whether or not to immediately check &lt;tt&gt;f&lt;/tt&gt; for serializability
+</span><span class="cm">   * @throws SparkException if &lt;tt&gt;checkSerializable&lt;/tt&gt; is set but &lt;tt&gt;f&lt;/tt&gt; is not
+</span><span class="cm">   *   serializable
+</span><span class="cm">   * @return the cleaned closure
+</span><span class="cm">   */</span>
+  <span class="k">private</span><span class="o">[</span><span class="kt">spark</span><span class="o">]</span> <span class="k">def</span> <span class="n">clean</span><span class="o">[</span><span class="kt">F</span> <span class="k">&lt;:</span> <span class="kt">AnyRef</span><span class="o">](</span><span class="n">f</span><span class="k">:</span> <span class="kt">F</span><span class="o">,</span> <span class="n">checkSerializable</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span><span class="k">:</span> <span class="kt">F</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="nc">ClosureCleaner</span><span class="o">.</span><span class="n">clean</span><span class="o">(</span><span class="n">f</span><span class="o">,</span> <span class="n">checkSerializable</span><span class="o">)</span>
+    <span class="n">f</span>
+  <span class="o">}</span>
+</code></pre></div><h1 id="summary">Summary</h1>
 <p>You can see that the <code>foreach</code> method applied in dataframe is not exactly the same as the <code>list.foreach</code>. And the difference is that a clean function is called at the end of the foreach in dataframe. So the following code will actually change the outside variable:</p>
-
-<pre><code class="language-scala">var sum = 0
-sum: Int = 0
-someNumbers.foreach(sum +=  _)
-assert(sum != 0) // true
-</code></pre>
-
-<h1 id="how-to-assemble-new-row-for-new-rdd">how to assemble new row for new RDD</h1>
-
-<pre><code class="language-scala">val normalRows = df.rdd.map(
-    row =&gt; {
-    var newRow = Seq[String]()
-    var i = 0
-    columnMap.keys.foreach(key =&gt; {
-        val expectedDataType = columnMap(key)
-        val updatedCell = funcMapping(expectedDataType)(row.getAs(key))
-        newRow = newRow :+ updatedCell
-    })
-    Row.fromSeq(newRow)
-    }
-)
-</code></pre>
-
-<h1 id="create-rdd">create RDD</h1>
-
-<pre><code class="language-scala">val normalRDD = session.sparkContext.emptyRDD[Row]
-</code></pre>
-
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">var</span> <span class="n">sum</span> <span class="k">=</span> <span class="mi">0</span>
+<span class="n">sum</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">someNumbers</span><span class="o">.</span><span class="n">foreach</span><span class="o">(</span><span class="n">sum</span> <span class="o">+=</span>  <span class="k">_</span><span class="o">)</span>
+<span class="n">assert</span><span class="o">(</span><span class="n">sum</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="c1">// true
+</span></code></pre></div><h1 id="how-to-assemble-new-row-for-new-rdd">how to assemble new row for new RDD</h1>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">normalRows</span> <span class="k">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="o">(</span>
+    <span class="n">row</span> <span class="k">=&gt;</span> <span class="o">{</span>
+    <span class="k">var</span> <span class="n">newRow</span> <span class="k">=</span> <span class="nc">Seq</span><span class="o">[</span><span class="kt">String</span><span class="o">]()</span>
+    <span class="k">var</span> <span class="n">i</span> <span class="k">=</span> <span class="mi">0</span>
+    <span class="n">columnMap</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">foreach</span><span class="o">(</span><span class="n">key</span> <span class="k">=&gt;</span> <span class="o">{</span>
+        <span class="k">val</span> <span class="n">expectedDataType</span> <span class="k">=</span> <span class="n">columnMap</span><span class="o">(</span><span class="n">key</span><span class="o">)</span>
+        <span class="k">val</span> <span class="n">updatedCell</span> <span class="k">=</span> <span class="n">funcMapping</span><span class="o">(</span><span class="n">expectedDataType</span><span class="o">)(</span><span class="n">row</span><span class="o">.</span><span class="n">getAs</span><span class="o">(</span><span class="n">key</span><span class="o">))</span>
+        <span class="n">newRow</span> <span class="k">=</span> <span class="n">newRow</span> <span class="k">:</span><span class="kt">+</span> <span class="kt">updatedCell</span>
+    <span class="o">})</span>
+    <span class="nc">Row</span><span class="o">.</span><span class="n">fromSeq</span><span class="o">(</span><span class="n">newRow</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">)</span>
+</code></pre></div><h1 id="create-rdd">create RDD</h1>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">normalRDD</span> <span class="k">=</span> <span class="n">session</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">emptyRDD</span><span class="o">[</span><span class="kt">Row</span><span class="o">]</span>
+</code></pre></div>
                 <br>
 		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
             </div>

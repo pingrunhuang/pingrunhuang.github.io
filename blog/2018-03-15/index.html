@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="When solving leetcode with python, I found some interesting things happening in python which confuse me whether python is passing value like Java or reference like c&#43;&#43;. So I dive in to google for some answer in case someone have written something on this part. Indeed, Jeff Knupp wrote this blog which notify me that python does neither. It treats variable or arguments as a name which combine to an object.">
+
+<meta property="og:title" content="Call by value or reference?" />
+<meta property="og:description" content="When solving leetcode with python, I found some interesting things happening in python which confuse me whether python is passing value like Java or reference like c&#43;&#43;. So I dive in to google for some answer in case someone have written something on this part. Indeed, Jeff Knupp wrote this blog which notify me that python does neither. It treats variable or arguments as a name which combine to an object." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-03-15/" />
+<meta property="article:published_time" content="2018-03-15T23:08:53+08:00" />
+<meta property="article:modified_time" content="2018-03-15T23:08:53+08:00" />
+
+
+<title>
+
+
+     Call by value or reference? 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2018-03-15/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a18%3a30.4606493%20%2b0800%20CST%20m%3d%2b1.905736001">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a18%3a30.4606493%20%2b0800%20CST%20m%3d%2b1.905736001">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a18%3a30.4606493%20%2b0800%20CST%20m%3d%2b1.905736001">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a18%3a30.4606493%20%2b0800%20CST%20m%3d%2b1.905736001">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Call by value or reference?
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Thu Mar 15 2018 23:08:53 CST'>Mar 15, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <p>When solving leetcode with python, I found some interesting things happening in python which confuse me whether python is passing value like Java or reference like c++. So I dive in to google for some answer in case someone have written something on this part. Indeed, Jeff Knupp wrote <a href="https://jeffknupp.com/blog/2012/11/13/is-python-callbyvalue-or-callbyreference-neither/">this blog</a> which notify me that python does neither. It treats variable or arguments as a name which combine to an object. Talk is cheap, show me the code.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">removeElement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="n">nums</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[:</span><span class="n">val</span><span class="p">]</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">solution</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">()</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">solution</span><span class="o">.</span><span class="n">removeElement</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">)</span>
+</code></pre></div><p>Take a look at the above code, the result will be printed as follow:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div><p>which means the t1 is not changed at all.</p>
+<p>So we can definetely say that python is not passed by reference. However, does it mean variable is argument by value? Let us talk on the code again:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">removeElement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="n">nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">solution</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">()</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">solution</span><span class="o">.</span><span class="n">removeElement</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">)</span>
+</code></pre></div><p>This will actaully output <code>[3, 2, 2, 3, 1]</code> meaning the function indeed changed the value of the argument. That says argument is not passed by value either. Notice in this case nums is mutable. If nums is immutable like a tuple, then python can not modify the input either.</p>
+<p>You might be upset about the above result but wait a sec, google tells me that python is actually passing argument as name. What does it mean? The following picture is equivalent to <code>a, b = 2, a</code></p>
+<p><img src="https://pingrunhuang.github.io/blog/2018-03-15/ab2tag.png" alt=""></p>
+<p>After seeing this picture, everything suddenly make sense. Back to our case, you can imagine that <code>a</code> is <code>t1</code>, <code>b</code> is <code>nums</code>. When we re-assign value to <code>b</code>, we actually is just using <code>b</code> to name another new object which won&rsquo;t change the actually value of what <code>a</code> is representing. However, when we modify the what <code>b</code> is representing for, <code>a</code> would be changed too. This tricky stuff is like a pointer actually.</p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#other-languages-have-variables">http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#other-languages-have-variables</a></li>
+<li><a href="https://stackoverflow.com/a/575337">https://stackoverflow.com/a/575337</a></li>
+</ul>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125392221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125392221-1');
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+    
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>
+

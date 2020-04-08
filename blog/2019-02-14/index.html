@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="Bridge pattern For bridge pattern, we define 2 classes that in charge of different things. First one I would call it orchestrator but essentially is the so called bridge which in charge of calling corresponding functions. This class is also exposed to the external client. Second one I would call it instrument which should be an interface or abstract class defining what the . The instance of this class will be aggregated into the orchestrator so that the orchestrator can call whatever functions.">
+
+<meta property="og:title" content="Design Patterns that are useful part 1 -- implemented in python" />
+<meta property="og:description" content="Bridge pattern For bridge pattern, we define 2 classes that in charge of different things. First one I would call it orchestrator but essentially is the so called bridge which in charge of calling corresponding functions. This class is also exposed to the external client. Second one I would call it instrument which should be an interface or abstract class defining what the . The instance of this class will be aggregated into the orchestrator so that the orchestrator can call whatever functions." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2019-02-14/" />
+<meta property="article:published_time" content="2019-02-14T12:27:13+08:00" />
+<meta property="article:modified_time" content="2019-02-14T12:27:13+08:00" />
+
+
+<title>
+
+
+     Design Patterns that are useful part 1 -- implemented in python 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2019-02-14/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.6394705%20%2b0800%20CST%20m%3d%2b0.977823601">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.6394705%20%2b0800%20CST%20m%3d%2b0.977823601">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.6394705%20%2b0800%20CST%20m%3d%2b0.977823601">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.6394705%20%2b0800%20CST%20m%3d%2b0.977823601">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Design Patterns that are useful part 1 -- implemented in python
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Thu Feb 14 2019 12:27:13 CST'>Feb 14, 2019</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>3 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <h1 id="bridge-pattern">Bridge pattern</h1>
+<p>For bridge pattern, we define 2 classes that in charge of different things. <strong>First one</strong> I would call it orchestrator but essentially is the so called bridge which in charge of calling corresponding functions. This class is also exposed to the external client. <strong>Second one</strong> I would call it instrument which should be an interface or abstract class defining what the . The instance of this class will be aggregated into the orchestrator so that the orchestrator can call whatever functions. Here the code of python for implementing a data grab hub scenario:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Grabber</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connector</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">isInstance</span><span class="p">(</span><span class="n">connector</span><span class="p">,</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connector</span> <span class="o">=</span> <span class="n">connector</span>
+    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        this is actually a delegator to let the client call corresponding method of connector
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">is_lost</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">is_lost</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="k">class</span> <span class="nc">Connector</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    concret implementation should be extended
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">is_lost</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">DBConn</span><span class="p">(</span><span class="n">Connector</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Connected to mongo db&#34;</span><span class="p">)</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">is_lost</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">False</span>
+</code></pre></div><p>Now, think of if we have a new connector which has one more method called disconnect, what we need to do extend the connector to have disconnect method but also extend a new grabber to support that method. This way, we won&rsquo;t face the issue of <a href="https://refactoring.guru/design-patterns/bridge">inheritances</a>.</p>
+<p>In summary, <code>bridge pattern</code> could be think of supplementing inheritance with aggregation.</p>
+<h1 id="visitor-pattern">Visitor pattern</h1>
+<p>When you have bunch of existing classes need to extend some same functions like pretty print and you don&rsquo;t want to mess around the existing code, you can use this pattern to dispatch the call to different logics for each class. Here is the solution:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="c1"># a simple way to define must have function using decorator</span>
+<span class="k">def</span> <span class="nf">visitor_decorator</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">accept</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="bp">NotImplemented</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s1">&#39;accept&#39;</span><span class="p">):</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s1">&#39;accept&#39;</span><span class="p">,</span> <span class="n">accept</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">instance</span>
+    <span class="k">return</span> <span class="n">inner</span>
+
+<span class="nd">@visitor_decorator</span>
+<span class="k">class</span> <span class="nc">Conn1</span><span class="p">(</span><span class="n">ABCConn</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+    <span class="c1"># other functions above </span>
+    <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">):</span>
+        <span class="n">visitor</span><span class="o">.</span><span class="n">echo_conn1</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nd">@visitor_decorator</span>
+<span class="k">class</span> <span class="nc">Conn2</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">):</span>
+        <span class="n">visitor</span><span class="o">.</span><span class="n">echo_conn2</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="c1"># here we create an abstract visitor which can visit </span>
+
+<span class="k">class</span> <span class="nc">Visitor</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">echo_conn1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">echo_conn2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">ExportXMLVisitor</span><span class="p">(</span><span class="n">Visitor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">echo_conn1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conn</span><span class="p">):</span>
+        <span class="c1"># the detailed implementation</span>
+        <span class="k">pass</span>
+    <span class="k">def</span> <span class="nf">echo_conn2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conn</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">xml_visitor</span> <span class="o">=</span> <span class="n">ExportXMLVistor</span><span class="p">()</span>
+    <span class="n">conn1</span> <span class="o">=</span> <span class="n">Conn1</span><span class="p">()</span>
+    <span class="n">conn2</span> <span class="o">=</span> <span class="n">Conn2</span><span class="p">()</span>
+    <span class="n">conn1</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">xml_visitor</span><span class="p">)</span> <span class="c1"># let different visitors visit inside the obj to do different allowed manipulation</span>
+    <span class="n">conn2</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">xml_visitor</span><span class="p">)</span>
+</code></pre></div><h1 id="strategy-pattern">Strategy pattern</h1>
+<p>A behavioral pattern which essentially utilize <code>if else</code> or <code>switch</code> statement to choose from a bunch of strategies that we defined earlier. The class in charge of choosing strategy is called context. Here is an abstraction of the strategy class:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Strategy</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@sbstractmethod</span>
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Context</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">set_strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strategy</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">strategy</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">res</span>
+</code></pre></div><p>In such way, every concret strategy should implement the execute method so that the context could call.</p>
+<h1 id="observer-pattern">Observer pattern</h1>
+<p>A behavioral pattern that let&rsquo;s objects get notified at run time. This pattern contains 2 roles: publisher and subscriber (aka observer). The publisher should maintain a list of subscribers. Here is the implementation:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Publisher</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCs</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subscribers</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscribers</span> <span class="o">=</span> <span class="n">subscribers</span>
+    
+    <span class="k">def</span> <span class="nf">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subscriber</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscribers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">subscriber</span><span class="p">)</span>
+    
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="k">def</span> <span class="nf">unsubscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subscriber</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscribers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">subscriber</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">EventPublisher</span><span class="p">(</span><span class="n">Publisher</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">notifyall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">):</span>
+        <span class="k">for</span> <span class="n">listener</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscribers</span><span class="p">:</span>
+            <span class="n">subscriber</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">Listener</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">ConcreteListener1</span><span class="p">(</span><span class="n">Listener</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Get updated {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span> 
+    
+</code></pre></div><h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://refactoring.guru/design-patterns">https://refactoring.guru/design-patterns</a></li>
+</ul>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125392221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125392221-1');
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+    
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>
+

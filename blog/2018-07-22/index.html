@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="short cut when typing commands editing Ctrl &#43; a – go to the start of the command line Ctrl &#43; e – go to the end of the command line Ctrl &#43; k – delete from cursor to the end of the command line Ctrl &#43; u – delete from cursor to the start of the command line Ctrl &#43; w – delete from cursor to start of word (i.e. delete backwards one word) Ctrl &#43; y – paste word or text that was cut using one of the deletion shortcuts (such as the one above) after the cursor Ctrl &#43; xx – move between start of command line and current cursor position (and back again) Alt &#43; b – move backward one word (or go to start of word the cursor is currently on) Alt &#43; f – move forward one word (or go to end of word the cursor is currently on) Alt &#43; d – delete to end of word starting at cursor (whole word if cursor is at the beginning of word) Alt &#43; c – capitalize to end of word starting at cursor (whole word if cursor is at the beginning of word) Alt &#43; u – make uppercase from cursor to end of word Alt &#43; l – make lowercase from cursor to end of word Alt &#43; t – swap current word with previous Ctrl &#43; f – move forward one character Ctrl &#43; b – move backward one character Ctrl &#43; d – delete character under the cursor Ctrl &#43; h – delete character before the cursor Ctrl &#43; t – swap character under cursor with the previous one">
+
+<meta property="og:title" content="Command line memo" />
+<meta property="og:description" content="short cut when typing commands editing Ctrl &#43; a – go to the start of the command line Ctrl &#43; e – go to the end of the command line Ctrl &#43; k – delete from cursor to the end of the command line Ctrl &#43; u – delete from cursor to the start of the command line Ctrl &#43; w – delete from cursor to start of word (i.e. delete backwards one word) Ctrl &#43; y – paste word or text that was cut using one of the deletion shortcuts (such as the one above) after the cursor Ctrl &#43; xx – move between start of command line and current cursor position (and back again) Alt &#43; b – move backward one word (or go to start of word the cursor is currently on) Alt &#43; f – move forward one word (or go to end of word the cursor is currently on) Alt &#43; d – delete to end of word starting at cursor (whole word if cursor is at the beginning of word) Alt &#43; c – capitalize to end of word starting at cursor (whole word if cursor is at the beginning of word) Alt &#43; u – make uppercase from cursor to end of word Alt &#43; l – make lowercase from cursor to end of word Alt &#43; t – swap current word with previous Ctrl &#43; f – move forward one character Ctrl &#43; b – move backward one character Ctrl &#43; d – delete character under the cursor Ctrl &#43; h – delete character before the cursor Ctrl &#43; t – swap character under cursor with the previous one" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-07-22/" />
+<meta property="article:published_time" content="2018-07-22T17:32:13+08:00" />
+<meta property="article:modified_time" content="2018-07-22T17:32:13+08:00" />
+
+
+<title>
+
+
+     Command line memo 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2018-07-22/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a18%3a30.5297117%20%2b0800%20CST%20m%3d%2b1.974798401">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a18%3a30.5297117%20%2b0800%20CST%20m%3d%2b1.974798401">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a18%3a30.5297117%20%2b0800%20CST%20m%3d%2b1.974798401">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a18%3a30.5297117%20%2b0800%20CST%20m%3d%2b1.974798401">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Command line memo
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sun Jul 22 2018 17:32:13 CST'>Jul 22, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>4 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <h1 id="short-cut-when-typing-commands">short cut when typing commands</h1>
+<h4 id="editing">editing</h4>
+<p>Ctrl + a – go to the start of the command line
+Ctrl + e – go to the end of the command line
+Ctrl + k – delete from cursor to the end of the command line
+Ctrl + u – delete from cursor to the start of the command line
+Ctrl + w – delete from cursor to start of word (i.e. delete backwards one word)
+Ctrl + y – paste word or text that was cut using one of the deletion shortcuts (such as the one above) after the cursor
+Ctrl + xx – move between start of command line and current cursor position (and back again)
+Alt + b – move backward one word (or go to start of word the cursor is currently on)
+Alt + f – move forward one word (or go to end of word the cursor is currently on)
+Alt + d – delete to end of word starting at cursor (whole word if cursor is at the beginning of word)
+Alt + c – capitalize to end of word starting at cursor (whole word if cursor is at the beginning of word)
+Alt + u – make uppercase from cursor to end of word
+Alt + l – make lowercase from cursor to end of word
+Alt + t – swap current word with previous
+Ctrl + f – move forward one character
+Ctrl + b – move backward one character
+Ctrl + d – delete character under the cursor
+Ctrl + h – delete character before the cursor
+Ctrl + t – swap character under cursor with the previous one</p>
+<h4 id="command-recall-shortcuts">Command Recall Shortcuts</h4>
+<p>Ctrl + r – search the history backwards
+Ctrl + g – escape from history searching mode
+Ctrl + p – previous command in history (i.e. walk back through the command history)
+Ctrl + n – next command in history (i.e. walk forward through the command history)
+Alt + . – use the last word of the previous command</p>
+<h4 id="command-control-shortcuts">Command Control Shortcuts</h4>
+<p>Ctrl + l – clear the screen
+Ctrl + s – stops the output to the screen (for long running verbose command)
+Ctrl + q – allow output to the screen (if previously stopped using command above)
+Ctrl + c – terminate the command
+Ctrl + z – suspend/stop the command</p>
+<h4 id="bash-bang--commands">Bash Bang (!) Commands</h4>
+<p>Bash also has some handy features that use the ! (bang) to allow you to do some funky stuff with bash commands.
+!! – run last command
+!blah – run the most recent command that starts with ‘blah’ (e.g. !ls)
+!blah:p – print out the command that !blah would run (also adds it as the latest command in the command history)
+!$ – the last word of the previous command (same as Alt + .)
+!$:p – print out the word that !$ would substitute
+!* – the previous command except for the last word (e.g. if you type ‘find some_file.txt /‘, then !* would give you ‘find some_file.txt‘)
+!*:p – print out what !* would substitute</p>
+<h1 id="commands-that-are-useful-for-data-analysis">commands that are useful for data analysis</h1>
+<h4 id="tr-translate">Tr: translate</h4>
+<p>Tr is used for pipeine operation</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># converting a tab delimited file into commas</span>
+cat file <span class="p">|</span> tr <span class="s2">&#34;\\t&#34;</span> <span class="s2">&#34;,&#34;</span> &gt; new_file
+
+<span class="c1"># word occurency count</span>
+cat file <span class="p">|</span> tr <span class="s2">&#34;[:punct:][:space:]&#34;</span> <span class="s2">&#34;\n&#34;</span> <span class="p">|</span> tr <span class="s2">&#34;[:upper:]&#34;</span> <span class="s2">&#34;[:lower:]&#34;</span> <span class="p">|</span> grep . <span class="p">|</span> sort <span class="p">|</span> uniq -c <span class="p">|</span> sort -nr
+
+<span class="c1"># upper to lower</span>
+cat file <span class="p">|</span> tr <span class="s2">&#34;[A-Z]&#34;</span> <span class="s2">&#34;[a-z]&#34;</span>
+<span class="c1"># or</span>
+cat file <span class="p">|</span> tr <span class="s2">&#34;[:upper:]&#34;</span> <span class="s2">&#34;[:lower:]&#34;</span>
+</code></pre></div><h4 id="wc">wc</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># return number of lines in file</span>
+wc -l file
+<span class="c1"># print byte counts</span>
+wc -c
+<span class="c1"># print character counts</span> 
+wc -m
+<span class="c1"># print length of longest line</span>
+wc -L
+<span class="c1"># print word counts</span>
+wc -w
+</code></pre></div><h4 id="split">split</h4>
+<h4 id="sort--uniq">sort &amp; uniq</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># sort by second column alphabetically</span>
+cat file.csv <span class="p">|</span> sort -t, -k2
+<span class="c1"># numerically</span>
+cat file.csv <span class="p">|</span> sort -t, -k2n
+<span class="c1"># reverse order</span>
+cat file.csv <span class="p">|</span> sort -t, -k2nr
+</code></pre></div><ul>
+<li><code>-t</code> means comma as our delimiter</li>
+<li><code>-f</code> means ignore case</li>
+<li><code>-R</code> means scramble order</li>
+<li><code>-c</code> count number of occurrences</li>
+<li><code>-d</code> only duplicate lines</li>
+</ul>
+<h4 id="cut">cut</h4>
+<h3 id="nohup">nohup</h3>
+<ul>
+<li>redirect the error and stdout to the same file: <code>nohup command &gt; nohup.out 2&gt;&amp;1</code></li>
+<li>redirect the error and stdout to the different file: <code>nohup command &gt; nohup.out 2&gt;nohup.err</code></li>
+</ul>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125392221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125392221-1');
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+    
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>
+

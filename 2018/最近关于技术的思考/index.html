@@ -27,21 +27,8 @@
 所以说，事情都是有两面性的，当你选择一门语言的时候一定要考虑各种trade off。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pingrunhuang.github.io/2018/%E6%9C%80%E8%BF%91%E5%85%B3%E4%BA%8E%E6%8A%80%E6%9C%AF%E7%9A%84%E6%80%9D%E8%80%83/" />
-
-
-
-<meta property="article:published_time" content="2018-08-10T23:08:19&#43;08:00"/>
-<meta property="article:modified_time" content="2018-08-10T23:08:19&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-08-10T23:08:19+08:00" />
+<meta property="article:modified_time" content="2018-08-10T23:08:19+08:00" />
 
 
 <title>
@@ -67,11 +54,11 @@
 
 
     
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-02-23%2014%3a14%3a34.570582539%20%2b0800%20CST%20m%3d%2b0.992564626">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-02-23%2014%3a14%3a34.570582539%20%2b0800%20CST%20m%3d%2b0.992564626">
-    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-02-23%2014%3a14%3a34.570582539%20%2b0800%20CST%20m%3d%2b0.992564626">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a21%3a24.6745027%20%2b0800%20CST%20m%3d%2b1.012855801">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a21%3a24.6745027%20%2b0800%20CST%20m%3d%2b1.012855801">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a21%3a24.6745027%20%2b0800%20CST%20m%3d%2b1.012855801">
     
-        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-02-23%2014%3a14%3a34.570582539%20%2b0800%20CST%20m%3d%2b0.992564626">
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a21%3a24.6745027%20%2b0800%20CST%20m%3d%2b1.012855801">
     
 
 
@@ -220,18 +207,12 @@
                 <blockquote>
 <p>这会是一篇general的编程语言思考</p>
 </blockquote>
-
 <p>终于到了愉快的周五，忙活了半天的团建打仗活动，原本打算好好品赏一部姜文的电影的，结果被一篇关于<code>julia 1.0</code>发布的博文刷爆了朋友圈，具体可以看<a href="https://julialang.org/blog/2018/08/one-point-zero">这里</a>。然后突然意识到从前不温不火的<code>julia</code>难道是要向<code>python</code>的霸权地位发起猛攻么？再回想到今天早上在<code>HN</code>上看到的一篇关于<code>clojure</code>的采访，里面介绍了一些关于<code>clojure</code>这门<code>Lisp</code>方言的应用和特性，不禁想起从前轮子哥说过，先学一堆的语言再来说计算机入门。才知道这是有道理的，今天我就来结合最近的一些工作说说我自己的体会。</p>
-
 <p>我是一个对语言会充满好奇心和讲究的人。这里所说的语言包括各国的官方语言，更包括编程语言。从我现有的开发经验来说，我认为选择一门语言是需要考虑安全性和便利性的。我所说的安全性是指会不会发生在程序使用中因为语言设计本身而引发的一些不可控或者没有考虑的corner case而引发的程序中断（事实上一门好的语言应该在编译时就组织开发人员进行编译）。而便利性是指这门语言在实现某个功能的时候是否需要编写很多的statement来达到这样的效果。结合我仅有的开发经验，我认为这两者看似没关系却存在某种contradiction。</p>
-
 <p>上学的时候老师都喜欢用<code>java</code>来作为教学语言，当时写<code>java</code>的感觉就非常的爽，虽然都是<code>bug</code>，但是过程式的编程让我拥有了一种像计算机一样按部就班的思考方式，其中严格的类型控制也让我有种先入为主的概念，认为所有的语言就应该是像这样的严格控制。甚至有同学说一定不会从事java开发的时候，我还一度怀疑这门语言这么严谨，干嘛不用啊。然后就像很多留学生要找工作一样，我也因为要找工作，刷起了leetcode。开始用上了<code>python</code>。第一感觉是，这是什么玩意儿啊</p>
-
 <p>[黑人脸]
 什么类型都没有，这有毒吧。这玩意儿能跑？然后抱着试一下的态度写了个helloworld，慢慢的竟然开始喜欢上了<code>python</code>的便利，而且从大神的回答中慢慢开始欣赏<code>python</code>的优美，甚至会因为在leetcode上面看到大神用<code>python</code>写的简洁明了的回答而开心一个晚上，产生了嫌弃java的念头。</p>
-
 <p>绕了这么一大圈，我想说其实完全摒弃某一种语言都是政治上不正确的，因为这些语言从设计本身就是有一些specific的target的，不可能有某种万金油的东西可以实现所有的理想状态。而当你在做选择的时候，一定要考虑上面提到的两种情况的trade off。比如上面提到的java，确实是一门笨重的语言，他就像我爸那辆开了很久的进口丰田，笨重却稳当。在编写python的一段map reduce pattern的代码的时候可能需要近乎50行的代码。这样的严谨导致了最后生成的jar包无法更改源代码，而且数据的输出类型一定是expected的。就拿最近做的一个数据批量插入数据库的操作，一开始是希望利用python简洁便利的方式对数据进行入库，结果在数据入库的时候经常会出现数据值不同一而导致的程序直接崩溃。这种unexpected的操作让python的简洁显得其实不那么简单。</p>
-
 <p>所以说，事情都是有两面性的，当你选择一门语言的时候一定要考虑各种trade off。</p>
 
                 <br>

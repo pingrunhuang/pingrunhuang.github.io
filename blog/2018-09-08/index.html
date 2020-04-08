@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Frank Huang">
+<meta name="description" content="YARN(Yet Another Resource Negotiator) which is the second generation of mapreduce implementation.
+YARN component:
+ Resource manager (Scheduler) Node manager Application master (communication between node manager and resource manager)  Question:
+ since application master is considered not an trustworthy service(https://mapr.com/docs/home/MapROverview/c_application_master.html), how come it can pass the security token from the resource manager to the node manager to adjust the container resources?  Different types of yarn scheduling strategy  FIFO Capacity schedualer Fair schedualer   Roles in yarn  Node manager Resource manager  Container is a subset of resources which perform one or many tasks.">
+
+<meta property="og:title" content="Understanding how yarn scheduler works and parameters" />
+<meta property="og:description" content="YARN(Yet Another Resource Negotiator) which is the second generation of mapreduce implementation.
+YARN component:
+ Resource manager (Scheduler) Node manager Application master (communication between node manager and resource manager)  Question:
+ since application master is considered not an trustworthy service(https://mapr.com/docs/home/MapROverview/c_application_master.html), how come it can pass the security token from the resource manager to the node manager to adjust the container resources?  Different types of yarn scheduling strategy  FIFO Capacity schedualer Fair schedualer   Roles in yarn  Node manager Resource manager  Container is a subset of resources which perform one or many tasks." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pingrunhuang.github.io/blog/2018-09-08/" />
+<meta property="article:published_time" content="2018-09-08T15:39:45+08:00" />
+<meta property="article:modified_time" content="2018-09-08T15:39:45+08:00" />
+
+
+<title>
+
+
+     Understanding how yarn scheduler works and parameters 
+
+</title>
+<link rel="canonical" href="https://pingrunhuang.github.io/blog/2018-09-08/">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/reset.css?t=2020-04-08%2010%3a18%3a30.5647437%20%2b0800%20CST%20m%3d%2b2.009830401">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/pygments.css?t=2020-04-08%2010%3a18%3a30.5647437%20%2b0800%20CST%20m%3d%2b2.009830401">
+    <link rel="stylesheet" href="https://pingrunhuang.github.io/css/main.css?t=2020-04-08%2010%3a18%3a30.5647437%20%2b0800%20CST%20m%3d%2b2.009830401">
+    
+        <link rel="stylesheet" href="https://pingrunhuang.github.io/css/override.css?t=2020-04-08%2010%3a18%3a30.5647437%20%2b0800%20CST%20m%3d%2b2.009830401">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://pingrunhuang.github.io/img/floyd.ico"
+
+>
+
+
+
+
+
+
+<script type="text/javascript" src="https://pingrunhuang.github.io/js/app.js"></script>
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://pingrunhuang.github.io/"><img class="avatar" src="https://pingrunhuang.github.io/img/profile.png" srcset="https://pingrunhuang.github.io/img/profile.png 1x,https://pingrunhuang.github.io/img/profile-2x.png 2x,https://pingrunhuang.github.io/img/profile-3x.png 3x,https://pingrunhuang.github.io/img/profile-4x.png 4x"></a>
+            
+            <a href="https://pingrunhuang.github.io/"><div class="name">Frank Huang</div></a>
+            
+              <h3 class="self-intro">import this</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-about"><a href="https://pingrunhuang.github.io/about/resume"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://pingrunhuang.github.io/code/"><span>Code</span></a></li>
+                    
+                        <li class="nav-Life blog"><a href="https://pingrunhuang.github.io/lifeblog/"><span>Life</span></a></li>
+                    
+                        <li class="nav-Technical-blog"><a href="https://pingrunhuang.github.io/blog/"><span>Tech</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/pingrunhuang" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="https://twitter.com/RunpingH" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+            <a href="//example.com/@you" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/mastodon.svg" alt="mastodon" /></a>
+        
+
+        
+            <a href="//linkedin.com/in/frank-huang-372409105/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="https://www.instagram.com/frank_runping/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+            <a href="mailto:pingrunhuang@gmail.com"><img class="icon" src="https://pingrunhuang.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://www.flickr.com/photos/144797601@N05/" target="_blank" rel="noopener"><img class="icon" src="https://pingrunhuang.github.io/img/flickr.jpg" alt="flickr" /></a>
+        
+
+        
+            <a href="https://pingrunhuang.github.io/index.xml"><img class="icon" src="https://pingrunhuang.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Understanding how yarn scheduler works and parameters
+
+</div>
+
+                    <div class="initials"><a href="https://pingrunhuang.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sat Sep 8 2018 15:39:45 CST'>Sep 8, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>One minute read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <p>YARN(Yet Another Resource Negotiator) which is the second generation of mapreduce implementation.</p>
+<p>YARN component:</p>
+<ol>
+<li>Resource manager (Scheduler)</li>
+<li>Node manager</li>
+<li>Application master (communication between node manager and resource manager)</li>
+</ol>
+<p>Question:</p>
+<ol>
+<li>since application master is considered not an trustworthy service(<a href="https://mapr.com/docs/home/MapROverview/c_application_master.html),">https://mapr.com/docs/home/MapROverview/c_application_master.html),</a> how come it can pass the security token from the resource manager to the node manager to adjust the container resources?</li>
+</ol>
+<h1 id="different-types-of-yarn-scheduling-strategy">Different types of yarn scheduling strategy</h1>
+<ol>
+<li>FIFO</li>
+<li>Capacity schedualer</li>
+<li>Fair schedualer
+<img src="https://pingrunhuang.github.io/blog/2018-09-08/yarn_schedulers.png" alt=""></li>
+</ol>
+<h1 id="roles-in-yarn">Roles in yarn</h1>
+<ol>
+<li>Node manager</li>
+<li>Resource manager</li>
+</ol>
+<p>Container is a subset of resources which perform one or many tasks. 
+An application consists of one or many tasks which get executed on different containers.</p>
+<h1 id="reference">Reference</h1>
+<ol>
+<li><a href="https://www.oreilly.com/library/view/hadoop-the-definitive/9781491901687/ch04.html">https://www.oreilly.com/library/view/hadoop-the-definitive/9781491901687/ch04.html</a></li>
+<li><a href="https://www.cloudera.com/documentation/enterprise/5-3-x/topics/cdh_ig_yarn_tuning.html">https://www.cloudera.com/documentation/enterprise/5-3-x/topics/cdh_ig_yarn_tuning.html</a></li>
+<li><a href="http://blog.cloudera.com/blog/2013/06/improvements-in-the-hadoop-yarn-fair-scheduler/">http://blog.cloudera.com/blog/2013/06/improvements-in-the-hadoop-yarn-fair-scheduler/</a></li>
+<li></li>
+</ol>
+
+                <br>
+		            <p><a href="https://pingrunhuang.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            
+            
+
+            
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125392221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125392221-1');
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+    
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>
+
