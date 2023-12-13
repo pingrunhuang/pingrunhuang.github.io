@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design pattern on </title>
+    <link>https://www.pingrunhuang.github.io/categories/design-pattern/</link>
+    <description>Recent content in Design pattern on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Oct 2017 17:52:13 +0800</lastBuildDate>
+    <atom:link href="https://www.pingrunhuang.github.io/categories/design-pattern/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dynamic proxy in Java</title>
+      <link>https://www.pingrunhuang.github.io/blog/2017-10-26/</link>
+      <pubDate>Thu, 26 Oct 2017 17:52:13 +0800</pubDate>
+      <guid>https://www.pingrunhuang.github.io/blog/2017-10-26/</guid>
+      <description>Proxy your call to the professional, save you some more time
+I recently read a great slides talking about Proxy pattern in Java which has confused me for a long time. I&amp;rsquo;ve always consider it as something like the delegator pattern which is like adding a new layer for a specified class so that clients can do more other things when calling it.
+It turns out that there could be more to do with java dynamic proxy.</description>
+    </item>
+  </channel>
+</rss>

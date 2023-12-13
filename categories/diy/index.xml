@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DIY on </title>
+    <link>https://www.pingrunhuang.github.io/categories/diy/</link>
+    <description>Recent content in DIY on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 29 Oct 2017 17:05:56 +0800</lastBuildDate>
+    <atom:link href="https://www.pingrunhuang.github.io/categories/diy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Assemble a data analysis platform -- Bazooka</title>
+      <link>https://www.pingrunhuang.github.io/blog/2017-10-29/</link>
+      <pubDate>Sun, 29 Oct 2017 17:05:56 +0800</pubDate>
+      <guid>https://www.pingrunhuang.github.io/blog/2017-10-29/</guid>
+      <description>Never settle &amp;mdash;- One plus
+I&amp;rsquo;ve always wanted to have a super monster platform rather then 4 core, integrated graphics card, windows os etc. But due to the high budget, I chose to just stick with my little mac air which is obvious not an option for building big application. Finally, after my first project of re-decorating my apartment, I launch my second project called Bazooka which is the mother board of my so called monster desktop(In my opinion).</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>machine learning on </title>
+    <link>https://www.pingrunhuang.github.io/categories/machine-learning/</link>
+    <description>Recent content in machine learning on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 21 Apr 2019 12:46:43 +0800</lastBuildDate>
+    <atom:link href="https://www.pingrunhuang.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to improve your neural net week 2: note of deeplearning.ai from coursera</title>
+      <link>https://www.pingrunhuang.github.io/blog/2019-04-21/</link>
+      <pubDate>Sun, 21 Apr 2019 12:46:43 +0800</pubDate>
+      <guid>https://www.pingrunhuang.github.io/blog/2019-04-21/</guid>
+      <description>This week&amp;rsquo;s topic is about speeding up the learning process.
+Mini batch epoch: a single run through the whole training examples. If we are using mini batch technique with T batches, we will run T times of gradient descent wheras without mini batch, we will get only 1 time of gradient descent.
+Notation $$ a^{[l]\{t\}(m)} $$ means the the activation value of m examples in t minibatch in lth layer.</description>
+    </item>
+  </channel>
+</rss>

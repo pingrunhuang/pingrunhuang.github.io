@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto pinkish"><head>
+  <title>Frank&#39;s blog</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="A safari of me exploring the tech world" />
+<meta name="author" content="Frank Huang" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.120.4" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://www.pingrunhuang.github.io/">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">From hamming distance to leetcode thought--leetcode 477</h1>
+  <p class="mb-1">March 9, 2018</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <p>今天写到了leetcode第477道题目的时候表示十分激动，一方面觉得刷leetcode很久没有刷到这么有趣的题目了，第二方面也是想记录一下刷leetcode的过程中的体会。</p>
+<p>刷leetcode从一开始觉得很枯燥乏味,到现在几乎每天刷一道leetcode，似乎成为了饭后散步一样习以为常的事情了。这其中主要有亮点是我觉得刷leetcode带给我的好处。</p>
+<ul>
+<li>刷leetcode的过程中逼着我去看一些绕口的英文句子。 在不知不觉中训练了我边看英文边思考的能力。</li>
+<li>越来越掌握一门语言其实只要刷一遍leetcode就能懂个八九十了。</li>
+</ul>
+<p>对于第一点当然是不言自明的了，对于第二点，我刚开始的时候没有这种感觉，不过后期刷了一页leetcode之后，体会颇深。我用的是python，所以每次做完题我都会去discussion里面找大神们的神操作，慢慢的竟然爱上了python哲学一般简洁的编程思想，很多技巧真的是只要一行就能实现java十几行的操作。这点让我每次对比完大神的操作和我自己的笨操作之后，总有一种<code>what shit am I writing</code>的感觉，然后就是试着模仿大神们的操作，重现一次implementation。我相信不只是python，java、scala或者golang都可以在里面找到对应的解释，我认为这是我目前发现的学习语言的捷径。</p>
+<p>好了，言归正传，477这道题真的很棒，不会很复杂，但是也不是一开始就能想到的。以下是题目的description：
+&rsquo;&rsquo;&rsquo;
+The Hamming distance between two integers is the number of positions at which the corresponding bits are different.</p>
+<p>Now your job is to find the total Hamming distance between all pairs of the given numbers.</p>
+<p>Example:
+Input: 4, 14, 2</p>
+<p>Output: 6</p>
+<p>Explanation: In binary representation, the 4 is 0100, 14 is 1110, and 2 is 0010 (just
+showing the four bits relevant in this case). So the answer will be:
+HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 + 2 = 6.</p>
+<p>Note:
+Elements of the given array are in the range of 0 to 10^9
+Length of the array will not exceed 10^4.
+&rsquo;''</p>
+<p>第一眼看上去就觉得要来一个二次遍历，时间复杂度当然会是O(N^2)，下面是我的一个实现：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">totalHammingDistance</span>(self, nums):
+</span></span><span style="display:flex;"><span>    res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i1,v1 <span style="color:#f92672">in</span> enumerate(nums):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i2, v2 <span style="color:#f92672">in</span> enumerate(nums[i1<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:]):
+</span></span><span style="display:flex;"><span>            res <span style="color:#f92672">+=</span> bin(v1<span style="color:#f92672">^</span>v2)<span style="color:#f92672">.</span>count(<span style="color:#e6db74">&#39;1&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res
+</span></span></code></pre></div><p>但是这种算法直接被leetcode否决了，其实也正常，一旦想到要遍历两次数组的时候，就应该预想到时间复杂度一定会很高，很大可能是不可取的。经验告诉我，这时候条件肯定是有用的，但是想破头脑也想不到怎么用。于是google之，发现大神们的做法真的很巧妙，顿时茅塞顿开，醍醐灌顶，头顶佛（lv）光，整个人都不好了。好了，吹得有点过了，下面我就来看图说话。</p>
+<pre tabindex="0"><code>| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | 
+
+| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | 
+
+| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | 
+
+| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | 
+
+...
+
+| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+</code></pre><p>相信看了上面的图很多人就已经懂了吧。开玩笑的，不懂继续看我的笨解释。<br>
+我们的目标实际上是要找到同一个bit位上面，这n个数两两不同的个数，而考虑到bit位上面其实只有2种可能值，0和1。也就是说，在同一个bit位上面的值，每一个是1的数应该和剩余的0的数不相同，从而对总的hamming distance（hamming distance是两个数的二进制表达式中不相同的个数）产生贡献，而这个贡献是多少呢？如果该bit位上面的值是1的个数是<code>count</code>的话，那么0的个数就是<code>n-count</code>，因此这个位置上面最终也将使结果增加<code>count*(n-count)</code>的hanmming distance。复杂度瞬间从O(n^2) 降低到 O(32*n)。这是一个巨大的飞跃啊，题目的假设是每个元素是<code>0&lt;=x&lt;=10^9</code>，元素个数是<code>0&lt;n&lt;=10^4</code>，那么最坏的情况我们就要遍历<code>10^13</code>，而现在，我们最差也就只要遍历<code>32*10^4</code>，差距高低立判。下面是大概的解决方案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">totalHammingDistance</span>(self, nums):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type nums: List[int]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: int
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        res<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        n<span style="color:#f92672">=</span>len(nums)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">33</span>):
+</span></span><span style="display:flex;"><span>            bit_count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> nums:
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># calculate the number of bits</span>
+</span></span><span style="display:flex;"><span>                bit_count<span style="color:#f92672">+=</span>(num<span style="color:#f92672">&gt;&gt;</span>i)<span style="color:#f92672">&amp;</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            res<span style="color:#f92672">+=</span>bit_count<span style="color:#f92672">*</span>(n<span style="color:#f92672">-</span>bit_count)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res
+</span></span></code></pre></div><p>事后不禁感叹,大神毕竟是大神啊，此等旁门左道都能想到。</p>
+<p>之所以觉得这道题目很好，一方面觉得他训练了提高对题目条件的重视程度，第二方面他加深了我对bit操作的概念，包括位运算符等。然后再联想最近写leetcode的经历，感触颇深，因此专门拎出来写一篇博客记录（zhuangbi）一下。</p>
+<p>最后照例总结一下最近的工作生活，最近有个大项目一直在赶，写leetcode也是忙中偷闲，一点一点攒，越来越觉得，leetcode虽然操作的是小的数据集，可能就一个4个数字的数组，但是放到上千万条的数据集来看，其实也是一个道理，很多大数据集问题可以按照这些训练的方法进行解析，有时候会在工作中突然用到的时候有种莫名的兴奋。这也是最近在做数据搬运工过程中的体会。然后side project也还要忙，如何平衡公司的project和自己的side project是一个很艰苦的过程，希望自己能够更加专注，做好每一个向这个community 贡献的产品。说到这里，想起了人生中第一次在开源社区的贡献被merge了，yeah!!!!</p>
+<p><img src="/data/2018-03-09/contribution.png" alt=""></p>
+<p>虽然只是一个小小的静态网站生成器的主题，但也算是走出了开源的第一步，可喜可贺。那就以这个逼作为结尾结束本文吧。Feel free to leave a comment below, and until then see you next time!</p>
+
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
+    data-page-id="060362a982bdbca6c911b5053f6f09f0"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2018-03-09/"
+    data-page-title="From hamming distance to leetcode thought--leetcode 477">
+</div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/2017-12-25/"
+      title="Merkle tree"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/2018-06-19/"
+      title="Gerrit push vs git push"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">2022-2023</p>
+  <p style="font-size:0px;">
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on </title>
+    <link>https://www.pingrunhuang.github.io/categories/python/</link>
+    <description>Recent content in python on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Apr 2020 23:57:48 +0800</lastBuildDate>
+    <atom:link href="https://www.pingrunhuang.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>An experience of enhancing python efficiency</title>
+      <link>https://www.pingrunhuang.github.io/blog/2020-04-22/</link>
+      <pubDate>Wed, 22 Apr 2020 23:57:48 +0800</pubDate>
+      <guid>https://www.pingrunhuang.github.io/blog/2020-04-22/</guid>
+      <description>Recently I ran into a tricky question which seems to a fairly easy one at the first glance. It is a typical data processing related issue including duplication check, sorting .etc In this blog, I&amp;rsquo;m going to demonstrate the issue and mark down the process of how to spot the bottleneck to level up the program. Again, any optimization apart from the real issue backed is nonsense. Therefore this is just a brief or general optimization idea for similer related issues.</description>
+    </item>
+    <item>
+      <title>My understanding on asynchronous programming in python</title>
+      <link>https://www.pingrunhuang.github.io/blog/2018-08-09/</link>
+      <pubDate>Thu, 09 Aug 2018 23:47:22 +0800</pubDate>
+      <guid>https://www.pingrunhuang.github.io/blog/2018-08-09/</guid>
+      <description>Why do we need asynchronous? Chess master Judit Polgár hosts a chess exhibition in which she plays multiple amateur players. She has two ways of conducting the exhibition: synchronously and asynchronously. Assumptions:
+24 opponents Judit makes each chess move in 5 seconds Opponents each take 55 seconds to make a move Games average 30 pair-moves (60 moves total)
+Synchronous version: Judit plays one game at a time, never two at the same time, until the game is complete.</description>
+    </item>
+  </channel>
+</rss>

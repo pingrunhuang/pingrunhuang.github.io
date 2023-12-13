@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto pinkish"><head>
+  <title>Frank&#39;s blog</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="A safari of me exploring the tech world" />
+<meta name="author" content="Frank Huang" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.120.4" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://www.pingrunhuang.github.io/">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">An experience of enhancing python efficiency</h1>
+  <p class="mb-1">April 22, 2020</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <p>Recently I ran into a tricky question which seems to a fairly easy one at the first glance. It is a typical data processing related issue including duplication check, sorting .etc In this blog, I&rsquo;m going to demonstrate the issue and mark down the process of how to spot the bottleneck to level up the program. Again, any optimization apart from the real issue backed is nonsense. Therefore this is just a brief or general optimization idea for similer related issues.</p>
+<h1 id="stop-using-iteration">Stop using iteration</h1>
+<blockquote>
+<p>Now let’s compare this to the time required to explicitly loop over the array in Python and tally up the sum. Python is unable to take advantage of the fact that the array’s contents are all of a single data type - it has to check, for every iteration, if it is dealing with an integer, a string, a floating point number, etc, just as it does when iterating over a list. This will slow down the computation massively.</p>
+</blockquote>
+<p>The above description is from <a href="https://www.pythonlikeyoumeanit.com/Module3_IntroducingNumpy/VectorizedOperations.html">this blog</a>. Actually until this time of struggling to improve the code efficiency did I realize how important it is to use vectorized operation. I used to think it is another way of for loop, but obviously not.</p>
+<p>My scenario was that I had an HDF5 file which contains 2 datasets(Feel free to check the related concept in HDF5 official page, but essentially could think of it as a set of numpy array with schema). One is my actual data containing timestamp data and the other is the index which keep track of the index of each timestamp.</p>
+<p><strong>Dataset1</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">ts</th>
+<th style="text-align:center">v1</th>
+<th style="text-align:center">v2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2020-01-01</td>
+<td style="text-align:center">&hellip;</td>
+<td style="text-align:center">&hellip;</td>
+</tr>
+<tr>
+<td style="text-align:center">2020-02-01</td>
+<td style="text-align:center">&hellip;</td>
+<td style="text-align:center">&hellip;</td>
+</tr>
+<tr>
+<td style="text-align:center">2020-02 05</td>
+<td style="text-align:center">&hellip;</td>
+<td style="text-align:center">&hellip;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dataset2</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">ts</th>
+<th style="text-align:center">index</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2020-01-01</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">2020-02-01</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">2020-02 05</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+<p>Timestamp in the first dataset is ordered by ts. So I need to delete one element in the data which means the index dataset should be changed accordingly.</p>
+<p>Here is my original operation over my dataset:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    data_dtype <span style="color:#f92672">=</span> fp[_type]<span style="color:#f92672">.</span>dtype
+</span></span><span style="display:flex;"><span>    idx_dtype <span style="color:#f92672">=</span> fp[<span style="color:#e6db74">&#39;index&#39;</span>]<span style="color:#f92672">.</span>dtype
+</span></span><span style="display:flex;"><span>    qualified_entries <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    index_shift <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> entry <span style="color:#f92672">in</span> fp[_type]:
+</span></span><span style="display:flex;"><span>        ts <span style="color:#f92672">=</span> entry[<span style="color:#e6db74">&#39;timestamp&#39;</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> end_ts <span style="color:#f92672">and</span> start_ts <span style="color:#f92672">&lt;=</span> ts <span style="color:#f92672">&lt;=</span> end_ts:
+</span></span><span style="display:flex;"><span>            qualified_entries<span style="color:#f92672">.</span>append(entry)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> end_ts <span style="color:#f92672">and</span> start_ts <span style="color:#f92672">&lt;=</span> ts:
+</span></span><span style="display:flex;"><span>            qualified_entries<span style="color:#f92672">.</span>append(entry)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            index_shift <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    new_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;new_</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#39;-&#39;</span><span style="color:#f92672">.</span>join(fp<span style="color:#f92672">.</span>filename<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;/&#39;</span>)))
+</span></span><span style="display:flex;"><span>    new_data <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(qualified_entries, dtype<span style="color:#f92672">=</span>data_dtype)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Processing index </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">...&#34;</span><span style="color:#f92672">.</span>format(new_name))
+</span></span><span style="display:flex;"><span>    idx <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> fp[<span style="color:#e6db74">&#39;index&#39;</span>]:
+</span></span><span style="display:flex;"><span>        temp_idx <span style="color:#f92672">=</span> x[<span style="color:#e6db74">&#39;index&#39;</span>] <span style="color:#f92672">-</span> index_shift
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> temp_idx <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>            idx<span style="color:#f92672">.</span>append((x[<span style="color:#e6db74">&#39;timestamp&#39;</span>], temp_idx))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    new_idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(idx, dtype<span style="color:#f92672">=</span>idx_dtype)
+</span></span></code></pre></div><p>There are basically 2 places that could be optimized which both lead to the same fundamental issue: avoid using for loop in numpy array. As discussed before, numpy array is a very special data structure optimized for fast calculation in very low level such as address finding.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">ts_filter</span>(fp, _type, start_ts<span style="color:#f92672">=</span><span style="color:#ae81ff">1585699200000</span>, end_ts<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    a function to filter qualified entries 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    :param _type:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    :param fp:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    :param start_ts:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    :param end_ts:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    :return:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    algo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gzip&#39;</span>
+</span></span><span style="display:flex;"><span>    level <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>    idx_ds <span style="color:#f92672">=</span> fp[<span style="color:#e6db74">&#39;index&#39;</span>]
+</span></span><span style="display:flex;"><span>    data_ds <span style="color:#f92672">=</span> fp[_type]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># qualified_entries = []</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> end_ts:
+</span></span><span style="display:flex;"><span>        fil1 <span style="color:#f92672">=</span> start_ts <span style="color:#f92672">&lt;=</span> data_ds[<span style="color:#e6db74">&#39;timestamp&#39;</span>]
+</span></span><span style="display:flex;"><span>        fil2 <span style="color:#f92672">=</span> data_ds[<span style="color:#e6db74">&#39;timestamp&#39;</span>] <span style="color:#f92672">&lt;</span> end_ts
+</span></span><span style="display:flex;"><span>        fil <span style="color:#f92672">=</span> fil1 <span style="color:#f92672">&amp;</span> fil2
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        fil <span style="color:#f92672">=</span> start_ts <span style="color:#f92672">&lt;=</span> data_ds[<span style="color:#e6db74">&#39;timestamp&#39;</span>]
+</span></span><span style="display:flex;"><span>    index_shift <span style="color:#f92672">=</span> len(data_ds) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>count_nonzero(fil)
+</span></span><span style="display:flex;"><span>    new_data <span style="color:#f92672">=</span> data_ds[index_shift:]
+</span></span><span style="display:flex;"><span>    new_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;new_</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#39;_&#39;</span><span style="color:#f92672">.</span>join(fp<span style="color:#f92672">.</span>filename<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;/&#39;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Processing index </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">...&#34;</span><span style="color:#f92672">.</span>format(new_name))
+</span></span><span style="display:flex;"><span>    shifted_idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>add(idx_ds[<span style="color:#e6db74">&#39;index&#39;</span>], <span style="color:#f92672">-</span>index_shift)
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;&#39;&#39;notice we are using idx_ds[&#39;index&#39;] here, think why?&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    idx_kept <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>count_nonzero(np<span style="color:#f92672">.</span>where(shifted_idx <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>, idx_ds[<span style="color:#e6db74">&#39;index&#39;</span>], <span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>    idx_omit <span style="color:#f92672">=</span> len(idx_ds) <span style="color:#f92672">-</span> idx_kept
+</span></span><span style="display:flex;"><span>    new_idx <span style="color:#f92672">=</span> idx_ds[idx_omit:]
+</span></span><span style="display:flex;"><span>    new_idx[<span style="color:#e6db74">&#39;index&#39;</span>] <span style="color:#f92672">=</span> shifted_idx[idx_omit:]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> h5py<span style="color:#f92672">.</span>File(new_name, <span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>        f<span style="color:#f92672">.</span>create_dataset(name<span style="color:#f92672">=</span>_type, data<span style="color:#f92672">=</span>new_data, compression<span style="color:#f92672">=</span>algo, compression_opts<span style="color:#f92672">=</span>level, maxshape<span style="color:#f92672">=</span>(<span style="color:#66d9ef">None</span>,))
+</span></span><span style="display:flex;"><span>        f<span style="color:#f92672">.</span>create_dataset(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;index&#39;</span>, data<span style="color:#f92672">=</span>new_idx, compression<span style="color:#f92672">=</span>algo, compression_opts<span style="color:#f92672">=</span>level, maxshape<span style="color:#f92672">=</span>(<span style="color:#66d9ef">None</span>,))
+</span></span></code></pre></div><p>Here is the result within the source dataset of 100,000 ~ records:
+Before</p>
+<pre tabindex="0"><code>0.7670650999999999
+</code></pre><p>After</p>
+<pre tabindex="0"><code>0.0236209
+</code></pre><p>Take a look at this beautifully ~30 times improvement. In summary, this concept is very common in another big data manipulation framework <code>Spark</code> where the RDD is somehow equivilant to dataset here. I was too stupid not to use this concept at the very beginnig which cause the program to dangle for a long time. Fundamentally, this topic leads to another fundamental technique that should be kept in mind when doing data processing: <strong>always try to stick to built-in numpy functions</strong>. Below are some common scenario:</p>
+<ol>
+<li>Want to keep distinct records only? Use <code>numpy.unique</code>. It is very tempting to do distinction checking using one for loop plus the dictionary or set. But numpy array comes along with enough extra data to tell the distinctions.</li>
+<li>use timestamp manipulation over datetime manipulation. This is not that related to the disctussion of built-in numpy functions checking. But in my experience, time series data is pretty common to compare in the daily data processing. For the same size of the above dataset, below is a first impression of such technique could improve our code:</li>
+</ol>
+<ul>
+<li>before
+<img src="/data/2020-04-22/before.png" alt=""></li>
+<li>after
+<img src="/data/2020-04-22/after.png" alt=""></li>
+</ul>
+<h1 id="different-tools-to-profile-your-code">Different tools to profile your code</h1>
+<ol>
+<li>cProfile
+As discussed above, the timestamp improvement is actually spotted by using the cProfile module. Some basic usage:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>python -m cProfile -s tottime -o result.out &lt;script.py&gt;
+</span></span></code></pre></div><p><code>-s</code>: sort by tottime.<br>
+<code>-o</code>: save the result to the result.out file.<br>
+For ipython interactive mode:</p>
+<pre tabindex="0"><code>In [1]: %prun myfunc()
+</code></pre><ol start="2">
+<li>mprof
+usage:
+mprof run myscript.py
+mprof plot</li>
+</ol>
+<h1 id="concurrent-is-not-always-the-silver-bullet">concurrent is not always the silver bullet</h1>
+<p>Because most of the time, you need to not only consider how fast your program can run but also limit the memory that the whole program could use.</p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.count_nonzero.html">https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.count_nonzero.html</a></li>
+<li><a href="https://numpy.org/devdocs/reference/generated/numpy.where.html?highlight=where#numpy.where">https://numpy.org/devdocs/reference/generated/numpy.where.html?highlight=where#numpy.where</a></li>
+</ul>
+
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
+    data-page-id="dbf890a9ed15b25bedeb0719f20d78aa"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2020-04-22/"
+    data-page-title="An experience of enhancing python efficiency">
+</div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/2020-02-20/"
+      title="My first step into the crypto world"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">2022-2023</p>
+  <p style="font-size:0px;">
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>

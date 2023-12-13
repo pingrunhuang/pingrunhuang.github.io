@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto pinkish"><head>
+  <title>Frank&#39;s blog</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="A safari of me exploring the tech world" />
+<meta name="author" content="Frank Huang" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.120.4" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://www.pingrunhuang.github.io/">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">How does branches work in git</h1>
+  <p class="mb-1">June 27, 2018</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <p>Branches in git is divided into 2 kind. Remote and local. I will demonstrate a basic scenario in this post regarding the local branch.</p>
+<h1 id="local-branch">local branch</h1>
+<p>Scenario</p>
+<p>You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.</p>
+<p>switch to production branch
+create a issue branch and switch to it which allow you to start working on it and do some commits.</p>
+<pre tabindex="0"><code>$ git checkout -b issue
+</code></pre><p>if you want to do some other fix on the production branch now, you will need to commit all your current work on the issue branch and switch to production branch . <strong>At this point, your working directory is exactly the same before you start working on branch hotfix. When you switch branches, Git resets your working directory to look like it did the last time you committed on that branch.</strong></p>
+<p>then you can create a branch called hotfix and do your work there. Here is what it looks like now.</p>
+<p><img src="/data/2018-06-27/basic-branching-4.png" alt=""></p>
+<ul>
+<li>you can run tests on the hotfix branch to see if it works fine together. Then switch back to master branch and merge the work that you have done on hotfix branch. You will notice the <strong>fast-forward</strong> notation. <strong>Because the commit c3 pointed to by the branch hotfix you merged in was was directly ahead of the commit c1 that you are on. So git will simply let master point to the same commit that hotfix point to.</strong> This is the so called fast-forward.</li>
+</ul>
+<pre tabindex="0"><code>$ git checkout master
+$ git merge hotfix
+Updating f42c576..3a0874c
+Fast-forward
+ index.html | 2 ++
+ 1 file changed, 2 insertions(+)
+</code></pre><p><img src="/data/2018-06-27/basic-branching-5.png" alt=""></p>
+<p>after that, you do will not need the hotfix branch since the master branch already pointed to it. You will not need to branch pointing to the same commit.</p>
+<pre tabindex="0"><code>$ git branch -d hotfix
+Deleted branch hotfix (3a0874c).
+</code></pre><p><img src="/data/2018-06-27/basic-branching-6.png" alt=""></p>
+<ul>
+<li>now you can switch back to issue branch and continue the previous work.</li>
+</ul>
+<h2 id="merge">merge</h2>
+<h3 id="scenario">Scenario</h3>
+<p>After you switch back to issue branch, you might want to integrate the work that you have done on the hotfix. So it comes to the merge.</p>
+<ul>
+<li>So we decided to issue work is done and ready to be merged into the master branch. Checkout master branch and merge issue branch.</li>
+<li>In this case, the master branch is not the direct ancestor branch you are working on which is issue branch. So git will create a new commit to be pointed by the master branch. Instead of just moving the branch pointer forward, Git creates a new snapshot that results from this three-way merge and automatically creates a new commit that points to it.</li>
+</ul>
+<p><img src="/data/2018-06-27/basic-merging-2.png" alt=""></p>
+<p>Now that we have your work done on issue branch merged with the master branch, we can delete the issue branch.</p>
+<h3 id="merge-conflict">merge conflict</h3>
+<p>It is very common that different 2 branches change the same file differently. In this case, git will pause to let us handle the conflicts. Run <code>git status</code> to see the files unmerged. Below is how the conflicts look like called <code>standard conflict-resolution markers</code>.</p>
+<pre tabindex="0"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:index.html
+&lt;div id=&#34;footer&#34;&gt;contact : email.support@github.com&lt;/div&gt;
+=======
+&lt;div id=&#34;footer&#34;&gt;
+ please contact us at support@github.com
+&lt;/div&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; iss53:index.html
+</code></pre><p>The section between <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>=======</code> is the version that you change on the HEAD(the one you checkout) branch which is master in this case. The section between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> is the version belongs to the branch you are going to merge. We can solve the conflict manually by deciding which part to save. Then add the changed file to stage it. We can also use <code>Intellij</code> or <code>mergetool</code> to resolve it using graphical tool.<br>
+Once we add it, we can commit the changes using <code>git commit</code>. It is always good idea to use <code>git status</code> to check the conflicts.</p>
+<h1 id="remote-branches">Remote branches</h1>
+<blockquote>
+<p>a pointer to your remote repositories comparing to the local branches.</p>
+</blockquote>
+<h2 id="origin">origin</h2>
+<p><code>git ls-remote [remote-name]</code>: displays references available in a remote repository along with the associated commit IDs.
+<code>git remote show [remote-name]</code>: displays the detail info of remote repository.
+<code>[remote-name]</code> in the above is equal to the name or alias that you gave to your remote repo, origin by default. We will discuss later. Remote branch take the form of <code>(remote-name)/(branch-name)</code>. To see which remote branch you are currently tracking, use <code>git branch -vv</code> to see also the last commit info.
+When using <code>git clone</code> git will automatically set up the remote-name as origin. To change it, use <code>git clone -o [new-name]</code>.</p>
+<p>When you merge a remote branch to the local one, will the remote branch disappear?
+No, you will need to delete it manually by <code>git push origin --delete [remote-branch-name]</code>.</p>
+<p>Imagine we have a local branch master pointing to the commit of c3, however the remote branch master has been modified by others and is pointing to c4.
+To synchronize your work, run <code>git fetch origin</code>.  This command looks up which server “origin” is and fetch data to update the local repo.</p>
+<p>How git fetch updates your remote references:</p>
+<p><img src="/data/2018-06-27/remote-branches-3.png" alt=""></p>
+<h2 id="pushing">pushing</h2>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://git-scm.com/book/ch3-5.html">remote branch</a></li>
+<li><a href="https://git-scm.com/book/ch3-2.html">local branch</a></li>
+</ul>
+
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
+    data-page-id="487396fca63366abc0cc364afa0c60cb"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2018-06-27/"
+    data-page-title="How does branches work in git">
+</div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/2018-06-19/"
+      title="Gerrit push vs git push"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/2018-08-09/"
+      title="My understanding on asynchronous programming in python"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">2022-2023</p>
+  <p style="font-size:0px;">
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>

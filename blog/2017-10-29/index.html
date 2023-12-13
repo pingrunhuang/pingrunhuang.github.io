@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto pinkish"><head>
+  <title>Frank&#39;s blog</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="A safari of me exploring the tech world" />
+<meta name="author" content="Frank Huang" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.120.4" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://www.pingrunhuang.github.io/">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Assemble a data analysis platform -- Bazooka</h1>
+  <p class="mb-1">October 29, 2017</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <blockquote>
+<p>Never settle &mdash;- One plus</p>
+</blockquote>
+<p>I&rsquo;ve always wanted to have a super monster platform rather then 4 core, integrated graphics card, windows os etc. But due to the high budget, I chose to just stick with my little mac air which is obvious not an option for building big application. Finally, after my first project of re-decorating my apartment, I launch my second project called <code>Bazooka</code> which is the mother board of my so called monster desktop(In my opinion). I bought all the spare part separately from the internet and I will talk about each part of it and how I built them along with the issues that I&rsquo;ve came across.</p>
+<p>Before starting, I want to post the final model of <code>Bazooka</code>.
+<img src="/data/2017-10-29/final.jpg" alt=""></p>
+<h1 id="specification">Specification</h1>
+<p>Buying each small piece of part is very tough since you have to take the compatibility into consideration. The point is, you finally decide a certain model of a certain component which meet your require for the level, but it turns out that some other parts is very likely to not match it. So it took me 2 weeks to finally decide the prototype and give away my money. So here are they:
+<img src="/data/2017-10-29/all-the-piece.jpg" alt=""></p>
+<h2 id="cpu----the-center-heart-of-bazooka">CPU &ndash; the center heart of Bazooka</h2>
+<p>AMD Ryzen 1700 with 8 core 16 threads and 3.0GHz.
+<img src="/data/2017-10-29/cpu.jpg" alt="">
+The reason I chose it is because the number of core is quite fair for this price comparing to Intel. Although most people choose Intel for the stability, but I just wanted to try something new ;)
+<a href="https://item.jd.com/3885181.html">Here is the link to it</a></p>
+<h2 id="mother-board----the-backbone-of-bazooka">Mother board &ndash; the backbone of Bazooka</h2>
+<p>MSI B350M Bzooka.
+After choosing the heart, it it quite simple to choose the back bone which should just be simply compatible with the cpu. But here is the problem that I have mentioned at the beginning.
+<a href="https://item.jd.com/12499693620.html">Here is the link to it</a></p>
+<h2 id="gpu">GPU</h2>
+<p>The main idea of this project is to build a big data processing machine. Therefore, choosing a right GPU is really important since I need to leverage the power of CUDA acceleration. After considering the budget and the efficiency, I chose GTX 1050 Ti as BAZOOKA&rsquo;s GPU.<br>
+<a href="https://item.jd.com/3528459.html">Like here</a>
+Some details of this chip:
+<img src="/data/2017-10-29/gpu.jpg" alt="">
+<img src="/data/2017-10-29/gpu1.jpg" alt=""></p>
+<h2 id="memory-card">Memory card</h2>
+<p>Mmeory card is the temporary data storage spot for a program. That&rsquo;s why the larger the better. But again, I just choose the 8 gigabyte at the beginning and will consider mount more power later. There is one thing to notice when you choose the memory card. You should always ask or go to the official website of your mother board to see if they have a match. I made a mistake at first for choosing a not compatible one. But thanks to the supplier, I can return it back. Here is my choice eventually:
+<a href="https://buyertrade.taobao.com/trade/detail/tradeSnap.htm?spm=a1z09.2.0.0.49e4b12VT0Vsq&amp;tradeID=78669476202268844&amp;snapShot=true">ADATA 8G DDR4 2400MHz</a></p>
+<h2 id="storage">Storage</h2>
+<p>SSD is a must have feature for faster I/O. Here I chose
+<a href="https://item.jd.com/1398969.html">sandisk 240G</a></p>
+<h2 id="battery">Battery</h2>
+<p>Again, sufficient is enough. There exists a <a href="https://outervision.com/power-supply-calculator">website</a> for calculating the power that you need based on other components. But basically the power you need could be calculated by the following formula:
+<code>CPU + GPU + 100W = battery</code>. After receiving your battery, check the functionality by connecting the only green line with one of the black line to check if the battery is alive. Here is my choice:
+<a href="https://item.jd.com/840370.html">Antack 500W</a></p>
+<h1 id="first-time-enlight">First time enlight!</h1>
+<p><img src="/data/2017-10-29/first-prototype.jpg" alt="">
+<img src="/data/2017-10-29/insight.jpg" alt="">
+<img src="/data/2017-10-29/insight2.jpg" alt=""></p>
+<h1 id="issues">Issues</h1>
+<ul>
+<li>For the first time installation of OS, a machine might probably complain about <code>unknown chipset</code> error. This could be fixed by adding <code>nomodeset nouveau.modeset=0</code> line of code when entering GRUB by typing <code>e</code>.</li>
+<li>Since I am using nvidia GTX 1050 Ti, I need to download the driver once the ubuntu installation is finished. For GTX 1050 Ti, I chose <code>nvidia-384</code> version. You can check out your card&rsquo;s driver from  <a href="http://www.nvidia.com/Download/index.aspx">here</a></li>
+<li>commands for installing the driver:</li>
+</ul>
+<pre tabindex="0"><code>sudo add-apt-repository ppa:graphics-drivers/ppa &amp;&amp; sudo apt update
+sudo apt update
+sudo apt-get install nvidia-384
+</code></pre><h1 id="things-that-i-learnt-during-this-journey">Things that I learnt during this journey</h1>
+<p>I&rsquo;ve always enjoy building stuff as an engineer. And the world is full of mysteries that I&rsquo;m currently confused of. I&rsquo;m eager to explore them as many as possible. By assembling my customized desktop, I get a change to know the current market of the components including the price, the trend. I also get to know the terminology like Intel x86_64 and power8 etc.</p>
+<p>And that is the core to this fast growing society.</p>
+<h1 id="summary-list">Summary list</h1>
+<p>This project cost me really a lot. I almost spent the first official salary for it which is:
+<code>1299 + 279.5 + 2549 + 579 + 699 = 5405.5 RMB</code><br>
+But the point is, I really need it for experiment and the process is really fun. I am thinking of providing a service for helping others assemble one machine with fair budget. Please leave a comment or contact me if you are interested ;)</p>
+<p>Note that there are still lots of details that I did not cover. Feel free to leave a comment or contact me. I would really glad to figure out a solution with you!</p>
+<p>Now I gotta check out this monster!
+<img src="/data/2017-10-29/final1.jpg" alt=""></p>
+
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
+    data-page-id="de2b8674c484e6da3063cc640cbe3d65"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2017-10-29/"
+    data-page-title="Assemble a data analysis platform -- Bazooka">
+</div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/2017-10-26/"
+      title="Dynamic proxy in Java"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/2017-12-23/"
+      title="My understanding on blockchain so far"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">2022-2023</p>
+  <p style="font-size:0px;">
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>

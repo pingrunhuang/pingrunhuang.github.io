@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algorithm on </title>
+    <link>https://www.pingrunhuang.github.io/categories/algorithm/</link>
+    <description>Recent content in algorithm on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Mar 2018 12:17:25 +0800</lastBuildDate>
+    <atom:link href="https://www.pingrunhuang.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From hamming distance to leetcode thought--leetcode 477</title>
+      <link>https://www.pingrunhuang.github.io/blog/2018-03-09/</link>
+      <pubDate>Fri, 09 Mar 2018 12:17:25 +0800</pubDate>
+      <guid>https://www.pingrunhuang.github.io/blog/2018-03-09/</guid>
+      <description>今天写到了leetcode第477道题目的时候表示十分激动，一方面觉得刷leetcode很久没有刷到这么有趣的题目了，第二方面也是想记录一下刷leetcode的过程中的体会。
+刷leetcode从一开始觉得很枯燥乏味,到现在几乎每天刷一道leetcode，似乎成为了饭后散步一样习以为常的事情了。这其中主要有亮点是我觉得刷leetcode带给我的好处。
+刷leetcode的过程中逼着我去看一些绕口的英文句子。 在不知不觉中训练了我边看英文边思考的能力。 越来越掌握一门语言其实只要刷一遍leetcode就能懂个八九十了。 对于第一点当然是不言自明的了，对于第二点，我刚开始的时候没有这种感觉，不过后期刷了一页leetcode之后，体会颇深。我用的是python，所以每次做完题我都会去discussion里面找大神们的神操作，慢慢的竟然爱上了python哲学一般简洁的编程思想，很多技巧真的是只要一行就能实现java十几行的操作。这点让我每次对比完大神的操作和我自己的笨操作之后，总有一种what shit am I writing的感觉，然后就是试着模仿大神们的操作，重现一次implementation。我相信不只是python，java、scala或者golang都可以在里面找到对应的解释，我认为这是我目前发现的学习语言的捷径。
+好了，言归正传，477这道题真的很棒，不会很复杂，但是也不是一开始就能想到的。以下是题目的description： &amp;rsquo;&amp;rsquo;&amp;rsquo; The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+Now your job is to find the total Hamming distance between all pairs of the given numbers.
+Example: Input: 4, 14, 2
+Output: 6
+Explanation: In binary representation, the 4 is 0100, 14 is 1110, and 2 is 0010 (just showing the four bits relevant in this case).</description>
+    </item>
+  </channel>
+</rss>
