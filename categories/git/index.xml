@@ -13,10 +13,7 @@
       <link>https://www.pingrunhuang.github.io/blog/2018-06-27/</link>
       <pubDate>Wed, 27 Jun 2018 22:56:50 +0800</pubDate>
       <guid>https://www.pingrunhuang.github.io/blog/2018-06-27/</guid>
-      <description>Branches in git is divided into 2 kind. Remote and local. I will demonstrate a basic scenario in this post regarding the local branch.
-local branch Scenario
-You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.
-switch to production branch create a issue branch and switch to it which allow you to start working on it and do some commits.</description>
+      <description>Branches in git is divided into 2 kind. Remote and local. I will demonstrate a basic scenario in this post regarding the local branch.&#xA;local branch Scenario&#xA;You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.&#xA;switch to production branch create a issue branch and switch to it which allow you to start working on it and do some commits.</description>
     </item>
   </channel>
 </rss>
