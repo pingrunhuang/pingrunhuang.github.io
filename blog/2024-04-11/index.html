@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto pinkish"><head>
+  <title>Frank&#39;s blog</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="A safari of me exploring the tech world" />
+<meta name="author" content="Frank Huang" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.121.1" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://www.pingrunhuang.github.io/">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">VSCode dev container tryout</h1>
+  <p class="mb-1">April 11, 2024</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <p>I&rsquo;ve always struggle setting up coding environment when switching from devices to devices. Especially when I was working in a firm where I need to set up my development environment for the onboarding process, it&rsquo;s really painful.
+I came across <a href="https://www.youtube.com/watch?v=C_5tDWsWSj0">this video</a> where I was told there is a new feature in vscode that allow me to solve the issue I mentioned above. So I decided to give it a try. Essentially, devcontainer is a container that you can attach to when developing in a completely isolated and fully configured environment. In this way, you don&rsquo;t need to worry about development environment.</p>
+<h1 id="goal">goal</h1>
+<p>to be able to develop a project without considering environment issues.</p>
+<h1 id="clone-a-project">clone a project</h1>
+<p>In this tutorial, I&rsquo;m gonna clone my own personal <a href="ghttps://github.com/pingrunhuang/blog">blog engine</a>.</p>
+<h1 id="install-extensions-in-vscode">install extensions in vscode</h1>
+<p>In vscode extension tab, search for following keywords:
+<img src="/data/2024-04-11/plugins.png" alt="">
+You can either install the <strong>dev container</strong> extension for only dev container usage, or you can install the whole package with the <strong>remote development</strong>.</p>
+<h1 id="start-a-container">start a container</h1>
+<p>After installation, you can run <em>shift</em>+<em>command</em>+<em>p</em> in mac to start a dev container with configuration file generated.
+<img src="/data/2024-04-11/start.png" alt="">
+After this process, a <strong>.devcontainer</strong> directory is created under root directory of the project. Inside the directory, a <strong>devcontainer.json</strong> file is created where the container info is recorded.</p>
+<h1 id="the-devcontainerjson-file">the devcontainer.json file</h1>
+<p>The devcontainer.json file looks like following:
+<img src="/data/2024-04-11/devcontainer.png" alt="">
+name: indicate the name of the container
+image: same concept as dockerfile. The image you would love to use
+features: these are dependencies that you might want to have on top of the image you get. In my case, I need hugo as the blog engine, node and npm for hugo engine.
+postCreateCommand: this are command or script you wanna run once the container is up. In my case, I need to install all the javascript dependencies once the container is up. And there are multiple commands that should be run so I need to have a script to include all the commands.</p>
+<h1 id="the-result">the result</h1>
+<p>After starting the container, you will see that all the dependencies are installed. What you edit locally will be reflected in the container. This is what I&rsquo;ve wanted to achieve when I am developing features that require checking the result on the fly. You don&rsquo;t need to worry about the local environment compatability etc.</p>
+<h1 id="summary">summary</h1>
+<p>So far, I really just tried out the basic features that devcontainer provides.</p>
+<ol>
+<li>get the dev container extensions in vscode</li>
+<li>define dependencies in devcontainer.json file</li>
+<li>define actions that need to be triggered after the environment is up.
+I think there exists tons of features that dev container broght in such as volume mapping etc. I will update another post whenever I figured out the features that devcontainer brought in the table. At the mean time, feel free to comment below to tell me features that I missed or I should try out at this stage.</li>
+</ol>
+
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
+    data-page-id="ab242b44dac6eaa8692cd1d284e6aba4"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2024-04-11/"
+    data-page-title="VSCode dev container tryout">
+</div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/2020-04-22/"
+      title="An experience of enhancing python efficiency"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
+    
+  </h3>
+</div>
+
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+    <script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'J3J3RWFGF');kofiwidget2.draw();</script>
+    <p class="markdownify">2023-2024</p>
+</footer>  
+    
+    
+  </body>
+</html>
