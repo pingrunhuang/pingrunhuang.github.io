@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tools on </title>
+    <link>https://www.pingrunhuang.github.io/categories/tools/</link>
+    <description>Recent content in tools on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Apr 2024 11:12:43 +0800</lastBuildDate>
+    <atom:link href="https://www.pingrunhuang.github.io/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VSCode dev container tryout</title>
+      <link>https://www.pingrunhuang.github.io/blog/2024-04-11/</link>
+      <pubDate>Thu, 11 Apr 2024 11:12:43 +0800</pubDate>
+      <guid>https://www.pingrunhuang.github.io/blog/2024-04-11/</guid>
+      <description>I&amp;rsquo;ve always struggle setting up coding environment when switching from devices to devices. Especially when I was working in a firm where I need to set up my development environment for the onboarding process, it&amp;rsquo;s really painful. I came across this video where I was told there is a new feature in vscode that allow me to solve the issue I mentioned above. So I decided to give it a try.</description>
+    </item>
+  </channel>
+</rss>

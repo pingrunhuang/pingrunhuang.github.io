@@ -6,14 +6,14 @@
     <description>Recent content in Blogs on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 May 2024 11:09:40 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Apr 2024 11:12:43 +0800</lastBuildDate>
     <atom:link href="https://www.pingrunhuang.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Differences among tuple, list and set in python?</title>
-      <link>https://www.pingrunhuang.github.io/blog/2024-05-13/</link>
-      <pubDate>Mon, 13 May 2024 11:09:40 +0800</pubDate>
-      <guid>https://www.pingrunhuang.github.io/blog/2024-05-13/</guid>
-      <description>Basic comparison list: ordered, mutable, duplicable set: set([1, 2, 3, 4]), not duplicable, not ordered # set&amp;#39;s operation a = set([1, 2, 3]) b = set([2, 3, 4]) a.intersection(b) # equivalent to c = a &amp;amp; b, return set([2,3]) c.issubset(a) # return true, equivalent to c &amp;lt;= a c.issuperset(a) # return false, equivalent to c &amp;gt;= a a.difference(b) # return set([1]), equivalent to a-b a.symmetric_difference(b) # return set([1,4]), equivalent to a ^ b tuple: immutable, ordered, duplicable When to use what?</description>
+      <title>VSCode dev container tryout</title>
+      <link>https://www.pingrunhuang.github.io/blog/2024-04-11/</link>
+      <pubDate>Thu, 11 Apr 2024 11:12:43 +0800</pubDate>
+      <guid>https://www.pingrunhuang.github.io/blog/2024-04-11/</guid>
+      <description>I&amp;rsquo;ve always struggle setting up coding environment when switching from devices to devices. Especially when I was working in a firm where I need to set up my development environment for the onboarding process, it&amp;rsquo;s really painful. I came across this video where I was told there is a new feature in vscode that allow me to solve the issue I mentioned above. So I decided to give it a try.</description>
     </item>
     <item>
       <title>An experience of enhancing python efficiency</title>
@@ -27,8 +27,7 @@
       <link>https://www.pingrunhuang.github.io/blog/2020-02-20/</link>
       <pubDate>Thu, 20 Feb 2020 16:10:54 +0800</pubDate>
       <guid>https://www.pingrunhuang.github.io/blog/2020-02-20/</guid>
-      <description>In 2019, I started a position as a quant developer in crypto.com. So half of the year later, in 2020, I decided to actually stacking my own money into trading crypto. See how the return rate will be at the end of this year.
-Memorial moment of my first BTC purchase How it goes? I&amp;rsquo;m living in China which means the alternative exchange to purchase btc is pretty limit. Most exchange like Binance or even my own company crypto.</description>
+      <description>In 2019, I started a position as a quant developer in crypto.com. So half of the year later, in 2020, I decided to actually stacking my own money into trading crypto. See how the return rate will be at the end of this year.&#xA;Memorial moment of my first BTC purchase How it goes? I&amp;rsquo;m living in China which means the alternative exchange to purchase btc is pretty limit. Most exchange like Binance or even my own company crypto.</description>
     </item>
     <item>
       <title>Data storage inspired by video production</title>
@@ -42,9 +41,7 @@ Memorial moment of my first BTC purchase How it goes? I&amp;rsquo;m living in Ch
       <link>https://www.pingrunhuang.github.io/blog/2019-04-21/</link>
       <pubDate>Sun, 21 Apr 2019 12:46:43 +0800</pubDate>
       <guid>https://www.pingrunhuang.github.io/blog/2019-04-21/</guid>
-      <description>This week&amp;rsquo;s topic is about speeding up the learning process.
-Mini batch epoch: a single run through the whole training examples. If we are using mini batch technique with T batches, we will run T times of gradient descent wheras without mini batch, we will get only 1 time of gradient descent.
-Notation $$ a^{[l]\{t\}(m)} $$ means the the activation value of m examples in t minibatch in lth layer.</description>
+      <description>This week&amp;rsquo;s topic is about speeding up the learning process.&#xA;Mini batch epoch: a single run through the whole training examples. If we are using mini batch technique with T batches, we will run T times of gradient descent wheras without mini batch, we will get only 1 time of gradient descent.&#xA;Notation $$ a^{[l]\{t\}(m)} $$ means the the activation value of m examples in t minibatch in lth layer.</description>
     </item>
     <item>
       <title>SQL self join use case</title>
@@ -65,64 +62,42 @@ Notation $$ a^{[l]\{t\}(m)} $$ means the the activation value of m examples in t
       <link>https://www.pingrunhuang.github.io/blog/2018-08-09/</link>
       <pubDate>Thu, 09 Aug 2018 23:47:22 +0800</pubDate>
       <guid>https://www.pingrunhuang.github.io/blog/2018-08-09/</guid>
-      <description>Why do we need asynchronous? Chess master Judit Polgár hosts a chess exhibition in which she plays multiple amateur players. She has two ways of conducting the exhibition: synchronously and asynchronously. Assumptions:
-24 opponents Judit makes each chess move in 5 seconds Opponents each take 55 seconds to make a move Games average 30 pair-moves (60 moves total)
-Synchronous version: Judit plays one game at a time, never two at the same time, until the game is complete.</description>
+      <description>Why do we need asynchronous? Chess master Judit Polgár hosts a chess exhibition in which she plays multiple amateur players. She has two ways of conducting the exhibition: synchronously and asynchronously. Assumptions:&#xA;24 opponents Judit makes each chess move in 5 seconds Opponents each take 55 seconds to make a move Games average 30 pair-moves (60 moves total)&#xA;Synchronous version: Judit plays one game at a time, never two at the same time, until the game is complete.</description>
     </item>
     <item>
       <title>How does branches work in git</title>
       <link>https://www.pingrunhuang.github.io/blog/2018-06-27/</link>
       <pubDate>Wed, 27 Jun 2018 22:56:50 +0800</pubDate>
       <guid>https://www.pingrunhuang.github.io/blog/2018-06-27/</guid>
-      <description>Branches in git is divided into 2 kind. Remote and local. I will demonstrate a basic scenario in this post regarding the local branch.
-local branch Scenario
-You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.
-switch to production branch create a issue branch and switch to it which allow you to start working on it and do some commits.</description>
+      <description>Branches in git is divided into 2 kind. Remote and local. I will demonstrate a basic scenario in this post regarding the local branch.&#xA;local branch Scenario&#xA;You are working on your own branch while there is an issue shown up on production branch which need you to do a hotfix. Here is what you need to do.&#xA;switch to production branch create a issue branch and switch to it which allow you to start working on it and do some commits.</description>
     </item>
     <item>
       <title>Git push vs git push</title>
       <link>https://www.pingrunhuang.github.io/blog/2018-06-19/</link>
       <pubDate>Tue, 19 Jun 2018 22:59:51 +0800</pubDate>
       <guid>https://www.pingrunhuang.github.io/blog/2018-06-19/</guid>
-      <description>Recently I&amp;rsquo;ve been using gerrit as a version control tool. I was taking it for granted that gerrit is some sort of github. But unfortunately, it is not. Gerrit has its own logical way of managing the version. One example is git push.
-In github, I use git push origin &amp;lt;branch_name&amp;gt; for push changes to the remote repo where the branch_name is just simply the same name as remote like master or dev.</description>
+      <description>Recently I&amp;rsquo;ve been using gerrit as a version control tool. I was taking it for granted that gerrit is some sort of github. But unfortunately, it is not. Gerrit has its own logical way of managing the version. One example is git push.&#xA;In github, I use git push origin &amp;lt;branch_name&amp;gt; for push changes to the remote repo where the branch_name is just simply the same name as remote like master or dev.</description>
     </item>
     <item>
       <title>From hamming distance to leetcode thought--leetcode 477</title>
       <link>https://www.pingrunhuang.github.io/blog/2018-03-09/</link>
       <pubDate>Fri, 09 Mar 2018 12:17:25 +0800</pubDate>
       <guid>https://www.pingrunhuang.github.io/blog/2018-03-09/</guid>
-      <description>今天写到了leetcode第477道题目的时候表示十分激动，一方面觉得刷leetcode很久没有刷到这么有趣的题目了，第二方面也是想记录一下刷leetcode的过程中的体会。
-刷leetcode从一开始觉得很枯燥乏味,到现在几乎每天刷一道leetcode，似乎成为了饭后散步一样习以为常的事情了。这其中主要有亮点是我觉得刷leetcode带给我的好处。
-刷leetcode的过程中逼着我去看一些绕口的英文句子。 在不知不觉中训练了我边看英文边思考的能力。 越来越掌握一门语言其实只要刷一遍leetcode就能懂个八九十了。 对于第一点当然是不言自明的了，对于第二点，我刚开始的时候没有这种感觉，不过后期刷了一页leetcode之后，体会颇深。我用的是python，所以每次做完题我都会去discussion里面找大神们的神操作，慢慢的竟然爱上了python哲学一般简洁的编程思想，很多技巧真的是只要一行就能实现java十几行的操作。这点让我每次对比完大神的操作和我自己的笨操作之后，总有一种what shit am I writing的感觉，然后就是试着模仿大神们的操作，重现一次implementation。我相信不只是python，java、scala或者golang都可以在里面找到对应的解释，我认为这是我目前发现的学习语言的捷径。
-好了，言归正传，477这道题真的很棒，不会很复杂，但是也不是一开始就能想到的。以下是题目的description： &amp;rsquo;&amp;rsquo;&amp;rsquo; The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
-Now your job is to find the total Hamming distance between all pairs of the given numbers.
-Example: Input: 4, 14, 2
-Output: 6
-Explanation: In binary representation, the 4 is 0100, 14 is 1110, and 2 is 0010 (just showing the four bits relevant in this case).</description>
+      <description>今天写到了leetcode第477道题目的时候表示十分激动，一方面觉得刷leetcode很久没有刷到这么有趣的题目了，第二方面也是想记录一下刷leetcode的过程中的体会。&#xA;刷leetcode从一开始觉得很枯燥乏味,到现在几乎每天刷一道leetcode，似乎成为了饭后散步一样习以为常的事情了。这其中主要有亮点是我觉得刷leetcode带给我的好处。&#xA;刷leetcode的过程中逼着我去看一些绕口的英文句子。 在不知不觉中训练了我边看英文边思考的能力。 越来越掌握一门语言其实只要刷一遍leetcode就能懂个八九十了。 对于第一点当然是不言自明的了，对于第二点，我刚开始的时候没有这种感觉，不过后期刷了一页leetcode之后，体会颇深。我用的是python，所以每次做完题我都会去discussion里面找大神们的神操作，慢慢的竟然爱上了python哲学一般简洁的编程思想，很多技巧真的是只要一行就能实现java十几行的操作。这点让我每次对比完大神的操作和我自己的笨操作之后，总有一种what shit am I writing的感觉，然后就是试着模仿大神们的操作，重现一次implementation。我相信不只是python，java、scala或者golang都可以在里面找到对应的解释，我认为这是我目前发现的学习语言的捷径。&#xA;好了，言归正传，477这道题真的很棒，不会很复杂，但是也不是一开始就能想到的。以下是题目的description： &amp;rsquo;&amp;rsquo;&#39; The Hamming distance between two integers is the number of positions at which the corresponding bits are different.&#xA;Now your job is to find the total Hamming distance between all pairs of the given numbers.&#xA;Example: Input: 4, 14, 2&#xA;Output: 6&#xA;Explanation: In binary representation, the 4 is 0100, 14 is 1110, and 2 is 0010 (just showing the four bits relevant in this case).</description>
     </item>
     <item>
       <title>Merkle tree</title>
       <link>https://www.pingrunhuang.github.io/blog/2017-12-25/</link>
       <pubDate>Mon, 25 Dec 2017 09:26:46 +0800</pubDate>
       <guid>https://www.pingrunhuang.github.io/blog/2017-12-25/</guid>
-      <description>之前讲过一篇我对于区块链的理解的文章，文章中讲述的主要数据结构是叫linkedlist的数据结构，但是这么大型的系统，每一个block都使用链表，block与block之间也使用链表进行链接，这无异于将赤壁之战中捆绑所有曹军的战船嘛，显然是不现实的。于是我开始找寻答案，发现原来底层是使用了一个叫merkle tree的数据结构，这玩意在当时读书时候是不曾接触过的，刚好可以学习一下，顺便也记录一下。
-从wikipedia的解释，merkle tree实际上是一个hash tree（可以看出区块链也实际上也只是在重复使用哈希的概念而已）。它要解决的问题实际上只有一个，怎么样保证快速的verify某个交易是否已经在链上了，如果是用链表的思路的话，就要遍历链表的每一个节点，按照现在bitcoin主链上的block数量_514166_个，每个block里面拥有的transaction数量是不定的，也就是每一笔交易最坏的情况都要遍历_514166_*_n_次才能找到结果，那这个效率是奇低的。于是，md5这家伙就又进来搞事情了。
-借用vitalik大神的一幅图
-从图中可以看出，merkle tree实际上就是一个二叉树（以太坊是用非二叉树的形式实现的merkle tree），每一个merkle tree代表一个block，这样一个轻型的客户端需要记录的数据只是一些对应的md5值就可以实现对给定transaction进行校验，从而判断这个交易是否已经在链上，从而防止二次上链。举个栗子：
-给定一个交易tx3, 给定hash2和一个merkle md5(md5(tx3)+hash2)的值跟merke root进行比对就可以了，如果相等说明transaction在该里面，否则不在。这个算法实际上也是在用空间换时间的。 在vitalik大神的博客里面，他还详细阐述了binary merkle tree的不足之处，同时也介绍了以太坊为什么需要另外三种树结构，感兴趣的同学可以看看
-Reference https://blog.ethereum.org/2015/11/15/merkling-in-ethereum/ https://en.wikipedia.org/wiki/Merkle_tree https://medium.com/@evankozliner/merkle-tree-introduction-4c44250e2da7 https://medium.com/coinmonks/merkle-trees-the-backbone-of-distributed-software-4fa0805132c6 </description>
+      <description>之前讲过一篇我对于区块链的理解的文章，文章中讲述的主要数据结构是叫linkedlist的数据结构，但是这么大型的系统，每一个block都使用链表，block与block之间也使用链表进行链接，这无异于将赤壁之战中捆绑所有曹军的战船嘛，显然是不现实的。于是我开始找寻答案，发现原来底层是使用了一个叫merkle tree的数据结构，这玩意在当时读书时候是不曾接触过的，刚好可以学习一下，顺便也记录一下。&#xA;从wikipedia的解释，merkle tree实际上是一个hash tree（可以看出区块链也实际上也只是在重复使用哈希的概念而已）。它要解决的问题实际上只有一个，怎么样保证快速的verify某个交易是否已经在链上了，如果是用链表的思路的话，就要遍历链表的每一个节点，按照现在bitcoin主链上的block数量_514166_个，每个block里面拥有的transaction数量是不定的，也就是每一笔交易最坏的情况都要遍历_514166_*_n_次才能找到结果，那这个效率是奇低的。于是，md5这家伙就又进来搞事情了。&#xA;借用vitalik大神的一幅图&#xA;从图中可以看出，merkle tree实际上就是一个二叉树（以太坊是用非二叉树的形式实现的merkle tree），每一个merkle tree代表一个block，这样一个轻型的客户端需要记录的数据只是一些对应的md5值就可以实现对给定transaction进行校验，从而判断这个交易是否已经在链上，从而防止二次上链。举个栗子：&#xA;给定一个交易tx3, 给定hash2和一个merkle md5(md5(tx3)+hash2)的值跟merke root进行比对就可以了，如果相等说明transaction在该里面，否则不在。这个算法实际上也是在用空间换时间的。 在vitalik大神的博客里面，他还详细阐述了binary merkle tree的不足之处，同时也介绍了以太坊为什么需要另外三种树结构，感兴趣的同学可以看看&#xA;Reference https://blog.ethereum.org/2015/11/15/merkling-in-ethereum/ https://en.wikipedia.org/wiki/Merkle_tree https://medium.com/@evankozliner/merkle-tree-introduction-4c44250e2da7 https://medium.com/coinmonks/merkle-trees-the-backbone-of-distributed-software-4fa0805132c6 </description>
     </item>
     <item>
       <title>My understanding on blockchain so far</title>
       <link>https://www.pingrunhuang.github.io/blog/2017-12-23/</link>
       <pubDate>Sat, 23 Dec 2017 11:43:39 +0800</pubDate>
       <guid>https://www.pingrunhuang.github.io/blog/2017-12-23/</guid>
-      <description>Block chain has been talked a lot in the field of high tech industry. Being able to understand this decentralized technology is a plus for my career and able to implement it practicely will even better. I will talk about some information I have learnt so far in this post including the implementation of blockchain using javascript.
-继上次写的一篇博文What is bitcoin mining?之后，这次继续写下关于bitcoin技术的笔记。
-相信看这篇文章的读者们应该或多或少对blockchain和bitcoin有所了解了，如果这里面涉及到的一些术语觉得不理解，可以试图从reference那里找到答案，实在不行可以wiki之或者直接评论告诉我哦。那我主要在这里梳理一下blockchain到底解决什么问题和其中我认为很有趣的技术细节。
-bitcoin要解决的问题是去交易的中介，类似于银行在传统的交易模型中的地位，这是一个很直观而且亟待解决的问题。这样做似乎很理想，但是有两个很明显的问题需要解决：
-怎么确保每一笔先后发生的交易的先后顺序？ 怎么确保在A到B的交易中，A有足够的金额发给B呢？ 为了解决第一个问题，blockchain被提出来了。说白了就是一个double linked list，每个新加入的block被作为一个新的节点被加入现存在的blockchain里面。根据satoshi nakamoto提出的论文，每一笔交易在加入整个chain的时候需要经历6个步骤：</description>
+      <description>Block chain has been talked a lot in the field of high tech industry. Being able to understand this decentralized technology is a plus for my career and able to implement it practicely will even better. I will talk about some information I have learnt so far in this post including the implementation of blockchain using javascript.&#xA;继上次写的一篇博文What is bitcoin mining?之后，这次继续写下关于bitcoin技术的笔记。&#xA;相信看这篇文章的读者们应该或多或少对blockchain和bitcoin有所了解了，如果这里面涉及到的一些术语觉得不理解，可以试图从reference那里找到答案，实在不行可以wiki之或者直接评论告诉我哦。那我主要在这里梳理一下blockchain到底解决什么问题和其中我认为很有趣的技术细节。&#xA;bitcoin要解决的问题是去交易的中介，类似于银行在传统的交易模型中的地位，这是一个很直观而且亟待解决的问题。这样做似乎很理想，但是有两个很明显的问题需要解决：&#xA;怎么确保每一笔先后发生的交易的先后顺序？ 怎么确保在A到B的交易中，A有足够的金额发给B呢？ 为了解决第一个问题，blockchain被提出来了。说白了就是一个double linked list，每个新加入的block被作为一个新的节点被加入现存在的blockchain里面。根据satoshi nakamoto提出的论文，每一笔交易在加入整个chain的时候需要经历6个步骤：</description>
     </item>
     <item>
       <title>Golang learning 2 -- collection</title>
@@ -150,17 +125,14 @@ digest:结果的hash value cipher:fdsa
       <link>https://www.pingrunhuang.github.io/blog/2017-10-29/</link>
       <pubDate>Sun, 29 Oct 2017 17:05:56 +0800</pubDate>
       <guid>https://www.pingrunhuang.github.io/blog/2017-10-29/</guid>
-      <description>Never settle &amp;mdash;- One plus
-I&amp;rsquo;ve always wanted to have a super monster platform rather then 4 core, integrated graphics card, windows os etc. But due to the high budget, I chose to just stick with my little mac air which is obvious not an option for building big application. Finally, after my first project of re-decorating my apartment, I launch my second project called Bazooka which is the mother board of my so called monster desktop(In my opinion).</description>
+      <description>Never settle &amp;mdash;- One plus&#xA;I&amp;rsquo;ve always wanted to have a super monster platform rather then 4 core, integrated graphics card, windows os etc. But due to the high budget, I chose to just stick with my little mac air which is obvious not an option for building big application. Finally, after my first project of re-decorating my apartment, I launch my second project called Bazooka which is the mother board of my so called monster desktop(In my opinion).</description>
     </item>
     <item>
       <title>Dynamic proxy in Java</title>
       <link>https://www.pingrunhuang.github.io/blog/2017-10-26/</link>
       <pubDate>Thu, 26 Oct 2017 17:52:13 +0800</pubDate>
       <guid>https://www.pingrunhuang.github.io/blog/2017-10-26/</guid>
-      <description>Proxy your call to the professional, save you some more time
-I recently read a great slides talking about Proxy pattern in Java which has confused me for a long time. I&amp;rsquo;ve always consider it as something like the delegator pattern which is like adding a new layer for a specified class so that clients can do more other things when calling it.
-It turns out that there could be more to do with java dynamic proxy.</description>
+      <description>Proxy your call to the professional, save you some more time&#xA;I recently read a great slides talking about Proxy pattern in Java which has confused me for a long time. I&amp;rsquo;ve always consider it as something like the delegator pattern which is like adding a new layer for a specified class so that clients can do more other things when calling it.&#xA;It turns out that there could be more to do with java dynamic proxy.</description>
     </item>
     <item>
       <title>What is bitcoin mining?</title>

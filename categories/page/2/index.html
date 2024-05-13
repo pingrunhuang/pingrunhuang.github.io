@@ -105,53 +105,51 @@
 </script>
 
     <main class="grow">
-<div class="prose prose-stone dark:prose-invert max-w-none">
-<div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">SQL self join use case</h1>
-  <p class="mb-1">January 10, 2019</p>
-  <p>&mdash;</p>
-</div>
-<div class="content">
-  <h1 id="how-to-query-on-timeseries-data-based-on-time-window">How to query on timeseries data based on time window?</h1>
-<p>Suppose I have the following time series data:
-<img src="/data/2019-01-10/ts_data.png" alt="">
-I want to calculate mean, std value inside a time window with the value of 2 for different name. I used to use spark to first group by name and then do the calculation in the list within the different group. This is actually quite fast. But I later on figured out that we can first self join based on the time window condition like below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> a.name, a.load_datetime, b.name, b.load_datetime <span style="color:#66d9ef">from</span> temp_data <span style="color:#66d9ef">as</span> a <span style="color:#66d9ef">join</span> temp_data <span style="color:#66d9ef">as</span> b <span style="color:#66d9ef">on</span> <span style="color:#66d9ef">cast</span>(a.load_datetime <span style="color:#66d9ef">as</span> date) <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">cast</span>(b.load_datetime <span style="color:#66d9ef">as</span> date) <span style="color:#f92672">+</span> integer <span style="color:#e6db74">&#39;2&#39;</span>
-</span></span></code></pre></div><p>Using SQL statement, a more elegant and shorter solution can be achieved.</p>
+<div class="prose dark:prose-invert max-w-none">
+<h1 class="standard ">Categories</h1>
 
-  <div id="cusdis_thread"
-    data-host="https://cusdis.com"
-    data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
-    data-page-id="d2499fb5b53986021605b867405ec649"
-    data-page-url="https://www.pingrunhuang.github.io/blog/2019-01-10/"
-    data-page-title="SQL self join use case">
+<div class="">
+<div class="hover:bg-gray-400 dark:hover:bg-darker flex flex-row items-center justify-start accordion mt-0 mb-0 p-2 active">
+  <i onclick="expandAccordion(this)" class="cursor-pointer chevron p-2 mr-4 fas fa-chevron-right rounded text-blue-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"></i>
+  <a href="/categories/design-pattern/"><h2 class="accordion m-0">Design pattern</h2></a>
 </div>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-</div>
-<div class="flex flex-row justify-around my-2">
-  <h3 class="mb-1 mt-1 text-left mr-4">
-    
-    <a
-      href="/blog/2018-08-21/"
-      title="Introduction to aws EMR"
-    >
-      <i class="nav-menu fas fa-chevron-circle-left"></i>
-    </a>
-    
-  </h3>
-  <h3 class="mb-1 mt-1 text-left ml-4">
-    
-    <a
-      href="/blog/2019-04-21/"
-      title="How to improve your neural net week 2: note of deeplearning.ai from coursera"
-    >
-      <i class="nav-menu fas fa-chevron-circle-right"></i>
-    </a>
-    
-  </h3>
-</div>
+<div id="panel-item-0" class="panel metadata-panel overflow-hidden bg-gray-200 dark:bg-dark">
+  <div class="metadata p-2"><p class="mt-0 mb-0 text-sm">October 26, 2017</p>
+<p class="mt-1 mb-0 text-sm">Reading Time: 0 minutes</p>
+ 
 
 
+
+
+</div>
+</div>
+</div>
+
+</div>
+<script src="/js/accordion.js"></script>
+<div class="mt-4 d-flex justify-content-center">
+  
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/categories/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/categories/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/categories/" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
+</div>
 
     </main>
     

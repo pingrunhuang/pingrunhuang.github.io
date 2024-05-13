@@ -107,24 +107,49 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">SQL self join use case</h1>
-  <p class="mb-1">January 10, 2019</p>
+  <h1 class="top-h1" style="font-size: 2.75em">VSCode dev container tryout</h1>
+  <p class="mb-1">April 11, 2024</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
-  <h1 id="how-to-query-on-timeseries-data-based-on-time-window">How to query on timeseries data based on time window?</h1>
-<p>Suppose I have the following time series data:
-<img src="/data/2019-01-10/ts_data.png" alt="">
-I want to calculate mean, std value inside a time window with the value of 2 for different name. I used to use spark to first group by name and then do the calculation in the list within the different group. This is actually quite fast. But I later on figured out that we can first self join based on the time window condition like below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> a.name, a.load_datetime, b.name, b.load_datetime <span style="color:#66d9ef">from</span> temp_data <span style="color:#66d9ef">as</span> a <span style="color:#66d9ef">join</span> temp_data <span style="color:#66d9ef">as</span> b <span style="color:#66d9ef">on</span> <span style="color:#66d9ef">cast</span>(a.load_datetime <span style="color:#66d9ef">as</span> date) <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">cast</span>(b.load_datetime <span style="color:#66d9ef">as</span> date) <span style="color:#f92672">+</span> integer <span style="color:#e6db74">&#39;2&#39;</span>
-</span></span></code></pre></div><p>Using SQL statement, a more elegant and shorter solution can be achieved.</p>
+  <p>I&rsquo;ve always struggle setting up coding environment when switching from devices to devices. Especially when I was working in a firm where I need to set up my development environment for the onboarding process, it&rsquo;s really painful.
+I came across <a href="https://www.youtube.com/watch?v=C_5tDWsWSj0">this video</a> where I was told there is a new feature in vscode that allow me to solve the issue I mentioned above. So I decided to give it a try. Essentially, devcontainer is a container that you can attach to when developing in a completely isolated and fully configured environment. In this way, you don&rsquo;t need to worry about development environment.</p>
+<h1 id="goal">goal</h1>
+<p>to be able to develop a project without considering environment issues.</p>
+<h1 id="clone-a-project">clone a project</h1>
+<p>In this tutorial, I&rsquo;m gonna clone my own personal <a href="ghttps://github.com/pingrunhuang/blog">blog engine</a>.</p>
+<h1 id="install-extensions-in-vscode">install extensions in vscode</h1>
+<p>In vscode extension tab, search for following keywords:
+<img src="/data/2024-04-11/plugins.png" alt="">
+You can either install the <strong>dev container</strong> extension for only dev container usage, or you can install the whole package with the <strong>remote development</strong>.</p>
+<h1 id="start-a-container">start a container</h1>
+<p>After installation, you can run <em>shift</em>+<em>command</em>+<em>p</em> in mac to start a dev container with configuration file generated.
+<img src="/data/2024-04-11/start.png" alt="">
+After this process, a <strong>.devcontainer</strong> directory is created under root directory of the project. Inside the directory, a <strong>devcontainer.json</strong> file is created where the container info is recorded.</p>
+<h1 id="the-devcontainerjson-file">the devcontainer.json file</h1>
+<p>The devcontainer.json file looks like following:
+<img src="/data/2024-04-11/devcontainer.png" alt="">
+name: indicate the name of the container
+image: same concept as dockerfile. The image you would love to use
+features: these are dependencies that you might want to have on top of the image you get. In my case, I need hugo as the blog engine, node and npm for hugo engine.
+postCreateCommand: this are command or script you wanna run once the container is up. In my case, I need to install all the javascript dependencies once the container is up. And there are multiple commands that should be run so I need to have a script to include all the commands.</p>
+<h1 id="the-result">the result</h1>
+<p>After starting the container, you will see that all the dependencies are installed. What you edit locally will be reflected in the container. This is what I&rsquo;ve wanted to achieve when I am developing features that require checking the result on the fly. You don&rsquo;t need to worry about the local environment compatability etc.</p>
+<h1 id="summary">summary</h1>
+<p>So far, I really just tried out the basic features that devcontainer provides.</p>
+<ol>
+<li>get the dev container extensions in vscode</li>
+<li>define dependencies in devcontainer.json file</li>
+<li>define actions that need to be triggered after the environment is up.
+I think there exists tons of features that dev container broght in such as volume mapping etc. I will update another post whenever I figured out the features that devcontainer brought in the table. At the mean time, feel free to comment below to tell me features that I missed or I should try out at this stage.</li>
+</ol>
 
   <div id="cusdis_thread"
     data-host="https://cusdis.com"
     data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
-    data-page-id="d2499fb5b53986021605b867405ec649"
-    data-page-url="https://www.pingrunhuang.github.io/blog/2019-01-10/"
-    data-page-title="SQL self join use case">
+    data-page-id="ab242b44dac6eaa8692cd1d284e6aba4"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2024-04-11/"
+    data-page-title="VSCode dev container tryout">
 </div>
 <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 </div>
@@ -132,8 +157,8 @@ I want to calculate mean, std value inside a time window with the value of 2 for
   <h3 class="mb-1 mt-1 text-left mr-4">
     
     <a
-      href="/blog/2018-08-21/"
-      title="Introduction to aws EMR"
+      href="/blog/2020-04-22/"
+      title="An experience of enhancing python efficiency"
     >
       <i class="nav-menu fas fa-chevron-circle-left"></i>
     </a>
@@ -141,12 +166,7 @@ I want to calculate mean, std value inside a time window with the value of 2 for
   </h3>
   <h3 class="mb-1 mt-1 text-left ml-4">
     
-    <a
-      href="/blog/2019-04-21/"
-      title="How to improve your neural net week 2: note of deeplearning.ai from coursera"
-    >
-      <i class="nav-menu fas fa-chevron-circle-right"></i>
-    </a>
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
     
   </h3>
 </div>

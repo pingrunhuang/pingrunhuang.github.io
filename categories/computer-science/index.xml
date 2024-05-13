@@ -20,8 +20,7 @@
       <link>https://www.pingrunhuang.github.io/blog/2018-06-19/</link>
       <pubDate>Tue, 19 Jun 2018 22:59:51 +0800</pubDate>
       <guid>https://www.pingrunhuang.github.io/blog/2018-06-19/</guid>
-      <description>Recently I&amp;rsquo;ve been using gerrit as a version control tool. I was taking it for granted that gerrit is some sort of github. But unfortunately, it is not. Gerrit has its own logical way of managing the version. One example is git push.
-In github, I use git push origin &amp;lt;branch_name&amp;gt; for push changes to the remote repo where the branch_name is just simply the same name as remote like master or dev.</description>
+      <description>Recently I&amp;rsquo;ve been using gerrit as a version control tool. I was taking it for granted that gerrit is some sort of github. But unfortunately, it is not. Gerrit has its own logical way of managing the version. One example is git push.&#xA;In github, I use git push origin &amp;lt;branch_name&amp;gt; for push changes to the remote repo where the branch_name is just simply the same name as remote like master or dev.</description>
     </item>
   </channel>
 </rss>
