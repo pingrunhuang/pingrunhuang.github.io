@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto pinkish"><head>
+  <title>Frank&#39;s blog</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="A safari of me exploring the tech world" />
+<meta name="author" content="Frank Huang" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.120.4" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://www.pingrunhuang.github.io/">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">3 ws of Bloomfilter</h1>
+  <p class="mb-1">May 4, 2018</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <p>Hey guys, today I wanna talk about a new data structure used in hbase for fast random scan. I categorized this topics into the hbase subdirectory because it caught my attention when I try to split regions in hbase manually. In this blog, I will be explaining what is bloomfilter, why it is useful for hbase for fast random access and most importantly, when to use it for our own application. After this post, you will learn a new hashing technique and hopefully how to implement it with some codes.</p>
+<h1 id="what">WHAT</h1>
+<p>In a nutshell, bloomfilter is a binary array with initial value of all 0s. For a certain info, we use different hashing functions to generate different index that this info should be reside and then mark the position value with <strong>1</strong>. The following pictures shows the process.
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Bloom_filter.svg" alt="">
+<strong>Quoted from wikipedia which is really like a bloom</strong><br>
+As you can see, for different info <strong>x</strong>, <strong>y</strong>, <strong>z</strong>, applying different <a href="https://en.wikipedia.org/wiki/List_of_hash_functions">hash function</a> will generate different position that the target info should be reside. <strong>x</strong> is hashed to store in the position with index of <code>1, 5, 13</code>, <strong>y</strong> is hashed to store in the position with index of <code>4, 11, 16</code>, <strong>z</strong> is hashed to store in the position of <code>3, 5, 11</code>. From my point of view, the goal of this technology is to prevent unnecessary visit or query.</p>
+<p>At position <code>5</code> and <code>11</code> are both hit twice but both by different piece of data. That is to say, if you get a new piece of data that has hash value of <code>1</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>11</code>, <code>13</code>, <code>16</code>, doesn&rsquo;t mean the new piece of data already reside in the database. On the contrary, you can say the new piece of data is definitely not in the database. This technique will avoid actual query to the database in many cases depending on the size of your bloomfilter. That is why bloomfilter is also called a probabilistic data structure.</p>
+<p>Think of a scenario where you want to know which person is living in which district in a city that contains only 4 cities. You don&rsquo;t know the exact location where it is but you do know that he is not in which 2 cities. Even though you don&rsquo;t know exactly which city he lives in with this information. However, you can narrow down the searching scope from 4 cities to only 2 cities which. Sounds like a piece of data structure storing metadata right? Indeed, hbase use this tech for boosting the random access for sure.</p>
+<h1 id="why">WHY</h1>
+<p>First of all, you must understand that hbase has <code>rowkey</code> and <code>column family</code>. When performing a query action in hbase, a user will provide <code>rowkey</code> only or more fine grained info with <code>column family</code>. In order to reduce the I/O operation which is literally the goal of boosting the performence of hbase, some kind of extra meta info should be recorded in somewhere for faster lookup. Think about the use case that I talk about in part <code>WHAT</code>. HBase uses <code>Bloomfilter</code> for letting readers know if a <code>cell</code>(which is the smallest unit of data consisting rowkey and column family) is absent in the block(the smallest unit of read and write data into HFile).
+Below is the relationship between different terms that are used in hbase:</p>
+<pre tabindex="0"><code>Table
+| Region
+|---- Store
+|---- MemStore
+|-------- StoreFile
+|------------ Block
+</code></pre><p><strong>QUOTED FROM <a href="http://hbase.apache.org/0.94/book/regions.arch.html">http://hbase.apache.org/0.94/book/regions.arch.html</a></strong></p>
+<p>Everytime before searching for specified data with given <code>cell</code>, <code>BlockCache</code> will be queried by user to make sure if the data exists in the block or not using the bloomfilter. Below is the seudo code of querying a piece of data.</p>
+<pre tabindex="0"><code>if hash value in the bloomfilter are all 1:
+    required rowkey could be in this region server
+else:
+    required rowkey is not in this region server
+</code></pre><p>You can see this <code>if...else...</code> statement can only provide a certain probability that this rowkey data is reside in certain region server but definetely not in some region server. Obviously, hhbase provide some parameters to tune so that the probability is adjustable.<br>
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Bloom_filter_speed.svg" alt="">
+<strong>Quoted from wikipedia</strong></p>
+<h1 id="when">WHEN</h1>
+<p>You might be thinking in which scenario will this technique be used. Take some time to think about some creative way for using it. Below are some use cases that others suggest:</p>
+<ol>
+<li>password check</li>
+<li>ip check</li>
+<li>visted records check
+&hellip;&hellip;<br>
+In a word, bloomfilter could be used as a gate way checker to reduce the io operation to the real databases. I think scenario like this worth a thought of using bloomfilter.</li>
+</ol>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="http://www.cnblogs.com/skyl/p/4814347.html">http://www.cnblogs.com/skyl/p/4814347.html</a></li>
+<li><a href="https://hackernoon.com/probabilistic-data-structures-bloom-filter-5374112a7832">https://hackernoon.com/probabilistic-data-structures-bloom-filter-5374112a7832</a></li>
+<li><a href="https://www.quora.com/How-are-bloom-filters-used-in-HBase">https://www.quora.com/How-are-bloom-filters-used-in-HBase</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bloom_filter">https://en.wikipedia.org/wiki/Bloom_filter</a></li>
+<li><a href="https://github.com/apache/hbase/blob/master/hbase-server/src/main/java/org/apache/hadoop/hbase/util/BloomFilter.java">https://github.com/apache/hbase/blob/master/hbase-server/src/main/java/org/apache/hadoop/hbase/util/BloomFilter.java</a></li>
+<li><a href="http://blog.cloudera.com/blog/2012/06/hbase-io-hfile-input-output/#2">http://blog.cloudera.com/blog/2012/06/hbase-io-hfile-input-output/#2</a></li>
+<li><a href="https://hortonworks.com/blog/hbase-blockcache-101/">https://hortonworks.com/blog/hbase-blockcache-101/</a></li>
+</ul>
+
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
+    data-page-id="39f375c23e18b50ec60135a9f4a3be11"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2018-05-04/"
+    data-page-title="3 ws of Bloomfilter">
+</div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/2018-03-15/"
+      title="Call by value or reference?"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/2018-06-11/"
+      title="A note on different port of Hadoop eco-system"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">2022-2023</p>
+  <p style="font-size:0px;">
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>

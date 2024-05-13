@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto pinkish"><head>
+  <title>Frank&#39;s blog</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="A safari of me exploring the tech world" />
+<meta name="author" content="Frank Huang" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.120.4" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://www.pingrunhuang.github.io/">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">What is bitcoin mining?</h1>
+  <p class="mb-1">October 11, 2017</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <p>Bitcoin has been in the field for a while and friends of mine have been talking about bitcoin for a while. I have also read some of the articles talking about bitcoin, the hashing and the trustful features. But to be honest, these concepts still remain a mist for me. I decided to really figure out them in the way that I think and try to explain it as clear as possible. This post is just one part of the whole bitcoin stuff. As a beginning, I want to focus on the concept of mining bitcoin.</p>
+<h1 id="it-is-all-about-verifying-transaction">It is all about verifying transaction</h1>
+<p>As a type of currency, bitcoin must solve the following requirements including how to mint the coin and how to validate the transaction (in other words, how to keep track on all of the transaction) since bitcoin is kind of electronic yet decentralized currency (not centralized comparing to the traditional currency printed by the government or central bank) eventually.</p>
+<p>So how bitcoin manage to do that? Well, bitcoin manage to solve these problems by utilizing the concept called blockchain.</p>
+<h4 id="what-what-is-block-chain-again">What? What is block chain again?</h4>
+<p>It might sounds a bit creepy again by importing this blockchain stuff. If you have some cs background, think of it as the single linked list. Or else, think of it as a long lego chain comprised with lego block. Each lego block is equivalent to the block in block chain. It contains identification of the previous block which is the solved puzzle and the transactions that reside in this block.</p>
+<p>With this structure, everyone can append a block to the current chain and the transaction info can be seen by any one which is the soul of the internet right? (I mean everyone has the equal right to access the resource)</p>
+<h4 id="but-wait-a-sec-how-to-append-a-new-block">But wait a sec, how to append a new block?</h4>
+<p>In order to append a new block, one has to solve the puzzle given by the previous block which is a hashed value generally (remember when we talk about <a href="/blog/2017-09-21">hash algorithms</a> before? here is one of the usage).</p>
+<p>A public block chain is holding a puzzle which is a hashed value. Miners have to solve the puzzles provided by the block chain in order to validate their list of transactions and therefore append their block(node) to the block chain (By saying solving the puzzle here, I&rsquo;m using general expression, more detail could be found <a href="https://blockgeeks.com/guides/what-is-hashing/">here</a>). The first one who solved the puzzle will have access to append itself to the blockchain which mean the ledger in the local block can be public to the global block chain so that everyone can see it. At the mean time, this miner will get 12.5 bitcoin as reward. And this is how bitcoin get <strong>distributed</strong>. Yet the process of solving the puzzle is the process of <strong>validation</strong>.</p>
+<h1 id="different-kinds-of-algorithms-for-the-puzzle">Different kinds of algorithms for the puzzle</h1>
+<p>Speaking of the puzzle, I said it is a hashed value but there are some different algorithms used to get validated(define who is the winner). Hash value is known for not revertible unless by brute force searching. Getting the exactly original message is not easy.</p>
+<ol>
+<li>prove of work(pos): it is a method to ensure the new block is hard to create. Basically the requirements to get the puzzle solved is to let the <strong>hashed value &lt; target</strong>. Here is a simple implementation provided by <a href="https://github.com/llSourcell/blockchain_consensus/blob/master/blockchain_consensus.ipynb">Siraj</a></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#Simple Proof-of-Work example</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> hashlib
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> struct <span style="color:#f92672">import</span> unpack, pack
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>timestamp <span style="color:#f92672">=</span> str(time<span style="color:#f92672">.</span>time())
+</span></span><span style="display:flex;"><span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;this is a random message&#34;</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">=</span> (timestamp <span style="color:#f92672">+</span> message)<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nonce <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>guess <span style="color:#f92672">=</span> <span style="color:#ae81ff">999999999999</span>
+</span></span><span style="display:flex;"><span>throttle <span style="color:#f92672">=</span> <span style="color:#ae81ff">100000000</span>
+</span></span><span style="display:flex;"><span>target <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">**</span><span style="color:#ae81ff">64</span><span style="color:#f92672">/</span> throttle
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>payloadHash <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha512(payload)<span style="color:#f92672">.</span>digest()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>start <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> guess <span style="color:#f92672">&gt;</span> target:
+</span></span><span style="display:flex;"><span>    nonce<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    guess, <span style="color:#f92672">=</span> unpack(<span style="color:#e6db74">&#39;&gt;Q&#39;</span>, hashlib<span style="color:#f92672">.</span>sha512(hashlib<span style="color:#f92672">.</span>sha512(pack(<span style="color:#e6db74">&#39;&gt;Q&#39;</span>, nonce) <span style="color:#f92672">+</span> payloadHash)<span style="color:#f92672">.</span>digest())<span style="color:#f92672">.</span>digest()[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">8</span>])[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">8</span>]
+</span></span><span style="display:flex;"><span>end <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time()
+</span></span><span style="display:flex;"><span>print <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> (timestamp, message, nonce, guess, payload, target, end<span style="color:#f92672">-</span>start)
+</span></span></code></pre></div><ol start="2">
+<li>
+<p>prove of stack:</p>
+</li>
+<li>
+<p>prove of burn:</p>
+</li>
+</ol>
+<h1 id="in-summary">In summary</h1>
+<p>In a nutshell, the whole process from decrypt the digest to get bitcoin reward is the so called bitcoin mining. It is greatly related to the block chain. However, this is just the very shallow glance on bitcoin.
+Keep updating, peace!</p>
+<h1 id="remaining-questions">Remaining questions</h1>
+<ol>
+<li>If I am a miner, how do I know which algorithms to use to solve the puzzle?</li>
+<li>How does the initial block chain get generated?</li>
+<li>How does the local block chain get generated?</li>
+</ol>
+<h1 id="reference">Reference</h1>
+<p><a href="https://github.com/llSourcell/blockchain_consensus/blob/master/blockchain_consensus.ipynb">https://github.com/llSourcell/blockchain_consensus/blob/master/blockchain_consensus.ipynb</a>
+<a href="https://www.huffingtonpost.com/ameer-rosic-/what-is-bitcoin-mining-a-_b_13764842.html">https://www.huffingtonpost.com/ameer-rosic-/what-is-bitcoin-mining-a-_b_13764842.html</a>
+<a href="https://blockgeeks.com/guides/what-is-blockchain-technology/">https://blockgeeks.com/guides/what-is-blockchain-technology/</a>
+<a href="https://www.bitcoinmining.com">https://www.bitcoinmining.com</a></p>
+<h1 id="related-techniques">Related Techniques</h1>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> single linked list</li>
+<li><input checked="" disabled="" type="checkbox"> hash algorithms</li>
+</ul>
+
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
+    data-page-id="0c21aed892bfcbb335360aae3edf4f3e"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2017-10-11/"
+    data-page-title="What is bitcoin mining?">
+</div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/2017-09-21/"
+      title="Encrypting sensitive information"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/2017-10-26/"
+      title="Dynamic proxy in Java"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">2022-2023</p>
+  <p style="font-size:0px;">
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>

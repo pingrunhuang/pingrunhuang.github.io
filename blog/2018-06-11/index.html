@@ -107,65 +107,182 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">Encrypting sensitive information</h1>
-  <p class="mb-1">September 21, 2017</p>
+  <h1 class="top-h1" style="font-size: 2.75em">A note on different port of Hadoop eco-system</h1>
+  <p class="mb-1">June 11, 2018</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
-  <p>I recently have to deal with encrypting some sensitive information which lead me to get to know the encryption algorithms. However, the goal is to encrypt only part of the information in a manner of no decryption.</p>
-<p>At the mean time, I remember when I was having internet security class back at ESIGELEC during my master degree, my tutor told us that the general way for encryption is using public key and private key which leads to two-way function(decryptable). I also googled to check for one-way function which lead me to SHA-2. It is quite confusing at the beginning since the result of hashing and encrypting is quite the same (which are just some non sense strings).</p>
-<p>But wait a sec, let me take a note on some terminology.</p>
-<blockquote>
-<p>Encryption algorithms:
-AES: advanced encryption algorithm
-DES: data encryption algorithm
-blowfish:
-RES:
-Hashing algorithms:
-SHA
-MD5
-digest: the hashed value or the output.
-Avalanche effect: little changed of the original info will cause great difference on the digest.</p>
-</blockquote>
-<p>I really like this <a href="https://www.quora.com/What-is-the-difference-between-SHA-2-and-AES/answer/Mukesh-Kumar-40?srid=e7q7">explanation</a> from Mukesh Kumar who explained these concepts in a simple way. So basically, SHA has the following features:</p>
-<ol>
-<li>given a hashed value, one can not get the original info.(only by brute force search)</li>
-<li>should not cause <a href="https://en.wikipedia.org/wiki/Collision_resistance">Collision resistance</a></li>
-<li>same input value should always generate the same digest.</li>
-</ol>
-<h1 id="what-is-sha">What is SHA</h1>
-<p>SHA stand for sucure hashing algorithm. The SHA-2 family consists of six hash functions with digests (hash values) that are 224, 256, 384 or 512 bits: SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, SHA-512/256.</p>
-<h1 id="usage-scenario">usage scenario</h1>
-<ol>
-<li>data integrity check-sum</li>
-<li>Password verification</li>
-<li>bitcoin</li>
-</ol>
-<p>Based on these usage, I might be able to explain them later and even implement them myself.</p>
-<h1 id="reference">Reference</h1>
-<p><a href="https://en.wikipedia.org/wiki/SHA-2">SHA-2</a>
-<a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function#message_digest">Cryptographic hash function</a></p>
+  <h1 id="hdfs">hdfs</h1>
+<p>internet:</p>
+<ul>
+<li>namenode web monitor port <code>dfs.http.address</code>: 50070</li>
+<li>datanode web monitor port <code>dfs.datanode.http.address</code>: 50075</li>
+<li><code>dfs.secondary.http.address</code>: 50090</li>
+<li><code>dfs.backup.http.address</code>: 50105</li>
+<li><code>mapred.job.tracker.http.address</code>: 50030</li>
+<li><code>mapred.task.tracker.http.address</code>: 50060</li>
+</ul>
+<p>localnet:</p>
+<ul>
+<li><code>dfs.datanode.address</code>: 50010
+<ul>
+<li>for data transmition</li>
+</ul>
+</li>
+<li><code>journal node</code>: 8485</li>
+</ul>
+<h1 id="hbase">hbase</h1>
+<ul>
+<li>port: 60010</li>
+</ul>
+<h1 id="hive">hive</h1>
+<ul>
+<li>port:</li>
+</ul>
+<h1 id="kylin">kylin</h1>
+<ul>
+<li>port: 7070</li>
+</ul>
+<h1 id="zookeeper">zookeeper</h1>
+<ul>
+<li>ps: QuorumPeerMain</li>
+</ul>
+<ul>
+<li>2181: zookeeper client connection</li>
+<li>3888: connecting other server</li>
+<li>61862:</li>
+</ul>
+<h1 id="spark">spark</h1>
+<p>localnet</p>
+<ul>
+<li>port: 6066</li>
+<li>spark master port: 7077</li>
+</ul>
+<p>internet</p>
+<ul>
+<li>4040: for each job monitor</li>
+<li>18080: for history server</li>
+<li>8080: for the whole monitor</li>
+</ul>
+<h1 id="yarn">yarn</h1>
+<p>localnet:</p>
+<ul>
+<li>
+<p><code>yarn.nodemanager.localizer.address</code>(localizer IPC): 8040</p>
+</li>
+<li>
+<p><code>yarn.nodemanager.address</code>(container manager port):8041</p>
+</li>
+<li>
+<p><code>yarn.resourcemanager.scheduler.address</code>: 8030</p>
+</li>
+<li>
+<p><code>yarn.resourcemanager.resource-tracker.address</code>: 8031</p>
+</li>
+<li>
+<p><code>yarn.resourcemanager.address</code>(The address of the applications manager interface in the RM): 8032</p>
+</li>
+<li>
+<p><code>yarn.resourcemanager.admin.address</code>(The address of the RM admin interface): 8033</p>
+</li>
+<li>
+<p><code>mapreduce.jobhistory.address</code>: 10020</p>
+</li>
+<li>
+<p><code>yarn.timeline-service.webapp.address</code>: 8188</p>
+</li>
+<li>
+<p><code>yarn.timeline-service.webapp.https.address</code>: 8190</p>
+</li>
+<li>
+<p><code>yarn.timeline-service.address</code>: 10200</p>
+</li>
+<li>
+<p><code>mapred.job.tracker</code>: 8021</p>
+</li>
+</ul>
+<p>internet:</p>
+<ul>
+<li>
+<p><code>yarn.resourcemanager.webapp.address</code>: 8088</p>
+</li>
+<li>
+<p><code>mapreduce.jobhistory.webapp.address</code>: 19888</p>
+</li>
+<li>
+<p><code>yarn.nodemanager.webapp.address</code>(http port for nodes): 8042</p>
+</li>
+</ul>
+<h1 id="hue">HUE</h1>
+<p>internet</p>
+<ul>
+<li>port: 8887</li>
+</ul>
+<h1 id="zeeplin">Zeeplin</h1>
+<ul>
+<li>port: 7878</li>
+</ul>
+<h1 id="oozie">OOZIE</h1>
+<p>internet</p>
+<ul>
+<li>port: 11000</li>
+</ul>
+<p><img src="/data/2018-06-11/nodeManager.png" alt=""><br>
+<strong>default ports that use yarn</strong></p>
+<p>50010 ，9000(只有06没开) hdfs 通信</p>
+<p>2181 2888  zookeeper</p>
+<p>50075 DataNode Http Server</p>
+<p>50020 IPC server</p>
+<p>spark程序在yarn cluster模式下输出的log在nodemanager 的 hadoop路径下的logs/userlogs 下面</p>
+<p>8025, 50111, 8141, 10020, 8190, 45454, 40815, 2049, 4040 - 4050, 50070, 19888, 6666, 21, 18081, 8050, 10001
+3888
+2181
+9083
+8030
+50075
+6188
+50010
+8188
+8088
+9441</p>
+<p>2888
+60200
+9440
+8042
+50475
+10000</p>
+<p>50470
+8020
+10200</p>
+<p>3000
+3306
+8010</p>
 
   <div id="cusdis_thread"
     data-host="https://cusdis.com"
     data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
-    data-page-id="b23a2ca247f41298c68238eb7ce31357"
-    data-page-url="https://www.pingrunhuang.github.io/blog/2017-09-21/"
-    data-page-title="Encrypting sensitive information">
+    data-page-id="f1f7eb97df90ff6f83b8b0f20d57f0f6"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2018-06-11/"
+    data-page-title="A note on different port of Hadoop eco-system">
 </div>
 <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 </div>
 <div class="flex flex-row justify-around my-2">
   <h3 class="mb-1 mt-1 text-left mr-4">
     
-    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-left"></i>
+    <a
+      href="/blog/2018-05-04/"
+      title="3 ws of Bloomfilter"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
     
   </h3>
   <h3 class="mb-1 mt-1 text-left ml-4">
     
     <a
-      href="/blog/2017-10-11/"
-      title="What is bitcoin mining?"
+      href="/blog/2018-06-19/"
+      title="Git push vs git push"
     >
       <i class="nav-menu fas fa-chevron-circle-right"></i>
     </a>

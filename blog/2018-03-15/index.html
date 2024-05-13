@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto pinkish"><head>
+  <title>Frank&#39;s blog</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="A safari of me exploring the tech world" />
+<meta name="author" content="Frank Huang" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.120.4" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://www.pingrunhuang.github.io/">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">Call by value or reference?</h1>
+  <p class="mb-1">March 15, 2018</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <p>When solving leetcode with python, I found some interesting things happening in python which confuse me whether python is passing value like Java or reference like c++. So I dive in to google for some answer in case someone have written something on this part. Indeed, Jeff Knupp wrote <a href="https://jeffknupp.com/blog/2012/11/13/is-python-callbyvalue-or-callbyreference-neither/">this blog</a> which notify me that python does neither. It treats variable or arguments as a name which combine to an object. Talk is cheap, show me the code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">removeElement</span>(self, nums, val):
+</span></span><span style="display:flex;"><span>        nums <span style="color:#f92672">=</span> nums[:val]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    solution <span style="color:#f92672">=</span> Solution()
+</span></span><span style="display:flex;"><span>    t1 <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>    val <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    solution<span style="color:#f92672">.</span>removeElement(t1, val)
+</span></span><span style="display:flex;"><span>    print(t1, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>Take a look at the above code, the result will be printed as follow:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>[<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>]
+</span></span></code></pre></div><p>which means the t1 is not changed at all.</p>
+<p>So we can definetely say that python is not passed by reference. However, does it mean variable is argument by value? Let us talk on the code again:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">removeElement</span>(self, nums, val):
+</span></span><span style="display:flex;"><span>        nums<span style="color:#f92672">.</span>append(val)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    solution <span style="color:#f92672">=</span> Solution()
+</span></span><span style="display:flex;"><span>    t1 <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>    val <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    solution<span style="color:#f92672">.</span>removeElement(t1, val)
+</span></span><span style="display:flex;"><span>    print(t1, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>This will actaully output <code>[3, 2, 2, 3, 1]</code> meaning the function indeed changed the value of the argument. That says argument is not passed by value either. Notice in this case nums is mutable. If nums is immutable like a tuple, then python can not modify the input either.</p>
+<p>You might be upset about the above result but wait a sec, google tells me that python is actually passing argument as name. What does it mean? The following picture is equivalent to <code>a, b = 2, a</code></p>
+<p><img src="/data/2018-03-15/ab2tag.png" alt=""></p>
+<p>After seeing this picture, everything suddenly make sense. Back to our case, you can imagine that <code>a</code> is <code>t1</code>, <code>b</code> is <code>nums</code>. When we re-assign value to <code>b</code>, we actually is just using <code>b</code> to name another new object which won&rsquo;t change the actually value of what <code>a</code> is representing. However, when we modify the what <code>b</code> is representing for, <code>a</code> would be changed too. This tricky stuff is like a pointer actually.</p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#other-languages-have-variables">http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#other-languages-have-variables</a></li>
+<li><a href="https://stackoverflow.com/a/575337">https://stackoverflow.com/a/575337</a></li>
+</ul>
+
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
+    data-page-id="eadbea4b8e76cc4956c57abf44210559"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2018-03-15/"
+    data-page-title="Call by value or reference?">
+</div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/2018-03-09/"
+      title="From hamming distance to leetcode thought--leetcode 477"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/2018-05-04/"
+      title="3 ws of Bloomfilter"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">2022-2023</p>
+  <p style="font-size:0px;">
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>

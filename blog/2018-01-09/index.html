@@ -107,65 +107,71 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">Encrypting sensitive information</h1>
-  <p class="mb-1">September 21, 2017</p>
+  <h1 class="top-h1" style="font-size: 2.75em">How map reduce work</h1>
+  <p class="mb-1">January 9, 2018</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
-  <p>I recently have to deal with encrypting some sensitive information which lead me to get to know the encryption algorithms. However, the goal is to encrypt only part of the information in a manner of no decryption.</p>
-<p>At the mean time, I remember when I was having internet security class back at ESIGELEC during my master degree, my tutor told us that the general way for encryption is using public key and private key which leads to two-way function(decryptable). I also googled to check for one-way function which lead me to SHA-2. It is quite confusing at the beginning since the result of hashing and encrypting is quite the same (which are just some non sense strings).</p>
-<p>But wait a sec, let me take a note on some terminology.</p>
+  <p>I actually have been using Map reduce programming paradigm before. Check out <a href="https://github.com/pingrunhuang/LearningHadoop/tree/master/SecondarySort">my github repo</a>. Since then, I have had a rough concept of how MR works. But since I am so passionate about programming diadigm that I decide to dig into more details of how MR works, what problems it solves and how.</p>
+<h1 id="my-point-of-view-regarding-the-workflow-of-mr">My point of view regarding the workflow of MR</h1>
+<p><img src="/data/2017-01-09/MR.jpg" alt=""></p>
+<h1 id="how-to-determine-the-r-patitions-location">how to determine the R patitions location?</h1>
+<p>User define a partitioning function to customize the number of partitions. Like <code>hash(key) mod R</code>, the key is the key generated from the intermidiate phase. Sometimes users might want to partition some keys having some specified patterns into the same partition might want to customize that.</p>
+<p>The keys/value pairs generated from the map phase (aka in each partition) are sorted by increasing keys.</p>
+<h1 id="how-to-achieve-fault-tolerance">How to achieve fault tolerance?</h1>
+<ul>
+<li>How to deal with master failure since master is so important?<br>
+Master has to write periodic checkpoint so that when it fails, the backup master node get recover from the checkpoint.<br>
+Below is quoted from the mapreduce paper:</li>
+</ul>
 <blockquote>
-<p>Encryption algorithms:
-AES: advanced encryption algorithm
-DES: data encryption algorithm
-blowfish:
-RES:
-Hashing algorithms:
-SHA
-MD5
-digest: the hashed value or the output.
-Avalanche effect: little changed of the original info will cause great difference on the digest.</p>
+<p>It is easy to make the master write periodic checkpoints of the master data structures described above. If the master task dies, a new copy can be started from the last checkpointed state. However, given that there is only a single master, its failure is unlikely; therefore our current implementation aborts the MapReduce computation if the master fails. Clients can check for this condition and retry the MapReduce operation if they desire.</p>
 </blockquote>
-<p>I really like this <a href="https://www.quora.com/What-is-the-difference-between-SHA-2-and-AES/answer/Mukesh-Kumar-40?srid=e7q7">explanation</a> from Mukesh Kumar who explained these concepts in a simple way. So basically, SHA has the following features:</p>
-<ol>
-<li>given a hashed value, one can not get the original info.(only by brute force search)</li>
-<li>should not cause <a href="https://en.wikipedia.org/wiki/Collision_resistance">Collision resistance</a></li>
-<li>same input value should always generate the same digest.</li>
-</ol>
-<h1 id="what-is-sha">What is SHA</h1>
-<p>SHA stand for sucure hashing algorithm. The SHA-2 family consists of six hash functions with digests (hash values) that are 224, 256, 384 or 512 bits: SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, SHA-512/256.</p>
-<h1 id="usage-scenario">usage scenario</h1>
-<ol>
-<li>data integrity check-sum</li>
-<li>Password verification</li>
-<li>bitcoin</li>
-</ol>
-<p>Based on these usage, I might be able to explain them later and even implement them myself.</p>
+<ul>
+<li>What if a worker fails?
+Quoted from the mapreduce paper:</li>
+</ul>
+<blockquote>
+<p>The master pings every worker periodically. If no response is received from a worker in a certain amount of time, the master marks the worker as failed. Any map tasks completed by the worker are reset back to their initial idle state, and therefore become eligible for schedul- ing on other workers. Similarly, any map task or reduce task in progress on a failed worker is also reset to idle and becomes eligible for rescheduling.
+Completed map tasks are re-executed on a failure be- cause their output is stored on the local disk(s) of the failed machine and is therefore inaccessible. Completed reduce tasks do not need to be re-executed since their output is stored in a global file system.
+When a map task is executed first by worker A and then later executed by worker B (because A failed), all workers executing reduce tasks are notified of the re-execution. Any reduce task that has not already read the data from worker A will read the data from worker B.</p>
+</blockquote>
+<ul>
+<li>What if one of the map or reduce function fails?
+Not so sure yet.</li>
+</ul>
+<h1 id="combiner-function">Combiner function</h1>
+<p>This happens between map phase and reduce phase. It is executed on the machine that run map tasks. Imagine the word count program where &lt;The, 1&gt; will show up most of the time. We can use a combiner function to first combine them all like &lt;The, n&gt; and send them via network with just one record to reduce the bandwith. In a nutshell, it is used for partial reducing in order to transfer result from map function to reduce function more efficiently.</p>
 <h1 id="reference">Reference</h1>
-<p><a href="https://en.wikipedia.org/wiki/SHA-2">SHA-2</a>
-<a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function#message_digest">Cryptographic hash function</a></p>
+<ul>
+<li><a href="https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf">https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf</a></li>
+</ul>
 
   <div id="cusdis_thread"
     data-host="https://cusdis.com"
     data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
-    data-page-id="b23a2ca247f41298c68238eb7ce31357"
-    data-page-url="https://www.pingrunhuang.github.io/blog/2017-09-21/"
-    data-page-title="Encrypting sensitive information">
+    data-page-id="65c6ecc7ba9e9b93af60e507e7df18d0"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2018-01-09/"
+    data-page-title="How map reduce work">
 </div>
 <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 </div>
 <div class="flex flex-row justify-around my-2">
   <h3 class="mb-1 mt-1 text-left mr-4">
     
-    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-left"></i>
+    <a
+      href="/blog/2017-12-25/"
+      title="Merkle tree"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
     
   </h3>
   <h3 class="mb-1 mt-1 text-left ml-4">
     
     <a
-      href="/blog/2017-10-11/"
-      title="What is bitcoin mining?"
+      href="/blog/2018-03-09/"
+      title="From hamming distance to leetcode thought--leetcode 477"
     >
       <i class="nav-menu fas fa-chevron-circle-right"></i>
     </a>
