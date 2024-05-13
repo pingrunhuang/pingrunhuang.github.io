@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-us" class="m-auto pinkish"><head>
+  <title>Frank&#39;s blog</title>
+
+<meta name="theme-color" content="" />
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="description" content="A safari of me exploring the tech world" />
+<meta name="author" content="Frank Huang" />
+<meta name="generator" content="aafu theme by Darshan in Hugo 0.120.4" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">        <link rel="manifest" href="/site.webmanifest">        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">        <link rel="shortcut icon" href="/favicon.ico">        
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto:400%7CRoboto+Mono"
+  />
+  <link rel="stylesheet" href="/css/aafu.css" />
+  
+  
+      <link rel="stylesheet" href="/css/aafu_compiled.css" />
+  
+  
+
+  <script>
+    let html = document.querySelector("html");
+    let theme = window.localStorage.getItem("theme");
+    if (theme) {
+      theme === "dark"
+        ? html.classList.add("dark")
+        : html.classList.remove("dark");
+    } else if (html.classList.contains("dark")) {
+      window.localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+    }
+
+    window.onload = () => {
+      let themeToggle = document.querySelector(".theme-toggle");
+      if (window.localStorage.getItem("theme") === "dark") {
+        themeToggle.classList.remove("bi-moon-fill");
+        themeToggle.classList.add("bi-brightness-high");
+      } else {
+        themeToggle.classList.add("bi-moon-fill");
+        themeToggle.classList.remove("bi-brightness-high");
+      }
+
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+
+    
+    window.onresize = () => {
+      let defaultActivePanel = document.querySelector(".accordion.active");
+      if (defaultActivePanel) {
+        defaultActivePanel.nextElementSibling.style.maxHeight =
+          defaultActivePanel.nextElementSibling.scrollHeight + "px";
+      }
+    };
+  </script>
+</head>
+<body class="h-screen p-2 m-auto max-w-4xl flex flex-col">
+    <header
+  class="nav flex flex-row row p-2 mb-6 w-full border-b border-gray-300 dark:border-gray-700 justify-between"
+>
+  <div>
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="https://www.pingrunhuang.github.io/">Home</a>    
+    <a class="mr-4 no-underline p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800" href="/blog">Blog</a>
+  </div>
+  
+  <i
+    class="fas fa-sun theme-toggle text-blue-500 hover:text-blue-700 dark:text-yellow-300 dark:hover:text-yellow-500 cursor-pointer text-lg mr-9 sm:mr-0"
+    onclick="lightDark(this)"
+  ></i>
+</header>
+
+<script>
+  const lightDark = (el) => {
+    let html = document.querySelector("html");
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      el.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      window.localStorage.setItem("theme", "light");
+    } else {
+      html.classList.add("dark");
+      el.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      window.localStorage.setItem("theme", "dark");
+    }
+  };
+</script>
+
+    <main class="grow">
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<div class="mb-3">
+  <h1 class="top-h1" style="font-size: 2.75em">数据加密</h1>
+  <p class="mb-1">November 5, 2017</p>
+  <p>&mdash;</p>
+</div>
+<div class="content">
+  <blockquote>
+<p>As data grow, data encryption become a hot topic to protect our data from disclose. You don&rsquo;t necessarily need to know how exactly it works, but you have to know what it is at least. That is what I&rsquo;m trying to do in this post.</p>
+</blockquote>
+<p>读硕士的时候也有讲过加密的东西，但是当时也是模棱两可的知道有这么回事。直到最近因为项目的需要还有看了一部叫做<code>citizen four</code>的纪录片（讲述男神edward snowden揭露美国通过“棱镜计划”对人民进行监视的行为）有感而发，数据的保密无疑对于个人隐私来说是很重要的，但是随着学习的深入你会发现，加密算法种类真的很多甚至所有的名次加在一次甚至会很乱，于是我想写一篇博客总结一下这段时间的学习，也借此机会普及一下加密的知识和应用，如有不妥，忘指正。</p>
+<h1 id="加密算法encryption">加密算法(Encryption)</h1>
+<p>首先<code>加密算法分成对称（sync）</code>的和<code>非对称（async）</code>两种的。他们的区别就在于公钥和私钥是否相同，公私钥相同的称为对称加密，公私钥不同的称为非对称加密。那什么是公钥什么是私钥呢？在密码学中，有个规定是算法应该是被允许公开的，那要怎么保证在别人得知加密算法后仍然能够取得保密效果呢？于是历史上的大神们就提出先由发送者生成一对公私钥，这对公私钥可以互相解开经过对方加密的内容（这里可能不太妥，希望得到指正）。公钥顾名思义是公开给public的，私钥则是由消息发送方生成的。在希望建立ssh连接的两台机器之间可以用<code>ssh-genkey</code>进行密码对的生成，你可以打开<code>~/.ssh/id_rsa</code>文件查看生成的公司钥信息，这个也是搭建hadoop集群必须执行的步骤来确保集群之间的通信。这里先不做具体实现的部分，等以后有时间再把加密的算法实现写在<a href="https://gist.github.com/pingrunhuang">我的gist</a>里面。
+哪些对称加密算法：DES, 3DES, blowfish
+哪些非对称加密算法： RSA， SM2（中国国家密码局专利，在商用密码机中比较常用，貌似银行也是大多用这个）</p>
+<h1 id="哈希算法hash">哈希算法(Hash)</h1>
+<p>哈希算法的目标是为了将任意长度的文本内容生成固定长度（具体长度因应该是因算法而异的）的不可逆的值。种类包含：MD4, MD5和SHA* 等。这里想讲一下关于SHA256的内容，主要是因为在bitcoin里面主要用到的hash算法就是SHA256或者512。不同的sha2算法对应的是最后的hash值也就是digest的bit长度。</p>
+<p>digest:结果的hash value
+cipher:fdsa</p>
+<h3 id="应用">应用</h3>
+<ul>
+<li>文件校验(checksum)：由于哈希算法生成的字符串具有稍微修改哪怕一位数字都会造成哈希结果的明显差异，因此在文件传输过程中，利用文件中自带的哈希值，和用原文进行哈希生成的新的哈希值进行比对，如果两者相同，则传输的结果文件被认为未被改动，从而保证完整性(integrity)。</li>
+<li>数字签名(digital signature)：对与一些大content的东西或者一些特殊信息进行传输的过程中，如何保证发送过来的数据真的是你所认为的发送者发送的呢？这个时候可以让发送者先用私钥钥对原文本哈希过的值进行加密，加密的值append到内容末尾作为签名。客户端再用公钥解密数字签名，并且对content的东西进行哈希，二者进行比对，如果一致则可确认发送者的身份。这其中可能会有公钥被换的情况，这时候就需要<code>certificate authenticator（ca）</code>生成<code>digital certificate</code> 来做认证。这里我只是简要的说一下我的理解，具体还要看<a href="http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html">阮大神的生动讲解</a>。https也用到了这里的知识。</li>
+<li>bit coin 也用到了哈希的办法，挖矿的实质就是对哈希值进行暴力反解，这里可以看我的另外一篇博客<a href="/blog/2017-10-11/">What is bitcoin mining</a></li>
+<li>&hellip;&hellip;</li>
+</ul>
+<h1 id="summary">Summary</h1>
+<p>密码学是一个博大精深的数学分支，其中涉及到很多的证明，我们这里知识简单介绍并且直接拿结论过来用，如果想知道具体怎么操作，可以找相关的论文进行查询。在商用领域一般会采购加密机进行加密的操作，关于加密机的东西我最近也还在测试，主要也是发送指令，返回加密结果，不同在于加密机相当于一个全职的用于加密的服务器(dedicated to encryption 很是敬业)。不同加密机工作原理或者api可能不一样，但是基本方式也是输入ip和指令，得到结果的过程。<br>
+最后，这篇文章没有采取图片的形式可能读起来会很乱，欢迎大家可以在下面评论就排版和内容跟我交流。</p>
+<p><em>Stay hungry, stay foolish</em><br>
+<em>Ciao</em></p>
+<h1 id="reference">Reference</h1>
+<p><a href="http://blog.csdn.net/garfielder007/article/details/50471030">哈希(Hash)与加密(Encrypt)的基本原理、区别及工程应用
+</a><br>
+<a href="https://en.wikipedia.org/wiki/Digital_signature">Digital signature</a><br>
+<a href="http://blog.csdn.net/pony_maggie/article/details/39780825">谈谈PBOC3.0中使用的国密SM2算法</a></p>
+
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
+    data-page-id="758b842802ac085d215d88c2a06c0654"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2017-11-05/"
+    data-page-title="数据加密">
+</div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</div>
+<div class="flex flex-row justify-around my-2">
+  <h3 class="mb-1 mt-1 text-left mr-4">
+    
+    <a
+      href="/blog/2017-10-29/"
+      title="Assemble a data analysis platform -- Bazooka"
+    >
+      <i class="nav-menu fas fa-chevron-circle-left"></i>
+    </a>
+    
+  </h3>
+  <h3 class="mb-1 mt-1 text-left ml-4">
+    
+    <a
+      href="/blog/2017-11-15/"
+      title="Golang learning 2 -- collection"
+    >
+      <i class="nav-menu fas fa-chevron-circle-right"></i>
+    </a>
+    
+  </h3>
+</div>
+
+
+
+    </main>
+    
+    <footer class="text-sm text-center border-t border-gray-300 dark:border-gray-700  py-6 ">
+  <p class="markdownify">2022-2023</p>
+  <p style="font-size:0px;">
+    <i>
+      <a href="https://github.com/darshanbaral/aafu">
+        aafu
+      </a>
+    </i>
+    by
+    <a href="https://www.darshanbaral.com/">
+      darshan
+    </a>
+  </p>
+</footer>
+
+    
+  </body>
+</html>

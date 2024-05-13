@@ -107,24 +107,35 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">Git push vs git push</h1>
-  <p class="mb-1">June 19, 2018</p>
+  <h1 class="top-h1" style="font-size: 2.75em">Golang learning 2 -- collection</h1>
+  <p class="mb-1">November 13, 2017</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
-  <p>Recently I&rsquo;ve been using gerrit as a version control tool. I was taking it for granted that gerrit is some sort of github. But unfortunately, it is not. Gerrit has its own logical way of managing the version. One example is <code>git push</code>.</p>
-<p>In github, I use <code>git push origin &lt;branch_name&gt;</code> for push changes to the remote repo where the branch_name is just simply the same name as remote like <code>master</code> or <code>dev</code>. However in gerrit, <code>git push origin dev</code> does not work instead of <code>git push origin HEAD:refs/for/dev</code>. Bellow is the way how gerrit work:</p>
-<p><img src="/data/2018-06-19/gerrit-push.png" alt=""></p>
-<p>Obviously, gerrit fake the remote branch so that the reviewer could review the changes in the repo and confirm to push to the real remote for CI test.</p>
+  <h1 id="slice">Slice</h1>
+<p>一个slice会包含三个信息：capacity， length还有一个指向数组头部的pointer。 <code>length</code> must be less then <code>capacity</code>.<br>
+<code>len()</code> to check the length, <code>cap()</code> to check the capacity of a slice. Let us see an example first to have some intuition:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#a6e22e">x</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>) <span style="color:#75715e">// [0 0 0 0 0]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">x</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">x</span>[:<span style="color:#ae81ff">10</span>] <span style="color:#75715e">// [0 0 0 0 0 0 0 0 0 0]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">x</span>[:<span style="color:#ae81ff">12</span>] <span style="color:#75715e">// panic: runtime error: slice bounds out of range
+</span></span></span></code></pre></div><p>From the code above, we can see that capacity is basically the golang solution for dynamic memory allocation. The code below illustrate that:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"></code></pre></div><h1 id="初始化一个map">初始化一个map</h1>
+<p>在go里面，map实际上是hashtable的reference，因此很多hashtable的特性他都具备。go里面的key是唯一的，因此可以作为set来使用。</p>
+<pre tabindex="0"><code>m := make(map[string] int)
+</code></pre><p>也可以写成</p>
+<pre tabindex="0"><code>m := map[string] int{}
+</code></pre><p>这是初始化一个empty的map，如果要初始化值，可以在大括号中加入dictionary的key/value。值得注意的是，map并不像普通的array那样，可以用<code>&amp;</code>符号来取得其地址，因为每次加入一个元素的时候都会rehash，所以地址一直在变的。</p>
 <h1 id="reference">Reference</h1>
-<p><a href="https://stackoverflow.com/questions/10461214/why-is-git-push-gerrit-headrefs-for-master-used-instead-of-git-push-origin-mast">https://stackoverflow.com/questions/10461214/why-is-git-push-gerrit-headrefs-for-master-used-instead-of-git-push-origin-mast</a></p>
+<ul>
+<li><a href="https://blog.golang.org/go-slices-usage-and-internals">https://blog.golang.org/go-slices-usage-and-internals</a></li>
+</ul>
 
   <div id="cusdis_thread"
     data-host="https://cusdis.com"
     data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
-    data-page-id="78ed9df943a79447e677aa5558dcb831"
-    data-page-url="https://www.pingrunhuang.github.io/blog/2018-06-19/"
-    data-page-title="Git push vs git push">
+    data-page-id="244b2ac9a772562247a1ac898e551a07"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2017-11-15/"
+    data-page-title="Golang learning 2 -- collection">
 </div>
 <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 </div>
@@ -132,8 +143,8 @@
   <h3 class="mb-1 mt-1 text-left mr-4">
     
     <a
-      href="/blog/2018-03-09/"
-      title="From hamming distance to leetcode thought--leetcode 477"
+      href="/blog/2017-11-05/"
+      title="数据加密"
     >
       <i class="nav-menu fas fa-chevron-circle-left"></i>
     </a>
@@ -142,8 +153,8 @@
   <h3 class="mb-1 mt-1 text-left ml-4">
     
     <a
-      href="/blog/2018-06-27/"
-      title="How does branches work in git"
+      href="/blog/2017-12-23/"
+      title="My understanding on blockchain so far"
     >
       <i class="nav-menu fas fa-chevron-circle-right"></i>
     </a>

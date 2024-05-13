@@ -6,8 +6,15 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2020 23:57:48 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 May 2024 11:09:40 +0800</lastBuildDate>
     <atom:link href="https://www.pingrunhuang.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Differences among tuple, list and set in python?</title>
+      <link>https://www.pingrunhuang.github.io/blog/2024-05-13/</link>
+      <pubDate>Mon, 13 May 2024 11:09:40 +0800</pubDate>
+      <guid>https://www.pingrunhuang.github.io/blog/2024-05-13/</guid>
+      <description>Basic comparison list: ordered, mutable, duplicable set: set([1, 2, 3, 4]), not duplicable, not ordered # set&amp;#39;s operation a = set([1, 2, 3]) b = set([2, 3, 4]) a.intersection(b) # equivalent to c = a &amp;amp; b, return set([2,3]) c.issubset(a) # return true, equivalent to c &amp;lt;= a c.issuperset(a) # return false, equivalent to c &amp;gt;= a a.difference(b) # return set([1]), equivalent to a-b a.symmetric_difference(b) # return set([1,4]), equivalent to a ^ b tuple: immutable, ordered, duplicable When to use what?</description>
+    </item>
     <item>
       <title>An experience of enhancing python efficiency</title>
       <link>https://www.pingrunhuang.github.io/blog/2020-04-22/</link>
@@ -73,7 +80,7 @@ You are working on your own branch while there is an issue shown up on productio
 switch to production branch create a issue branch and switch to it which allow you to start working on it and do some commits.</description>
     </item>
     <item>
-      <title>Gerrit push vs git push</title>
+      <title>Git push vs git push</title>
       <link>https://www.pingrunhuang.github.io/blog/2018-06-19/</link>
       <pubDate>Tue, 19 Jun 2018 22:59:51 +0800</pubDate>
       <guid>https://www.pingrunhuang.github.io/blog/2018-06-19/</guid>
@@ -118,6 +125,27 @@ bitcoin要解决的问题是去交易的中介，类似于银行在传统的交�
 怎么确保每一笔先后发生的交易的先后顺序？ 怎么确保在A到B的交易中，A有足够的金额发给B呢？ 为了解决第一个问题，blockchain被提出来了。说白了就是一个double linked list，每个新加入的block被作为一个新的节点被加入现存在的blockchain里面。根据satoshi nakamoto提出的论文，每一笔交易在加入整个chain的时候需要经历6个步骤：</description>
     </item>
     <item>
+      <title>Golang learning 2 -- collection</title>
+      <link>https://www.pingrunhuang.github.io/blog/2017-11-15/</link>
+      <pubDate>Mon, 13 Nov 2017 11:16:44 +0800</pubDate>
+      <guid>https://www.pingrunhuang.github.io/blog/2017-11-15/</guid>
+      <description>Slice 一个slice会包含三个信息：capacity， length还有一个指向数组头部的pointer。 length must be less then capacity.
+len() to check the length, cap() to check the capacity of a slice. Let us see an example first to have some intuition:
+x := make([]int, 5, 10) // [0 0 0 0 0] x := x[:10] // [0 0 0 0 0 0 0 0 0 0] x[:12] // panic: runtime error: slice bounds out of range From the code above, we can see that capacity is basically the golang solution for dynamic memory allocation.</description>
+    </item>
+    <item>
+      <title>数据加密</title>
+      <link>https://www.pingrunhuang.github.io/blog/2017-11-05/</link>
+      <pubDate>Sun, 05 Nov 2017 20:39:51 +0800</pubDate>
+      <guid>https://www.pingrunhuang.github.io/blog/2017-11-05/</guid>
+      <description>As data grow, data encryption become a hot topic to protect our data from disclose. You don&amp;rsquo;t necessarily need to know how exactly it works, but you have to know what it is at least. That is what I&amp;rsquo;m trying to do in this post.
+读硕士的时候也有讲过加密的东西，但是当时也是模棱两可的知道有这么回事。直到最近因为项目的需要还有看了一部叫做citizen four的纪录片（讲述男神edward snowden揭露美国通过“棱镜计划”对人民进行监视的行为）有感而发，数据的保密无疑对于个人隐私来说是很重要的，但是随着学习的深入你会发现，加密算法种类真的很多甚至所有的名次加在一次甚至会很乱，于是我想写一篇博客总结一下这段时间的学习，也借此机会普及一下加密的知识和应用，如有不妥，忘指正。
+加密算法(Encryption) 首先加密算法分成对称（sync）的和非对称（async）两种的。他们的区别就在于公钥和私钥是否相同，公私钥相同的称为对称加密，公私钥不同的称为非对称加密。那什么是公钥什么是私钥呢？在密码学中，有个规定是算法应该是被允许公开的，那要怎么保证在别人得知加密算法后仍然能够取得保密效果呢？于是历史上的大神们就提出先由发送者生成一对公私钥，这对公私钥可以互相解开经过对方加密的内容（这里可能不太妥，希望得到指正）。公钥顾名思义是公开给public的，私钥则是由消息发送方生成的。在希望建立ssh连接的两台机器之间可以用ssh-genkey进行密码对的生成，你可以打开~/.ssh/id_rsa文件查看生成的公司钥信息，这个也是搭建hadoop集群必须执行的步骤来确保集群之间的通信。这里先不做具体实现的部分，等以后有时间再把加密的算法实现写在我的gist里面。 哪些对称加密算法：DES, 3DES, blowfish 哪些非对称加密算法： RSA， SM2（中国国家密码局专利，在商用密码机中比较常用，貌似银行也是大多用这个）
+哈希算法(Hash) 哈希算法的目标是为了将任意长度的文本内容生成固定长度（具体长度因应该是因算法而异的）的不可逆的值。种类包含：MD4, MD5和SHA* 等。这里想讲一下关于SHA256的内容，主要是因为在bitcoin里面主要用到的hash算法就是SHA256或者512。不同的sha2算法对应的是最后的hash值也就是digest的bit长度。
+digest:结果的hash value cipher:fdsa
+应用 文件校验(checksum)：由于哈希算法生成的字符串具有稍微修改哪怕一位数字都会造成哈希结果的明显差异，因此在文件传输过程中，利用文件中自带的哈希值，和用原文进行哈希生成的新的哈希值进行比对，如果两者相同，则传输的结果文件被认为未被改动，从而保证完整性(integrity)。 数字签名(digital signature)：对与一些大content的东西或者一些特殊信息进行传输的过程中，如何保证发送过来的数据真的是你所认为的发送者发送的呢？这个时候可以让发送者先用私钥钥对原文本哈希过的值进行加密，加密的值append到内容末尾作为签名。客户端再用公钥解密数字签名，并且对content的东西进行哈希，二者进行比对，如果一致则可确认发送者的身份。这其中可能会有公钥被换的情况，这时候就需要certificate authenticator（ca）生成digital certificate 来做认证。这里我只是简要的说一下我的理解，具体还要看阮大神的生动讲解。https也用到了这里的知识。 bit coin 也用到了哈希的办法，挖矿的实质就是对哈希值进行暴力反解，这里可以看我的另外一篇博客What is bitcoin mining &amp;hellip;&amp;hellip; Summary 密码学是一个博大精深的数学分支，其中涉及到很多的证明，我们这里知识简单介绍并且直接拿结论过来用，如果想知道具体怎么操作，可以找相关的论文进行查询。在商用领域一般会采购加密机进行加密的操作，关于加密机的东西我最近也还在测试，主要也是发送指令，返回加密结果，不同在于加密机相当于一个全职的用于加密的服务器(dedicated to encryption 很是敬业)。不同加密机工作原理或者api可能不一样，但是基本方式也是输入ip和指令，得到结果的过程。</description>
+    </item>
+    <item>
       <title>Assemble a data analysis platform -- Bazooka</title>
       <link>https://www.pingrunhuang.github.io/blog/2017-10-29/</link>
       <pubDate>Sun, 29 Oct 2017 17:05:56 +0800</pubDate>
@@ -133,6 +161,21 @@ I&amp;rsquo;ve always wanted to have a super monster platform rather then 4 core
       <description>Proxy your call to the professional, save you some more time
 I recently read a great slides talking about Proxy pattern in Java which has confused me for a long time. I&amp;rsquo;ve always consider it as something like the delegator pattern which is like adding a new layer for a specified class so that clients can do more other things when calling it.
 It turns out that there could be more to do with java dynamic proxy.</description>
+    </item>
+    <item>
+      <title>What is bitcoin mining?</title>
+      <link>https://www.pingrunhuang.github.io/blog/2017--10-11/</link>
+      <pubDate>Wed, 11 Oct 2017 10:15:03 +0800</pubDate>
+      <guid>https://www.pingrunhuang.github.io/blog/2017--10-11/</guid>
+      <description>Bitcoin has been in the field for a while and friends of mine have been talking about bitcoin for a while. I have also read some of the articles talking about bitcoin, the hashing and the trustful features. But to be honest, these concepts still remain a mist for me. I decided to really figure out them in the way that I think and try to explain it as clear as possible.</description>
+    </item>
+    <item>
+      <title>Encrypting sensitive information</title>
+      <link>https://www.pingrunhuang.github.io/blog/2017-09-21/</link>
+      <pubDate>Thu, 21 Sep 2017 14:06:05 +0800</pubDate>
+      <guid>https://www.pingrunhuang.github.io/blog/2017-09-21/</guid>
+      <description>I recently have to deal with encrypting some sensitive information which lead me to get to know the encryption algorithms. However, the goal is to encrypt only part of the information in a manner of no decryption.
+At the mean time, I remember when I was having internet security class back at ESIGELEC during my master degree, my tutor told us that the general way for encryption is using public key and private key which leads to two-way function(decryptable).</description>
     </item>
   </channel>
 </rss>

@@ -107,24 +107,51 @@
     <main class="grow">
 <div class="prose prose-stone dark:prose-invert max-w-none">
 <div class="mb-3">
-  <h1 class="top-h1" style="font-size: 2.75em">Git push vs git push</h1>
-  <p class="mb-1">June 19, 2018</p>
+  <h1 class="top-h1" style="font-size: 2.75em">Differences among tuple, list and set in python?</h1>
+  <p class="mb-1">May 13, 2024</p>
   <p>&mdash;</p>
 </div>
 <div class="content">
-  <p>Recently I&rsquo;ve been using gerrit as a version control tool. I was taking it for granted that gerrit is some sort of github. But unfortunately, it is not. Gerrit has its own logical way of managing the version. One example is <code>git push</code>.</p>
-<p>In github, I use <code>git push origin &lt;branch_name&gt;</code> for push changes to the remote repo where the branch_name is just simply the same name as remote like <code>master</code> or <code>dev</code>. However in gerrit, <code>git push origin dev</code> does not work instead of <code>git push origin HEAD:refs/for/dev</code>. Bellow is the way how gerrit work:</p>
-<p><img src="/data/2018-06-19/gerrit-push.png" alt=""></p>
-<p>Obviously, gerrit fake the remote branch so that the reviewer could review the changes in the repo and confirm to push to the real remote for CI test.</p>
-<h1 id="reference">Reference</h1>
-<p><a href="https://stackoverflow.com/questions/10461214/why-is-git-push-gerrit-headrefs-for-master-used-instead-of-git-push-origin-mast">https://stackoverflow.com/questions/10461214/why-is-git-push-gerrit-headrefs-for-master-used-instead-of-git-push-origin-mast</a></p>
+  <h1 id="basic-comparison">Basic comparison</h1>
+<ul>
+<li>list: ordered, mutable, duplicable</li>
+<li>set: <code>set([1, 2, 3, 4])</code>, not duplicable, not ordered</li>
+</ul>
+<pre tabindex="0"><code># set&#39;s operation
+a = set([1, 2, 3])
+b = set([2, 3, 4])
+a.intersection(b) # equivalent to c = a &amp; b, return set([2,3])
+c.issubset(a) # return true, equivalent to c &lt;= a
+c.issuperset(a) # return false, equivalent to c &gt;= a
+a.difference(b) # return set([1]), equivalent to a-b
+a.symmetric_difference(b) # return set([1,4]), equivalent to a ^ b
+</code></pre><ul>
+<li>tuple: immutable, ordered, duplicable</li>
+</ul>
+<h1 id="when-to-use-what">When to use what?</h1>
+<p>Apart from immutable and mutable feature between tuple and list(many good feature of immutable data structure), tuple stores heterogeneous elements list (a, &lsquo;fdsa&rsquo;, 123) etc. while list stores homogeneous elements.
+Set requires items to be hashable to guarentee the unique element feature which make it faster for accessing.</p>
+<h1 id="usage">Usage</h1>
+<p>Definition:</p>
+<ul>
+<li>list = [1,2,3]</li>
+<li>tuple = (1,2,3)</li>
+<li>set = {1,2,3}</li>
+</ul>
+<p>Access:
+List and tuple are accessed by index eg. list[0], tuple[1]. set use the pop method.</p>
+<h2 id="reference">Reference</h2>
+<p><a href="https://stackoverflow.com/questions/3489071/in-python-when-to-use-a-dictionary-list-or-set">In Python, when to use a Dictionary, List or Set?</a>
+<a href="https://en.wikiversity.org/wiki/Python_Programming/Tuples_and_Sets">Python Programming/Tuples and Sets</a>
+<a href="https://www.safaribooksonline.com/library/view/high-performance-python/9781449361747/ch04.html">Chapter 4. Dictionaries and Sets</a>
+<a href="https://nedbatchelder.com/blog/201608/lists_vs_tuples.html">Lists vs. Tuples</a></p>
 
   <div id="cusdis_thread"
     data-host="https://cusdis.com"
     data-app-id="05f1cb3f-5125-46bb-9d92-7ba3e83261f3"
-    data-page-id="78ed9df943a79447e677aa5558dcb831"
-    data-page-url="https://www.pingrunhuang.github.io/blog/2018-06-19/"
-    data-page-title="Git push vs git push">
+    data-page-id="3f55e4f56c0bc43d8b9212f461f6ef3c"
+    data-page-url="https://www.pingrunhuang.github.io/blog/2024-05-13/"
+    data-page-title="Differences among tuple, list and set in python?">
 </div>
 <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 </div>
@@ -132,8 +159,8 @@
   <h3 class="mb-1 mt-1 text-left mr-4">
     
     <a
-      href="/blog/2018-03-09/"
-      title="From hamming distance to leetcode thought--leetcode 477"
+      href="/blog/2020-04-22/"
+      title="An experience of enhancing python efficiency"
     >
       <i class="nav-menu fas fa-chevron-circle-left"></i>
     </a>
@@ -141,12 +168,7 @@
   </h3>
   <h3 class="mb-1 mt-1 text-left ml-4">
     
-    <a
-      href="/blog/2018-06-27/"
-      title="How does branches work in git"
-    >
-      <i class="nav-menu fas fa-chevron-circle-right"></i>
-    </a>
+    <i class="text-gray-300 dark:text-gray-600 fas fa-chevron-circle-right"></i>
     
   </h3>
 </div>
